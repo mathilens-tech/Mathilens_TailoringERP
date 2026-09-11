@@ -1,4 +1,40 @@
-# Mathilens Tailoring ERP — Web Dockerfile
+# Mathilens Tailoring ERP — web image.
 #
-# PLACEHOLDER: To be implemented once the web/frontend project exists.
-# See docs/07_DEPLOYMENT.md for the deployment strategy.
+# Was a comment-only placeholder. The app is a static export (next.config.ts sets output: "export"),
+# so this builds it and hands the result to nginx; there is no Node process at runtime.
+#
+# Build context is the repository root, because the nginx route generator lives in
+# deploy/test-server/ and has to be copied in alongside web/.
+
+FROM node:20-alpine AS build
+WORKDIR /app
+
+# Node 20 to match .github/workflows/ci.yml. Pinned deliberately rather than tracking "lts": the
+# build is a static export whose output is served as-is, so a major Node bump that changes the
+# emitted bundle should be a decision someone makes, not something a rebuild does on its own.
+
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
+
+COPY web/ ./
+
+# Baked into the bundle at build time, which is why they are ARGs and not runtime env: a static
+# export has no server left to read an environment variable when the page is requested. Changing
+# either one means rebuilding the image, not restarting the container.
+ARG NEXT_PUBLIC_API_BASE_URL
+ARG NEXT_PUBLIC_CUSTOMER_NAME
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_CUSTOMER_NAME=$NEXT_PUBLIC_CUSTOMER_NAME
+
+RUN npm run build
+
+# Generated here rather than committed, so it cannot drift from the SWA config it is derived from.
+COPY deploy/test-server/generate-nginx-routes.mjs /tmp/generate-nginx-routes.mjs
+RUN node /tmp/generate-nginx-routes.mjs staticwebapp.config.json > /tmp/mathilens-routes.conf
+
+FROM nginx:alpine
+COPY --from=build /app/out /usr/share/nginx/html
+COPY --from=build /tmp/mathilens-routes.conf /etc/nginx/conf.d/mathilens-routes.conf
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
