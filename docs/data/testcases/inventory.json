@@ -1,0 +1,1652 @@
+{
+  "module": "INVENTORY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:29:20.159Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-INVENTORY-001",
+      "title": "Handle records the receipt against the price list entry",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Inventory)",
+      "subject_component": "COMP-INVENTORY-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandHandlerTests.Handle_RecordsTheReceiptAgainstThePriceListEntry",
+      "assertions": [
+        "\"CTN-14\"",
+        "\"Cotton Blue\"",
+        "12.5m",
+        "ClothUnit.Metres"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandHandlerTests",
+        "method": "Handle_RecordsTheReceiptAgainstThePriceListEntry",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_RecordsTheReceiptAgainstThePriceListEntry()",
+        "is_async": true,
+        "line": 23,
+        "body_lines": 18,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-005",
+            "name": "ReceiveClothCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-016",
+            "name": "ClothReceipt",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PRICING-015",
+            "name": "IClothPriceRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PRICING-023",
+            "name": "ClothPrice",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Handle_RecordsTheReceiptAgainstThePriceListEntry",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-INVENTORY-002",
+      "title": "Handle computes the total from quantity and rate",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Inventory)",
+      "subject_component": "COMP-INVENTORY-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandHandlerTests.Handle_ComputesTheTotalFromQuantityAndRate",
+      "assertions": [
+        "2200m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandHandlerTests",
+        "method": "Handle_ComputesTheTotalFromQuantityAndRate",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_ComputesTheTotalFromQuantityAndRate()",
+        "is_async": true,
+        "line": 43,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-005",
+            "name": "ReceiveClothCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PRICING-015",
+            "name": "IClothPriceRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PRICING-023",
+            "name": "ClothPrice",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Handle_ComputesTheTotalFromQuantityAndRate",
+            "line": 43
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-INVENTORY-003",
+      "title": "Handle with no rate leaves the total unknown rather than zero",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Inventory)",
+      "subject_component": "COMP-INVENTORY-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandHandlerTests.Handle_WithNoRate_LeavesTheTotalUnknownRatherThanZero",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandHandlerTests",
+        "method": "Handle_WithNoRate_LeavesTheTotalUnknownRatherThanZero",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithNoRate_LeavesTheTotalUnknownRatherThanZero()",
+        "is_async": true,
+        "line": 54,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-005",
+            "name": "ReceiveClothCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PRICING-015",
+            "name": "IClothPriceRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PRICING-023",
+            "name": "ClothPrice",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Handle_WithNoRate_LeavesTheTotalUnknownRatherThanZero",
+            "line": 54
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-INVENTORY-004",
+      "title": "Handle with an unknown cloth returns not found and saves nothing",
+      "module": "INVENTORY",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Inventory)",
+      "subject_component": "COMP-INVENTORY-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandHandlerTests.Handle_WithAnUnknownCloth_ReturnsNotFoundAndSavesNothing",
+      "assertions": [
+        "\"ClothPrice.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandHandlerTests",
+        "method": "Handle_WithAnUnknownCloth_ReturnsNotFoundAndSavesNothing",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithAnUnknownCloth_ReturnsNotFoundAndSavesNothing()",
+        "is_async": true,
+        "line": 68,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-005",
+            "name": "ReceiveClothCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-016",
+            "name": "ClothReceipt",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PRICING-015",
+            "name": "IClothPriceRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Handle_WithAnUnknownCloth_ReturnsNotFoundAndSavesNothing",
+            "line": 68
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-INVENTORY-005",
+      "title": "Validate with the mandatory fields passes",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithTheMandatoryFields_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithTheMandatoryFields_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithTheMandatoryFields_Passes()",
+        "is_async": false,
+        "line": 89,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithTheMandatoryFields_Passes",
+            "line": 89
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-006",
+      "title": "Validate with no cloth fails",
+      "module": "INVENTORY",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithNoCloth_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithNoCloth_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNoCloth_Fails()",
+        "is_async": false,
+        "line": 95,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithNoCloth_Fails",
+            "line": 95
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-007",
+      "title": "Validate with a non positive quantity fails",
+      "module": "INVENTORY",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithANonPositiveQuantity_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithANonPositiveQuantity_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(-1)"
+        ],
+        "signature": "public void Validate_WithANonPositiveQuantity_Fails(decimal quantity)",
+        "is_async": false,
+        "line": 106,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(-1)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithANonPositiveQuantity_Fails",
+            "line": 106
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#Theory x2",
+            "line": 106
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-008",
+      "title": "Validate with a negative rate fails",
+      "module": "INVENTORY",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithANegativeRate_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithANegativeRate_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithANegativeRate_Fails()",
+        "is_async": false,
+        "line": 115,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithANegativeRate_Fails",
+            "line": 115
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-009",
+      "title": "Validate with a zero rate passes",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithAZeroRate_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithAZeroRate_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithAZeroRate_Passes()",
+        "is_async": false,
+        "line": 123,
+        "body_lines": 5,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithAZeroRate_Passes",
+            "line": 123
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-010",
+      "title": "Validate with no received date fails",
+      "module": "INVENTORY",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::ReceiveClothCommandValidatorTests.Validate_WithNoReceivedDate_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "ReceiveClothCommandValidatorTests",
+        "method": "Validate_WithNoReceivedDate_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNoReceivedDate_Fails()",
+        "is_async": false,
+        "line": 130,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Commands.Receive",
+          "MathilensERP.Application.Pricing",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Domain.Pricing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-006",
+            "name": "ReceiveClothCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs::Validate_WithNoReceivedDate_Fails",
+            "line": 130
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-011",
+      "title": "Handle subtracts what orders used from what was received",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::GetStockSummaryQueryHandlerTests.Handle_SubtractsWhatOrdersUsedFromWhatWasReceived",
+      "assertions": [
+        "100m",
+        "30m",
+        "70m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "GetStockSummaryQueryHandlerTests",
+        "method": "Handle_SubtractsWhatOrdersUsedFromWhatWasReceived",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_SubtractsWhatOrdersUsedFromWhatWasReceived()",
+        "is_async": true,
+        "line": 28,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Queries.Stock",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-011",
+            "name": "GetStockSummaryQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Quantities",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::Handle_SubtractsWhatOrdersUsedFromWhatWasReceived",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-012",
+      "title": "Handle keeps units apart rather than adding them",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::GetStockSummaryQueryHandlerTests.Handle_KeepsUnitsApartRatherThanAddingThem",
+      "assertions": [
+        "2",
+        "70m",
+        "3m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "GetStockSummaryQueryHandlerTests",
+        "method": "Handle_KeepsUnitsApartRatherThanAddingThem",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_KeepsUnitsApartRatherThanAddingThem()",
+        "is_async": true,
+        "line": 42,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Queries.Stock",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-011",
+            "name": "GetStockSummaryQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Quantities",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::Handle_KeepsUnitsApartRatherThanAddingThem",
+            "line": 42
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-013",
+      "title": "Handle shows a shortfall as negative rather than hiding it",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::GetStockSummaryQueryHandlerTests.Handle_ShowsAShortfallAsNegativeRatherThanHidingIt",
+      "assertions": [
+        "-7m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "GetStockSummaryQueryHandlerTests",
+        "method": "Handle_ShowsAShortfallAsNegativeRatherThanHidingIt",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_ShowsAShortfallAsNegativeRatherThanHidingIt()",
+        "is_async": true,
+        "line": 59,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Queries.Stock",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-011",
+            "name": "GetStockSummaryQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Quantities",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::Handle_ShowsAShortfallAsNegativeRatherThanHidingIt",
+            "line": 59
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-INVENTORY-014",
+      "title": "Handle orders the lines by cloth code",
+      "module": "INVENTORY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-INVENTORY-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::GetStockSummaryQueryHandlerTests.Handle_OrdersTheLinesByClothCode",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Inventory",
+        "class": "GetStockSummaryQueryHandlerTests",
+        "method": "Handle_OrdersTheLinesByClothCode",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_OrdersTheLinesByClothCode()",
+        "is_async": true,
+        "line": 72,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Inventory",
+          "MathilensERP.Application.Inventory.Queries.Stock",
+          "MathilensERP.Domain.Inventory",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-003",
+            "name": "ClothStockRow",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-007",
+            "name": "IClothReceiptRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-011",
+            "name": "GetStockSummaryQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-INVENTORY-014",
+            "name": "GetStockSummaryQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Items",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:29:20.159Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Inventory/StockSummaryTests.cs::Handle_OrdersTheLinesByClothCode",
+            "line": 72
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    }
+  ]
+}

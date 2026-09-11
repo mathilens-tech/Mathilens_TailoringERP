@@ -1,0 +1,262 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T07:20:27.554Z",
+  "notes": "Branch classification for this repository. TYPE, BASE and ENVIRONMENT are DECLARED here by a person and are never derived: this repository's branch names carry no reliable information — Ver1.0.1 is a merged work branch rather than a release, Orders and Whatsapp are merged work branches rather than modules, and ai and dev1 are experiments. ACTIVITY, DIVERGENCE and BASE_VERIFIED are computed by scripts/documentation/refresh-branches.mjs from git alone and are overwritten on every run; do not hand-edit them. Deployment targets are read from .github/workflows and are the closest thing this repository has to release evidence, since it carries no tags.",
+  "branches": [
+    {
+      "name": "OrderEnhancement",
+      "type": "work",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "INACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=27,last=2026-08-19)",
+      "deploys": [],
+      "notes": "Local-only historical work branch, fully merged.",
+      "ref": "OrderEnhancement",
+      "remote": false,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 27,
+        "merge_base": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+        "merge_base_date": "2026-08-19",
+        "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+        "last_commit_date": "2026-08-19",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091"
+    },
+    {
+      "name": "Orders",
+      "type": "work",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "INACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=28,last=2026-08-16)",
+      "deploys": [],
+      "notes": "Local-only historical work branch, fully merged.",
+      "ref": "Orders",
+      "remote": false,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 28,
+        "merge_base": "08d191b0ace42d6158784b048d72cb2d80280353",
+        "merge_base_date": "2026-08-16",
+        "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+        "last_commit_date": "2026-08-16",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "08d191b0ace42d6158784b048d72cb2d80280353"
+    },
+    {
+      "name": "Ver1.0.1",
+      "type": "work",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "INACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=6,last=2026-09-05)",
+      "deploys": [],
+      "notes": "Named like a release but is not one: it was merged into dev twice and holds no unique commits. Declared as work to stop the name being mistaken for a release association.",
+      "ref": "Ver1.0.1",
+      "remote": false,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 6,
+        "merge_base": "b72e9bb173f424c97891de4e7aa8c71ec9661c23",
+        "merge_base_date": "2026-09-05",
+        "last_commit": "b72e9bb173f424c97891de4e7aa8c71ec9661c23",
+        "last_commit_date": "2026-09-05",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "b72e9bb173f424c97891de4e7aa8c71ec9661c23"
+    },
+    {
+      "name": "Whatsapp",
+      "type": "work",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "INACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=26,last=2026-08-20)",
+      "deploys": [],
+      "notes": "Local-only historical work branch, fully merged.",
+      "ref": "Whatsapp",
+      "remote": false,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 26,
+        "merge_base": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+        "merge_base_date": "2026-08-20",
+        "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+        "last_commit_date": "2026-08-20",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2"
+    },
+    {
+      "name": "ai",
+      "type": "experiment",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "ACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=2,behind=14,last=2026-09-03)",
+      "deploys": [],
+      "notes": "Experiment: rendering a garment to the customer's own measurements.",
+      "ref": "origin/ai",
+      "remote": true,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 2,
+        "behind": 14,
+        "merge_base": "abb297f213efb397feafa795ee4f0e8217a36605",
+        "merge_base_date": "2026-09-02",
+        "last_commit": "b308875a35b3db529e866e9c0651506266ec24db",
+        "last_commit_date": "2026-09-03",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "b308875a35b3db529e866e9c0651506266ec24db"
+    },
+    {
+      "name": "dev",
+      "type": "integration",
+      "base": "main",
+      "environment": "test",
+      "release": null,
+      "activity": "ACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=0,last=2026-09-05)",
+      "deploys": [
+        {
+          "target": "api-radhafabric-test",
+          "kind": "azure-app-service",
+          "workflow": ".github/workflows/deploy-api-test.yml",
+          "trigger": "push:dev paths=src/**",
+          "active": true
+        },
+        {
+          "target": "swa-radhafabric-test",
+          "kind": "azure-static-web-apps",
+          "workflow": ".github/workflows/azure-static-web-apps-test.yml",
+          "trigger": "push:dev",
+          "active": true
+        }
+      ],
+      "notes": "Where development actually happens. Note that ci.yml does NOT run here — see docs/registry/validation-report.json and the Phase 7.5 proposal.",
+      "ref": "origin/dev",
+      "remote": true,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 0,
+        "merge_base": null,
+        "merge_base_date": null,
+        "last_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "last_commit_date": "2026-09-05",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "fec30963d8a38e6c8de7488471c891dfa1454152"
+    },
+    {
+      "name": "dev1",
+      "type": "experiment",
+      "base": "dev",
+      "environment": null,
+      "release": null,
+      "activity": "HISTORICAL",
+      "classification_source": "declared:owner + derived:divergence(ahead=0,behind=77,last=2026-08-08)",
+      "deploys": [],
+      "notes": "Experiment: a Luxury Dark Glass skin for the New Order page. Fully merged or abandoned.",
+      "ref": "origin/dev1",
+      "remote": true,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 0,
+        "behind": 77,
+        "merge_base": "7bf184ddfdc725a77e916554eafcde86112264af",
+        "merge_base_date": "2026-08-08",
+        "last_commit": "7bf184ddfdc725a77e916554eafcde86112264af",
+        "last_commit_date": "2026-08-08",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "7bf184ddfdc725a77e916554eafcde86112264af"
+    },
+    {
+      "name": "main",
+      "type": "production",
+      "base": null,
+      "environment": "production",
+      "release": null,
+      "activity": "ACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=4,behind=14,last=2026-09-05)",
+      "deploys": [
+        {
+          "target": "api-mathilens-erp",
+          "kind": "azure-app-service",
+          "workflow": ".github/workflows/deploy-api.yml",
+          "trigger": "push:main paths=src/**",
+          "active": true
+        },
+        {
+          "target": "swa-mathilens-erp",
+          "kind": "azure-static-web-apps",
+          "workflow": ".github/workflows/azure-static-web-apps-swa-mathilens-erp.yml",
+          "trigger": "push:main + pull_request",
+          "active": true
+        }
+      ],
+      "notes": "Default branch. The only branch with CI (ci.yml) and with SWA pull-request preview environments configured.",
+      "ref": "origin/main",
+      "remote": true,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 4,
+        "behind": 14,
+        "merge_base": "abb297f213efb397feafa795ee4f0e8217a36605",
+        "merge_base_date": "2026-09-02",
+        "last_commit": "5ca36f9f6d41671da4276505a08eea2946cac2a9",
+        "last_commit_date": "2026-09-05",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": null,
+      "last_analyzed_commit": "5ca36f9f6d41671da4276505a08eea2946cac2a9"
+    },
+    {
+      "name": "website",
+      "type": "site",
+      "base": "main",
+      "environment": null,
+      "release": null,
+      "activity": "ACTIVE",
+      "classification_source": "declared:owner + derived:divergence(ahead=2,behind=14,last=2026-09-04)",
+      "deploys": [],
+      "notes": "The RADHA marketing site, a separate product surface from the ERP. Excluded from product feature availability questions.",
+      "ref": "origin/website",
+      "remote": true,
+      "divergence": {
+        "compared_to": "dev",
+        "ahead": 2,
+        "behind": 14,
+        "merge_base": "abb297f213efb397feafa795ee4f0e8217a36605",
+        "merge_base_date": "2026-09-02",
+        "last_commit": "9b18b135ac67fbc88b74bf558d6d9923114c8d5a",
+        "last_commit_date": "2026-09-04",
+        "measured_at": "2026-09-06"
+      },
+      "base_verified": true,
+      "last_analyzed_commit": "9b18b135ac67fbc88b74bf558d6d9923114c8d5a"
+    }
+  ]
+}

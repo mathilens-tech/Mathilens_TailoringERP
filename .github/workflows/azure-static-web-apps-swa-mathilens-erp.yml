@@ -1,0 +1,51 @@
+name: Azure Static Web Apps - swa-mathilens-erp
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [main]
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+
+      - name: Build and Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        env:
+          # Baked into the client bundle at build time — update once the backend API has a real
+          # hosted URL (it currently falls back to localhost:5232, which won't resolve for
+          # anyone but a local dev). Set via: gh variable set NEXT_PUBLIC_API_BASE_URL --body "..."
+          NEXT_PUBLIC_API_BASE_URL: ${{ vars.NEXT_PUBLIC_API_BASE_URL }}
+          # The shop this deployment is customised for — the wordmark on the login screen. It was
+          # missing here, so every build fell back to the name compiled into lib/customer.ts and no
+          # database setting could change it; Shop.Name governs the rest of the app but not this.
+          # Set via: gh variable set NEXT_PUBLIC_CUSTOMER_NAME --body "..."
+          NEXT_PUBLIC_CUSTOMER_NAME: ${{ vars.NEXT_PUBLIC_CUSTOMER_NAME }}
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_MATHILENS_ERP }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "web"
+          output_location: "out"
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_MATHILENS_ERP }}
+          action: "close"

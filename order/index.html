@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>New Order — Design Gallery</title>
+<style>
+  :root{ --bg:#0b0c12; --card:#151725; --line:rgba(255,255,255,.09); --ink:#f4f4f8; --muted:#9a9db3; --accent:#8b7bff; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .shell{max-width:1120px;margin:0 auto;padding:64px 24px 100px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+  h1{margin:0 0 12px;font-size:40px;letter-spacing:-.02em}
+  p.lead{color:var(--muted);font-size:15px;max-width:640px;line-height:1.6;margin:0 0 48px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  a.tile{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s transform,.2s border-color;position:relative}
+  a.tile:hover{transform:translateY(-4px);border-color:rgba(139,123,255,.5)}
+  .swatch{height:150px;position:relative}
+  .n{position:absolute;top:14px;left:14px;width:30px;height:30px;border-radius:9px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff}
+  .tile-body{padding:18px 20px 22px}
+  .tile-body h2{margin:0 0 6px;font-size:16px}
+  .tile-body p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+  .s1{background:linear-gradient(135deg,#f5f6fa 0%,#eef0ff 60%,#c7c2ff 100%)}
+  .s2{background:linear-gradient(135deg,#faf6ee 0%,#e9d9b4 60%,#a9772f 100%)}
+  .s3{background:linear-gradient(135deg,#0a0a12 0%,#241d3d 55%,#3a2e63 100%)}
+  .s4{background:linear-gradient(135deg,#eceef1 0%,#d7e8e4 60%,#1fa896 100%)}
+  .s5{background:linear-gradient(120deg,#ff5d8f 0%,#ff8a5b 35%,#8b5cf6 75%,#2dd4bf 120%)}
+  footer{margin-top:56px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="eyebrow">Mathilens ERP · Design Exploration</div>
+    <h1>New Order — 5 Design Directions</h1>
+    <p class="lead">Five fully static concepts for the New Order screen — same order data, five distinct visual languages. Click through to compare.</p>
+    <div class="grid">
+      <a class="tile" href="01-modern-minimal.html">
+        <div class="swatch s1"><span class="n">01</span></div>
+        <div class="tile-body"><h2>Modern Minimal</h2><p>Clean indigo SaaS — soft gray canvas, white cards, generous whitespace.</p></div>
+      </a>
+      <a class="tile" href="02-classic-atelier.html">
+        <div class="swatch s2"><span class="n">02</span></div>
+        <div class="tile-body"><h2>Classic Atelier</h2><p>Bespoke couture ledger — serif type, cream &amp; gold, wax-seal formality.</p></div>
+      </a>
+      <a class="tile" href="03-luxury-dark-glass.html">
+        <div class="swatch s3"><span class="n">03</span></div>
+        <div class="tile-body"><h2>Luxury Dark Glass</h2><p>Glassmorphism on a midnight gradient mesh, gold &amp; emerald accents.</p></div>
+      </a>
+      <a class="tile" href="04-soft-neumorphic.html">
+        <div class="swatch s4"><span class="n">04</span></div>
+        <div class="tile-body"><h2>Soft Neumorphic Studio</h2><p>Tactile soft-UI — embossed panels, monochrome base, single teal accent.</p></div>
+      </a>
+      <a class="tile" href="05-vibrant-editorial.html">
+        <div class="swatch s5"><span class="n">05</span></div>
+        <div class="tile-body"><h2>Vibrant Editorial</h2><p>Bold fashion-magazine energy — huge type, sunset gradient, color-blocked steps.</p></div>
+      </a>
+    </div>
+    <footer>Static HTML only — no backend, no build step. Open any file directly in a browser.</footer>
+  </div>
+</body>
+</html>

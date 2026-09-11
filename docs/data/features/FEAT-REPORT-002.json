@@ -1,0 +1,132 @@
+{
+  "id": "FEAT-REPORT-002",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Reports Order Status Reporting",
+  "module": "REPORT",
+  "simple_explanation": "Reports Order Status Reporting — derived from the OrderStatusSummary use case in src/Application/Report. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Reports/Queries/OrderStatusSummary"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQuery.cs",
+        "contains": "GetOrderStatusSummaryReportQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandler.cs",
+        "contains": "GetOrderStatusSummaryReportQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs",
+        "contains": "GetOrderStatusSummaryReportQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 3,
+    "requirement_count": 2,
+    "rule_count": 1,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Order Status Reporting",
+    "use_cases": [
+      "OrderStatusSummary"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/reports/order-status-summary",
+        "policy": "Permissions.ReportsView",
+        "controller": "ReportsController",
+        "action": "OrderStatusSummary"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/reports",
+      "/dashboard/reports/birthday",
+      "/dashboard/reports/order-collections",
+      "/dashboard/reports/order-status",
+      "/dashboard/reports/outstanding-invoices",
+      "/dashboard/reports/revenue",
+      "/dashboard/reports/wedding"
+    ],
+    "permissions": [
+      "Permissions.ReportsView"
+    ],
+    "derived_components": [
+      "COMP-REPORT-005",
+      "COMP-REPORT-006",
+      "COMP-REPORT-007"
+    ],
+    "derived_test_cases": [
+      "TC-REPORT-005",
+      "TC-REPORT-006",
+      "TC-REPORT-007"
+    ],
+    "derived_rules": [
+      "BR-REPORT-002"
+    ],
+    "derived_requirements": [
+      "FR-REPORT-001",
+      "FR-REPORT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/reports/order-status-summary"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Reports/Queries/OrderStatusSummary",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/reports/order-status-summary",
+        "detail": "src/Api/Controllers/V1/ReportsController.cs",
+        "line": 169
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+  "change_history": []
+}

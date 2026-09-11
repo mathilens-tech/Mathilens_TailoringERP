@@ -1,0 +1,2165 @@
+{
+  "module": "SETTING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-PLATFORM-056",
+      "title": "Upsert without bearer token returns unauthorized",
+      "module": "SETTING",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::SettingsEndpointsTests.Upsert_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Settings",
+        "class": "SettingsEndpointsTests",
+        "method": "Upsert_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Upsert_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 18,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/settings/Shop.BusinessName",
+            "normalized": "/api/v1/settings/Shop.BusinessName",
+            "verb": "PUT",
+            "route_component": "COMP-PLATFORM-069"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-069",
+            "name": "SettingsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::Upsert_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/settings/Shop.BusinessName",
+            "detail": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-057",
+      "title": "Upsert with null value returns validation error envelope",
+      "module": "SETTING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::SettingsEndpointsTests.Upsert_WithNullValue_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Settings",
+        "class": "SettingsEndpointsTests",
+        "method": "Upsert_WithNullValue_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Upsert_WithNullValue_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/settings/Shop.BusinessName",
+            "normalized": "/api/v1/settings/Shop.BusinessName",
+            "verb": "PUT",
+            "route_component": "COMP-PLATFORM-069"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-069",
+            "name": "SettingsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::Upsert_WithNullValue_ReturnsValidationErrorEnvelope",
+            "line": 26
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/settings/Shop.BusinessName",
+            "detail": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-058",
+      "title": "Get by key without bearer token returns unauthorized",
+      "module": "SETTING",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::SettingsEndpointsTests.GetByKey_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Settings",
+        "class": "SettingsEndpointsTests",
+        "method": "GetByKey_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetByKey_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 38,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/settings/Shop.BusinessName",
+            "normalized": "/api/v1/settings/Shop.BusinessName",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-069"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-069",
+            "name": "SettingsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::GetByKey_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 38
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/settings/Shop.BusinessName",
+            "detail": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-059",
+      "title": "List with page size above maximum returns validation error envelope",
+      "module": "SETTING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::SettingsEndpointsTests.List_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Settings",
+        "class": "SettingsEndpointsTests",
+        "method": "List_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task List_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 46,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/settings",
+            "normalized": "/api/v1/settings",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-069"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-069",
+            "name": "SettingsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::List_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+            "line": 46
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/settings",
+            "detail": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+            "line": 46
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-060",
+      "title": "Delete without bearer token returns unauthorized",
+      "module": "SETTING",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::SettingsEndpointsTests.Delete_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Settings",
+        "class": "SettingsEndpointsTests",
+        "method": "Delete_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Delete_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 58,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/settings/Shop.BusinessName",
+            "normalized": "/api/v1/settings/Shop.BusinessName",
+            "verb": "DELETE",
+            "route_component": "COMP-PLATFORM-069"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-069",
+            "name": "SettingsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs::Delete_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 58
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/settings/Shop.BusinessName",
+            "detail": "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs",
+            "line": 58
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-001",
+      "title": "Handle with existing setting removes and saves",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs::DeleteSettingCommandHandlerTests.Handle_WithExistingSetting_RemovesAndSaves",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Delete",
+        "class": "DeleteSettingCommandHandlerTests",
+        "method": "Handle_WithExistingSetting_RemovesAndSaves",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingSetting_RemovesAndSaves()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Commands.Delete",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-001",
+            "name": "DeleteSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-002",
+            "name": "DeleteSettingCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-002",
+            "name": "DeleteSettingCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs::Handle_WithExistingSetting_RemovesAndSaves",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-002",
+      "title": "Handle with unknown key returns not found",
+      "module": "SETTING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs::DeleteSettingCommandHandlerTests.Handle_WithUnknownKey_ReturnsNotFound",
+      "assertions": [
+        "\"Setting.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Delete",
+        "class": "DeleteSettingCommandHandlerTests",
+        "method": "Handle_WithUnknownKey_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownKey_ReturnsNotFound()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Commands.Delete",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-001",
+            "name": "DeleteSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-002",
+            "name": "DeleteSettingCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-002",
+            "name": "DeleteSettingCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs::Handle_WithUnknownKey_ReturnsNotFound",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-003",
+      "title": "Handle with new key creates setting",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs::UpsertSettingCommandHandlerTests.Handle_WithNewKey_CreatesSetting",
+      "assertions": [
+        "\"Shop.BusinessName\"",
+        "\"Mathilens Tailoring\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Upsert",
+        "class": "UpsertSettingCommandHandlerTests",
+        "method": "Handle_WithNewKey_CreatesSetting",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithNewKey_CreatesSetting()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Commands.Upsert",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-004",
+            "name": "UpsertSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-005",
+            "name": "UpsertSettingCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-005",
+            "name": "UpsertSettingCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "generic-argument",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs::Handle_WithNewKey_CreatesSetting",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-004",
+      "title": "Handle with existing key updates value without adding",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs::UpsertSettingCommandHandlerTests.Handle_WithExistingKey_UpdatesValueWithoutAdding",
+      "assertions": [
+        "\"New Name\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Upsert",
+        "class": "UpsertSettingCommandHandlerTests",
+        "method": "Handle_WithExistingKey_UpdatesValueWithoutAdding",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingKey_UpdatesValueWithoutAdding()",
+        "is_async": true,
+        "line": 27,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Commands.Upsert",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-004",
+            "name": "UpsertSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-005",
+            "name": "UpsertSettingCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-005",
+            "name": "UpsertSettingCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs::Handle_WithExistingKey_UpdatesValueWithoutAdding",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-005",
+      "title": "Validate with valid command passes",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::UpsertSettingCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Upsert",
+        "class": "UpsertSettingCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings.Commands.Upsert"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-004",
+            "name": "UpsertSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-SETTING-006",
+      "title": "Validate with blank key fails",
+      "module": "SETTING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::UpsertSettingCommandValidatorTests.Validate_WithBlankKey_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Upsert",
+        "class": "UpsertSettingCommandValidatorTests",
+        "method": "Validate_WithBlankKey_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithBlankKey_Fails()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings.Commands.Upsert"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-004",
+            "name": "UpsertSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::Validate_WithBlankKey_Fails",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-SETTING-007",
+      "title": "Validate with null value fails",
+      "module": "SETTING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::UpsertSettingCommandValidatorTests.Validate_WithNullValue_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Commands.Upsert",
+        "class": "UpsertSettingCommandValidatorTests",
+        "method": "Validate_WithNullValue_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNullValue_Fails()",
+        "is_async": false,
+        "line": 27,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings.Commands.Upsert"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-004",
+            "name": "UpsertSettingCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-006",
+            "name": "UpsertSettingCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs::Validate_WithNullValue_Fails",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-SETTING-008",
+      "title": "Handle with existing setting returns DTO",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-009",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs::GetSettingByKeyQueryHandlerTests.Handle_WithExistingSetting_ReturnsDto",
+      "assertions": [
+        "\"Mathilens Tailoring\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Queries.GetByKey",
+        "class": "GetSettingByKeyQueryHandlerTests",
+        "method": "Handle_WithExistingSetting_ReturnsDto",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingSetting_ReturnsDto()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Queries.GetByKey",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-008",
+            "name": "GetSettingByKeyQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-009",
+            "name": "GetSettingByKeyQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-009",
+            "name": "GetSettingByKeyQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs::Handle_WithExistingSetting_ReturnsDto",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-009",
+      "title": "Handle with unknown key returns not found",
+      "module": "SETTING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-009",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs::GetSettingByKeyQueryHandlerTests.Handle_WithUnknownKey_ReturnsNotFound",
+      "assertions": [
+        "\"Setting.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Queries.GetByKey",
+        "class": "GetSettingByKeyQueryHandlerTests",
+        "method": "Handle_WithUnknownKey_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownKey_ReturnsNotFound()",
+        "is_async": true,
+        "line": 25,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Queries.GetByKey",
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-008",
+            "name": "GetSettingByKeyQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-009",
+            "name": "GetSettingByKeyQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-009",
+            "name": "GetSettingByKeyQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs::Handle_WithUnknownKey_ReturnsNotFound",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-010",
+      "title": "Handle maps paged settings to dtos",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryHandlerTests.cs::ListSettingsQueryHandlerTests.Handle_MapsPagedSettingsToDtos",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Queries.List",
+        "class": "ListSettingsQueryHandlerTests",
+        "method": "Handle_MapsPagedSettingsToDtos",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_MapsPagedSettingsToDtos()",
+        "is_async": true,
+        "line": 12,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Application.Settings.Queries.List",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-010",
+            "name": "ListSettingsQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-011",
+            "name": "ListSettingsQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-011",
+            "name": "ListSettingsQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryHandlerTests.cs::Handle_MapsPagedSettingsToDtos",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-011",
+      "title": "Validate with valid query passes",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs::ListSettingsQueryValidatorTests.Validate_WithValidQuery_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Queries.List",
+        "class": "ListSettingsQueryValidatorTests",
+        "method": "Validate_WithValidQuery_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidQuery_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings.Queries.List"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-010",
+            "name": "ListSettingsQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-012",
+            "name": "ListSettingsQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-012",
+            "name": "ListSettingsQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs::Validate_WithValidQuery_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-SETTING-012",
+      "title": "Validate with page size out of bounds fails",
+      "module": "SETTING",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-SETTING-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs::ListSettingsQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Settings.Queries.List",
+        "class": "ListSettingsQueryValidatorTests",
+        "method": "Validate_WithPageSizeOutOfBounds_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "signature": "public void Validate_WithPageSizeOutOfBounds_Fails(int pageSize)",
+        "is_async": false,
+        "line": 20,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Settings.Queries.List"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-010",
+            "name": "ListSettingsQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-SETTING-012",
+            "name": "ListSettingsQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-012",
+            "name": "ListSettingsQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs::Validate_WithPageSizeOutOfBounds_Fails",
+            "line": 20
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs#Theory x2",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-SETTING-013",
+      "title": "Create with valid inputs sets key and value",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::SettingTests.Create_WithValidInputs_SetsKeyAndValue",
+      "assertions": [
+        "Guid.Empty",
+        "\"Shop.BusinessName\"",
+        "\"Mathilens Tailoring\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Settings/SettingTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Settings",
+        "class": "SettingTests",
+        "method": "Create_WithValidInputs_SetsKeyAndValue",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithValidInputs_SetsKeyAndValue()",
+        "is_async": false,
+        "line": 8,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::Create_WithValidInputs_SetsKeyAndValue",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-014",
+      "title": "Create with blank key throws",
+      "module": "SETTING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::SettingTests.Create_WithBlankKey_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Settings/SettingTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Settings",
+        "class": "SettingTests",
+        "method": "Create_WithBlankKey_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithBlankKey_Throws()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::Create_WithBlankKey_Throws",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-SETTING-015",
+      "title": "Update value replaces value",
+      "module": "SETTING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::SettingTests.UpdateValue_ReplacesValue",
+      "assertions": [
+        "\"New Name\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Settings/SettingTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Settings",
+        "class": "SettingTests",
+        "method": "UpdateValue_ReplacesValue",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void UpdateValue_ReplacesValue()",
+        "is_async": false,
+        "line": 24,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Settings"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Settings/SettingTests.cs::UpdateValue_ReplacesValue",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "testcase.schema.json",
+  "title": "Test case registry (one file per module)",
+  "description": "HOW DO WE VERIFY IT.\n\nTWO RULES THAT CANNOT BE RELAXED:\n\n1. `automation` is AUTOMATED only when `automation_ref` names a test method that exists in the repository. A proposed test is PLANNED and `status: needs-review` until someone writes it.\n\n2. `last_result` is NEVER inferred. It is set only by parsing a real `dotnet test` TRX/JSON run, and carries the run id that produced it. A test case with no recorded run has `last_result: null`, which reads as 'not run', not as 'passing'.",
+  "type": "object",
+  "required": ["module", "schema_version", "generated_at", "test_cases"],
+  "properties": {
+    "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+    "schema_version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "harvester_version": { "type": "string" },
+    "test_cases": { "type": "array", "items": { "$ref": "testcase.schema.json#/$defs/testCase" } }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "testCase": {
+      "type": "object",
+      "required": ["id", "title", "type", "automation", "module", "status", "data_classification", "provenance"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/testCaseId" },
+        "entity_version": { "type": "integer", "minimum": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+        "type": {
+          "description": "WHAT KIND of check this is. Derived from evidence in the test — a status-code assertion, a literal route, a numeric Theory row, or the expectation half of this repository's Method_Condition_Expectation naming convention.",
+          "type": "string",
+          "enum": ["positive", "negative", "boundary", "validation", "error", "integration", "api", "regression", "security", "performance", "e2e", "unit", "unknown"]
+        },
+        "type_evidence": {
+          "description": "Why `type` was chosen. A classification with no stated reason is a guess wearing a label.",
+          "type": ["string", "null"]
+        },
+        "category": {
+          "description": "WHICH AREA the test covers — a different axis from `type`: a validation test and a boundary test can both sit in the Application layer. NEEDS_REVIEW when no evidence supports a choice.",
+          "type": "string",
+          "enum": ["Unit", "Integration", "API", "Domain", "Application", "Infrastructure", "Authorization", "Validation", "Persistence", "Reporting", "Other", "NEEDS_REVIEW"]
+        },
+        "category_evidence": { "type": ["string", "null"] },
+        "module_evidence": {
+          "description": "How the module was decided: subject-components (strongest), namespace, path, or fallback. Recorded because folder names alone are unreliable here.",
+          "type": ["string", "null"]
+        },
+        "subject_component": {
+          "description": "The single production component this test is primarily about, where the evidence supports naming one. Null is a legitimate answer.",
+          "type": ["string", "null"]
+        },
+        "obsolete_review": {
+          "description": "Set when the test looks like it may no longer be exercising anything real. NEVER acted on automatically — nothing is deleted, it is only surfaced with its evidence.",
+          "type": ["object", "null"],
+          "required": ["reason", "evidence"],
+          "properties": {
+            "reason": { "type": "string" },
+            "evidence": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": false
+        },
+        "priority": { "type": "string", "enum": ["critical", "high", "medium", "low", "unset"] },
+
+        "preconditions": { "type": "array", "items": { "type": "string" } },
+        "test_data": { "type": ["string", "null"] },
+        "steps": { "type": "array", "items": { "type": "string" } },
+        "expected_result": { "type": ["string", "null"] },
+
+        "automation": { "type": "string", "enum": ["AUTOMATED", "PLANNED", "MANUAL"] },
+        "automation_ref": {
+          "description": "file::Method for an automated test. Must resolve to a real method — validation checks this.",
+          "type": ["string", "null"]
+        },
+        "assertions": {
+          "description": "Literal values the test pins, e.g. an InlineData row or an expected status code. This is what lets the change engine say 'this test asserts the OLD boundary' rather than guessing.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+
+        "requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+        "test_plans": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testPlanId" } },
+
+        "last_result": {
+          "type": ["object", "null"],
+          "required": ["outcome", "run_id", "recorded_at"],
+          "properties": {
+            "outcome": { "type": "string", "enum": ["passed", "failed", "skipped"] },
+            "run_id": { "type": "string" },
+            "recorded_at": { "type": "string" },
+            "commit": { "type": ["string", "null"] },
+            "duration_ms": { "type": ["number", "null"] }
+          },
+          "additionalProperties": false
+        },
+
+        "machine": {
+          "description": "MACHINE FIELD. Owned by harvest-tests.mjs and rewritten on every run. Everything outside it is human-authored and preserved — the same split the component registry uses.",
+          "type": "object",
+          "properties": {
+            "file": { "type": ["string", "null"] },
+            "project": { "type": ["string", "null"] },
+            "framework": { "type": ["string", "null"] },
+            "namespace": { "type": ["string", "null"] },
+            "class": { "type": ["string", "null"] },
+            "method": { "type": ["string", "null"] },
+            "attribute": { "type": ["string", "null"] },
+            "attributes": { "type": "array", "items": { "type": "string" } },
+            "signature": { "type": ["string", "null"] },
+            "is_async": { "type": "boolean" },
+            "line": { "type": ["integer", "null"] },
+            "body_lines": { "type": ["integer", "null"] },
+            "inline_data": {
+              "description": "Every [InlineData(...)] row, verbatim. A [Theory] stays ONE test case — case-level entities would multiply 489 methods into thousands with no added meaning — so the rows live here as metadata.",
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "member_data": { "type": "array", "items": { "type": "string" } },
+            "fixtures": { "type": "array", "items": { "type": "string" } },
+            "usings": { "type": "array", "items": { "type": "string" } },
+            "http_calls": {
+              "description": "Literal API routes the test calls. For an integration test that references no production type, this is the only binding evidence there is.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["path"],
+                "properties": {
+                  "path": { "type": "string" },
+                  "normalized": { "type": ["string", "null"] },
+                  "verb": { "type": ["string", "null"] },
+                  "route_component": { "type": ["string", "null"] }
+                },
+                "additionalProperties": false
+              }
+            },
+            "exercises": {
+              "description": "DERIVED Component -> TestCase edges, each with the evidence that produced it. Kept in `machine` rather than in the human `components` field so a re-harvest refreshes them without touching links a person asserted.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["component", "name", "via", "confidence"],
+                "properties": {
+                  "component": { "$ref": "common.schema.json#/$defs/componentId" },
+                  "name": { "type": "string" },
+                  "via": {
+                    "type": "string",
+                    "enum": ["instantiation", "static-call", "generic-argument", "declared-type", "class-scope", "fixture", "http-route", "using-namespace", "class-name-convention"]
+                  },
+                  "confidence": { "$ref": "common.schema.json#/$defs/confidence" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "unresolved_references": {
+              "description": "Type names referenced by the test that match no component — framework types, test helpers, BCL types. Recorded rather than discarded so a genuine gap in the component registry is visible instead of silent.",
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "git": {
+              "type": "object",
+              "properties": {
+                "state": { "$ref": "common.schema.json#/$defs/gitState" },
+                "last_commit": { "type": ["string", "null"] },
+                "last_commit_date": { "type": ["string", "null"] },
+                "last_commit_subject": { "type": ["string", "null"] },
+                "commit_count": { "type": ["integer", "null"] }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "last_verified_commit": { "type": ["string", "null"] },
+        "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

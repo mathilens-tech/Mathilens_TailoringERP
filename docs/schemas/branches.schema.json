@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "branches.schema.json",
+  "title": "Branch registry",
+  "description": "Branch is a first-class dimension of this system, and this repository's branch NAMES carry no reliable information — `Ver1.0.1` is a merged work branch, `Orders` and `Whatsapp` are merged work branches, `ai` and `dev1` are experiments. So classification is declared, never pattern-guessed.\n\nTwo fields per branch are computed rather than declared, and both record how: `activity` (from divergence counts) and `base_verified` (from git merge-base). `classification_source` is what makes every value auditable — it says whether a human declared it or a command derived it.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "branches"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" },
+    "branches": { "type": "array", "items": { "$ref": "branches.schema.json#/$defs/branch" } }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "branch": {
+      "type": "object",
+      "required": ["name", "type", "activity", "classification_source"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "ref": {
+          "description": "The ref actually queried. A local-only branch has no remote ref, and that difference matters when the matrix runs on CI where only origin refs exist.",
+          "type": "string"
+        },
+        "remote": { "type": "boolean" },
+        "type": {
+          "description": "DECLARED by a person. Never derived from the name.",
+          "type": "string",
+          "enum": ["production", "integration", "release", "work", "experiment", "site", "unknown"]
+        },
+        "base": { "type": ["string", "null"] },
+        "base_verified": {
+          "description": "COMPUTED. Whether `git merge-base` agrees with the declared base.",
+          "type": ["boolean", "null"]
+        },
+        "environment": { "type": ["string", "null"], "enum": ["production", "test", "preview", null] },
+        "release": { "type": ["string", "null"] },
+        "activity": {
+          "description": "COMPUTED from divergence. ACTIVE = has commits the integration branch does not. INACTIVE = fully merged and recent. HISTORICAL = fully merged and no longer worked on. Branches are never deleted by this system.",
+          "type": "string",
+          "enum": ["ACTIVE", "INACTIVE", "HISTORICAL", "UNKNOWN"]
+        },
+        "divergence": {
+          "type": ["object", "null"],
+          "properties": {
+            "compared_to": { "type": "string" },
+            "ahead": { "type": ["integer", "null"] },
+            "behind": { "type": ["integer", "null"] },
+            "merge_base": { "type": ["string", "null"] },
+            "merge_base_date": { "type": ["string", "null"] },
+            "last_commit": { "type": ["string", "null"] },
+            "last_commit_date": { "type": ["string", "null"] },
+            "measured_at": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "deploys": {
+          "description": "Which deployment targets this branch feeds, taken from .github/workflows. Evidence for release intelligence, since this repository has no tags.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["target", "kind", "workflow"],
+            "properties": {
+              "target": { "type": "string" },
+              "kind": { "type": "string", "enum": ["azure-app-service", "azure-static-web-apps", "self-hosted", "none"] },
+              "workflow": { "type": "string" },
+              "trigger": { "type": "string" },
+              "active": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "classification_source": {
+          "type": "string",
+          "description": "e.g. `declared:owner`, `derived:divergence(ahead=0)`, `derived:workflow(deploy-api.yml)`"
+        },
+        "last_analyzed_commit": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

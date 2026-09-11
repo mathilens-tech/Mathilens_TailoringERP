@@ -1,0 +1,176 @@
+{
+  "id": "FEAT-CUSTOMER-002",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Customer Import & Export",
+  "module": "CUSTOMER",
+  "simple_explanation": "Customer Import & Export — derived from the Import use case in src/Application/Customer. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Customers/Commands/Import"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs",
+        "contains": "CustomerImportAction",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs",
+        "contains": "CustomerImportStep",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs",
+        "contains": "CustomerImportPlanner",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "12 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 11,
+    "test_count": 0,
+    "requirement_count": 1,
+    "rule_count": 3,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Import & Export",
+    "use_cases": [
+      "Import"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/customers/export",
+        "policy": "Permissions.CustomersView",
+        "controller": "CustomersController",
+        "action": "Export"
+      },
+      {
+        "method": "POST",
+        "route": "/api/v1/customers/import",
+        "policy": "Permissions.CustomersImport",
+        "controller": "CustomersController",
+        "action": "Import"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/customers",
+      "/dashboard/customers/[id]",
+      "/dashboard/customers/new"
+    ],
+    "permissions": [
+      "Permissions.CustomersImport",
+      "Permissions.CustomersView"
+    ],
+    "derived_components": [
+      "COMP-CUSTOMER-006",
+      "COMP-CUSTOMER-007",
+      "COMP-CUSTOMER-008",
+      "COMP-CUSTOMER-009",
+      "COMP-CUSTOMER-010",
+      "COMP-CUSTOMER-011",
+      "COMP-CUSTOMER-012",
+      "COMP-CUSTOMER-013",
+      "COMP-CUSTOMER-014",
+      "COMP-CUSTOMER-015",
+      "COMP-CUSTOMER-016",
+      "COMP-CUSTOMER-035"
+    ],
+    "derived_test_cases": [
+      "TC-CUSTOMER-002",
+      "TC-CUSTOMER-003",
+      "TC-CUSTOMER-004",
+      "TC-CUSTOMER-016",
+      "TC-CUSTOMER-018",
+      "TC-CUSTOMER-019",
+      "TC-CUSTOMER-021",
+      "TC-CUSTOMER-022",
+      "TC-CUSTOMER-026",
+      "TC-CUSTOMER-028",
+      "TC-CUSTOMER-029",
+      "TC-CUSTOMER-041",
+      "TC-CUSTOMER-042",
+      "TC-CUSTOMER-043",
+      "TC-CUSTOMER-044",
+      "TC-CUSTOMER-045",
+      "TC-CUSTOMER-046",
+      "TC-MEASUREMENT-001",
+      "TC-MEASUREMENT-003",
+      "TC-ORDER-006",
+      "TC-ORDER-008",
+      "TC-ORDER-010",
+      "TC-ORDER-033",
+      "TC-WHATSAPP-001",
+      "TC-WHATSAPP-002",
+      "TC-WHATSAPP-004"
+    ],
+    "derived_rules": [
+      "BR-CUSTOMER-006",
+      "BR-CUSTOMER-016",
+      "BR-CUSTOMER-017"
+    ],
+    "derived_requirements": [
+      "FR-CUSTOMER-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "last_commit_date": "2026-08-15"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/customers/export",
+    "POST /api/v1/customers/import"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Customers/Commands/Import",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/customers/export",
+        "detail": "src/Api/Controllers/V1/CustomersController.cs",
+        "line": 94
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/customers/import",
+        "detail": "src/Api/Controllers/V1/CustomersController.cs",
+        "line": 126
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+  "change_history": []
+}

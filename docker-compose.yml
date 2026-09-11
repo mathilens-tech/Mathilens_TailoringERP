@@ -1,0 +1,23 @@
+# Mathilens Tailoring ERP — Docker Compose
+#
+# PLACEHOLDER: No services are defined yet. This file will be populated once
+# the application projects exist under /src and their Dockerfiles are ready.
+# See docs/07_DEPLOYMENT.md for the deployment strategy.
+
+version: "3.9"
+
+services: {}
+#  api:
+#    build:
+#      context: .
+#      dockerfile: docker/Dockerfile.api
+#    env_file: .env
+#
+#  web:
+#    build:
+#      context: .
+#      dockerfile: docker/Dockerfile.web
+#    env_file: .env
+#
+#  database:
+#    image: mcr.microsoft.com/mssql/server:2022-latest

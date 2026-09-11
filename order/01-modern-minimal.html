@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>New Order — Modern Minimal</title>
+<style>
+  :root{
+    --bg:#f5f6fa; --surface:#ffffff; --surface-2:#f1f2f8; --border:#e5e7f0;
+    --ink:#15171f; --muted:#6b7086; --primary:#4f46e5; --primary-2:#4338ca;
+    --success:#16a34a; --warning:#d97706; --danger:#dc2626; --info:#2563eb;
+    --radius:14px; --shadow:0 1px 2px rgba(20,20,43,.04), 0 8px 24px -12px rgba(20,20,43,.10);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+  .shell{max-width:1180px;margin:0 auto;padding:32px 24px 80px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink)}
+  .brand .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--primary),#7c73f0);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+  .crumbs{font-size:13px;color:var(--muted)}
+  .crumbs b{color:var(--ink);font-weight:600}
+
+  .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:16px;flex-wrap:wrap}
+  h1{margin:0;font-size:28px;letter-spacing:-.02em}
+  .sub{margin:6px 0 0;color:var(--muted);font-size:14px}
+  .actions{display:flex;gap:10px}
+  .btn{appearance:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13.5px;border-radius:10px;padding:11px 18px;transition:.15s transform,.15s box-shadow,.15s background}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 6px 16px -6px rgba(79,70,229,.55)}
+  .btn-primary:hover{background:var(--primary-2)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--border)}
+  .btn-ghost:hover{background:var(--surface-2)}
+
+  .grid{display:grid;grid-template-columns:1.6fr 1fr;gap:20px}
+  @media (max-width:920px){.grid{grid-template-columns:1fr}}
+  .stack{display:flex;flex-direction:column;gap:20px}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .card-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border)}
+  .card-head h2{margin:0;font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:9px}
+  .step-no{width:22px;height:22px;border-radius:7px;background:var(--surface-2);color:var(--primary);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .card-body{padding:22px}
+  .card-body.tight{padding:0}
+
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .field .value, .fake-input{border:1px solid var(--border);background:var(--surface-2);border-radius:9px;padding:10px 12px;font-size:14px;color:var(--ink)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+  .customer{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid var(--border);border-radius:11px;background:var(--surface-2)}
+  .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#4f46e5);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .customer .name{font-weight:700;font-size:14.5px}
+  .customer .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .badge{margin-left:auto;font-size:11px;font-weight:700;color:var(--success);background:rgba(22,163,74,.1);padding:4px 10px;border-radius:999px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:12px 22px;border-bottom:1px solid var(--border);background:var(--surface-2)}
+  tbody td{padding:14px 22px;border-bottom:1px solid var(--border)}
+  tbody tr:last-child td{border-bottom:none}
+  .garment{font-weight:600}
+  .code{color:var(--muted);font-size:12px}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .add-row{padding:14px 22px;display:flex;align-items:center;gap:8px;color:var(--primary);font-weight:600;font-size:13px;cursor:pointer}
+  .add-row .plus{width:18px;height:18px;border-radius:6px;border:1.5px dashed var(--primary);display:flex;align-items:center;justify-content:center;font-size:12px}
+
+  .measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .measure-grid .field .value{text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+  @media (max-width:920px){.measure-grid{grid-template-columns:repeat(2,1fr)}}
+
+  .pill-toggle{display:inline-flex;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:3px}
+  .pill-toggle span{padding:6px 14px;font-size:12.5px;font-weight:600;border-radius:999px;color:var(--muted)}
+  .pill-toggle span.active{background:var(--ink);color:#fff}
+
+  .summary-line{display:flex;justify-content:space-between;font-size:13.5px;padding:9px 0;color:var(--muted)}
+  .summary-line b{color:var(--ink);font-weight:600}
+  .summary-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;margin-top:6px;border-top:1px dashed var(--border)}
+  .summary-total .label{font-size:13px;color:var(--muted);font-weight:600}
+  .summary-total .amount{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .balance{font-size:12.5px;color:var(--warning);font-weight:700;margin-top:4px;text-align:right}
+
+  .status-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px}
+  .chip.info{background:rgba(37,99,235,.1);color:var(--info)}
+  .chip.warning{background:rgba(217,119,6,.1);color:var(--warning)}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="brand"><span class="mark">M</span> Mathilens ERP</div>
+      <div class="crumbs">Orders / <b>New Order</b></div>
+    </div>
+
+    <div class="head">
+      <div>
+        <h1>New Order</h1>
+        <p class="sub">Order <b style="color:var(--ink)">#ORD-2026-0184</b> · Created 08 Aug 2026 · Status <span style="color:var(--primary);font-weight:700">Draft</span></p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">Save Draft</button>
+        <button class="btn btn-primary">Create Order →</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="stack">
+        <div class="card">
+          <div class="card-head"><h2><span class="step-no">1</span> Customer</h2><span style="font-size:12px;color:var(--primary);font-weight:600;cursor:pointer">Change</span></div>
+          <div class="card-body">
+            <div class="customer">
+              <div class="avatar">AI</div>
+              <div>
+                <div class="name">Ananya Iyer</div>
+                <div class="meta">+91 98765 43210 · No. 12, Lake View Apartments, Bengaluru</div>
+              </div>
+              <span class="badge">Returning customer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2><span class="step-no">2</span> Order Details</h2></div>
+          <div class="card-body">
+            <div class="row2">
+              <div class="field"><label>Assigned Tailor</label><div class="value">Ravi Kumar</div></div>
+              <div class="field"><label>Due Date</label><div class="value">20 Aug 2026 (12 days)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2><span class="step-no">3</span> Garments &amp; Items</h2><span style="font-size:12px;color:var(--muted)">3 items</span></div>
+          <div class="card-body tight">
+            <table>
+              <thead><tr><th>Garment</th><th>Qty</th><th class="num">Unit Price</th><th class="num">Total</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="garment">Formal Shirt</div><div class="code">SC-104 · Cotton Blend, Sky Blue</div></td>
+                  <td>2</td><td class="num">₹850.00</td><td class="num">₹1,700.00</td>
+                </tr>
+                <tr>
+                  <td><div class="garment">Tailored Trouser</div><div class="code">TW-221 · Formal Wool, Charcoal</div></td>
+                  <td>1</td><td class="num">₹1,450.00</td><td class="num">₹1,450.00</td>
+                </tr>
+                <tr>
+                  <td><div class="garment">Nehru Jacket</div><div class="code">NJ-057 · Silk Blend, Maroon</div></td>
+                  <td>1</td><td class="num">₹2,200.00</td><td class="num">₹2,200.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="add-row"><span class="plus">+</span> Add another item</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h2><span class="step-no">4</span> Fabric Details</h2>
+            <div class="pill-toggle"><span>Customer Supplied</span><span class="active">Shop Supplied</span></div>
+          </div>
+          <div class="card-body">
+            <div class="row2">
+              <div class="field"><label>Fabric Type</label><div class="value">Premium Silk Blend</div></div>
+              <div class="field"><label>Color</label><div class="value">Maroon</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2><span class="step-no">5</span> Measurements — Formal Shirt</h2><span style="font-size:12px;color:var(--muted)">in cm</span></div>
+          <div class="card-body">
+            <div class="measure-grid">
+              <div class="field"><label>Chest</label><div class="value">39</div></div>
+              <div class="field"><label>Waist</label><div class="value">34</div></div>
+              <div class="field"><label>Shoulder</label><div class="value">17.5</div></div>
+              <div class="field"><label>Sleeve</label><div class="value">24</div></div>
+              <div class="field"><label>Shirt Length</label><div class="value">29</div></div>
+              <div class="field"><label>Collar</label><div class="value">15.5</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="card" style="position:sticky;top:24px">
+          <div class="card-head"><h2>Order Summary</h2></div>
+          <div class="card-body">
+            <div class="summary-line"><span>Subtotal (3 items)</span><b>₹5,350.00</b></div>
+            <div class="summary-line"><span>Discount</span><b style="color:var(--danger)">−₹150.00</b></div>
+            <div class="summary-line"><span>GST (5%)</span><b>₹260.00</b></div>
+            <div class="summary-total"><span class="label">Total Due</span><span class="amount">₹5,460.00</span></div>
+            <div class="balance">Advance paid ₹2,000.00 · Balance ₹3,460.00</div>
+
+            <div class="status-strip">
+              <span class="chip info">Received</span>
+              <span class="chip warning">Payment pending</span>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;margin-top:18px">Create Order</button>
+            <button class="btn btn-ghost" style="width:100%;margin-top:10px">Preview Invoice</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

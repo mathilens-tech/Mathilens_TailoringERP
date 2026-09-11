@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>New Order — Classic Atelier</title>
+<style>
+  :root{
+    --paper:#faf6ee; --card:#fffdf8; --line:#d9c9a3; --line-2:#e8dcc0;
+    --ink:#2c2015; --muted:#7a6b52; --gold:#a9772f; --gold-2:#8a5f22; --burgundy:#6e1f2b;
+    --font-serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --font-sans:Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-serif);
+    background-image:radial-gradient(circle at 1px 1px, rgba(169,119,47,.10) 1px, transparent 0);
+    background-size:22px 22px;}
+  .shell{max-width:1080px;margin:0 auto;padding:44px 28px 90px}
+
+  .crest{text-align:center;margin-bottom:8px}
+  .crest .ring{width:64px;height:64px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;position:relative}
+  .crest .ring::before{content:"";position:absolute;inset:5px;border:1px solid var(--line);border-radius:50%}
+  .crest .ring b{font-size:20px;color:var(--gold-2);letter-spacing:.05em}
+  .crest h1{margin:0;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-2);font-weight:400}
+  .crest p{margin:4px 0 0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);margin:26px 0}
+  .titleblock{text-align:center;margin-bottom:6px}
+  .titleblock h2{font-size:36px;margin:0;font-weight:400;letter-spacing:.02em}
+  .titleblock .order-no{font-size:13px;color:var(--muted);letter-spacing:.06em;margin-top:8px}
+  .titleblock .order-no b{color:var(--burgundy);font-weight:600}
+
+  .ledger{background:var(--card);border:1px solid var(--line);box-shadow:0 1px 0 var(--line-2), 0 18px 40px -28px rgba(44,32,21,.5);margin-top:30px}
+  .ledger-inner{padding:38px 46px}
+  .section-title{display:flex;align-items:center;gap:14px;margin:0 0 20px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
+  .section-title::after{content:"";flex:1;height:1px;background:var(--line-2)}
+  .section-title .num{font-family:var(--font-sans);font-style:italic;color:var(--muted);letter-spacing:0}
+
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:36px}
+  dl{margin:0}
+  dl .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--line-2);font-size:14.5px}
+  dl .row dt{color:var(--muted);font-style:italic}
+  dl .row dd{margin:0;font-weight:600}
+
+  table.items{width:100%;border-collapse:collapse;margin-bottom:36px}
+  table.items caption{text-align:left;font-size:11px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  table.items th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);text-align:left;padding:10px 4px;border-bottom:1.5px solid var(--gold)}
+  table.items th.num, table.items td.num{text-align:right}
+  table.items td{padding:14px 4px;border-bottom:1px dotted var(--line-2);font-size:15px}
+  table.items .garment{font-weight:600}
+  table.items .code{font-style:italic;color:var(--muted);font-size:12.5px}
+  table.items tr:last-child td{border-bottom:none}
+
+  .measure-plate{border:1px solid var(--line);padding:26px 30px;background:repeating-linear-gradient(var(--card),var(--card) 27px,var(--line-2) 28px)}
+  .measure-plate .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 30px}
+  .measure-plate .m{display:flex;justify-content:space-between;padding:5px 0;font-size:14.5px}
+  .measure-plate .m span:first-child{color:var(--muted);font-style:italic}
+  .measure-plate .m span:last-child{font-weight:700;border-bottom:1px solid var(--gold)}
+
+  .summary{margin-top:8px;display:flex;justify-content:flex-end}
+  .summary table{border-collapse:collapse;width:340px}
+  .summary td{padding:7px 0;font-size:14px}
+  .summary td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .summary tr.total td{border-top:1.5px double var(--gold);padding-top:14px;font-size:21px;font-weight:700;color:var(--burgundy)}
+  .summary tr.muted td{color:var(--muted);font-style:italic}
+
+  .seal-row{display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid var(--line-2)}
+  .signature{font-family:var(--font-sans);font-style:italic;color:var(--muted);font-size:13px}
+  .signature .line{width:180px;border-bottom:1px solid var(--ink);height:28px}
+  .actions{display:flex;gap:12px}
+  .btn{font-family:var(--font-serif);border:1px solid var(--gold);background:transparent;color:var(--gold-2);padding:12px 26px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+  .btn.solid{background:var(--burgundy);border-color:var(--burgundy);color:#f6ead9}
+  .status{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--burgundy);border:1px solid var(--burgundy);padding:4px 12px;border-radius:2px}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="crest">
+      <div class="ring"><b>M</b></div>
+      <h1>Mathilens &amp; Co.</h1>
+      <p>Bespoke Tailoring House · Est. Bengaluru</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="titleblock">
+      <h2>Order Ticket</h2>
+      <div class="order-no">Ticket No. <b>ORD-2026-0184</b> &nbsp;·&nbsp; 8th of August, 2026</div>
+      <span class="status">Awaiting Fulfilment</span>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-inner">
+
+        <div class="section-title"><span class="num">I.</span> Client &amp; Commission</div>
+        <div class="pair">
+          <dl>
+            <div class="row"><dt>Client</dt><dd>Ananya Iyer</dd></div>
+            <div class="row"><dt>Correspondence</dt><dd>+91 98765 43210</dd></div>
+            <div class="row"><dt>Residence</dt><dd>No. 12, Lake View Apts., Bengaluru</dd></div>
+          </dl>
+          <dl>
+            <div class="row"><dt>Master Tailor</dt><dd>Ravi Kumar</dd></div>
+            <div class="row"><dt>Date Commissioned</dt><dd>08 Aug 2026</dd></div>
+            <div class="row"><dt>Delivery Promised</dt><dd>20 Aug 2026</dd></div>
+          </dl>
+        </div>
+
+        <div class="section-title"><span class="num">II.</span> Garments Commissioned</div>
+        <table class="items">
+          <thead><tr><th>Garment &amp; Cloth</th><th>Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="garment">Formal Shirt</div><div class="code">SC-104 — Cotton Blend, Sky Blue</div></td>
+              <td>2</td><td class="num">₹850.00</td><td class="num">₹1,700.00</td>
+            </tr>
+            <tr>
+              <td><div class="garment">Tailored Trouser</div><div class="code">TW-221 — Formal Wool, Charcoal</div></td>
+              <td>1</td><td class="num">₹1,450.00</td><td class="num">₹1,450.00</td>
+            </tr>
+            <tr>
+              <td><div class="garment">Nehru Jacket</div><div class="code">NJ-057 — Silk Blend, Maroon</div></td>
+              <td>1</td><td class="num">₹2,200.00</td><td class="num">₹2,200.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-title"><span class="num">III.</span> Measurements — Formal Shirt <em style="font-style:italic;font-weight:400">(centimetres)</em></div>
+        <div class="measure-plate">
+          <div class="mgrid">
+            <div class="m"><span>Chest</span><span>39</span></div>
+            <div class="m"><span>Waist</span><span>34</span></div>
+            <div class="m"><span>Shoulder</span><span>17.5</span></div>
+            <div class="m"><span>Sleeve</span><span>24</span></div>
+            <div class="m"><span>Shirt Length</span><span>29</span></div>
+            <div class="m"><span>Collar</span><span>15.5</span></div>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:36px"><span class="num">IV.</span> Account</div>
+        <div class="summary">
+          <table>
+            <tr><td>Subtotal</td><td>₹5,350.00</td></tr>
+            <tr class="muted"><td>Less discount</td><td>−₹150.00</td></tr>
+            <tr class="muted"><td>G.S.T. (5%)</td><td>₹260.00</td></tr>
+            <tr class="total"><td>Total Due</td><td>₹5,460.00</td></tr>
+            <tr class="muted"><td>Advance received</td><td>₹2,000.00</td></tr>
+            <tr class="muted"><td>Balance on delivery</td><td>₹3,460.00</td></tr>
+          </table>
+        </div>
+
+        <div class="seal-row">
+          <div class="signature">Client's signature<div class="line"></div></div>
+          <div class="actions">
+            <button class="btn">Save as Draft</button>
+            <button class="btn solid">Confirm Order</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

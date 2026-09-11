@@ -1,0 +1,115 @@
+{
+  "id": "FEAT-AUTH-004",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Authentication Session Renewal",
+  "module": "AUTH",
+  "simple_explanation": "Authentication Session Renewal — derived from the RefreshAccessToken use case in src/Application/Auth. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Auth/Commands/RefreshAccessToken"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommand.cs",
+        "contains": "RefreshAccessTokenCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandHandler.cs",
+        "contains": "RefreshAccessTokenCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidator.cs",
+        "contains": "RefreshAccessTokenCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 6 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 5,
+    "requirement_count": 6,
+    "rule_count": 1,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Session Renewal",
+    "use_cases": [
+      "RefreshAccessToken"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/login",
+      "/register"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-AUTH-008",
+      "COMP-AUTH-009",
+      "COMP-AUTH-010"
+    ],
+    "derived_test_cases": [
+      "TC-AUTH-007",
+      "TC-AUTH-008",
+      "TC-AUTH-009",
+      "TC-AUTH-010",
+      "TC-PLATFORM-071"
+    ],
+    "derived_rules": [
+      "BR-AUTH-003"
+    ],
+    "derived_requirements": [
+      "FR-AUTH-001",
+      "FR-AUTH-002",
+      "FR-AUTH-003",
+      "FR-AUTH-004",
+      "FR-AUTH-005",
+      "FR-AUTH-006"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Auth/Commands/RefreshAccessToken",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+  "change_history": []
+}

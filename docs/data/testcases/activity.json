@@ -1,0 +1,1298 @@
+{
+  "module": "ACTIVITY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-ACTIVITY-001",
+      "title": "Describe names each field and its value",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_NamesEachFieldAndItsValue",
+      "assertions": [
+        "\"Full Name: Asha Rao\"",
+        "\"Phone Number: +91 98765 43210\"",
+        "\"Address: 12 MG Road\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_NamesEachFieldAndItsValue",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_NamesEachFieldAndItsValue()",
+        "is_async": false,
+        "line": 13,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-CUSTOMER-001",
+            "name": "CreateCustomerCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_NamesEachFieldAndItsValue",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-002",
+      "title": "Describe omits fields that were not set",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_OmitsFieldsThatWereNotSet",
+      "assertions": [
+        "\"Email\"",
+        "\"Notes\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_OmitsFieldsThatWereNotSet",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_OmitsFieldsThatWereNotSet()",
+        "is_async": false,
+        "line": 24,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-CUSTOMER-001",
+            "name": "CreateCustomerCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_OmitsFieldsThatWereNotSet",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-003",
+      "title": "Describe renders enums and dates readably",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_RendersEnumsAndDatesReadably",
+      "assertions": [
+        "\"Gender: Female\"",
+        "\"Religion: Hindu\"",
+        "\"Date Of Birth: 1990-04-17\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_RendersEnumsAndDatesReadably",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_RendersEnumsAndDatesReadably()",
+        "is_async": false,
+        "line": 35,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-CUSTOMER-001",
+            "name": "CreateCustomerCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_RendersEnumsAndDatesReadably",
+            "line": 35
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-004",
+      "title": "Describe never repeats a password",
+      "module": "ACTIVITY",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_NeverRepeatsAPassword",
+      "assertions": [
+        "\"Password: ●●●●●\"",
+        "\"User Name: asha_rao\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_NeverRepeatsAPassword",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(\"hunter2\")",
+          "InlineData(\"P@ssw0rd!\")"
+        ],
+        "signature": "public void Describe_NeverRepeatsAPassword(string password)",
+        "is_async": false,
+        "line": 49,
+        "body_lines": 13,
+        "inline_data": [
+          "InlineData(\"hunter2\")",
+          "InlineData(\"P@ssw0rd!\")"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-AUTH-003",
+            "name": "LoginCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-AUTH-011",
+            "name": "RegisterCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_NeverRepeatsAPassword",
+            "line": 49
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#Theory x2",
+            "line": 49
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-005",
+      "title": "Describe redacts refresh tokens too",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_RedactsRefreshTokensToo",
+      "assertions": [
+        "\"a-real-token\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_RedactsRefreshTokensToo",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_RedactsRefreshTokensToo()",
+        "is_async": false,
+        "line": 64,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "RefreshAccessToken"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_RedactsRefreshTokensToo",
+            "line": 64
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-006",
+      "title": "Describe for a delete says nothing rather than quoting a guid",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_ForADelete_SaysNothingRatherThanQuotingAGuid",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_ForADelete_SaysNothingRatherThanQuotingAGuid",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_ForADelete_SaysNothingRatherThanQuotingAGuid()",
+        "is_async": false,
+        "line": 73,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-CUSTOMER-004",
+            "name": "DeleteCustomerCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_ForADelete_SaysNothingRatherThanQuotingAGuid",
+            "line": 73
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-007",
+      "title": "Describe with no request returns null",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_WithNoRequest_ReturnsNull",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_WithNoRequest_ReturnsNull",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_WithNoRequest_ReturnsNull()",
+        "is_async": false,
+        "line": 86,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_WithNoRequest_ReturnsNull",
+            "line": 86
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-008",
+      "title": "Describe truncates rather than overflowing the column",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Activity)",
+      "subject_component": "COMP-ACTIVITY-001",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::ActivityDescriptionBuilderTests.Describe_TruncatesRatherThanOverflowingTheColumn",
+      "assertions": [
+        "\"…\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptionBuilderTests",
+        "method": "Describe_TruncatesRatherThanOverflowingTheColumn",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Describe_TruncatesRatherThanOverflowingTheColumn()",
+        "is_async": false,
+        "line": 92,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Auth.Commands.Login",
+          "MathilensERP.Application.Auth.Commands.Register",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Customers.Commands.Delete",
+          "MathilensERP.Domain.Customers"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-001",
+            "name": "ActivityDescriptionBuilder",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-CUSTOMER-001",
+            "name": "CreateCustomerCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs::Describe_TruncatesRatherThanOverflowingTheColumn",
+            "line": 92
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-009",
+      "title": "Screen for takes the module segment of the namespace",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-ACTIVITY-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ActivityDescriptorTests.ScreenFor_TakesTheModuleSegmentOfTheNamespace",
+      "assertions": [
+        "\"Customers\"",
+        "\"Orders\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptorTests",
+        "method": "ScreenFor_TakesTheModuleSegmentOfTheNamespace",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void ScreenFor_TakesTheModuleSegmentOfTheNamespace()",
+        "is_async": false,
+        "line": 11,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Orders.Commands.TransitionStatus",
+          "MathilensERP.Application.Orders.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ScreenFor_TakesTheModuleSegmentOfTheNamespace",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-010",
+      "title": "Screen for with a type outside the application assembly falls back rather than throwing",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-ACTIVITY-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ActivityDescriptorTests.ScreenFor_WithATypeOutsideTheApplicationAssembly_FallsBackRatherThanThrowing",
+      "assertions": [
+        "\"General\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptorTests",
+        "method": "ScreenFor_WithATypeOutsideTheApplicationAssembly_FallsBackRatherThanThrowing",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void ScreenFor_WithATypeOutsideTheApplicationAssembly_FallsBackRatherThanThrowing()",
+        "is_async": false,
+        "line": 19,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Orders.Commands.TransitionStatus",
+          "MathilensERP.Application.Orders.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ScreenFor_WithATypeOutsideTheApplicationAssembly_FallsBackRatherThanThrowing",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-ACTIVITY-011",
+      "title": "Action for reads as words",
+      "module": "ACTIVITY",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-ACTIVITY-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ActivityDescriptorTests.ActionFor_ReadsAsWords",
+      "assertions": [
+        "\"Create Customer\"",
+        "\"Transition Order Status\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Activity",
+        "class": "ActivityDescriptorTests",
+        "method": "ActionFor_ReadsAsWords",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void ActionFor_ReadsAsWords()",
+        "is_async": false,
+        "line": 25,
+        "body_lines": 5,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Activity",
+          "MathilensERP.Application.Customers.Commands.Create",
+          "MathilensERP.Application.Orders.Commands.TransitionStatus",
+          "MathilensERP.Application.Orders.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ACTIVITY-002",
+            "name": "ActivityDescriptor",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs::ActionFor_ReadsAsWords",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-004",
+      "title": "Tailor cannot reach the activity log",
+      "module": "ACTIVITY",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::PermissionEnforcementTests.Tailor_CannotReachTheActivityLog",
+      "assertions": [
+        "HttpStatusCode.Forbidden"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Authorization",
+        "class": "PermissionEnforcementTests",
+        "method": "Tailor_CannotReachTheActivityLog",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Tailor_CannotReachTheActivityLog()",
+        "is_async": true,
+        "line": 30,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [
+          {
+            "path": "/api/v1/activity-logs",
+            "normalized": "/api/v1/activity-logs",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-057"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-057",
+            "name": "ActivityLogsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add role-based user rights and the user administration screen",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::Tailor_CannotReachTheActivityLog",
+            "line": 30
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/activity-logs",
+            "detail": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+            "line": 30
+          }
+        ]
+      },
+      "last_verified_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

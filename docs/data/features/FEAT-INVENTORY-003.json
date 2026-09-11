@@ -1,0 +1,111 @@
+{
+  "id": "FEAT-INVENTORY-003",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Inventory Stock Levels",
+  "module": "INVENTORY",
+  "simple_explanation": "Inventory Stock Levels — derived from the Stock use case in src/Application/Inventory. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Inventory/Queries/Stock"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+        "contains": "GetStockSummaryQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+        "contains": "StockSummaryDto",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+        "contains": "StockQuantityDto",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "6 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "PARTIAL",
+    "component_count": 5,
+    "test_count": 4,
+    "requirement_count": 0,
+    "rule_count": 2,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Stock Levels",
+    "use_cases": [
+      "Stock"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/dashboard/inventory",
+      "/dashboard/stock"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-INVENTORY-011",
+      "COMP-INVENTORY-012",
+      "COMP-INVENTORY-013",
+      "COMP-INVENTORY-014",
+      "COMP-INVENTORY-015",
+      "COMP-INVENTORY-017"
+    ],
+    "derived_test_cases": [
+      "TC-INVENTORY-011",
+      "TC-INVENTORY-012",
+      "TC-INVENTORY-013",
+      "TC-INVENTORY-014"
+    ],
+    "derived_rules": [
+      "BR-INVENTORY-012",
+      "BR-INVENTORY-013"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Inventory/Queries/Stock",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+  "change_history": []
+}

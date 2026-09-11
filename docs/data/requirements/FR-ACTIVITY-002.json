@@ -1,0 +1,68 @@
+{
+  "id": "FR-ACTIVITY-002",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Retention Rules — Explicitly exempt from soft delete (5. Soft Delete) — an audit log…",
+  "module": "ACTIVITY",
+  "description": "Retention Rules — Explicitly exempt from soft delete (5. Soft Delete) — an audit log entry must never be hideable or removable through the normal application delete path, since that would defeat its purpose; retained per the retention period defined in 08SECURITY.md",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "audit",
+  "requirement_type_evidence": "clause uses \"audit\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 10.13",
+    "section_title": "AuditLogs",
+    "parent_section": "§ 10",
+    "parent_section_title": "Required Entities",
+    "quote": "Retention Rules — Explicitly exempt from soft delete (5. Soft Delete) — an audit log entry must never be hideable or removable through the normal application delete path, since that would defeat its purpose; retained per the retention period defined in 08SECURITY.md",
+    "line": 369,
+    "line_start": 369,
+    "line_end": 369,
+    "form": "table-row"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 10.13",
+        "detail": "docs/02_DATABASE.md",
+        "line": 369
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

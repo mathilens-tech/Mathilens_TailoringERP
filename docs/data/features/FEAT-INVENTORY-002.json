@@ -1,0 +1,104 @@
+{
+  "id": "FEAT-INVENTORY-002",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Inventory Management",
+  "module": "INVENTORY",
+  "simple_explanation": "Inventory Management — derived from the Search use case in src/Application/Inventory. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Inventory/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQuery.cs",
+        "contains": "SearchClothReceiptsQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryHandler.cs",
+        "contains": "SearchClothReceiptsQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs",
+        "contains": "SearchClothReceiptsQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "3 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 3,
+    "test_count": 0,
+    "requirement_count": 0,
+    "rule_count": 3,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Search"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/dashboard/inventory",
+      "/dashboard/stock"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-INVENTORY-008",
+      "COMP-INVENTORY-009",
+      "COMP-INVENTORY-010"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [
+      "BR-INVENTORY-009",
+      "BR-INVENTORY-010",
+      "BR-INVENTORY-011"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Inventory/Queries/Search",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+  "change_history": []
+}

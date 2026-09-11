@@ -1,0 +1,5054 @@
+{
+  "module": "EMPLOYEE",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-EMPLOYEE-001",
+      "title": "Handle with valid command adds employee and saves changes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::CreateEmployeeCommandHandlerTests.Handle_WithValidCommand_AddsEmployeeAndSavesChanges",
+      "assertions": [
+        "\"Ravi Kumar\"",
+        "\"Master Tailor\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandHandlerTests",
+        "method": "Handle_WithValidCommand_AddsEmployeeAndSavesChanges",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithValidCommand_AddsEmployeeAndSavesChanges()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Create",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::Handle_WithValidCommand_AddsEmployeeAndSavesChanges",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-002",
+      "title": "Handle with employee code already used returns conflict and saves nothing",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::CreateEmployeeCommandHandlerTests.Handle_WithEmployeeCodeAlreadyUsed_ReturnsConflictAndSavesNothing",
+      "assertions": [
+        "\"Employee.DuplicateEmployeeCode\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandHandlerTests",
+        "method": "Handle_WithEmployeeCodeAlreadyUsed_ReturnsConflictAndSavesNothing",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithEmployeeCodeAlreadyUsed_ReturnsConflictAndSavesNothing()",
+        "is_async": true,
+        "line": 27,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Create",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::Handle_WithEmployeeCodeAlreadyUsed_ReturnsConflictAndSavesNothing",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-003",
+      "title": "Handle with phone number already used returns conflict and saves nothing",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::CreateEmployeeCommandHandlerTests.Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing",
+      "assertions": [
+        "\"Employee.DuplicatePhoneNumber\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandHandlerTests",
+        "method": "Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing()",
+        "is_async": true,
+        "line": 44,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Create",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing",
+            "line": 44
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-004",
+      "title": "Handle with a code and phone nobody else holds succeeds",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::CreateEmployeeCommandHandlerTests.Handle_WithACodeAndPhoneNobodyElseHolds_Succeeds",
+      "assertions": [
+        "\"+919000000000\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandHandlerTests",
+        "method": "Handle_WithACodeAndPhoneNobodyElseHolds_Succeeds",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithACodeAndPhoneNobodyElseHolds_Succeeds()",
+        "is_async": true,
+        "line": 61,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Create",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::Handle_WithACodeAndPhoneNobodyElseHolds_Succeeds",
+            "line": 61
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-005",
+      "title": "Handle with an existing number typed in another shape still detects the duplicate",
+      "module": "EMPLOYEE",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "4 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::CreateEmployeeCommandHandlerTests.Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate",
+      "assertions": [
+        "\"Employee.DuplicatePhoneNumber\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandHandlerTests",
+        "method": "Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(\"8220070363\")",
+          "InlineData(\"918220070363\")",
+          "InlineData(\"+91 82200-70363\")",
+          "InlineData(\"08220070363\")"
+        ],
+        "signature": "public async Task Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate(string typed)",
+        "is_async": true,
+        "line": 83,
+        "body_lines": 15,
+        "inline_data": [
+          "InlineData(\"8220070363\")",
+          "InlineData(\"918220070363\")",
+          "InlineData(\"+91 82200-70363\")",
+          "InlineData(\"08220070363\")"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Create",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-002",
+            "name": "CreateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs::Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate",
+            "line": 83
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#Theory x4",
+            "line": 83
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-006",
+      "title": "Validate with valid command passes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 11,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-007",
+      "title": "Validate with only the mandatory fields passes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithOnlyTheMandatoryFields_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithOnlyTheMandatoryFields_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithOnlyTheMandatoryFields_Passes()",
+        "is_async": false,
+        "line": 19,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithOnlyTheMandatoryFields_Passes",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-008",
+      "title": "Validate with blank full name fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithBlankFullName_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithBlankFullName_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithBlankFullName_Fails()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithBlankFullName_Fails",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-009",
+      "title": "Validate with blank employee code fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithBlankEmployeeCode_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithBlankEmployeeCode_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithBlankEmployeeCode_Fails()",
+        "is_async": false,
+        "line": 37,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithBlankEmployeeCode_Fails",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-010",
+      "title": "Validate with missing phone number fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithMissingPhoneNumber_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithMissingPhoneNumber_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithMissingPhoneNumber_Fails()",
+        "is_async": false,
+        "line": 46,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithMissingPhoneNumber_Fails",
+            "line": 46
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-011",
+      "title": "Validate with malformed phone number fails",
+      "module": "EMPLOYEE",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithMalformedPhoneNumber_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithMalformedPhoneNumber_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(\"abc\")",
+          "InlineData(\"12\")"
+        ],
+        "signature": "public void Validate_WithMalformedPhoneNumber_Fails(string phoneNumber)",
+        "is_async": false,
+        "line": 57,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(\"abc\")",
+          "InlineData(\"12\")"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithMalformedPhoneNumber_Fails",
+            "line": 57
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#Theory x2",
+            "line": 57
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-012",
+      "title": "Validate with malformed email fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::CreateEmployeeCommandValidatorTests.Validate_WithMalformedEmail_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Create",
+        "class": "CreateEmployeeCommandValidatorTests",
+        "method": "Validate_WithMalformedEmail_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithMalformedEmail_Fails()",
+        "is_async": false,
+        "line": 66,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-001",
+            "name": "CreateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-003",
+            "name": "CreateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs::Validate_WithMalformedEmail_Fails",
+            "line": 66
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-013",
+      "title": "Handle with existing employee updates and saves changes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::UpdateEmployeeCommandHandlerTests.Handle_WithExistingEmployee_UpdatesAndSavesChanges",
+      "assertions": [
+        "\"Ravi K.\"",
+        "\"Master Tailor\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandHandlerTests",
+        "method": "Handle_WithExistingEmployee_UpdatesAndSavesChanges",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingEmployee_UpdatesAndSavesChanges()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Update",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::Handle_WithExistingEmployee_UpdatesAndSavesChanges",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-014",
+      "title": "Handle with unknown employee returns not found",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::UpdateEmployeeCommandHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound",
+      "assertions": [
+        "\"Employee.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandHandlerTests",
+        "method": "Handle_WithUnknownEmployee_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownEmployee_ReturnsNotFound()",
+        "is_async": true,
+        "line": 28,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Update",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::Handle_WithUnknownEmployee_ReturnsNotFound",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-015",
+      "title": "Handle with code belonging to another employee returns conflict",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::UpdateEmployeeCommandHandlerTests.Handle_WithCodeBelongingToAnotherEmployee_ReturnsConflict",
+      "assertions": [
+        "\"Employee.DuplicateEmployeeCode\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandHandlerTests",
+        "method": "Handle_WithCodeBelongingToAnotherEmployee_ReturnsConflict",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithCodeBelongingToAnotherEmployee_ReturnsConflict()",
+        "is_async": true,
+        "line": 43,
+        "body_lines": 17,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Update",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::Handle_WithCodeBelongingToAnotherEmployee_ReturnsConflict",
+            "line": 43
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-016",
+      "title": "Handle keeping its own code and phone number is not treated as a duplicate",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::UpdateEmployeeCommandHandlerTests.Handle_KeepingItsOwnCodeAndPhoneNumber_IsNotTreatedAsADuplicate",
+      "assertions": [
+        "\"Ravi K.\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandHandlerTests",
+        "method": "Handle_KeepingItsOwnCodeAndPhoneNumber_IsNotTreatedAsADuplicate",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_KeepingItsOwnCodeAndPhoneNumber_IsNotTreatedAsADuplicate()",
+        "is_async": true,
+        "line": 62,
+        "body_lines": 18,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Commands.Update",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-011",
+            "name": "UpdateEmployeeCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs::Handle_KeepingItsOwnCodeAndPhoneNumber_IsNotTreatedAsADuplicate",
+            "line": 62
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-017",
+      "title": "Validate with valid command passes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::UpdateEmployeeCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 11,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Update"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-018",
+      "title": "Validate with empty ID fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::UpdateEmployeeCommandValidatorTests.Validate_WithEmptyId_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandValidatorTests",
+        "method": "Validate_WithEmptyId_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithEmptyId_Fails()",
+        "is_async": false,
+        "line": 19,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Update"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::Validate_WithEmptyId_Fails",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-019",
+      "title": "Validate with blank full name fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::UpdateEmployeeCommandValidatorTests.Validate_WithBlankFullName_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Commands.Update",
+        "class": "UpdateEmployeeCommandValidatorTests",
+        "method": "Validate_WithBlankFullName_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithBlankFullName_Fails()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Application.Employees.Commands.Update"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-010",
+            "name": "UpdateEmployeeCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-012",
+            "name": "UpdateEmployeeCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs::Validate_WithBlankFullName_Fails",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-020",
+      "title": "Handle with existing employee returns DTO",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-018",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs::GetEmployeeByIdQueryHandlerTests.Handle_WithExistingEmployee_ReturnsDto",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.GetById",
+        "class": "GetEmployeeByIdQueryHandlerTests",
+        "method": "Handle_WithExistingEmployee_ReturnsDto",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingEmployee_ReturnsDto()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Queries.GetById",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-017",
+            "name": "GetEmployeeByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-018",
+            "name": "GetEmployeeByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-018",
+            "name": "GetEmployeeByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs::Handle_WithExistingEmployee_ReturnsDto",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-021",
+      "title": "Handle with unknown employee returns not found",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-018",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs::GetEmployeeByIdQueryHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound",
+      "assertions": [
+        "\"Employee.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.GetById",
+        "class": "GetEmployeeByIdQueryHandlerTests",
+        "method": "Handle_WithUnknownEmployee_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownEmployee_ReturnsNotFound()",
+        "is_async": true,
+        "line": 25,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Queries.GetById",
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-017",
+            "name": "GetEmployeeByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-018",
+            "name": "GetEmployeeByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-018",
+            "name": "GetEmployeeByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs::Handle_WithUnknownEmployee_ReturnsNotFound",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-022",
+      "title": "Handle maps paged employees to dtos",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryHandlerTests.cs::SearchEmployeesQueryHandlerTests.Handle_MapsPagedEmployeesToDtos",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.Search",
+        "class": "SearchEmployeesQueryHandlerTests",
+        "method": "Handle_MapsPagedEmployeesToDtos",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_MapsPagedEmployeesToDtos()",
+        "is_async": true,
+        "line": 12,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees",
+          "MathilensERP.Application.Employees.Queries.Search",
+          "MathilensERP.Domain.Employees",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-016",
+            "name": "IEmployeeRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-024",
+            "name": "SearchEmployeesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-025",
+            "name": "SearchEmployeesQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-025",
+            "name": "SearchEmployeesQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateOnly",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryHandlerTests.cs::Handle_MapsPagedEmployeesToDtos",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-023",
+      "title": "Validate with valid query passes",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::SearchEmployeesQueryValidatorTests.Validate_WithValidQuery_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.Search",
+        "class": "SearchEmployeesQueryValidatorTests",
+        "method": "Validate_WithValidQuery_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidQuery_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-024",
+            "name": "SearchEmployeesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::Validate_WithValidQuery_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-024",
+      "title": "Validate with page below one fails",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::SearchEmployeesQueryValidatorTests.Validate_WithPageBelowOne_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.Search",
+        "class": "SearchEmployeesQueryValidatorTests",
+        "method": "Validate_WithPageBelowOne_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithPageBelowOne_Fails()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-024",
+            "name": "SearchEmployeesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::Validate_WithPageBelowOne_Fails",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-025",
+      "title": "Validate with page size out of bounds fails",
+      "module": "EMPLOYEE",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::SearchEmployeesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Employees.Queries.Search",
+        "class": "SearchEmployeesQueryValidatorTests",
+        "method": "Validate_WithPageSizeOutOfBounds_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "signature": "public void Validate_WithPageSizeOutOfBounds_Fails(int pageSize)",
+        "is_async": false,
+        "line": 29,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Employees.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-024",
+            "name": "SearchEmployeesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-026",
+            "name": "SearchEmployeesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs::Validate_WithPageSizeOutOfBounds_Fails",
+            "line": 29
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs#Theory x2",
+            "line": 29
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-EMPLOYEE-026",
+      "title": "Create with valid inputs sets all fields",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_WithValidInputs_SetsAllFields",
+      "assertions": [
+        "Guid.Empty",
+        "\"EMP-001\"",
+        "\"Ravi Kumar\"",
+        "\"Master Tailor\"",
+        "\"+919876543210\"",
+        "\"ravi@example.com\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_WithValidInputs_SetsAllFields",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithValidInputs_SetsAllFields()",
+        "is_async": false,
+        "line": 8,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_WithValidInputs_SetsAllFields",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-027",
+      "title": "Create with only required fields leaves optional fields null",
+      "module": "EMPLOYEE",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull()",
+        "is_async": false,
+        "line": 23,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-028",
+      "title": "Create with blank full name throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_WithBlankFullName_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_WithBlankFullName_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithBlankFullName_Throws()",
+        "is_async": false,
+        "line": 33,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_WithBlankFullName_Throws",
+            "line": 33
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-029",
+      "title": "Create with blank employee code throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_WithBlankEmployeeCode_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_WithBlankEmployeeCode_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithBlankEmployeeCode_Throws()",
+        "is_async": false,
+        "line": 39,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_WithBlankEmployeeCode_Throws",
+            "line": 39
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-030",
+      "title": "Create with blank phone number throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_WithBlankPhoneNumber_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_WithBlankPhoneNumber_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithBlankPhoneNumber_Throws()",
+        "is_async": false,
+        "line": 45,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_WithBlankPhoneNumber_Throws",
+            "line": 45
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-031",
+      "title": "Create trims the fields compared for uniqueness",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Create_TrimsTheFieldsComparedForUniqueness",
+      "assertions": [
+        "\"EMP-001\"",
+        "\"+919876543210\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Create_TrimsTheFieldsComparedForUniqueness",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_TrimsTheFieldsComparedForUniqueness()",
+        "is_async": false,
+        "line": 51,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Create_TrimsTheFieldsComparedForUniqueness",
+            "line": 51
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-032",
+      "title": "Update details replaces all fields",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.UpdateDetails_ReplacesAllFields",
+      "assertions": [
+        "\"EMP-002\"",
+        "\"Ravi K.\"",
+        "\"Master Tailor\"",
+        "\"+919000000000\"",
+        "\"ravi.k@example.com\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "UpdateDetails_ReplacesAllFields",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void UpdateDetails_ReplacesAllFields()",
+        "is_async": false,
+        "line": 62,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::UpdateDetails_ReplacesAllFields",
+            "line": 62
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-033",
+      "title": "Update details with blank full name throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.UpdateDetails_WithBlankFullName_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "UpdateDetails_WithBlankFullName_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void UpdateDetails_WithBlankFullName_Throws()",
+        "is_async": false,
+        "line": 76,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::UpdateDetails_WithBlankFullName_Throws",
+            "line": 76
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-034",
+      "title": "Update details with blank phone number throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.UpdateDetails_WithBlankPhoneNumber_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "UpdateDetails_WithBlankPhoneNumber_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void UpdateDetails_WithBlankPhoneNumber_Throws()",
+        "is_async": false,
+        "line": 84,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::UpdateDetails_WithBlankPhoneNumber_Throws",
+            "line": 84
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-035",
+      "title": "Retire records the last working date without deleting them",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Retire_RecordsTheLastWorkingDateWithoutDeletingThem",
+      "assertions": [
+        "\"EMP-001\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Retire_RecordsTheLastWorkingDateWithoutDeletingThem",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Retire_RecordsTheLastWorkingDateWithoutDeletingThem()",
+        "is_async": false,
+        "line": 92,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Retire_RecordsTheLastWorkingDateWithoutDeletingThem",
+            "line": 92
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-036",
+      "title": "Is active on is true up to and including the last working day",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.IsActiveOn_IsTrueUpToAndIncludingTheLastWorkingDay",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "IsActiveOn_IsTrueUpToAndIncludingTheLastWorkingDay",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void IsActiveOn_IsTrueUpToAndIncludingTheLastWorkingDay()",
+        "is_async": false,
+        "line": 105,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::IsActiveOn_IsTrueUpToAndIncludingTheLastWorkingDay",
+            "line": 105
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-037",
+      "title": "Is active on is true forever while nobody has retired them",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.IsActiveOn_IsTrueForeverWhileNobodyHasRetiredThem",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "IsActiveOn_IsTrueForeverWhileNobodyHasRetiredThem",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void IsActiveOn_IsTrueForeverWhileNobodyHasRetiredThem()",
+        "is_async": false,
+        "line": 117,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::IsActiveOn_IsTrueForeverWhileNobodyHasRetiredThem",
+            "line": 117
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-038",
+      "title": "Retire before the joining date throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.Retire_BeforeTheJoiningDate_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "Retire_BeforeTheJoiningDate_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Retire_BeforeTheJoiningDate_Throws()",
+        "is_async": false,
+        "line": 125,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::Retire_BeforeTheJoiningDate_Throws",
+            "line": 125
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-039",
+      "title": "Return to work clears the retirement",
+      "module": "EMPLOYEE",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.ReturnToWork_ClearsTheRetirement",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "ReturnToWork_ClearsTheRetirement",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void ReturnToWork_ClearsTheRetirement()",
+        "is_async": false,
+        "line": 134,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::ReturnToWork_ClearsTheRetirement",
+            "line": 134
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-EMPLOYEE-040",
+      "title": "Update details with a joining date after the last working date throws",
+      "module": "EMPLOYEE",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-EMPLOYEE-027",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::EmployeeTests.UpdateDetails_WithAJoiningDateAfterTheLastWorkingDate_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Employees/EmployeeTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Employees",
+        "class": "EmployeeTests",
+        "method": "UpdateDetails_WithAJoiningDateAfterTheLastWorkingDate_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void UpdateDetails_WithAJoiningDateAfterTheLastWorkingDate_Throws()",
+        "is_async": false,
+        "line": 146,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Employees"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-EMPLOYEE-027",
+            "name": "Employee",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "DateOnly"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Employees/EmployeeTests.cs::UpdateDetails_WithAJoiningDateAfterTheLastWorkingDate_Throws",
+            "line": 146
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-007",
+      "title": "Front desk cannot read the employee list",
+      "module": "EMPLOYEE",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::PermissionEnforcementTests.FrontDesk_CannotReadTheEmployeeList",
+      "assertions": [
+        "HttpStatusCode.Forbidden"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Authorization",
+        "class": "PermissionEnforcementTests",
+        "method": "FrontDesk_CannotReadTheEmployeeList",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task FrontDesk_CannotReadTheEmployeeList()",
+        "is_async": true,
+        "line": 57,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add role-based user rights and the user administration screen",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::FrontDesk_CannotReadTheEmployeeList",
+            "line": 57
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+            "line": 57
+          }
+        ]
+      },
+      "last_verified_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-008",
+      "title": "Manager can reach operational screens",
+      "module": "EMPLOYEE",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::PermissionEnforcementTests.Manager_CanReachOperationalScreens",
+      "assertions": [
+        "HttpStatusCode.Forbidden"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Authorization",
+        "class": "PermissionEnforcementTests",
+        "method": "Manager_CanReachOperationalScreens",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Manager_CanReachOperationalScreens()",
+        "is_async": true,
+        "line": 65,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add role-based user rights and the user administration screen",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::Manager_CanReachOperationalScreens",
+            "line": 65
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+            "line": 65
+          }
+        ]
+      },
+      "last_verified_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-025",
+      "title": "Create without bearer token returns unauthorized",
+      "module": "EMPLOYEE",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::EmployeesEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Employees",
+        "class": "EmployeesEndpointsTests",
+        "method": "Create_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 18,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::Create_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-026",
+      "title": "Create with blank full name returns validation error envelope",
+      "module": "EMPLOYEE",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::EmployeesEndpointsTests.Create_WithBlankFullName_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Employees",
+        "class": "EmployeesEndpointsTests",
+        "method": "Create_WithBlankFullName_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithBlankFullName_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::Create_WithBlankFullName_ReturnsValidationErrorEnvelope",
+            "line": 26
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-027",
+      "title": "Create with malformed email returns validation error envelope",
+      "module": "EMPLOYEE",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::EmployeesEndpointsTests.Create_WithMalformedEmail_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Employees",
+        "class": "EmployeesEndpointsTests",
+        "method": "Create_WithMalformedEmail_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithMalformedEmail_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 38,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::Create_WithMalformedEmail_ReturnsValidationErrorEnvelope",
+            "line": 38
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-028",
+      "title": "Get by ID without bearer token returns unauthorized",
+      "module": "EMPLOYEE",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::EmployeesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Employees",
+        "class": "EmployeesEndpointsTests",
+        "method": "GetById_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetById_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 50,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees/{Guid.NewGuid()}",
+            "normalized": "/api/v1/employees/{param}",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::GetById_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 50
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees/{Guid.NewGuid()}",
+            "detail": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+            "line": 50
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-029",
+      "title": "Search with page below one returns validation error envelope",
+      "module": "EMPLOYEE",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::EmployeesEndpointsTests.Search_WithPageBelowOne_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Employees",
+        "class": "EmployeesEndpointsTests",
+        "method": "Search_WithPageBelowOne_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Search_WithPageBelowOne_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 58,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/employees",
+            "normalized": "/api/v1/employees",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-061"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-061",
+            "name": "EmployeesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs::Search_WithPageBelowOne_ReturnsValidationErrorEnvelope",
+            "line": 58
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/employees",
+            "detail": "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs",
+            "line": 58
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

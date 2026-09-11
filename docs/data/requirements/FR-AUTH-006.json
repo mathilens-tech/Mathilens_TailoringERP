@@ -1,0 +1,75 @@
+{
+  "id": "FR-AUTH-006",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Validation Rules — TokenHash is required and unique — only the hash is ever persisted,…",
+  "module": "AUTH",
+  "description": "Validation Rules — TokenHash is required and unique — only the hash is ever persisted, never the raw token; ExpiresAtUtc must be after the token's issued time",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "security",
+  "requirement_type_evidence": "clause uses \"TokenHash\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 10.14",
+    "section_title": "RefreshTokens",
+    "parent_section": "§ 10",
+    "parent_section_title": "Required Entities",
+    "quote": "Validation Rules — TokenHash is required and unique — only the hash is ever persisted, never the raw token; ExpiresAtUtc must be after the token's issued time",
+    "line": 384,
+    "line_start": 384,
+    "line_end": 384,
+    "form": "table-row"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-USER-010",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.14 at line 339"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 1,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 10.14",
+        "detail": "docs/02_DATABASE.md",
+        "line": 384
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

@@ -1,0 +1,161 @@
+{
+  "id": "FEAT-MEASUREMENT-002",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Measurement Capture",
+  "module": "MEASUREMENT",
+  "simple_explanation": "Measurement Capture — derived from the ByCustomer, UpdateValues use cases in src/Application/Measurement. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Measurements/Commands/UpdateValues",
+      "src/Application/Measurements/Queries/ByCustomer"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommand.cs",
+        "contains": "UpdateMeasurementValuesCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+        "contains": "UpdateMeasurementValuesCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs",
+        "contains": "UpdateMeasurementValuesCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "7 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 5,
+    "test_count": 6,
+    "requirement_count": 2,
+    "rule_count": 11,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Measurement Capture",
+    "use_cases": [
+      "ByCustomer",
+      "UpdateValues"
+    ],
+    "api_routes": [
+      {
+        "method": "PUT",
+        "route": "/api/v1/measurements/{id:guid}",
+        "policy": "Permissions.MeasurementsEdit",
+        "controller": "MeasurementsController",
+        "action": "UpdateValues"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/measurements/[id]/history"
+    ],
+    "permissions": [
+      "Permissions.MeasurementsEdit"
+    ],
+    "derived_components": [
+      "COMP-MEASUREMENT-004",
+      "COMP-MEASUREMENT-005",
+      "COMP-MEASUREMENT-006",
+      "COMP-MEASUREMENT-012",
+      "COMP-MEASUREMENT-013",
+      "COMP-MEASUREMENT-032",
+      "COMP-MEASUREMENT-033"
+    ],
+    "derived_test_cases": [
+      "TC-MEASUREMENT-001",
+      "TC-MEASUREMENT-011",
+      "TC-MEASUREMENT-012",
+      "TC-MEASUREMENT-013",
+      "TC-MEASUREMENT-014",
+      "TC-MEASUREMENT-015",
+      "TC-MEASUREMENT-016",
+      "TC-MEASUREMENT-017",
+      "TC-MEASUREMENT-019",
+      "TC-MEASUREMENT-036",
+      "TC-MEASUREMENT-037",
+      "TC-MEASUREMENT-038",
+      "TC-MEASUREMENT-039",
+      "TC-MEASUREMENT-040",
+      "TC-MEASUREMENT-041",
+      "TC-MEASUREMENT-042",
+      "TC-MEASUREMENT-043"
+    ],
+    "derived_rules": [
+      "BR-MEASUREMENT-004",
+      "BR-MEASUREMENT-005",
+      "BR-MEASUREMENT-013",
+      "BR-MEASUREMENT-014",
+      "BR-MEASUREMENT-015",
+      "BR-MEASUREMENT-016",
+      "BR-MEASUREMENT-017",
+      "BR-MEASUREMENT-018",
+      "BR-MEASUREMENT-019",
+      "BR-MEASUREMENT-020",
+      "BR-MEASUREMENT-021"
+    ],
+    "derived_requirements": [
+      "FR-MEASUREMENT-001",
+      "FR-MEASUREMENT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "last_commit_date": "2026-08-20"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "PUT /api/v1/measurements/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Measurements/Commands/UpdateValues",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Measurements/Queries/ByCustomer",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "PUT /api/v1/measurements/{id:guid}",
+        "detail": "src/Api/Controllers/V1/MeasurementsController.cs",
+        "line": 74
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+  "change_history": []
+}

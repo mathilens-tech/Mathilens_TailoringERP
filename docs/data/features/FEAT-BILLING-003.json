@@ -1,0 +1,219 @@
+{
+  "id": "FEAT-BILLING-003",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Invoice Management",
+  "module": "BILLING",
+  "simple_explanation": "Invoice Management — derived from the Create, GetById, Search use cases in src/Application/Billing. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Billing/Commands/Create",
+      "src/Application/Billing/Queries/GetById",
+      "src/Application/Billing/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommand.cs",
+        "contains": "CreateInvoiceCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs",
+        "contains": "CreateInvoiceCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs",
+        "contains": "CreateInvoiceCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "9 component(s) and 5 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 8,
+    "test_count": 17,
+    "requirement_count": 5,
+    "rule_count": 10,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "GetById",
+      "Search"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/invoices",
+        "policy": "Permissions.InvoicesCreate",
+        "controller": "InvoicesController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/invoices",
+        "policy": "Permissions.InvoicesView",
+        "controller": "InvoicesController",
+        "action": "Search"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/invoices/{id:guid}",
+        "policy": "Permissions.InvoicesView",
+        "controller": "InvoicesController",
+        "action": "GetById"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/invoices",
+      "/dashboard/invoices/[id]",
+      "/invoice/view/[token]"
+    ],
+    "permissions": [
+      "Permissions.InvoicesCreate",
+      "Permissions.InvoicesView"
+    ],
+    "derived_components": [
+      "COMP-BILLING-001",
+      "COMP-BILLING-002",
+      "COMP-BILLING-003",
+      "COMP-BILLING-016",
+      "COMP-BILLING-017",
+      "COMP-BILLING-023",
+      "COMP-BILLING-024",
+      "COMP-BILLING-025",
+      "COMP-BILLING-026"
+    ],
+    "derived_test_cases": [
+      "TC-BILLING-001",
+      "TC-BILLING-002",
+      "TC-BILLING-003",
+      "TC-BILLING-004",
+      "TC-BILLING-005",
+      "TC-BILLING-006",
+      "TC-BILLING-007",
+      "TC-BILLING-008",
+      "TC-BILLING-009",
+      "TC-BILLING-011",
+      "TC-BILLING-014",
+      "TC-BILLING-015",
+      "TC-BILLING-017",
+      "TC-BILLING-018",
+      "TC-BILLING-019",
+      "TC-BILLING-020",
+      "TC-BILLING-021",
+      "TC-BILLING-022",
+      "TC-BILLING-023",
+      "TC-BILLING-024",
+      "TC-BILLING-025",
+      "TC-BILLING-026",
+      "TC-BILLING-027",
+      "TC-BILLING-028",
+      "TC-BILLING-029",
+      "TC-BILLING-030",
+      "TC-BILLING-031",
+      "TC-BILLING-032",
+      "TC-BILLING-033",
+      "TC-BILLING-034",
+      "TC-BILLING-035",
+      "TC-BILLING-036",
+      "TC-BILLING-037"
+    ],
+    "derived_rules": [
+      "BR-BILLING-001",
+      "BR-BILLING-002",
+      "BR-BILLING-003",
+      "BR-BILLING-008",
+      "BR-BILLING-009",
+      "BR-BILLING-010",
+      "BR-BILLING-011",
+      "BR-BILLING-012",
+      "BR-BILLING-013",
+      "BR-BILLING-014"
+    ],
+    "derived_requirements": [
+      "FR-BILLING-001",
+      "FR-BILLING-002",
+      "FR-BILLING-003",
+      "FR-BILLING-004",
+      "FR-BILLING-005"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "last_commit_date": "2026-08-14"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/invoices",
+    "GET /api/v1/invoices/{id:guid}",
+    "POST /api/v1/invoices"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Queries/Search",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/invoices",
+        "detail": "src/Api/Controllers/V1/InvoicesController.cs",
+        "line": 40
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/invoices",
+        "detail": "src/Api/Controllers/V1/InvoicesController.cs",
+        "line": 64
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/invoices/{id:guid}",
+        "detail": "src/Api/Controllers/V1/InvoicesController.cs",
+        "line": 50
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+  "change_history": []
+}

@@ -1,0 +1,259 @@
+{
+  "id": "FEAT-EMPLOYEE-004",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Employee Management",
+  "module": "EMPLOYEE",
+  "simple_explanation": "Employee Management — derived from the Create, GetById, ListAll, Search, Update use cases in src/Application/Employee. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Employees/Commands/Create",
+      "src/Application/Employees/Commands/Update",
+      "src/Application/Employees/Queries/GetById",
+      "src/Application/Employees/Queries/ListAll",
+      "src/Application/Employees/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommand.cs",
+        "contains": "CreateEmployeeCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs",
+        "contains": "CreateEmployeeCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+        "contains": "CreateEmployeeCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "15 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 13,
+    "test_count": 25,
+    "requirement_count": 1,
+    "rule_count": 21,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "GetById",
+      "ListAll",
+      "Search",
+      "Update"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/employees",
+        "policy": "Permissions.EmployeesCreate",
+        "controller": "EmployeesController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/employees",
+        "policy": "Permissions.EmployeesView",
+        "controller": "EmployeesController",
+        "action": "Search"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/employees/{id:guid}",
+        "policy": "Permissions.EmployeesView",
+        "controller": "EmployeesController",
+        "action": "GetById"
+      },
+      {
+        "method": "PUT",
+        "route": "/api/v1/employees/{id:guid}",
+        "policy": "Permissions.EmployeesEdit",
+        "controller": "EmployeesController",
+        "action": "Update"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/employee/[id]",
+      "/dashboard/employees",
+      "/dashboard/employees/[id]",
+      "/dashboard/employees/new"
+    ],
+    "permissions": [
+      "Permissions.EmployeesCreate",
+      "Permissions.EmployeesEdit",
+      "Permissions.EmployeesView"
+    ],
+    "derived_components": [
+      "COMP-EMPLOYEE-001",
+      "COMP-EMPLOYEE-002",
+      "COMP-EMPLOYEE-003",
+      "COMP-EMPLOYEE-010",
+      "COMP-EMPLOYEE-011",
+      "COMP-EMPLOYEE-012",
+      "COMP-EMPLOYEE-017",
+      "COMP-EMPLOYEE-018",
+      "COMP-EMPLOYEE-019",
+      "COMP-EMPLOYEE-020",
+      "COMP-EMPLOYEE-024",
+      "COMP-EMPLOYEE-025",
+      "COMP-EMPLOYEE-026",
+      "COMP-EMPLOYEE-027",
+      "COMP-EMPLOYEE-028"
+    ],
+    "derived_test_cases": [
+      "TC-EMPLOYEE-001",
+      "TC-EMPLOYEE-002",
+      "TC-EMPLOYEE-003",
+      "TC-EMPLOYEE-004",
+      "TC-EMPLOYEE-005",
+      "TC-EMPLOYEE-006",
+      "TC-EMPLOYEE-007",
+      "TC-EMPLOYEE-008",
+      "TC-EMPLOYEE-009",
+      "TC-EMPLOYEE-010",
+      "TC-EMPLOYEE-011",
+      "TC-EMPLOYEE-012",
+      "TC-EMPLOYEE-013",
+      "TC-EMPLOYEE-014",
+      "TC-EMPLOYEE-015",
+      "TC-EMPLOYEE-016",
+      "TC-EMPLOYEE-017",
+      "TC-EMPLOYEE-018",
+      "TC-EMPLOYEE-019",
+      "TC-EMPLOYEE-020",
+      "TC-EMPLOYEE-021",
+      "TC-EMPLOYEE-022",
+      "TC-EMPLOYEE-023",
+      "TC-EMPLOYEE-024",
+      "TC-EMPLOYEE-025",
+      "TC-EMPLOYEE-026",
+      "TC-EMPLOYEE-027",
+      "TC-EMPLOYEE-028",
+      "TC-EMPLOYEE-029",
+      "TC-EMPLOYEE-030",
+      "TC-EMPLOYEE-031",
+      "TC-EMPLOYEE-032",
+      "TC-EMPLOYEE-033",
+      "TC-EMPLOYEE-034",
+      "TC-EMPLOYEE-035",
+      "TC-EMPLOYEE-036",
+      "TC-EMPLOYEE-037",
+      "TC-EMPLOYEE-038",
+      "TC-EMPLOYEE-039",
+      "TC-EMPLOYEE-040",
+      "TC-ORDER-004"
+    ],
+    "derived_rules": [
+      "BR-EMPLOYEE-001",
+      "BR-EMPLOYEE-002",
+      "BR-EMPLOYEE-003",
+      "BR-EMPLOYEE-004",
+      "BR-EMPLOYEE-005",
+      "BR-EMPLOYEE-006",
+      "BR-EMPLOYEE-007",
+      "BR-EMPLOYEE-009",
+      "BR-EMPLOYEE-010",
+      "BR-EMPLOYEE-011",
+      "BR-EMPLOYEE-012",
+      "BR-EMPLOYEE-013",
+      "BR-EMPLOYEE-014",
+      "BR-EMPLOYEE-015",
+      "BR-EMPLOYEE-016",
+      "BR-EMPLOYEE-017",
+      "BR-EMPLOYEE-018",
+      "BR-EMPLOYEE-019",
+      "BR-EMPLOYEE-020",
+      "BR-EMPLOYEE-021",
+      "BR-EMPLOYEE-022"
+    ],
+    "derived_requirements": [
+      "FR-EMPLOYEE-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "last_commit_date": "2026-08-19"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/employees",
+    "GET /api/v1/employees/{id:guid}",
+    "POST /api/v1/employees",
+    "PUT /api/v1/employees/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Commands/Update",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Queries/ListAll",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/employees",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 114
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/employees",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 137
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/employees/{id:guid}",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 127
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+  "change_history": []
+}

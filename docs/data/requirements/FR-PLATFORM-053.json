@@ -1,0 +1,123 @@
+{
+  "id": "FR-PLATFORM-053",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Custom domain exceptions, where used, are specific and meaningful — never a generic…",
+  "module": "PLATFORM",
+  "description": "Custom domain exceptions, where used, are specific and meaningful — never a generic exception thrown with only a string message.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "notification",
+  "requirement_type_evidence": "clause uses \"message\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 13",
+    "section_title": "Exception Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Custom domain exceptions, where used, are specific and meaningful — never a generic exception thrown with only a string message.",
+    "line": 244,
+    "line_start": 244,
+    "line_end": 244,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-ORDER-024",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 10"
+    },
+    {
+      "component": "COMP-PLATFORM-014",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 10"
+    },
+    {
+      "component": "COMP-PLATFORM-159",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 6"
+    },
+    {
+      "component": "COMP-PLATFORM-287",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 6"
+    },
+    {
+      "component": "COMP-PLATFORM-293",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 6"
+    },
+    {
+      "component": "COMP-WHATSAPP-017",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 72"
+    },
+    {
+      "component": "COMP-WHATSAPP-018",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 72"
+    },
+    {
+      "component": "COMP-WHATSAPP-019",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 72"
+    },
+    {
+      "component": "COMP-WHATSAPP-020",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 13 at line 72"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 9,
+    "test_count": 28,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 13",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 244
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

@@ -1,0 +1,5471 @@
+{
+  "schema_version": "1.0.0",
+  "prefix": "COMP",
+  "next": {
+    "ACTIVITY": 17,
+    "AUTH": 20,
+    "BILLING": 39,
+    "CUSTOMER": 46,
+    "EMPLOYEE": 35,
+    "INVENTORY": 19,
+    "MEASUREMENT": 41,
+    "OCCASION": 8,
+    "ORDER": 62,
+    "PLATFORM": 293,
+    "PRICING": 24,
+    "REPORT": 27,
+    "SETTING": 30,
+    "TOOLING": 5,
+    "USER": 24,
+    "WEB": 60,
+    "WHATSAPP": 28
+  },
+  "entries": {
+    "src/Api/Common/ApiControllerBase.cs#ApiControllerBase": {
+      "id": "COMP-PLATFORM-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Authorization/PermissionRequirement.cs#PermissionAuthorizationHandler": {
+      "id": "COMP-PLATFORM-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Authorization/PermissionRequirement.cs#PermissionRequirement": {
+      "id": "COMP-PLATFORM-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ExcelRow.cs#ExcelRow": {
+      "id": "COMP-PLATFORM-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ExcelSheet.cs#ExcelSheet": {
+      "id": "COMP-PLATFORM-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ImportLimits.cs#ImportLimits": {
+      "id": "COMP-PLATFORM-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/SheetColumns.cs#ClothPriceSheet": {
+      "id": "COMP-PLATFORM-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/SheetColumns.cs#CustomerSheet": {
+      "id": "COMP-PLATFORM-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/SheetColumns.cs#EmployeeSheet": {
+      "id": "COMP-PLATFORM-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Export/EmbeddedFontResolver.cs#EmbeddedFontResolver": {
+      "id": "COMP-PLATFORM-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Export/ExportFormat.cs#ExportFormat": {
+      "id": "COMP-PLATFORM-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Export/ExportResultFactory.cs#ExportResultFactory": {
+      "id": "COMP-PLATFORM-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Export/PdfTable.cs#PdfTable": {
+      "id": "COMP-PLATFORM-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/GlobalExceptionHandler.cs#GlobalExceptionHandler": {
+      "id": "COMP-PLATFORM-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Auth/LoginRequest.cs#LoginRequest": {
+      "id": "COMP-PLATFORM-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Auth/RedeemResetCodeRequest.cs#RedeemResetCodeRequest": {
+      "id": "COMP-PLATFORM-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Auth/RefreshTokenRequest.cs#RefreshTokenRequest": {
+      "id": "COMP-PLATFORM-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Auth/RegisterRequest.cs#RegisterRequest": {
+      "id": "COMP-PLATFORM-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Billing/CreateInvoiceRequest.cs#CreateInvoiceRequest": {
+      "id": "COMP-PLATFORM-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Billing/RecordPaymentRequest.cs#RecordPaymentRequest": {
+      "id": "COMP-PLATFORM-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/ApiErrorResponse.cs#ApiError": {
+      "id": "COMP-PLATFORM-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/ApiErrorResponse.cs#ApiErrorResponse": {
+      "id": "COMP-PLATFORM-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/ApiErrorResponse.cs#ApiFieldError": {
+      "id": "COMP-PLATFORM-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/ApiResponse.cs#ApiResponse": {
+      "id": "COMP-PLATFORM-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/ApiResponse.cs#ApiResponse`1": {
+      "id": "COMP-PLATFORM-284",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Common/PaginationMeta.cs#PaginationMeta": {
+      "id": "COMP-PLATFORM-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Customers/CreateCustomerRequest.cs#CreateCustomerRequest": {
+      "id": "COMP-PLATFORM-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Customers/UpdateCustomerRequest.cs#UpdateCustomerRequest": {
+      "id": "COMP-PLATFORM-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Employees/CreateEmployeeRequest.cs#CreateEmployeeRequest": {
+      "id": "COMP-PLATFORM-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Employees/RetireEmployeeRequest.cs#RetireEmployeeRequest": {
+      "id": "COMP-PLATFORM-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Employees/UpdateEmployeeRequest.cs#UpdateEmployeeRequest": {
+      "id": "COMP-PLATFORM-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Inventory/ReceiveClothRequest.cs#ReceiveClothRequest": {
+      "id": "COMP-PLATFORM-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Measurements/CreateMeasurementRequest.cs#CreateMeasurementRequest": {
+      "id": "COMP-PLATFORM-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Measurements/SetMeasurementTemplateRequest.cs#SetMeasurementTemplateRequest": {
+      "id": "COMP-PLATFORM-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Measurements/UpdateMeasurementValuesRequest.cs#UpdateMeasurementValuesRequest": {
+      "id": "COMP-PLATFORM-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Occasions/RecordOccasionContactRequest.cs#RecordOccasionContactRequest": {
+      "id": "COMP-PLATFORM-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/AddOrderItemRequest.cs#AddOrderItemRequest": {
+      "id": "COMP-PLATFORM-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/AssignOrderEmployeeRequest.cs#AssignOrderEmployeeRequest": {
+      "id": "COMP-PLATFORM-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/CreateOrderRequest.cs#CreateOrderItemFabricRequest": {
+      "id": "COMP-PLATFORM-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/CreateOrderRequest.cs#CreateOrderItemRequest": {
+      "id": "COMP-PLATFORM-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/CreateOrderRequest.cs#CreateOrderRequest": {
+      "id": "COMP-PLATFORM-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/SetOrderItemFabricRequest.cs#SetOrderItemFabricRequest": {
+      "id": "COMP-PLATFORM-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/TransitionOrderStatusRequest.cs#TransitionOrderStatusRequest": {
+      "id": "COMP-PLATFORM-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/UpdateOrderItemRequest.cs#UpdateOrderItemRequest": {
+      "id": "COMP-PLATFORM-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Orders/UpdateOrderRequest.cs#UpdateOrderRequest": {
+      "id": "COMP-PLATFORM-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Pricing/CreateClothPriceRequest.cs#CreateClothPriceRequest": {
+      "id": "COMP-PLATFORM-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Pricing/UpdateClothPriceRequest.cs#UpdateClothPriceRequest": {
+      "id": "COMP-PLATFORM-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Settings/UpsertSettingRequest.cs#UpsertSettingRequest": {
+      "id": "COMP-PLATFORM-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/CurrentUserResponse.cs#CurrentUserResponse": {
+      "id": "COMP-PLATFORM-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#ChangeOwnPasswordRequest": {
+      "id": "COMP-PLATFORM-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#CreateUserRequest": {
+      "id": "COMP-PLATFORM-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#SaveRoleRequest": {
+      "id": "COMP-PLATFORM-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#SetRolePermissionsRequest": {
+      "id": "COMP-PLATFORM-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#SetUserRoleRequest": {
+      "id": "COMP-PLATFORM-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/Users/UserAdminRequests.cs#UpdateUserRequest": {
+      "id": "COMP-PLATFORM-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/WhatsApp/RecordWhatsAppShareRequest.cs#RecordWhatsAppShareRequest": {
+      "id": "COMP-PLATFORM-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Contracts/WhatsApp/SendWhatsAppMessageRequest.cs#SendWhatsAppMessageRequest": {
+      "id": "COMP-PLATFORM-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/ActivityLogsController.cs#ActivityLogsController": {
+      "id": "COMP-PLATFORM-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/AuthController.cs#AuthController": {
+      "id": "COMP-PLATFORM-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/ClothPricesController.cs#ClothPricesController": {
+      "id": "COMP-PLATFORM-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/CustomersController.cs#CustomersController": {
+      "id": "COMP-PLATFORM-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/EmployeesController.cs#EmployeesController": {
+      "id": "COMP-PLATFORM-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/InventoryController.cs#InventoryController": {
+      "id": "COMP-PLATFORM-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/InvoicesController.cs#InvoicesController": {
+      "id": "COMP-PLATFORM-063",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/MeasurementsController.cs#MeasurementsController": {
+      "id": "COMP-PLATFORM-064",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/OccasionsController.cs#OccasionsController": {
+      "id": "COMP-PLATFORM-065",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/OrdersController.cs#OrdersController": {
+      "id": "COMP-PLATFORM-066",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/PublicInvoicesController.cs#PublicInvoicesController": {
+      "id": "COMP-PLATFORM-067",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/ReportsController.cs#ReportsController": {
+      "id": "COMP-PLATFORM-068",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/SettingsController.cs#SettingsController": {
+      "id": "COMP-PLATFORM-069",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/UsersController.cs#UsersController": {
+      "id": "COMP-PLATFORM-070",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Controllers/V1/WhatsAppMessagesController.cs#WhatsAppMessagesController": {
+      "id": "COMP-PLATFORM-071",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Program.cs#Program": {
+      "id": "COMP-PLATFORM-072",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityDescriptionBuilder.cs#ActivityDescriptionBuilder": {
+      "id": "COMP-ACTIVITY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityDescriptor.cs#ActivityDescriptor": {
+      "id": "COMP-ACTIVITY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityLogDtos.cs#ActivityChangeDto": {
+      "id": "COMP-ACTIVITY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityLogDtos.cs#ActivityLogDto": {
+      "id": "COMP-ACTIVITY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityLogDtos.cs#ActivityLogFiltersDto": {
+      "id": "COMP-ACTIVITY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityLogDtos.cs#ActivityLogUserDto": {
+      "id": "COMP-ACTIVITY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/ActivityValues.cs#ActivityValues": {
+      "id": "COMP-ACTIVITY-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/EntityChange.cs#EntityChange": {
+      "id": "COMP-ACTIVITY-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/EntityChange.cs#IEntityChangeCollector": {
+      "id": "COMP-ACTIVITY-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/IActivityLogRepository.cs#IActivityLogRepository": {
+      "id": "COMP-ACTIVITY-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQuery.cs#GetActivityLogFiltersQuery": {
+      "id": "COMP-ACTIVITY-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs#GetActivityLogFiltersQueryHandler": {
+      "id": "COMP-ACTIVITY-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQuery.cs#SearchActivityLogsQuery": {
+      "id": "COMP-ACTIVITY-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs#SearchActivityLogsQueryHandler": {
+      "id": "COMP-ACTIVITY-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#SearchActivityLogsQueryValidator": {
+      "id": "COMP-ACTIVITY-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/ChangePassword/ChangePasswordCommand.cs#ChangePasswordCommand": {
+      "id": "COMP-AUTH-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/ChangePassword/ChangePasswordCommandHandler.cs#ChangePasswordCommandHandler": {
+      "id": "COMP-AUTH-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Login/LoginCommand.cs#LoginCommand": {
+      "id": "COMP-AUTH-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Login/LoginCommandHandler.cs#LoginCommandHandler": {
+      "id": "COMP-AUTH-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Login/LoginCommandValidator.cs#LoginCommandValidator": {
+      "id": "COMP-AUTH-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RedeemResetCode/RedeemResetCodeCommand.cs#RedeemResetCodeCommand": {
+      "id": "COMP-AUTH-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RedeemResetCode/RedeemResetCodeCommandHandler.cs#RedeemResetCodeCommandHandler": {
+      "id": "COMP-AUTH-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommand.cs#RefreshAccessTokenCommand": {
+      "id": "COMP-AUTH-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandHandler.cs#RefreshAccessTokenCommandHandler": {
+      "id": "COMP-AUTH-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidator.cs#RefreshAccessTokenCommandValidator": {
+      "id": "COMP-AUTH-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Register/RegisterCommand.cs#RegisterCommand": {
+      "id": "COMP-AUTH-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Register/RegisterCommandHandler.cs#RegisterCommandHandler": {
+      "id": "COMP-AUTH-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Register/RegisterCommandValidator.cs#RegisterCommandValidator": {
+      "id": "COMP-AUTH-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Authorization/RolePermissionDtos.cs#RolePermissionMatrixDto": {
+      "id": "COMP-USER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Authorization/RolePermissionDtos.cs#RolePermissionsDto": {
+      "id": "COMP-USER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Authorization/RolePermissionDtos.cs#ScreenPermissionDto": {
+      "id": "COMP-USER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Authorization/RolePermissionDtos.cs#ScreenPermissionsDto": {
+      "id": "COMP-USER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Authorization/RolePermissionService.cs#RolePermissionService": {
+      "id": "COMP-USER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommand.cs#CreateInvoiceCommand": {
+      "id": "COMP-BILLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs#CreateInvoiceCommandHandler": {
+      "id": "COMP-BILLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#CreateInvoiceCommandValidator": {
+      "id": "COMP-BILLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommand.cs#RecordPaymentCommand": {
+      "id": "COMP-BILLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs#RecordPaymentCommandHandler": {
+      "id": "COMP-BILLING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#RecordPaymentCommandValidator": {
+      "id": "COMP-BILLING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Void/VoidInvoiceCommand.cs#VoidInvoiceCommand": {
+      "id": "COMP-BILLING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs#VoidInvoiceCommandHandler": {
+      "id": "COMP-BILLING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs#VoidInvoiceCommandValidator": {
+      "id": "COMP-BILLING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/IInvoiceRepository.cs#IInvoiceRepository": {
+      "id": "COMP-BILLING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/InvoiceDto.cs#InvoiceDto": {
+      "id": "COMP-BILLING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/InvoiceDto.cs#PaymentDto": {
+      "id": "COMP-BILLING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/InvoiceMapper.cs#InvoiceMapper": {
+      "id": "COMP-BILLING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/PublicInvoiceDto.cs#PublicInvoiceDto": {
+      "id": "COMP-BILLING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/PublicInvoiceDto.cs#PublicInvoiceItemDto": {
+      "id": "COMP-BILLING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetById/GetInvoiceByIdQuery.cs#GetInvoiceByIdQuery": {
+      "id": "COMP-BILLING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs#GetInvoiceByIdQueryHandler": {
+      "id": "COMP-BILLING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQuery.cs#GetPublicInvoiceQuery": {
+      "id": "COMP-BILLING-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs#GetPublicInvoiceQueryHandler": {
+      "id": "COMP-BILLING-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#GetInvoiceShareTokenQuery": {
+      "id": "COMP-BILLING-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#GetInvoiceShareTokenQueryHandler": {
+      "id": "COMP-BILLING-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#InvoiceShareTokenDto": {
+      "id": "COMP-BILLING-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQuery.cs#SearchInvoicesQuery": {
+      "id": "COMP-BILLING-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryHandler.cs#SearchInvoicesQueryHandler": {
+      "id": "COMP-BILLING-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator": {
+      "id": "COMP-BILLING-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Behaviors/ActivityLogBehavior.cs#ActivityLogBehavior": {
+      "id": "COMP-PLATFORM-073",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Behaviors/ActivityLogBehavior.cs#ActivityLogBehavior`2": {
+      "id": "COMP-PLATFORM-285",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Behaviors/ValidationBehavior.cs#ValidationBehavior": {
+      "id": "COMP-PLATFORM-074",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Behaviors/ValidationBehavior.cs#ValidationBehavior`2": {
+      "id": "COMP-PLATFORM-286",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/ImportResultDto.cs#ImportResultDto": {
+      "id": "COMP-PLATFORM-075",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/ImportResultDto.cs#ImportRowErrorDto": {
+      "id": "COMP-PLATFORM-076",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/AuthTokensDto.cs#AuthTokensDto": {
+      "id": "COMP-PLATFORM-077",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IActiveSessionService.cs#IActiveSessionService": {
+      "id": "COMP-PLATFORM-078",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/ICurrentUserService.cs#ICurrentUserService": {
+      "id": "COMP-PLATFORM-079",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IIdentityService.cs#IIdentityService": {
+      "id": "COMP-PLATFORM-080",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IInvoiceNumberGenerator.cs#IInvoiceNumberGenerator": {
+      "id": "COMP-PLATFORM-081",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IInvoiceShareTokenService.cs#IInvoiceShareTokenService": {
+      "id": "COMP-PLATFORM-082",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IOrderNumberGenerator.cs#IOrderNumberGenerator": {
+      "id": "COMP-PLATFORM-083",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IRoleAdminService.cs#AppRoleDto": {
+      "id": "COMP-PLATFORM-085",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IRoleAdminService.cs#IRoleAdminService": {
+      "id": "COMP-PLATFORM-084",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IRoleAdminService.cs#IRoleCatalog": {
+      "id": "COMP-PLATFORM-086",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IRolePermissionService.cs#IRolePermissionService": {
+      "id": "COMP-PLATFORM-087",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IUserAdminService.cs#AppUserDto": {
+      "id": "COMP-PLATFORM-089",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IUserAdminService.cs#IUserAdminService": {
+      "id": "COMP-PLATFORM-088",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IUserAdminService.cs#PasswordResetCodeDto": {
+      "id": "COMP-PLATFORM-090",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IUserAdminService.cs#TemporaryPasswordDto": {
+      "id": "COMP-PLATFORM-091",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IWhatsAppSender.cs#IWhatsAppSender": {
+      "id": "COMP-PLATFORM-092",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Interfaces/IWhatsAppSender.cs#WhatsAppSendResult": {
+      "id": "COMP-PLATFORM-093",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/ICommand.cs#ICommand": {
+      "id": "COMP-PLATFORM-094",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/ICommand.cs#ICommand`1": {
+      "id": "COMP-PLATFORM-287",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/ICommandHandler.cs#ICommandHandler": {
+      "id": "COMP-PLATFORM-095",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/ICommandHandler.cs#ICommandHandler`2": {
+      "id": "COMP-PLATFORM-288",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IPipelineBehavior.cs#IPipelineBehavior": {
+      "id": "COMP-PLATFORM-096",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IPipelineBehavior.cs#IPipelineBehavior`2": {
+      "id": "COMP-PLATFORM-289",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IQuery.cs#IQuery": {
+      "id": "COMP-PLATFORM-097",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IQuery.cs#IQuery`1": {
+      "id": "COMP-PLATFORM-290",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IQueryHandler.cs#IQueryHandler": {
+      "id": "COMP-PLATFORM-098",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IQueryHandler.cs#IQueryHandler`2": {
+      "id": "COMP-PLATFORM-291",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/ISender.cs#ISender": {
+      "id": "COMP-PLATFORM-099",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/IUnloggedCommand.cs#IUnloggedCommand": {
+      "id": "COMP-PLATFORM-100",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Mediator/Sender.cs#Sender": {
+      "id": "COMP-PLATFORM-101",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Validation/ContactRules.cs#ContactRules": {
+      "id": "COMP-PLATFORM-102",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Common/Validation/GarmentTypeRules.cs#GarmentTypeRules": {
+      "id": "COMP-PLATFORM-103",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommand.cs#CreateCustomerCommand": {
+      "id": "COMP-CUSTOMER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandHandler.cs#CreateCustomerCommandHandler": {
+      "id": "COMP-CUSTOMER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator": {
+      "id": "COMP-CUSTOMER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Delete/DeleteCustomerCommand.cs#DeleteCustomerCommand": {
+      "id": "COMP-CUSTOMER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Delete/DeleteCustomerCommandHandler.cs#DeleteCustomerCommandHandler": {
+      "id": "COMP-CUSTOMER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs#CustomerImportAction": {
+      "id": "COMP-CUSTOMER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs#CustomerImportPlanner": {
+      "id": "COMP-CUSTOMER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/CustomerImportPlanner.cs#CustomerImportStep": {
+      "id": "COMP-CUSTOMER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/CustomerImportPreviewDto.cs#CustomerImportDuplicateDto": {
+      "id": "COMP-CUSTOMER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/CustomerImportPreviewDto.cs#CustomerImportPreviewDto": {
+      "id": "COMP-CUSTOMER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/ImportCustomersCommand.cs#CustomerImportRow": {
+      "id": "COMP-CUSTOMER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/ImportCustomersCommand.cs#ImportCustomersCommand": {
+      "id": "COMP-CUSTOMER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/ImportCustomersCommandHandler.cs#ImportCustomersCommandHandler": {
+      "id": "COMP-CUSTOMER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/ImportCustomersCommandValidator.cs#ImportCustomersCommandValidator": {
+      "id": "COMP-CUSTOMER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/PreviewCustomerImportQuery.cs#PreviewCustomerImportQuery": {
+      "id": "COMP-CUSTOMER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/PreviewCustomerImportQueryHandler.cs#PreviewCustomerImportQueryHandler": {
+      "id": "COMP-CUSTOMER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommand.cs#UpdateCustomerCommand": {
+      "id": "COMP-CUSTOMER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandHandler.cs#UpdateCustomerCommandHandler": {
+      "id": "COMP-CUSTOMER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator": {
+      "id": "COMP-CUSTOMER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/CustomerDto.cs#CustomerDto": {
+      "id": "COMP-CUSTOMER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/CustomerDuplicateDto.cs#CustomerDuplicateDto": {
+      "id": "COMP-CUSTOMER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/CustomerMapper.cs#CustomerMapper": {
+      "id": "COMP-CUSTOMER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/CustomerUniqueness.cs#CustomerUniqueness": {
+      "id": "COMP-CUSTOMER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/ICustomerRepository.cs#ICustomerRepository": {
+      "id": "COMP-CUSTOMER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/FindDuplicates/FindCustomerDuplicatesQuery.cs#FindCustomerDuplicatesQuery": {
+      "id": "COMP-CUSTOMER-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/FindDuplicates/FindCustomerDuplicatesQueryHandler.cs#FindCustomerDuplicatesQueryHandler": {
+      "id": "COMP-CUSTOMER-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/GetById/GetCustomerByIdQuery.cs#GetCustomerByIdQuery": {
+      "id": "COMP-CUSTOMER-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/GetById/GetCustomerByIdQueryHandler.cs#GetCustomerByIdQueryHandler": {
+      "id": "COMP-CUSTOMER-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/ListAll/ListAllCustomersQuery.cs#ListAllCustomersQuery": {
+      "id": "COMP-CUSTOMER-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/ListAll/ListAllCustomersQueryHandler.cs#ListAllCustomersQueryHandler": {
+      "id": "COMP-CUSTOMER-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQuery.cs#SearchCustomersQuery": {
+      "id": "COMP-CUSTOMER-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQueryHandler.cs#SearchCustomersQueryHandler": {
+      "id": "COMP-CUSTOMER-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#SearchCustomersQueryValidator": {
+      "id": "COMP-CUSTOMER-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/DependencyInjection.cs#DependencyInjection": {
+      "id": "COMP-PLATFORM-104",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommand.cs#CreateEmployeeCommand": {
+      "id": "COMP-EMPLOYEE-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs#CreateEmployeeCommandHandler": {
+      "id": "COMP-EMPLOYEE-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator": {
+      "id": "COMP-EMPLOYEE-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs#EmployeeImportRow": {
+      "id": "COMP-EMPLOYEE-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs#ImportEmployeesCommand": {
+      "id": "COMP-EMPLOYEE-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs#ImportEmployeesCommandHandler": {
+      "id": "COMP-EMPLOYEE-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs#ImportEmployeesCommandValidator": {
+      "id": "COMP-EMPLOYEE-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Retire/RetireEmployeeCommand.cs#RetireEmployeeCommand": {
+      "id": "COMP-EMPLOYEE-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs#RetireEmployeeCommandHandler": {
+      "id": "COMP-EMPLOYEE-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommand.cs#UpdateEmployeeCommand": {
+      "id": "COMP-EMPLOYEE-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs#UpdateEmployeeCommandHandler": {
+      "id": "COMP-EMPLOYEE-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator": {
+      "id": "COMP-EMPLOYEE-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/EmployeeDto.cs#EmployeeDto": {
+      "id": "COMP-EMPLOYEE-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/EmployeeMapper.cs#EmployeeMapper": {
+      "id": "COMP-EMPLOYEE-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/EmployeeUniqueness.cs#EmployeeUniqueness": {
+      "id": "COMP-EMPLOYEE-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/IEmployeeRepository.cs#IEmployeeRepository": {
+      "id": "COMP-EMPLOYEE-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/GetById/GetEmployeeByIdQuery.cs#GetEmployeeByIdQuery": {
+      "id": "COMP-EMPLOYEE-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs#GetEmployeeByIdQueryHandler": {
+      "id": "COMP-EMPLOYEE-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/ListAll/ListAllEmployeesQuery.cs#ListAllEmployeesQuery": {
+      "id": "COMP-EMPLOYEE-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/ListAll/ListAllEmployeesQueryHandler.cs#ListAllEmployeesQueryHandler": {
+      "id": "COMP-EMPLOYEE-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs#EmployeeOrderDto": {
+      "id": "COMP-EMPLOYEE-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs#GetEmployeeOrderHistoryQuery": {
+      "id": "COMP-EMPLOYEE-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQueryHandler.cs#GetEmployeeOrderHistoryQueryHandler": {
+      "id": "COMP-EMPLOYEE-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQuery.cs#SearchEmployeesQuery": {
+      "id": "COMP-EMPLOYEE-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQueryHandler.cs#SearchEmployeesQueryHandler": {
+      "id": "COMP-EMPLOYEE-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#SearchEmployeesQueryValidator": {
+      "id": "COMP-EMPLOYEE-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/ClothReceiptDto.cs#ClothReceiptDto": {
+      "id": "COMP-INVENTORY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/ClothReceiptMapper.cs#ClothReceiptMapper": {
+      "id": "COMP-INVENTORY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/ClothStockRow.cs#ClothStockRow": {
+      "id": "COMP-INVENTORY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommand.cs#ReceiveClothCommand": {
+      "id": "COMP-INVENTORY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs#ReceiveClothCommandHandler": {
+      "id": "COMP-INVENTORY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator": {
+      "id": "COMP-INVENTORY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/IClothReceiptRepository.cs#IClothReceiptRepository": {
+      "id": "COMP-INVENTORY-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQuery.cs#SearchClothReceiptsQuery": {
+      "id": "COMP-INVENTORY-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryHandler.cs#SearchClothReceiptsQueryHandler": {
+      "id": "COMP-INVENTORY-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#SearchClothReceiptsQueryValidator": {
+      "id": "COMP-INVENTORY-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#GetStockSummaryQuery": {
+      "id": "COMP-INVENTORY-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#StockQuantityDto": {
+      "id": "COMP-INVENTORY-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#StockSummaryDto": {
+      "id": "COMP-INVENTORY-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryHandler.cs#GetStockSummaryQueryHandler": {
+      "id": "COMP-INVENTORY-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#GetStockSummaryQueryValidator": {
+      "id": "COMP-INVENTORY-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommand.cs#CreateMeasurementCommand": {
+      "id": "COMP-MEASUREMENT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs#CreateMeasurementCommandHandler": {
+      "id": "COMP-MEASUREMENT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#CreateMeasurementCommandValidator": {
+      "id": "COMP-MEASUREMENT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommand.cs#UpdateMeasurementValuesCommand": {
+      "id": "COMP-MEASUREMENT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs#UpdateMeasurementValuesCommandHandler": {
+      "id": "COMP-MEASUREMENT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#UpdateMeasurementValuesCommandValidator": {
+      "id": "COMP-MEASUREMENT-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/GarmentCatalogKeys.cs#GarmentCatalogKeys": {
+      "id": "COMP-MEASUREMENT-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/IMeasurementRepository.cs#IMeasurementRepository": {
+      "id": "COMP-MEASUREMENT-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/MeasurementDto.cs#MeasurementDto": {
+      "id": "COMP-MEASUREMENT-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/MeasurementDto.cs#MeasurementHistoryDto": {
+      "id": "COMP-MEASUREMENT-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/MeasurementMapper.cs#MeasurementMapper": {
+      "id": "COMP-MEASUREMENT-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQuery.cs#GetMeasurementsByCustomerQuery": {
+      "id": "COMP-MEASUREMENT-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandler.cs#GetMeasurementsByCustomerQueryHandler": {
+      "id": "COMP-MEASUREMENT-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQuery.cs#GetMeasurementByIdQuery": {
+      "id": "COMP-MEASUREMENT-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs#GetMeasurementByIdQueryHandler": {
+      "id": "COMP-MEASUREMENT-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQuery.cs#GetMeasurementHistoryQuery": {
+      "id": "COMP-MEASUREMENT-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandler.cs#GetMeasurementHistoryQueryHandler": {
+      "id": "COMP-MEASUREMENT-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#GetMeasurementHistoryQueryValidator": {
+      "id": "COMP-MEASUREMENT-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommand.cs#ResetMeasurementTemplateCommand": {
+      "id": "COMP-MEASUREMENT-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommandHandler.cs#ResetMeasurementTemplateCommandHandler": {
+      "id": "COMP-MEASUREMENT-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommand.cs#SetMeasurementTemplateCommand": {
+      "id": "COMP-MEASUREMENT-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandHandler.cs#SetMeasurementTemplateCommandHandler": {
+      "id": "COMP-MEASUREMENT-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#SetMeasurementTemplateCommandValidator": {
+      "id": "COMP-MEASUREMENT-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementPointDto.cs#MeasurementPointDto": {
+      "id": "COMP-MEASUREMENT-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementPointDto.cs#MeasurementPointDtoJsonConverter": {
+      "id": "COMP-MEASUREMENT-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementTemplateDefaults.cs#MeasurementTemplateDefaults": {
+      "id": "COMP-MEASUREMENT-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementTemplateDto.cs#MeasurementTemplateDto": {
+      "id": "COMP-MEASUREMENT-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementTemplateKeys.cs#MeasurementTemplateKeys": {
+      "id": "COMP-MEASUREMENT-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQuery.cs#GetMeasurementTemplatesQuery": {
+      "id": "COMP-MEASUREMENT-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQueryHandler.cs#GetMeasurementTemplatesQueryHandler": {
+      "id": "COMP-MEASUREMENT-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommand.cs#RecordOccasionContactCommand": {
+      "id": "COMP-OCCASION-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs#RecordOccasionContactCommandHandler": {
+      "id": "COMP-OCCASION-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/IOccasionRepository.cs#IOccasionRepository": {
+      "id": "COMP-OCCASION-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/OccasionDtos.cs#OccasionRowDto": {
+      "id": "COMP-OCCASION-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/OccasionDtos.cs#OccasionScope": {
+      "id": "COMP-OCCASION-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/OccasionDtos.cs#RecordOccasionContactDto": {
+      "id": "COMP-OCCASION-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/Queries/Search/SearchOccasionsQuery.cs#SearchOccasionsQuery": {
+      "id": "COMP-OCCASION-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Occasions/Queries/Search/SearchOccasionsQueryHandler.cs#SearchOccasionsQueryHandler": {
+      "id": "COMP-OCCASION-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommand.cs#AddOrderItemCommand": {
+      "id": "COMP-ORDER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandHandler.cs#AddOrderItemCommandHandler": {
+      "id": "COMP-ORDER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#AddOrderItemCommandValidator": {
+      "id": "COMP-ORDER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommand.cs#AssignOrderEmployeeCommand": {
+      "id": "COMP-ORDER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandHandler.cs#AssignOrderEmployeeCommandHandler": {
+      "id": "COMP-ORDER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs#AssignOrderEmployeeCommandValidator": {
+      "id": "COMP-ORDER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommand.cs#CreateOrderCommand": {
+      "id": "COMP-ORDER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommand.cs#CreateOrderItemFabricInput": {
+      "id": "COMP-ORDER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommand.cs#CreateOrderItemInput": {
+      "id": "COMP-ORDER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandHandler.cs#CreateOrderCommandHandler": {
+      "id": "COMP-ORDER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator": {
+      "id": "COMP-ORDER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemFabricInputValidator": {
+      "id": "COMP-ORDER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemInputValidator": {
+      "id": "COMP-ORDER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Delete/DeleteOrderCommand.cs#DeleteOrderCommand": {
+      "id": "COMP-ORDER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Delete/DeleteOrderCommandHandler.cs#DeleteOrderCommandHandler": {
+      "id": "COMP-ORDER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Delete/DeleteOrderCommandValidator.cs#DeleteOrderCommandValidator": {
+      "id": "COMP-ORDER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommand.cs#RemoveOrderItemCommand": {
+      "id": "COMP-ORDER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandHandler.cs#RemoveOrderItemCommandHandler": {
+      "id": "COMP-ORDER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs#RemoveOrderItemCommandValidator": {
+      "id": "COMP-ORDER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommand.cs#SetOrderItemFabricCommand": {
+      "id": "COMP-ORDER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandHandler.cs#SetOrderItemFabricCommandHandler": {
+      "id": "COMP-ORDER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator": {
+      "id": "COMP-ORDER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommand.cs#TransitionOrderStatusCommand": {
+      "id": "COMP-ORDER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandler.cs#TransitionOrderStatusCommandHandler": {
+      "id": "COMP-ORDER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#TransitionOrderStatusCommandValidator": {
+      "id": "COMP-ORDER-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommand.cs#UpdateOrderCommand": {
+      "id": "COMP-ORDER-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandHandler.cs#UpdateOrderCommandHandler": {
+      "id": "COMP-ORDER-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#UpdateOrderCommandValidator": {
+      "id": "COMP-ORDER-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommand.cs#UpdateOrderItemCommand": {
+      "id": "COMP-ORDER-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandHandler.cs#UpdateOrderItemCommandHandler": {
+      "id": "COMP-ORDER-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator": {
+      "id": "COMP-ORDER-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/IOrderRepository.cs#IOrderRepository": {
+      "id": "COMP-ORDER-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/OrderDto.cs#FabricDetailsDto": {
+      "id": "COMP-ORDER-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/OrderDto.cs#OrderDto": {
+      "id": "COMP-ORDER-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/OrderDto.cs#OrderItemDto": {
+      "id": "COMP-ORDER-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/OrderMapper.cs#OrderMapper": {
+      "id": "COMP-ORDER-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Export/ExportOrdersQuery.cs#ExportOrdersQuery": {
+      "id": "COMP-ORDER-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Export/ExportOrdersQueryHandler.cs#ExportOrdersQueryHandler": {
+      "id": "COMP-ORDER-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Export/ExportOrdersQueryValidator.cs#ExportOrdersQueryValidator": {
+      "id": "COMP-ORDER-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/GetById/GetOrderByIdQuery.cs#GetOrderByIdQuery": {
+      "id": "COMP-ORDER-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/GetById/GetOrderByIdQueryHandler.cs#GetOrderByIdQueryHandler": {
+      "id": "COMP-ORDER-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQuery.cs#GetPreviousOrdersQuery": {
+      "id": "COMP-ORDER-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQueryHandler.cs#GetPreviousOrdersQueryHandler": {
+      "id": "COMP-ORDER-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQuery.cs#SearchOrdersQuery": {
+      "id": "COMP-ORDER-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQueryHandler.cs#SearchOrdersQueryHandler": {
+      "id": "COMP-ORDER-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#SearchOrdersQueryValidator": {
+      "id": "COMP-ORDER-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/ClothPriceDto.cs#ClothPriceDto": {
+      "id": "COMP-PRICING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/ClothPriceMapper.cs#ClothPriceMapper": {
+      "id": "COMP-PRICING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommand.cs#CreateClothPriceCommand": {
+      "id": "COMP-PRICING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs#CreateClothPriceCommandHandler": {
+      "id": "COMP-PRICING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator": {
+      "id": "COMP-PRICING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommand.cs#DeleteClothPriceCommand": {
+      "id": "COMP-PRICING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommandHandler.cs#DeleteClothPriceCommandHandler": {
+      "id": "COMP-PRICING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs#ClothPriceImportRow": {
+      "id": "COMP-PRICING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs#ImportClothPricesCommand": {
+      "id": "COMP-PRICING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs#ImportClothPricesCommandHandler": {
+      "id": "COMP-PRICING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs#ImportClothPricesCommandValidator": {
+      "id": "COMP-PRICING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommand.cs#UpdateClothPriceCommand": {
+      "id": "COMP-PRICING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandHandler.cs#UpdateClothPriceCommandHandler": {
+      "id": "COMP-PRICING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator": {
+      "id": "COMP-PRICING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/IClothPriceRepository.cs#IClothPriceRepository": {
+      "id": "COMP-PRICING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQuery.cs#GetClothPriceByIdQuery": {
+      "id": "COMP-PRICING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQueryHandler.cs#GetClothPriceByIdQueryHandler": {
+      "id": "COMP-PRICING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQuery.cs#ListAllClothPricesQuery": {
+      "id": "COMP-PRICING-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQueryHandler.cs#ListAllClothPricesQueryHandler": {
+      "id": "COMP-PRICING-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQuery.cs#SearchClothPricesQuery": {
+      "id": "COMP-PRICING-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQueryHandler.cs#SearchClothPricesQueryHandler": {
+      "id": "COMP-PRICING-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#SearchClothPricesQueryValidator": {
+      "id": "COMP-PRICING-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/IReportRepository.cs#IReportRepository": {
+      "id": "COMP-REPORT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQuery.cs#GetOrderCollectionsReportQuery": {
+      "id": "COMP-REPORT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandler.cs#GetOrderCollectionsReportQueryHandler": {
+      "id": "COMP-REPORT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs#GetOrderCollectionsReportQueryValidator": {
+      "id": "COMP-REPORT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQuery.cs#GetOrderStatusSummaryReportQuery": {
+      "id": "COMP-REPORT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandler.cs#GetOrderStatusSummaryReportQueryHandler": {
+      "id": "COMP-REPORT-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs#GetOrderStatusSummaryReportQueryValidator": {
+      "id": "COMP-REPORT-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQuery.cs#GetOutstandingInvoicesReportQuery": {
+      "id": "COMP-REPORT-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandler.cs#GetOutstandingInvoicesReportQueryHandler": {
+      "id": "COMP-REPORT-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#GetOutstandingInvoicesReportQueryValidator": {
+      "id": "COMP-REPORT-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/Revenue/GetRevenueReportQuery.cs#GetRevenueReportQuery": {
+      "id": "COMP-REPORT-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandler.cs#GetRevenueReportQueryHandler": {
+      "id": "COMP-REPORT-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs#GetRevenueReportQueryValidator": {
+      "id": "COMP-REPORT-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/ReportDtos.cs#OrderCollectionsReportDto": {
+      "id": "COMP-REPORT-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/ReportDtos.cs#OrderStatusCountDto": {
+      "id": "COMP-REPORT-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/ReportDtos.cs#OrderStatusSummaryReportDto": {
+      "id": "COMP-REPORT-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/ReportDtos.cs#OutstandingInvoiceDto": {
+      "id": "COMP-REPORT-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/ReportDtos.cs#RevenueReportDto": {
+      "id": "COMP-REPORT-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Delete/DeleteSettingCommand.cs#DeleteSettingCommand": {
+      "id": "COMP-SETTING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Delete/DeleteSettingCommandHandler.cs#DeleteSettingCommandHandler": {
+      "id": "COMP-SETTING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs#DeleteSettingCommandValidator": {
+      "id": "COMP-SETTING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Upsert/UpsertSettingCommand.cs#UpsertSettingCommand": {
+      "id": "COMP-SETTING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Upsert/UpsertSettingCommandHandler.cs#UpsertSettingCommandHandler": {
+      "id": "COMP-SETTING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#UpsertSettingCommandValidator": {
+      "id": "COMP-SETTING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/ISettingRepository.cs#ISettingRepository": {
+      "id": "COMP-SETTING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQuery.cs#GetSettingByKeyQuery": {
+      "id": "COMP-SETTING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandler.cs#GetSettingByKeyQueryHandler": {
+      "id": "COMP-SETTING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/List/ListSettingsQuery.cs#ListSettingsQuery": {
+      "id": "COMP-SETTING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/List/ListSettingsQueryHandler.cs#ListSettingsQueryHandler": {
+      "id": "COMP-SETTING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#ListSettingsQueryValidator": {
+      "id": "COMP-SETTING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/SettingDto.cs#SettingDto": {
+      "id": "COMP-SETTING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/SettingMapper.cs#SettingMapper": {
+      "id": "COMP-SETTING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs#RecordWhatsAppShareCommand": {
+      "id": "COMP-WHATSAPP-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs#RecordWhatsAppShareCommandHandler": {
+      "id": "COMP-WHATSAPP-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommand.cs#SendWhatsAppMessageCommand": {
+      "id": "COMP-WHATSAPP-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs#SendWhatsAppMessageCommandHandler": {
+      "id": "COMP-WHATSAPP-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#SendWhatsAppMessageCommandValidator": {
+      "id": "COMP-WHATSAPP-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/IWhatsAppMessageRepository.cs#IWhatsAppMessageRepository": {
+      "id": "COMP-WHATSAPP-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQuery.cs#GetWhatsAppMessageByIdQuery": {
+      "id": "COMP-WHATSAPP-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs#GetWhatsAppMessageByIdQueryHandler": {
+      "id": "COMP-WHATSAPP-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQuery.cs#SearchWhatsAppMessagesQuery": {
+      "id": "COMP-WHATSAPP-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandler.cs#SearchWhatsAppMessagesQueryHandler": {
+      "id": "COMP-WHATSAPP-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#SearchWhatsAppMessagesQueryValidator": {
+      "id": "COMP-WHATSAPP-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/WhatsAppMessageDto.cs#WhatsAppMessageDto": {
+      "id": "COMP-WHATSAPP-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/WhatsAppMessageMapper.cs#WhatsAppMessageMapper": {
+      "id": "COMP-WHATSAPP-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Activity/ActivityLog.cs#ActivityLog": {
+      "id": "COMP-ACTIVITY-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Invoice.cs#Invoice": {
+      "id": "COMP-BILLING-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/InvoiceStatus.cs#InvoiceStatus": {
+      "id": "COMP-BILLING-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Payment.cs#Payment": {
+      "id": "COMP-BILLING-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/PaymentMethod.cs#PaymentMethod": {
+      "id": "COMP-BILLING-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/AuditableEntity.cs#AuditableEntity": {
+      "id": "COMP-PLATFORM-105",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/IAuditable.cs#IAuditable": {
+      "id": "COMP-PLATFORM-106",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/ISoftDeletable.cs#ISoftDeletable": {
+      "id": "COMP-PLATFORM-107",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/AnnualOccurrence.cs#AnnualOccurrence": {
+      "id": "COMP-CUSTOMER-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/Customer.cs#Customer": {
+      "id": "COMP-CUSTOMER-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/Gender.cs#Gender": {
+      "id": "COMP-CUSTOMER-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/OccasionContact.cs#OccasionContact": {
+      "id": "COMP-CUSTOMER-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/OccasionContact.cs#OccasionType": {
+      "id": "COMP-CUSTOMER-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/Religion.cs#Religion": {
+      "id": "COMP-CUSTOMER-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Employees/Employee.cs#Employee": {
+      "id": "COMP-EMPLOYEE-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Employees/EmploymentType.cs#EmploymentType": {
+      "id": "COMP-EMPLOYEE-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Identity/RefreshToken.cs#RefreshToken": {
+      "id": "COMP-USER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt": {
+      "id": "COMP-INVENTORY-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothUnit.cs#ClothUnit": {
+      "id": "COMP-INVENTORY-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/GarmentTypes.cs#GarmentTypes": {
+      "id": "COMP-MEASUREMENT-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#Measurement": {
+      "id": "COMP-MEASUREMENT-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementHistory.cs#MeasurementHistory": {
+      "id": "COMP-MEASUREMENT-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementPointType.cs#MeasurementPointType": {
+      "id": "COMP-MEASUREMENT-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementValue.cs#MeasurementValue": {
+      "id": "COMP-MEASUREMENT-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementValue.cs#MeasurementValueJsonConverter": {
+      "id": "COMP-MEASUREMENT-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/FabricDetails.cs#FabricDetails": {
+      "id": "COMP-ORDER-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/FabricSource.cs#FabricSource": {
+      "id": "COMP-ORDER-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#Order": {
+      "id": "COMP-ORDER-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/OrderItem.cs#OrderItem": {
+      "id": "COMP-ORDER-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/OrderStatus.cs#OrderStatus": {
+      "id": "COMP-ORDER-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Pricing/ClothPrice.cs#ClothPrice": {
+      "id": "COMP-PRICING-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Settings/Setting.cs#Setting": {
+      "id": "COMP-SETTING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage": {
+      "id": "COMP-WHATSAPP-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessageStatus.cs#WhatsAppMessageStatus": {
+      "id": "COMP-WHATSAPP-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessageType.cs#WhatsAppMessageType": {
+      "id": "COMP-WHATSAPP-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Billing/InvoiceShareTokenService.cs#InvoiceShareTokenService": {
+      "id": "COMP-BILLING-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/DependencyInjection.cs#DependencyInjection": {
+      "id": "COMP-PLATFORM-108",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ActiveSessionService.cs#ActiveSessionService": {
+      "id": "COMP-USER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationRole.cs#ApplicationRole": {
+      "id": "COMP-USER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationUser.cs#ApplicationUser": {
+      "id": "COMP-USER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/IdentityService.cs#IdentityService": {
+      "id": "COMP-USER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/JwtOptions.cs#JwtOptions": {
+      "id": "COMP-USER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/PasswordResetCodes.cs#PasswordResetCodes": {
+      "id": "COMP-USER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/RoleAdminService.cs#RoleAdminService": {
+      "id": "COMP-USER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/RoleCatalog.cs#RoleCatalog": {
+      "id": "COMP-USER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/TemporaryPasswords.cs#TemporaryPasswords": {
+      "id": "COMP-USER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/UserAdminService.cs#UserAdminService": {
+      "id": "COMP-USER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Activity/ActivityLogRepository.cs#ActivityLogRepository": {
+      "id": "COMP-PLATFORM-109",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Activity/EntityChangeCollector.cs#EntityChangeCollector": {
+      "id": "COMP-PLATFORM-110",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/ApplicationDbContext.cs#ApplicationDbContext": {
+      "id": "COMP-PLATFORM-111",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Billing/InvoiceNumberGenerator.cs#InvoiceNumberGenerator": {
+      "id": "COMP-PLATFORM-112",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Billing/InvoiceRepository.cs#InvoiceRepository": {
+      "id": "COMP-PLATFORM-113",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/ActivityLogConfiguration.cs#ActivityLogConfiguration": {
+      "id": "COMP-PLATFORM-114",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/ApplicationRoleConfiguration.cs#ApplicationRoleConfiguration": {
+      "id": "COMP-PLATFORM-115",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/ApplicationUserConfiguration.cs#ApplicationUserConfiguration": {
+      "id": "COMP-PLATFORM-116",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/ClothPriceConfiguration.cs#ClothPriceConfiguration": {
+      "id": "COMP-PLATFORM-117",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/ClothReceiptConfiguration.cs#ClothReceiptConfiguration": {
+      "id": "COMP-PLATFORM-118",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/CustomerConfiguration.cs#CustomerConfiguration": {
+      "id": "COMP-PLATFORM-119",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/EmployeeConfiguration.cs#EmployeeConfiguration": {
+      "id": "COMP-PLATFORM-120",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/FabricDetailsConfiguration.cs#FabricDetailsConfiguration": {
+      "id": "COMP-PLATFORM-121",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs#InvoiceConfiguration": {
+      "id": "COMP-PLATFORM-122",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/MeasurementConfiguration.cs#MeasurementConfiguration": {
+      "id": "COMP-PLATFORM-123",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/MeasurementHistoryConfiguration.cs#MeasurementHistoryConfiguration": {
+      "id": "COMP-PLATFORM-124",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/OccasionContactConfiguration.cs#OccasionContactConfiguration": {
+      "id": "COMP-PLATFORM-125",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/OrderConfiguration.cs#OrderConfiguration": {
+      "id": "COMP-PLATFORM-126",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/OrderItemConfiguration.cs#OrderItemConfiguration": {
+      "id": "COMP-PLATFORM-127",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/PaymentConfiguration.cs#PaymentConfiguration": {
+      "id": "COMP-PLATFORM-128",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/RefreshTokenConfiguration.cs#RefreshTokenConfiguration": {
+      "id": "COMP-PLATFORM-129",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/SettingConfiguration.cs#SettingConfiguration": {
+      "id": "COMP-PLATFORM-130",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Configurations/WhatsAppMessageConfiguration.cs#WhatsAppMessageConfiguration": {
+      "id": "COMP-PLATFORM-131",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Customers/CustomerRepository.cs#CustomerRepository": {
+      "id": "COMP-PLATFORM-132",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Customers/OccasionRepository.cs#OccasionRepository": {
+      "id": "COMP-PLATFORM-133",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Employees/EmployeeRepository.cs#EmployeeRepository": {
+      "id": "COMP-PLATFORM-134",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Interceptors/AuditableEntitySaveChangesInterceptor.cs#AuditableEntitySaveChangesInterceptor": {
+      "id": "COMP-PLATFORM-135",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Interceptors/EntityChangeSaveChangesInterceptor.cs#EntityChangeSaveChangesInterceptor": {
+      "id": "COMP-PLATFORM-136",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Inventory/ClothReceiptRepository.cs#ClothReceiptRepository": {
+      "id": "COMP-PLATFORM-137",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Measurements/MeasurementRepository.cs#MeasurementRepository": {
+      "id": "COMP-PLATFORM-138",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Orders/OrderNumberGenerator.cs#OrderNumberGenerator": {
+      "id": "COMP-PLATFORM-139",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Orders/OrderRepository.cs#OrderRepository": {
+      "id": "COMP-PLATFORM-140",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Pricing/ClothPriceRepository.cs#ClothPriceRepository": {
+      "id": "COMP-PLATFORM-141",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Reports/ReportRepository.cs#ReportRepository": {
+      "id": "COMP-PLATFORM-142",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/Settings/SettingRepository.cs#SettingRepository": {
+      "id": "COMP-PLATFORM-143",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Persistence/WhatsApp/WhatsAppMessageRepository.cs#WhatsAppMessageRepository": {
+      "id": "COMP-PLATFORM-144",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Services/CurrentUserService.cs#CurrentUserService": {
+      "id": "COMP-PLATFORM-145",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaError": {
+      "id": "COMP-WHATSAPP-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaMessage": {
+      "id": "COMP-WHATSAPP-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaSendResponse": {
+      "id": "COMP-WHATSAPP-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaWhatsAppSender": {
+      "id": "COMP-WHATSAPP-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/WhatsApp/WhatsAppOptions.cs#WhatsAppOptions": {
+      "id": "COMP-WHATSAPP-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Authorization/AppRoles.cs#AppRoles": {
+      "id": "COMP-USER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Authorization/Permissions.cs#Modules": {
+      "id": "COMP-USER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Authorization/Permissions.cs#Permissions": {
+      "id": "COMP-USER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/OrderLimits.cs#OrderLimits": {
+      "id": "COMP-PLATFORM-146",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/PaginationDefaults.cs#PaginationDefaults": {
+      "id": "COMP-PLATFORM-147",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/SettingKeys.cs#SettingKeys": {
+      "id": "COMP-PLATFORM-148",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/SystemUsers.cs#SystemUsers": {
+      "id": "COMP-PLATFORM-149",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/UserNameRules.cs#UserNameRules": {
+      "id": "COMP-PLATFORM-150",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Contact/EmailAddress.cs#EmailAddress": {
+      "id": "COMP-PLATFORM-151",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Contact/IndianPhoneNumber.cs#IndianPhoneNumber": {
+      "id": "COMP-PLATFORM-152",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Guards/Guard.cs#Guard": {
+      "id": "COMP-PLATFORM-153",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Numbering/OrderNumberFormat.cs#OrderNumberFormat": {
+      "id": "COMP-PLATFORM-154",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Pagination/PagedResult.cs#PagedResult": {
+      "id": "COMP-PLATFORM-155",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "src/Shared/Pagination/PagedResult.cs#PagedResult`1": {
+      "id": "COMP-PLATFORM-292",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Error.cs#Error": {
+      "id": "COMP-PLATFORM-156",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/ErrorType.cs#ErrorType": {
+      "id": "COMP-PLATFORM-157",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/FieldError.cs#FieldError": {
+      "id": "COMP-PLATFORM-158",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Result.cs#Result": {
+      "id": "COMP-PLATFORM-159",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Result.cs#Result`1": {
+      "id": "COMP-PLATFORM-293",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Auth/AuthEndpointsTests.cs#AuthEndpointsTests": {
+      "id": "COMP-PLATFORM-160",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests": {
+      "id": "COMP-PLATFORM-161",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PolicyRegistrationTests.cs#PolicyRegistrationTests": {
+      "id": "COMP-PLATFORM-162",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests": {
+      "id": "COMP-PLATFORM-163",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/CustomWebApplicationFactory.cs#CustomWebApplicationFactory": {
+      "id": "COMP-PLATFORM-165",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests": {
+      "id": "COMP-PLATFORM-164",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests": {
+      "id": "COMP-PLATFORM-166",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests": {
+      "id": "COMP-PLATFORM-167",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests": {
+      "id": "COMP-PLATFORM-168",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests": {
+      "id": "COMP-PLATFORM-169",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests": {
+      "id": "COMP-PLATFORM-170",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests": {
+      "id": "COMP-PLATFORM-171",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/TestAuthentication.cs#TestAuthentication": {
+      "id": "COMP-PLATFORM-172",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Users/UsersEndpointsTests.cs#UsersEndpointsTests": {
+      "id": "COMP-PLATFORM-173",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests": {
+      "id": "COMP-PLATFORM-174",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests": {
+      "id": "COMP-PLATFORM-175",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs#ActivityDescriptorTests": {
+      "id": "COMP-PLATFORM-176",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandHandlerTests.cs#LoginCommandHandlerTests": {
+      "id": "COMP-PLATFORM-177",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandValidatorTests.cs#LoginCommandValidatorTests": {
+      "id": "COMP-PLATFORM-178",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandHandlerTests.cs#RefreshAccessTokenCommandHandlerTests": {
+      "id": "COMP-PLATFORM-179",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidatorTests.cs#RefreshAccessTokenCommandValidatorTests": {
+      "id": "COMP-PLATFORM-180",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests": {
+      "id": "COMP-PLATFORM-181",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs#CreateInvoiceCommandHandlerTests": {
+      "id": "COMP-PLATFORM-182",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs#CreateInvoiceCommandValidatorTests": {
+      "id": "COMP-PLATFORM-183",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs#RecordPaymentCommandHandlerTests": {
+      "id": "COMP-PLATFORM-184",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs#RecordPaymentCommandValidatorTests": {
+      "id": "COMP-PLATFORM-185",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs#VoidInvoiceCommandHandlerTests": {
+      "id": "COMP-PLATFORM-186",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs#GetInvoiceByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-187",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs#SearchInvoicesQueryHandlerTests": {
+      "id": "COMP-PLATFORM-188",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests": {
+      "id": "COMP-PLATFORM-189",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests": {
+      "id": "COMP-PLATFORM-190",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#CreateThingCommand": {
+      "id": "COMP-PLATFORM-191",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#CreateThingCommandValidator": {
+      "id": "COMP-PLATFORM-192",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#PlainResultCommand": {
+      "id": "COMP-PLATFORM-193",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#PlainResultCommandValidator": {
+      "id": "COMP-PLATFORM-194",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#ValidationBehaviorTests": {
+      "id": "COMP-PLATFORM-195",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#PingCommand": {
+      "id": "COMP-PLATFORM-196",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#PingCommandHandler": {
+      "id": "COMP-PLATFORM-197",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#PingQuery": {
+      "id": "COMP-PLATFORM-198",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#PingQueryHandler": {
+      "id": "COMP-PLATFORM-199",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#RecordingBehavior": {
+      "id": "COMP-PLATFORM-200",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#SenderTests": {
+      "id": "COMP-PLATFORM-201",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandHandlerTests.cs#CreateCustomerCommandHandlerTests": {
+      "id": "COMP-PLATFORM-202",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests": {
+      "id": "COMP-PLATFORM-203",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Delete/DeleteCustomerCommandHandlerTests.cs#DeleteCustomerCommandHandlerTests": {
+      "id": "COMP-PLATFORM-204",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandHandlerTests.cs#UpdateCustomerCommandHandlerTests": {
+      "id": "COMP-PLATFORM-205",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandValidatorTests.cs#UpdateCustomerCommandValidatorTests": {
+      "id": "COMP-PLATFORM-206",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/GetById/GetCustomerByIdQueryHandlerTests.cs#GetCustomerByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-207",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryHandlerTests.cs#SearchCustomersQueryHandlerTests": {
+      "id": "COMP-PLATFORM-208",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryValidatorTests.cs#SearchCustomersQueryValidatorTests": {
+      "id": "COMP-PLATFORM-209",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests": {
+      "id": "COMP-PLATFORM-210",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests": {
+      "id": "COMP-PLATFORM-211",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs#UpdateEmployeeCommandHandlerTests": {
+      "id": "COMP-PLATFORM-212",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs#UpdateEmployeeCommandValidatorTests": {
+      "id": "COMP-PLATFORM-213",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs#GetEmployeeByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-214",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryHandlerTests.cs#SearchEmployeesQueryHandlerTests": {
+      "id": "COMP-PLATFORM-215",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs#SearchEmployeesQueryValidatorTests": {
+      "id": "COMP-PLATFORM-216",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandHandlerTests": {
+      "id": "COMP-PLATFORM-217",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests": {
+      "id": "COMP-PLATFORM-218",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/StockSummaryTests.cs#GetStockSummaryQueryHandlerTests": {
+      "id": "COMP-PLATFORM-219",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandHandlerTests.cs#CreateMeasurementCommandHandlerTests": {
+      "id": "COMP-PLATFORM-220",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests": {
+      "id": "COMP-PLATFORM-221",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandlerTests.cs#UpdateMeasurementValuesCommandHandlerTests": {
+      "id": "COMP-PLATFORM-222",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidatorTests.cs#UpdateMeasurementValuesCommandValidatorTests": {
+      "id": "COMP-PLATFORM-223",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandlerTests.cs#GetMeasurementsByCustomerQueryHandlerTests": {
+      "id": "COMP-PLATFORM-224",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandlerTests.cs#GetMeasurementByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-225",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandlerTests.cs#GetMeasurementHistoryQueryHandlerTests": {
+      "id": "COMP-PLATFORM-226",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidatorTests.cs#GetMeasurementHistoryQueryValidatorTests": {
+      "id": "COMP-PLATFORM-227",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/GetMeasurementTemplatesQueryHandlerTests.cs#GetMeasurementTemplatesQueryHandlerTests": {
+      "id": "COMP-PLATFORM-228",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#ResetMeasurementTemplateCommandHandlerTests": {
+      "id": "COMP-PLATFORM-230",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandHandlerTests": {
+      "id": "COMP-PLATFORM-229",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandValidatorTests": {
+      "id": "COMP-PLATFORM-231",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AddItem/AddOrderItemCommandHandlerTests.cs#AddOrderItemCommandHandlerTests": {
+      "id": "COMP-PLATFORM-232",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandHandlerTests.cs#AssignOrderEmployeeCommandHandlerTests": {
+      "id": "COMP-PLATFORM-233",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests": {
+      "id": "COMP-PLATFORM-234",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests": {
+      "id": "COMP-PLATFORM-235",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandHandlerTests.cs#SetOrderItemFabricCommandHandlerTests": {
+      "id": "COMP-PLATFORM-236",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests": {
+      "id": "COMP-PLATFORM-237",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidatorTests.cs#TransitionOrderStatusCommandValidatorTests": {
+      "id": "COMP-PLATFORM-238",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Export/ExportOrdersQueryHandlerTests.cs#ExportOrdersQueryHandlerTests": {
+      "id": "COMP-PLATFORM-239",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/GetById/GetOrderByIdQueryHandlerTests.cs#GetOrderByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-240",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQueryHandlerTests.cs#GetPreviousOrdersQueryHandlerTests": {
+      "id": "COMP-PLATFORM-241",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryHandlerTests.cs#SearchOrdersQueryHandlerTests": {
+      "id": "COMP-PLATFORM-242",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryValidatorTests.cs#SearchOrdersQueryValidatorTests": {
+      "id": "COMP-PLATFORM-243",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandlerTests.cs#GetOrderCollectionsReportQueryHandlerTests": {
+      "id": "COMP-PLATFORM-244",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs#GetOrderCollectionsReportQueryValidatorTests": {
+      "id": "COMP-PLATFORM-245",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandlerTests.cs#GetOrderStatusSummaryReportQueryHandlerTests": {
+      "id": "COMP-PLATFORM-246",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs#GetOrderStatusSummaryReportQueryValidatorTests": {
+      "id": "COMP-PLATFORM-247",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandlerTests.cs#GetOutstandingInvoicesReportQueryHandlerTests": {
+      "id": "COMP-PLATFORM-248",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs#GetOutstandingInvoicesReportQueryValidatorTests": {
+      "id": "COMP-PLATFORM-249",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandlerTests.cs#GetRevenueReportQueryHandlerTests": {
+      "id": "COMP-PLATFORM-250",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs#GetRevenueReportQueryValidatorTests": {
+      "id": "COMP-PLATFORM-251",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs#DeleteSettingCommandHandlerTests": {
+      "id": "COMP-PLATFORM-252",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs#UpsertSettingCommandHandlerTests": {
+      "id": "COMP-PLATFORM-253",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs#UpsertSettingCommandValidatorTests": {
+      "id": "COMP-PLATFORM-254",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs#GetSettingByKeyQueryHandlerTests": {
+      "id": "COMP-PLATFORM-255",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryHandlerTests.cs#ListSettingsQueryHandlerTests": {
+      "id": "COMP-PLATFORM-256",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs#ListSettingsQueryValidatorTests": {
+      "id": "COMP-PLATFORM-257",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs#SendWhatsAppMessageCommandHandlerTests": {
+      "id": "COMP-PLATFORM-258",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs#SendWhatsAppMessageCommandValidatorTests": {
+      "id": "COMP-PLATFORM-259",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs#GetWhatsAppMessageByIdQueryHandlerTests": {
+      "id": "COMP-PLATFORM-260",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandlerTests.cs#SearchWhatsAppMessagesQueryHandlerTests": {
+      "id": "COMP-PLATFORM-261",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs#SearchWhatsAppMessagesQueryValidatorTests": {
+      "id": "COMP-PLATFORM-262",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests": {
+      "id": "COMP-PLATFORM-263",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests": {
+      "id": "COMP-PLATFORM-265",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#TestEntity": {
+      "id": "COMP-PLATFORM-264",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests": {
+      "id": "COMP-PLATFORM-266",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests": {
+      "id": "COMP-PLATFORM-267",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests": {
+      "id": "COMP-PLATFORM-268",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests": {
+      "id": "COMP-PLATFORM-269",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests": {
+      "id": "COMP-PLATFORM-270",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementHistoryTests.cs#MeasurementHistoryTests": {
+      "id": "COMP-PLATFORM-271",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests": {
+      "id": "COMP-PLATFORM-272",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests": {
+      "id": "COMP-PLATFORM-273",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests": {
+      "id": "COMP-PLATFORM-274",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests": {
+      "id": "COMP-PLATFORM-275",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Settings/SettingTests.cs#SettingTests": {
+      "id": "COMP-PLATFORM-276",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests": {
+      "id": "COMP-PLATFORM-277",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests": {
+      "id": "COMP-PLATFORM-278",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/EmailAddressTests.cs#EmailAddressTests": {
+      "id": "COMP-PLATFORM-279",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests": {
+      "id": "COMP-PLATFORM-280",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests": {
+      "id": "COMP-PLATFORM-281",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests": {
+      "id": "COMP-PLATFORM-282",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests": {
+      "id": "COMP-PLATFORM-283",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": true,
+      "aliases": []
+    },
+    "tools/ResetPassword/CommandLineOptions.cs#CommandLineException": {
+      "id": "COMP-TOOLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tools/ResetPassword/CommandLineOptions.cs#CommandLineOptions": {
+      "id": "COMP-TOOLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tools/ResetPassword/Program.cs#HashTarget": {
+      "id": "COMP-TOOLING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tools/ResetPassword/Program.cs#Program": {
+      "id": "COMP-TOOLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tools/ResetPassword/Program.cs#UserRow": {
+      "id": "COMP-TOOLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/activity/page.tsx#ActivityLogPage": {
+      "id": "COMP-ACTIVITY-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/branding/page.tsx#BrandingPage": {
+      "id": "COMP-WEB-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/CustomerForm.tsx#CustomerForm": {
+      "id": "COMP-CUSTOMER-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/[id]/MeasurementsSection.tsx#MeasurementsSection": {
+      "id": "COMP-CUSTOMER-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/[id]/PageClient.tsx#ViewCustomerPage": {
+      "id": "COMP-CUSTOMER-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/[id]/PreviousOrdersSection.tsx#PreviousOrdersSection": {
+      "id": "COMP-CUSTOMER-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/[id]/page.tsx#Page": {
+      "id": "COMP-CUSTOMER-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/new/page.tsx#NewCustomerPage": {
+      "id": "COMP-CUSTOMER-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/customers/page.tsx#CustomersPage": {
+      "id": "COMP-CUSTOMER-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employee/[id]/PageClient.tsx#EmployeeViewPage": {
+      "id": "COMP-EMPLOYEE-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employee/[id]/page.tsx#Page": {
+      "id": "COMP-EMPLOYEE-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employees/EmployeeForm.tsx#EmployeeForm": {
+      "id": "COMP-EMPLOYEE-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employees/[id]/PageClient.tsx#EditEmployeePage": {
+      "id": "COMP-EMPLOYEE-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employees/[id]/page.tsx#Page": {
+      "id": "COMP-EMPLOYEE-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employees/new/page.tsx#NewEmployeePage": {
+      "id": "COMP-EMPLOYEE-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/employees/page.tsx#EmployeesPage": {
+      "id": "COMP-EMPLOYEE-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/inventory/page.tsx#InventoryPage": {
+      "id": "COMP-INVENTORY-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/invoices/[id]/PageClient.tsx#InvoiceDetailPage": {
+      "id": "COMP-BILLING-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/invoices/[id]/page.tsx#Page": {
+      "id": "COMP-BILLING-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/invoices/page.tsx#InvoicesPage": {
+      "id": "COMP-BILLING-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/layout.tsx#DashboardLayout": {
+      "id": "COMP-WEB-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/measurements/[id]/history/PageClient.tsx#MeasurementHistoryPage": {
+      "id": "COMP-MEASUREMENT-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/measurements/[id]/history/page.tsx#Page": {
+      "id": "COMP-MEASUREMENT-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/[id]/OrderWorkflow.tsx#OrderWorkflow": {
+      "id": "COMP-ORDER-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/[id]/PageClient.tsx#OrderDetailPage": {
+      "id": "COMP-ORDER-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/[id]/page.tsx#Page": {
+      "id": "COMP-ORDER-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/NewOrderForm.tsx#NewOrderForm": {
+      "id": "COMP-ORDER-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/OrderKindScreen.tsx#OrderKindScreen": {
+      "id": "COMP-ORDER-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/fabric-tailoring/page.tsx#NewFabricTailoringOrderPage": {
+      "id": "COMP-ORDER-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/fabric/page.tsx#NewFabricOrderPage": {
+      "id": "COMP-ORDER-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/page.tsx#NewOrderKindChooserPage": {
+      "id": "COMP-ORDER-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/new/tailoring/page.tsx#NewTailoringOrderPage": {
+      "id": "COMP-ORDER-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/orders/page.tsx#OrdersPage": {
+      "id": "COMP-ORDER-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/page.tsx#DashboardPage": {
+      "id": "COMP-WEB-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/price-detail/page.tsx#PriceDetailPage": {
+      "id": "COMP-PRICING-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/profile/page.tsx#ProfilePage": {
+      "id": "COMP-USER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/OccasionReport.tsx#OccasionReport": {
+      "id": "COMP-REPORT-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/ReportRange.tsx#StatTile": {
+      "id": "COMP-REPORT-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/birthday/page.tsx#BirthdayReportPage": {
+      "id": "COMP-REPORT-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/order-collections/page.tsx#OrderCollectionsReportPage": {
+      "id": "COMP-REPORT-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/order-status/page.tsx#OrderStatusReportPage": {
+      "id": "COMP-REPORT-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/outstanding-invoices/page.tsx#OutstandingInvoicesReportPage": {
+      "id": "COMP-REPORT-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/page.tsx#ReportsIndexPage": {
+      "id": "COMP-REPORT-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/revenue/page.tsx#RevenueReportPage": {
+      "id": "COMP-REPORT-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/reports/wedding/page.tsx#WeddingReportPage": {
+      "id": "COMP-REPORT-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/MeasurementTemplatesSection.tsx#MeasurementTemplatesSection": {
+      "id": "COMP-SETTING-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/RoleRightsSection.tsx#RoleRightsSection": {
+      "id": "COMP-SETTING-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/advanced/page.tsx#AdvancedSettingsPage": {
+      "id": "COMP-SETTING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/appearance/ThemePicker.tsx#ThemePicker": {
+      "id": "COMP-SETTING-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/appearance/page.tsx#AppearanceSettingsPage": {
+      "id": "COMP-SETTING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/business-mode/page.tsx#BusinessModeSettingsPage": {
+      "id": "COMP-SETTING-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/change-password/page.tsx#ChangePasswordPage": {
+      "id": "COMP-SETTING-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/garments/page.tsx#GarmentSettingsPage": {
+      "id": "COMP-SETTING-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/invoice/page.tsx#InvoiceSettingsPage": {
+      "id": "COMP-SETTING-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/measurement-templates/page.tsx#MeasurementTemplatesSettingsPage": {
+      "id": "COMP-SETTING-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/order-duration/page.tsx#OrderDurationSettingsPage": {
+      "id": "COMP-SETTING-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/order-number/page.tsx#OrderNumberSettingsPage": {
+      "id": "COMP-SETTING-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/page.tsx#SettingsIndexPage": {
+      "id": "COMP-SETTING-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/tailoring-cost/page.tsx#TailoringCostSettingsPage": {
+      "id": "COMP-SETTING-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/settings/working-days/page.tsx#WorkingDaysSettingsPage": {
+      "id": "COMP-SETTING-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/stock/page.tsx#StockDetailsPage": {
+      "id": "COMP-INVENTORY-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/user-rights/page.tsx#UserRightsPage": {
+      "id": "COMP-USER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/user-roles/page.tsx#UserRolesPage": {
+      "id": "COMP-USER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/users/page.tsx#UsersPage": {
+      "id": "COMP-USER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/whatsapp/[id]/PageClient.tsx#WhatsAppMessageDetailPage": {
+      "id": "COMP-WHATSAPP-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/whatsapp/[id]/page.tsx#Page": {
+      "id": "COMP-WHATSAPP-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/whatsapp/new/page.tsx#NewWhatsAppMessagePage": {
+      "id": "COMP-WHATSAPP-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/dashboard/whatsapp/page.tsx#WhatsAppMessagesPage": {
+      "id": "COMP-WHATSAPP-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/invoice/view/[token]/PageClient.tsx#PublicInvoicePageClient": {
+      "id": "COMP-BILLING-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/invoice/view/[token]/page.tsx#Page": {
+      "id": "COMP-BILLING-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/layout.tsx#RootLayout": {
+      "id": "COMP-WEB-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/ChoosePasswordForm.tsx#ChoosePasswordForm": {
+      "id": "COMP-AUTH-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/LoginBackdrop.tsx#BandWeave": {
+      "id": "COMP-AUTH-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/ResetCodeForm.tsx#ResetCodeForm": {
+      "id": "COMP-AUTH-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/SessionEndedNotice.tsx#SessionEndedNotice": {
+      "id": "COMP-AUTH-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/fieldStyles.ts#fieldClassName": {
+      "id": "COMP-AUTH-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/login/page.tsx#LoginPage": {
+      "id": "COMP-AUTH-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/page.tsx#RootPage": {
+      "id": "COMP-WEB-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/app/register/page.tsx#RegisterPage": {
+      "id": "COMP-AUTH-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/billing/PaymentMethodPicker.tsx#PaymentMethodPicker": {
+      "id": "COMP-BILLING-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/customers/DuplicateWarningModal.tsx#DuplicateWarningModal": {
+      "id": "COMP-WEB-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/dashboard/OrderStatusCounts.tsx#OrderStatusCounts": {
+      "id": "COMP-WEB-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/measurements/MeasurementForm.tsx#MeasurementForm": {
+      "id": "COMP-MEASUREMENT-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/measurements/MeasurementPointInput.tsx#MeasurementPointInput": {
+      "id": "COMP-MEASUREMENT-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/measurements/MeasurementValuesEditor.tsx#MeasurementValuesEditor": {
+      "id": "COMP-MEASUREMENT-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/orders/DeliveryDialog.tsx#DeliveryDialog": {
+      "id": "COMP-WEB-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/orders/InvoiceDocument.tsx#InvoiceDocument": {
+      "id": "COMP-BILLING-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/orders/InvoicePrintModal.tsx#InvoicePrintModal": {
+      "id": "COMP-BILLING-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/orders/OrderItemsEditor.tsx#OrderItemsEditor": {
+      "id": "COMP-WEB-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/orders/invoice-preview-sample.ts#InvoicePreview": {
+      "id": "COMP-BILLING-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/theme-provider.tsx#ThemeProvider": {
+      "id": "COMP-WEB-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/Button.tsx#Button": {
+      "id": "COMP-WEB-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/ConfirmDialog.tsx#ConfirmDialog": {
+      "id": "COMP-WEB-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/DateInput.tsx#DateInput": {
+      "id": "COMP-WEB-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/DatePartsInput.tsx#DatePartsInput": {
+      "id": "COMP-WEB-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/ExportButton.tsx#ExportButton": {
+      "id": "COMP-WEB-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/ImportExportButtons.tsx#ImportExportButtons": {
+      "id": "COMP-WEB-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/Input.tsx#Input": {
+      "id": "COMP-WEB-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/Modal.tsx#Modal": {
+      "id": "COMP-WEB-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/Pagination.tsx#Pagination": {
+      "id": "COMP-WEB-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/PhoneNumberInput.tsx#PhoneNumberInput": {
+      "id": "COMP-WEB-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/RowMenu.tsx#RowMenu": {
+      "id": "COMP-WEB-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/SearchPicker.tsx#SearchPicker": {
+      "id": "COMP-WEB-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/StatusBadge.tsx#StatusBadge": {
+      "id": "COMP-WEB-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/ui/ToastProvider.tsx#ToastProvider": {
+      "id": "COMP-WEB-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/users/ChangePasswordForm.tsx#ChangePasswordForm": {
+      "id": "COMP-USER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/components/whatsapp/ShareViaWhatsAppButton.tsx#ShareViaWhatsAppButton": {
+      "id": "COMP-WHATSAPP-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api-client.ts#ApiFieldError": {
+      "id": "COMP-WEB-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/activity.ts#ActivityChange": {
+      "id": "COMP-WEB-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/auth.ts#redeemResetCode": {
+      "id": "COMP-WEB-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/billing.ts#INVOICE_STATUSES": {
+      "id": "COMP-WEB-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/branding.ts#SHOP_ADDRESS_KEY": {
+      "id": "COMP-WEB-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/business-mode.ts#BusinessMode": {
+      "id": "COMP-WEB-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/clothPrices.ts#ClothPrice": {
+      "id": "COMP-WEB-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/customers.ts#GENDERS": {
+      "id": "COMP-WEB-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/employees.ts#EMPLOYMENT_TYPES": {
+      "id": "COMP-WEB-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/garments.ts#GARMENT_KEY_PREFIX": {
+      "id": "COMP-WEB-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/import-export.ts#ImportResult": {
+      "id": "COMP-WEB-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/inventory.ts#CLOTH_UNITS": {
+      "id": "COMP-WEB-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/invoice-settings.ts#INVOICE_NUMBER_PREFIX_KEY": {
+      "id": "COMP-WEB-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/measurements.ts#GarmentType": {
+      "id": "COMP-WEB-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/occasions.ts#OccasionType": {
+      "id": "COMP-WEB-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/order-invoices.ts#findInvoicesForOrder": {
+      "id": "COMP-WEB-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/orders.ts#ORDER_STATUSES": {
+      "id": "COMP-WEB-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/public-invoice.ts#PublicInvoice": {
+      "id": "COMP-WEB-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/reports.ts#RevenueReport": {
+      "id": "COMP-WEB-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/settings.ts#Setting": {
+      "id": "COMP-WEB-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/shop-calendar.ts#WEEKLY_OFF_DAYS_KEY": {
+      "id": "COMP-WEB-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/tailoring-rates.ts#TAILORING_RATE_KEY_PREFIX": {
+      "id": "COMP-WEB-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/user-profile.ts#USER_PHOTO_KEY_PREFIX": {
+      "id": "COMP-WEB-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/users.ts#CurrentUser": {
+      "id": "COMP-WEB-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/api/whatsapp.ts#WHATSAPP_MESSAGE_TYPES": {
+      "id": "COMP-WEB-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/auth.ts#AuthTokens": {
+      "id": "COMP-WEB-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/contact.ts#normalizePhoneNumber": {
+      "id": "COMP-WEB-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/customer.ts#CUSTOMER_NAME": {
+      "id": "COMP-WEB-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/date.ts#toDisplayDate": {
+      "id": "COMP-WEB-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/download.ts#saveBlob": {
+      "id": "COMP-WEB-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/orders/order-kind.ts#OrderKind": {
+      "id": "COMP-ORDER-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/text.ts#capitalizeWords": {
+      "id": "COMP-WEB-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/use-branding.ts#useBranding": {
+      "id": "COMP-WEB-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/use-debounced-value.ts#useDebouncedValue": {
+      "id": "COMP-WEB-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/use-measurement-templates.ts#invalidateMeasurementTemplates": {
+      "id": "COMP-WEB-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/use-permissions.ts#PermissionState": {
+      "id": "COMP-WEB-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/use-route-id.ts#useRouteId": {
+      "id": "COMP-WEB-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/whatsapp/provider.ts#WhatsAppDelivery": {
+      "id": "COMP-WHATSAPP-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "web/src/lib/whatsapp/whatsapp-service.ts#ShopIdentity": {
+      "id": "COMP-WHATSAPP-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    }
+  }
+}

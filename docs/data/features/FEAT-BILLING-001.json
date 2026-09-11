@@ -1,0 +1,134 @@
+{
+  "id": "FEAT-BILLING-001",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "Invoice Sharing",
+  "module": "BILLING",
+  "simple_explanation": "Invoice Sharing — derived from the GetPublicInvoice, GetShareToken use cases in src/Application/Billing. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Billing/Queries/GetPublicInvoice",
+      "src/Application/Billing/Queries/GetShareToken"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQuery.cs",
+        "contains": "GetPublicInvoiceQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+        "contains": "GetPublicInvoiceQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+        "contains": "GetInvoiceShareTokenQuery",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "5 component(s) and 5 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 5,
+    "test_count": 0,
+    "requirement_count": 5,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Invoice Sharing",
+    "use_cases": [
+      "GetPublicInvoice",
+      "GetShareToken"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/invoices/{id:guid}/share-token",
+        "policy": "Permissions.InvoicesView",
+        "controller": "InvoicesController",
+        "action": "GetShareToken"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/invoices",
+      "/dashboard/invoices/[id]",
+      "/invoice/view/[token]"
+    ],
+    "permissions": [
+      "Permissions.InvoicesView"
+    ],
+    "derived_components": [
+      "COMP-BILLING-018",
+      "COMP-BILLING-019",
+      "COMP-BILLING-020",
+      "COMP-BILLING-021",
+      "COMP-BILLING-022"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [],
+    "derived_requirements": [
+      "FR-BILLING-001",
+      "FR-BILLING-002",
+      "FR-BILLING-003",
+      "FR-BILLING-004",
+      "FR-BILLING-005"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "last_commit_date": "2026-08-20"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/invoices/{id:guid}/share-token"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Queries/GetPublicInvoice",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Queries/GetShareToken",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/invoices/{id:guid}/share-token",
+        "detail": "src/Api/Controllers/V1/InvoicesController.cs",
+        "line": 112
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+  "change_history": []
+}

@@ -1,0 +1,153 @@
+{
+  "id": "FEAT-BILLING-002",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Invoice Voiding",
+  "module": "BILLING",
+  "simple_explanation": "Invoice Voiding — derived from the Void use case in src/Application/Billing. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Billing/Commands/Void"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommand.cs",
+        "contains": "VoidInvoiceCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs",
+        "contains": "VoidInvoiceCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs",
+        "contains": "VoidInvoiceCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "4 component(s) and 5 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 3,
+    "requirement_count": 5,
+    "rule_count": 4,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Invoice Voiding",
+    "use_cases": [
+      "Void"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/invoices/{id:guid}/void",
+        "policy": "Permissions.InvoicesVoid",
+        "controller": "InvoicesController",
+        "action": "Void"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/invoices",
+      "/dashboard/invoices/[id]",
+      "/invoice/view/[token]"
+    ],
+    "permissions": [
+      "Permissions.InvoicesVoid"
+    ],
+    "derived_components": [
+      "COMP-BILLING-007",
+      "COMP-BILLING-008",
+      "COMP-BILLING-009",
+      "COMP-BILLING-026"
+    ],
+    "derived_test_cases": [
+      "TC-BILLING-001",
+      "TC-BILLING-009",
+      "TC-BILLING-011",
+      "TC-BILLING-014",
+      "TC-BILLING-015",
+      "TC-BILLING-016",
+      "TC-BILLING-017",
+      "TC-BILLING-019",
+      "TC-BILLING-020",
+      "TC-BILLING-026",
+      "TC-BILLING-027",
+      "TC-BILLING-028",
+      "TC-BILLING-029",
+      "TC-BILLING-030",
+      "TC-BILLING-031",
+      "TC-BILLING-032",
+      "TC-BILLING-033",
+      "TC-BILLING-034",
+      "TC-BILLING-035",
+      "TC-BILLING-036",
+      "TC-BILLING-037"
+    ],
+    "derived_rules": [
+      "BR-BILLING-007",
+      "BR-BILLING-012",
+      "BR-BILLING-013",
+      "BR-BILLING-014"
+    ],
+    "derived_requirements": [
+      "FR-BILLING-001",
+      "FR-BILLING-002",
+      "FR-BILLING-003",
+      "FR-BILLING-004",
+      "FR-BILLING-005"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "last_commit_date": "2026-08-14"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "POST /api/v1/invoices/{id:guid}/void"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Billing/Commands/Void",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/invoices/{id:guid}/void",
+        "detail": "src/Api/Controllers/V1/InvoicesController.cs",
+        "line": 124
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+  "change_history": []
+}

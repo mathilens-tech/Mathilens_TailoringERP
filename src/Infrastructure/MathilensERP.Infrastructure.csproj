@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <!-- Needed for IHttpContextAccessor (CurrentUserService). Infrastructure is a plain
+         classlib, not the Sdk.Web-hosted Api project, so the ASP.NET Core shared framework
+         is referenced explicitly rather than picked up implicitly. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\MathilensERP.Application.csproj" />
+    <ProjectReference Include="..\Domain\MathilensERP.Domain.csproj" />
+    <ProjectReference Include="..\Shared\MathilensERP.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.10" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.22.0" />
+  </ItemGroup>
+
+</Project>

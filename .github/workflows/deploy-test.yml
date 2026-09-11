@@ -1,0 +1,107 @@
+name: Deploy test to VM
+
+# The test stack, on the server in the admin@mathilens.com account. Replaces deploy-api-test.yml
+# and azure-static-web-apps-test.yml, which deployed the same branch to api-radhafabric-test and
+# swa-radhafabric-test — both of which sat in rg-mathilens-prod, sharing an App Service plan, a
+# Key Vault and a Postgres server with production and three unrelated products.
+#
+# Runs on the box itself via a self-hosted runner, so there is no inbound SSH to expose and no
+# deploy key in secrets: the runner polls outbound. "Deploying" is therefore a local file copy.
+
+# Manual only, until the server exists.
+#
+# It ran on every push to dev, which meant every push queued a job for a runner labelled
+# [self-hosted, linux, mathilens-test] that has never been registered — so it sat queued for ever
+# and the dev branch quietly deployed nowhere at all. The workflow is kept because the plan is not
+# abandoned: run setup.sh on the box, register the runner, and put the push trigger back.
+on:
+  workflow_dispatch:
+
+concurrency:
+  # One deploy at a time. Two overlapping runs would race on the publish directory and restart the
+  # service underneath each other.
+  group: deploy-test
+  cancel-in-progress: false
+
+env:
+  SITE_HOST: www.test-radhafabric.mathilens.com
+  WEB_ROOT: /var/www/mathilens-test
+  API_ROOT: /opt/mathilens-api
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, mathilens-test]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # ---- API -------------------------------------------------------------------------------
+      - name: Publish API
+        run: |
+          dotnet publish src/Api/MathilensERP.Api.csproj \
+            --configuration Release \
+            --output "${RUNNER_TEMP}/api-publish"
+
+      # ---- Web -------------------------------------------------------------------------------
+      - name: Build web
+        env:
+          # Same origin as the site: nginx proxies /api/ to Kestrel on loopback, so the browser
+          # never makes a cross-origin call and no preflight is involved.
+          NEXT_PUBLIC_API_BASE_URL: https://${{ env.SITE_HOST }}
+          NEXT_PUBLIC_CUSTOMER_NAME: ${{ vars.NEXT_PUBLIC_CUSTOMER_NAME }}
+        run: |
+          npm --prefix web ci
+          npm --prefix web run build
+
+      - name: Generate nginx route rules from the SWA config
+        # Keeps the [id] rewrites in step with production's staticwebapp.config.json rather than
+        # maintaining the same list twice. See generate-nginx-routes.mjs.
+        run: |
+          node deploy/test-server/generate-nginx-routes.mjs \
+            web/staticwebapp.config.json > /tmp/mathilens-routes.conf
+          sudo install -m 644 /tmp/mathilens-routes.conf /etc/nginx/mathilens-routes.conf
+          sudo /usr/sbin/nginx -t
+
+      # ---- Release ---------------------------------------------------------------------------
+      - name: Deploy API
+        run: |
+          sudo /usr/bin/systemctl stop mathilens-api
+          rsync -a --delete "${RUNNER_TEMP}/api-publish/" "${API_ROOT}/"
+          sudo /usr/bin/systemctl start mathilens-api
+
+      - name: Deploy web
+        # After the API, so the new bundle is never live against the old API.
+        run: |
+          rsync -a --delete web/out/ "${WEB_ROOT}/"
+          sudo /usr/bin/systemctl reload nginx
+
+      # ---- Verify ----------------------------------------------------------------------------
+      - name: Smoke test
+        run: |
+          # The API applies migrations on boot, so allow for that before calling it a failure.
+          for i in $(seq 1 30); do
+            if curl -fsS -o /dev/null "https://${SITE_HOST}/"; then break; fi
+            sleep 2
+          done
+
+          curl -fsS -o /dev/null "https://${SITE_HOST}/" \
+            || { echo "Site did not come up"; sudo /usr/bin/systemctl status mathilens-api; exit 1; }
+
+          # 400 with a validation envelope is the correct answer to empty credentials, and proves
+          # the request reached the API through nginx rather than hitting the static fallback.
+          code=$(curl -s -o /tmp/login.json -w '%{http_code}' \
+            -X POST "https://${SITE_HOST}/api/v1/auth/login" \
+            -H 'Content-Type: application/json' \
+            -d '{"userName":"","password":""}')
+
+          if [ "$code" != "400" ]; then
+            echo "Expected 400 from /api/v1/auth/login, got ${code}"
+            cat /tmp/login.json
+            sudo /usr/bin/systemctl status mathilens-api
+            exit 1
+          fi
+
+          grep -q VALIDATION_ERROR /tmp/login.json \
+            || { echo "Unexpected body:"; cat /tmp/login.json; exit 1; }
+
+          echo "Test site and API are up."

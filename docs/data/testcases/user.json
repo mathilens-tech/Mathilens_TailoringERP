@@ -1,0 +1,2745 @@
+{
+  "module": "USER",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-PLATFORM-006",
+      "title": "Front desk cannot manage users",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::PermissionEnforcementTests.FrontDesk_CannotManageUsers",
+      "assertions": [
+        "HttpStatusCode.Forbidden"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Authorization",
+        "class": "PermissionEnforcementTests",
+        "method": "FrontDesk_CannotManageUsers",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task FrontDesk_CannotManageUsers()",
+        "is_async": true,
+        "line": 48,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [
+          {
+            "path": "/api/v1/users",
+            "normalized": "/api/v1/users",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-070"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-070",
+            "name": "UsersController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add role-based user rights and the user administration screen",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs::FrontDesk_CannotManageUsers",
+            "line": 48
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/users",
+            "detail": "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs",
+            "line": 48
+          }
+        ]
+      },
+      "last_verified_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-061",
+      "title": "Me without bearer token returns unauthorized",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Users/UsersEndpointsTests.cs::UsersEndpointsTests.Me_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Users/UsersEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Users",
+        "class": "UsersEndpointsTests",
+        "method": "Me_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Me_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 15,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/users/me",
+            "normalized": "/api/v1/users/me",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-070"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-070",
+            "name": "UsersController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "CustomWebApplicationFactory",
+          "HttpClient"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "69f57bd76bfc541ac52c5e6a47c195f9798264dc",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Api layer: auth endpoints, JWT bearer middleware, response envelope",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Users/UsersEndpointsTests.cs::Me_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 15
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/users/me",
+            "detail": "tests/IntegrationTests/Users/UsersEndpointsTests.cs",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "69f57bd76bfc541ac52c5e6a47c195f9798264dc",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-062",
+      "title": "Me with malformed bearer token returns unauthorized",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Users/UsersEndpointsTests.cs::UsersEndpointsTests.Me_WithMalformedBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Users/UsersEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Users",
+        "class": "UsersEndpointsTests",
+        "method": "Me_WithMalformedBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Me_WithMalformedBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 23,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/users/me",
+            "normalized": "/api/v1/users/me",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-070"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-070",
+            "name": "UsersController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "CustomWebApplicationFactory",
+          "Headers",
+          "HttpClient"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "69f57bd76bfc541ac52c5e6a47c195f9798264dc",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Api layer: auth endpoints, JWT bearer middleware, response envelope",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Users/UsersEndpointsTests.cs::Me_WithMalformedBearerToken_ReturnsUnauthorized",
+            "line": 23
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/users/me",
+            "detail": "tests/IntegrationTests/Users/UsersEndpointsTests.cs",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "69f57bd76bfc541ac52c5e6a47c195f9798264dc",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-001",
+      "title": "Permissions for with nothing configured uses the built in set",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.PermissionsFor_WithNothingConfigured_UsesTheBuiltInSet",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "PermissionsFor_WithNothingConfigured_UsesTheBuiltInSet",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task PermissionsFor_WithNothingConfigured_UsesTheBuiltInSet()",
+        "is_async": true,
+        "line": 39,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::PermissionsFor_WithNothingConfigured_UsesTheBuiltInSet",
+            "line": 39
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-002",
+      "title": "Permissions for with an override uses it instead of the default",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.PermissionsFor_WithAnOverride_UsesItInsteadOfTheDefault",
+      "assertions": [
+        "Permissions.CustomersView"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "PermissionsFor_WithAnOverride_UsesItInsteadOfTheDefault",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task PermissionsFor_WithAnOverride_UsesItInsteadOfTheDefault()",
+        "is_async": true,
+        "line": 47,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::PermissionsFor_WithAnOverride_UsesItInsteadOfTheDefault",
+            "line": 47
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-003",
+      "title": "Permissions for owner is always everything even if a row says otherwise",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.PermissionsFor_Owner_IsAlwaysEverythingEvenIfARowSaysOtherwise",
+      "assertions": [
+        "Permissions.UsersRights"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "PermissionsFor_Owner_IsAlwaysEverythingEvenIfARowSaysOtherwise",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task PermissionsFor_Owner_IsAlwaysEverythingEvenIfARowSaysOtherwise()",
+        "is_async": true,
+        "line": 59,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "All",
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::PermissionsFor_Owner_IsAlwaysEverythingEvenIfARowSaysOtherwise",
+            "line": 59
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-004",
+      "title": "Permissions for with an unparsable row falls back to the default",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.PermissionsFor_WithAnUnparsableRow_FallsBackToTheDefault",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "PermissionsFor_WithAnUnparsableRow_FallsBackToTheDefault",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task PermissionsFor_WithAnUnparsableRow_FallsBackToTheDefault()",
+        "is_async": true,
+        "line": 72,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::PermissionsFor_WithAnUnparsableRow_FallsBackToTheDefault",
+            "line": 72
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-005",
+      "title": "Set permissions for owner is refused",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.SetPermissions_ForOwner_IsRefused",
+      "assertions": [
+        "\"Roles.OwnerIsFixed\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "SetPermissions_ForOwner_IsRefused",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task SetPermissions_ForOwner_IsRefused()",
+        "is_async": true,
+        "line": 83,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::SetPermissions_ForOwner_IsRefused",
+            "line": 83
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-006",
+      "title": "Set permissions with an unknown permission is refused",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.SetPermissions_WithAnUnknownPermission_IsRefused",
+      "assertions": [
+        "\"Roles.UnknownPermission\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "SetPermissions_WithAnUnknownPermission_IsRefused",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task SetPermissions_WithAnUnknownPermission_IsRefused()",
+        "is_async": true,
+        "line": 93,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::SetPermissions_WithAnUnknownPermission_IsRefused",
+            "line": 93
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-007",
+      "title": "Set permissions with an unknown role is refused",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.SetPermissions_WithAnUnknownRole_IsRefused",
+      "assertions": [
+        "\"Roles.UnknownRole\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "SetPermissions_WithAnUnknownRole_IsRefused",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task SetPermissions_WithAnUnknownRole_IsRefused()",
+        "is_async": true,
+        "line": 103,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::SetPermissions_WithAnUnknownRole_IsRefused",
+            "line": 103
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-008",
+      "title": "Set permissions stores the set and takes effect immediately",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.SetPermissions_StoresTheSetAndTakesEffectImmediately",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "SetPermissions_StoresTheSetAndTakesEffectImmediately",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task SetPermissions_StoresTheSetAndTakesEffectImmediately()",
+        "is_async": true,
+        "line": 112,
+        "body_lines": 20,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "generic-argument",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::SetPermissions_StoresTheSetAndTakesEffectImmediately",
+            "line": 112
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-009",
+      "title": "Get matrix reports only individual actions so unticking is expressible",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.GetMatrix_ReportsOnlyIndividualActions_SoUntickingIsExpressible",
+      "assertions": [
+        "Permissions.OrdersCreate"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "GetMatrix_ReportsOnlyIndividualActions_SoUntickingIsExpressible",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetMatrix_ReportsOnlyIndividualActions_SoUntickingIsExpressible()",
+        "is_async": true,
+        "line": 134,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Roles",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::GetMatrix_ReportsOnlyIndividualActions_SoUntickingIsExpressible",
+            "line": 134
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-010",
+      "title": "Get matrix marks owner as not editable and every other role as editable",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.GetMatrix_MarksOwnerAsNotEditableAndEveryOtherRoleAsEditable",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "GetMatrix_MarksOwnerAsNotEditableAndEveryOtherRoleAsEditable",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetMatrix_MarksOwnerAsNotEditableAndEveryOtherRoleAsEditable()",
+        "is_async": true,
+        "line": 147,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Roles",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::GetMatrix_MarksOwnerAsNotEditableAndEveryOtherRoleAsEditable",
+            "line": 147
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-011",
+      "title": "Get matrix derives screens from the catalogue",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.GetMatrix_DerivesScreensFromTheCatalogue",
+      "assertions": [
+        "\"View\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "GetMatrix_DerivesScreensFromTheCatalogue",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetMatrix_DerivesScreensFromTheCatalogue()",
+        "is_async": true,
+        "line": 156,
+        "body_lines": 19,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-018",
+            "name": "Permissions",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Granular",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Screens",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::GetMatrix_DerivesScreensFromTheCatalogue",
+            "line": 156
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-012",
+      "title": "Reset permissions for owner is refused",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.ResetPermissions_ForOwner_IsRefused",
+      "assertions": [
+        "\"Roles.OwnerIsFixed\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "ResetPermissions_ForOwner_IsRefused",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task ResetPermissions_ForOwner_IsRefused()",
+        "is_async": true,
+        "line": 177,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::ResetPermissions_ForOwner_IsRefused",
+            "line": 177
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-013",
+      "title": "Reset permissions removes the override and returns the built in set",
+      "module": "USER",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Authorization)",
+      "subject_component": "COMP-USER-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::RolePermissionServiceTests.ResetPermissions_RemovesTheOverrideAndReturnsTheBuiltInSet",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Authorization",
+        "class": "RolePermissionServiceTests",
+        "method": "ResetPermissions_RemovesTheOverrideAndReturnsTheBuiltInSet",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task ResetPermissions_RemovesTheOverrideAndReturnsTheBuiltInSet()",
+        "is_async": true,
+        "line": 186,
+        "body_lines": 18,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Settings",
+          "MathilensERP.Domain.Settings",
+          "MathilensERP.Application.Authorization",
+          "MathilensERP.Shared.Authorization"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-086",
+            "name": "IRoleCatalog",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-007",
+            "name": "ISettingRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-SETTING-015",
+            "name": "Setting",
+            "via": "class-scope",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-USER-005",
+            "name": "RolePermissionService",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-017",
+            "name": "AppRoles",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "JsonSerializer",
+          "MemoryCache",
+          "MemoryCacheOptions",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs::ResetPermissions_RemovesTheOverrideAndReturnsTheBuiltInSet",
+            "line": 186
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "TC-USER-014",
+      "title": "Issue with valid inputs creates active token",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Issue_WithValidInputs_CreatesActiveToken",
+      "assertions": [
+        "\"hashed-token-value\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Issue_WithValidInputs_CreatesActiveToken",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Issue_WithValidInputs_CreatesActiveToken()",
+        "is_async": false,
+        "line": 8,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Issue_WithValidInputs_CreatesActiveToken",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-015",
+      "title": "Issue with expiry before issued at throws",
+      "module": "USER",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Issue_WithExpiryBeforeIssuedAt_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Issue_WithExpiryBeforeIssuedAt_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Issue_WithExpiryBeforeIssuedAt_Throws()",
+        "is_async": false,
+        "line": 25,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentOutOfRangeException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Issue_WithExpiryBeforeIssuedAt_Throws",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-016",
+      "title": "Issue with empty user ID throws",
+      "module": "USER",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Issue_WithEmptyUserId_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Issue_WithEmptyUserId_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Issue_WithEmptyUserId_Throws()",
+        "is_async": false,
+        "line": 35,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Issue_WithEmptyUserId_Throws",
+            "line": 35
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-017",
+      "title": "Issue with blank token hash throws",
+      "module": "USER",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Issue_WithBlankTokenHash_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Issue_WithBlankTokenHash_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Issue_WithBlankTokenHash_Throws()",
+        "is_async": false,
+        "line": 44,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Issue_WithBlankTokenHash_Throws",
+            "line": 44
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-018",
+      "title": "Is expired after expiry time returns true",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.IsExpired_AfterExpiryTime_ReturnsTrue",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "IsExpired_AfterExpiryTime_ReturnsTrue",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void IsExpired_AfterExpiryTime_ReturnsTrue()",
+        "is_async": false,
+        "line": 53,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::IsExpired_AfterExpiryTime_ReturnsTrue",
+            "line": 53
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-019",
+      "title": "Revoke marks token revoked and records replacement",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Revoke_MarksTokenRevokedAndRecordsReplacement",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Revoke_MarksTokenRevokedAndRecordsReplacement",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Revoke_MarksTokenRevokedAndRecordsReplacement()",
+        "is_async": false,
+        "line": 63,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Revoke_MarksTokenRevokedAndRecordsReplacement",
+            "line": 63
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-USER-020",
+      "title": "Revoke when already revoked does not overwrite revocation details",
+      "module": "USER",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-USER-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::RefreshTokenTests.Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Identity",
+        "class": "RefreshTokenTests",
+        "method": "Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails()",
+        "is_async": false,
+        "line": 77,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Identity"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-USER-006",
+            "name": "RefreshToken",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs::Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails",
+            "line": 77
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "FEAT-REPORT-004",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Reports Revenue Reporting",
+  "module": "REPORT",
+  "simple_explanation": "Reports Revenue Reporting — derived from the Revenue use case in src/Application/Report. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Reports/Queries/Revenue"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/Revenue/GetRevenueReportQuery.cs",
+        "contains": "GetRevenueReportQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandler.cs",
+        "contains": "GetRevenueReportQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs",
+        "contains": "GetRevenueReportQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 4,
+    "requirement_count": 2,
+    "rule_count": 1,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Revenue Reporting",
+    "use_cases": [
+      "Revenue"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/reports/revenue",
+        "policy": "Permissions.ReportsView",
+        "controller": "ReportsController",
+        "action": "Revenue"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/reports",
+      "/dashboard/reports/birthday",
+      "/dashboard/reports/order-collections",
+      "/dashboard/reports/order-status",
+      "/dashboard/reports/outstanding-invoices",
+      "/dashboard/reports/revenue",
+      "/dashboard/reports/wedding"
+    ],
+    "permissions": [
+      "Permissions.ReportsView"
+    ],
+    "derived_components": [
+      "COMP-REPORT-011",
+      "COMP-REPORT-012",
+      "COMP-REPORT-013"
+    ],
+    "derived_test_cases": [
+      "TC-REPORT-011",
+      "TC-REPORT-012",
+      "TC-REPORT-013",
+      "TC-REPORT-014"
+    ],
+    "derived_rules": [
+      "BR-REPORT-005"
+    ],
+    "derived_requirements": [
+      "FR-REPORT-001",
+      "FR-REPORT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/reports/revenue"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Reports/Queries/Revenue",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/reports/revenue",
+        "detail": "src/Api/Controllers/V1/ReportsController.cs",
+        "line": 145
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+  "change_history": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-090",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Foreign key column is indexed (4.5 Indexes); each entity's per-entity Index…",
+  "module": "PLATFORM",
+  "description": "Every foreign key column is indexed (4.5 Indexes); each entity's per-entity Index Recommendations in 10. Required Entities define its baseline indexes.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "data",
+  "requirement_type_evidence": "clause uses \"foreign key\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 13.1",
+    "section_title": "Index Strategy",
+    "parent_section": "§ 13",
+    "parent_section_title": "Performance Guidelines",
+    "quote": "Every foreign key column is indexed (4.5 Indexes); each entity's per-entity Index Recommendations in 10. Required Entities define its baseline indexes.",
+    "line": 425,
+    "line_start": 425,
+    "line_end": 425,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 13.1",
+        "detail": "docs/02_DATABASE.md",
+        "line": 425
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

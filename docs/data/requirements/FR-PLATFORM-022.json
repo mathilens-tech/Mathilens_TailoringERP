@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-022",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Destructive actions always require explicit confirmation.",
+  "module": "PLATFORM",
+  "description": "Destructive actions always require explicit confirmation.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 9.5",
+    "section_title": "Forms",
+    "parent_section": "§ 9",
+    "parent_section_title": "UI Standards",
+    "quote": "Destructive actions always require explicit confirmation.",
+    "line": 440,
+    "line_start": 440,
+    "line_end": 441,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 9.5",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 440
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

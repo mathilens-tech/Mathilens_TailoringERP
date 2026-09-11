@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "requirement.schema.json",
+  "title": "Functional requirement (FRS entry)",
+  "description": "WHAT SHOULD THE PRODUCT DO. One file per requirement.\n\nTHE APPROVAL LOCK. Once `approval.approved` is true, `approval.content_hash` fixes the normative fields (title, description, business_purpose, actors, preconditions, main_flow, alternate_flow, business_rules, validation, expected_result). If any of those change without the hash and approval block being updated by a person, validation FAILS. This is the mechanical guarantee that neither a script nor an assistant can rewrite an approved requirement to match what the code happens to do.\n\nSeeded requirements start `status: draft` and `approved: false` — a harvested requirement is a proposal, never an approval.",
+  "type": "object",
+  "required": ["id", "title", "description", "module", "source", "status", "data_classification", "provenance", "schema_version"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/requirementId" },
+    "schema_version": { "type": "string" },
+    "entity_version": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+
+    "description": { "type": "string", "minLength": 1 },
+    "business_purpose": { "type": ["string", "null"] },
+    "actors": { "type": "array", "items": { "type": "string" } },
+    "preconditions": { "type": "array", "items": { "type": "string" } },
+    "main_flow": { "type": "array", "items": { "type": "string" } },
+    "alternate_flow": { "type": "array", "items": { "type": "string" } },
+    "business_rules": { "type": "array", "items": { "type": "string" } },
+    "validation": { "type": "array", "items": { "type": "string" } },
+    "expected_result": { "type": ["string", "null"] },
+
+    "requirement_type": {
+      "description": "Classified only where the clause's own wording supports it. NEEDS_REVIEW rather than a guess.",
+      "type": "string",
+      "enum": [
+        "functional", "validation", "authorization", "workflow", "data", "integration",
+        "reporting", "notification", "configuration", "audit", "security", "performance",
+        "architecture", "NEEDS_REVIEW"
+      ]
+    },
+    "requirement_type_evidence": { "type": ["string", "null"] },
+
+    "source": {
+      "description": "Where the requirement came from, precisely enough to reopen it. This repository already uses `00_MASTER_SPEC.md § 10.1`-style citations in 123 source files, so that scheme is preserved rather than replaced. `parent_section` keeps the specification's own hierarchy intact, which is what lets the FRS be browsed the way the document is written.",
+      "type": "object",
+      "required": ["document", "section"],
+      "properties": {
+        "document": { "type": "string" },
+        "section": { "type": "string" },
+        "section_title": { "type": ["string", "null"] },
+        "parent_section": { "type": ["string", "null"] },
+        "parent_section_title": { "type": ["string", "null"] },
+        "quote": {
+          "description": "The clause verbatim. This is the requirement — the title and description are derived from it, never the other way round.",
+          "type": ["string", "null"]
+        },
+        "line": { "type": ["integer", "null"] },
+        "line_start": { "type": ["integer", "null"] },
+        "line_end": { "type": ["integer", "null"] },
+        "form": {
+          "description": "How the clause is written in the document: a sentence, a bullet, or a table row.",
+          "type": ["string", "null"],
+          "enum": ["sentence", "bullet", "table-row", null]
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "implementation_evidence": {
+      "description": "DERIVED. Components whose harvested spec citations name this requirement's section. Kept separate from `components`, which is what a person asserted.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["component", "via", "confidence"],
+        "properties": {
+          "component": { "$ref": "common.schema.json#/$defs/componentId" },
+          "via": { "type": "string", "enum": ["doc-citation", "feature-link", "human"] },
+          "confidence": { "$ref": "common.schema.json#/$defs/confidence" },
+          "detail": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "coverage": {
+      "description": "The three questions kept deliberately apart: is it written down, is it built, is it verified. A requirement can be specified and unimplemented, or implemented and unspecified — conflating them hides exactly the cases worth finding.",
+      "type": ["object", "null"],
+      "required": ["specified", "implemented", "tested"],
+      "properties": {
+        "specified": { "type": "string", "enum": ["YES", "NO", "NEEDS_REVIEW"] },
+        "implemented": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+        "tested": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+        "component_count": { "type": "integer" },
+        "test_count": { "type": "integer" },
+        "computed_at": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+
+    "approval": {
+      "type": "object",
+      "required": ["approved"],
+      "properties": {
+        "approved": { "type": "boolean" },
+        "by": { "type": ["string", "null"] },
+        "on": { "type": ["string", "null"] },
+        "content_hash": { "type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$" }
+      },
+      "additionalProperties": false
+    },
+
+    "assertions": {
+      "description": "Machine-checkable statements of what the code must do, so a requirement/implementation mismatch is detected mechanically rather than by reading. Optional: a requirement with no assertions is not wrong, it is simply only checkable by a human.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "description"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["constant", "symbol-present", "symbol-absent", "regex", "enum-set", "route-exists"] },
+          "description": { "type": "string" },
+          "file": { "type": ["string", "null"] },
+          "symbol": { "type": ["string", "null"] },
+          "equals": { "type": ["string", "number", "boolean", "null"] },
+          "pattern": { "type": ["string", "null"] },
+          "members": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+    "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+    "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+
+    "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+    "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+    "last_verified_commit": { "type": ["string", "null"] },
+    "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+  },
+  "additionalProperties": false
+}

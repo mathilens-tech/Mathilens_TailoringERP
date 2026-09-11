@@ -1,0 +1,866 @@
+{
+  "schema_version": "1.0.0",
+  "prefix": "FR",
+  "next": {
+    "ACTIVITY": 2,
+    "AUTH": 6,
+    "BILLING": 5,
+    "CUSTOMER": 1,
+    "EMPLOYEE": 1,
+    "MEASUREMENT": 2,
+    "ORDER": 3,
+    "PLATFORM": 95,
+    "REPORT": 2,
+    "SETTING": 1,
+    "USER": 3
+  },
+  "entries": {
+    "docs/00_MASTER_SPEC.md#10.2#gvcr95": {
+      "id": "FR-AUTH-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#10.4#qy1v5v": {
+      "id": "FR-AUTH-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#10.9#wzspg7": {
+      "id": "FR-PLATFORM-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#11.1#b1dbh0": {
+      "id": "FR-PLATFORM-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#11.2#wrwf4h": {
+      "id": "FR-PLATFORM-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#11.4#wzcdp7": {
+      "id": "FR-PLATFORM-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#11.5#3is48z": {
+      "id": "FR-PLATFORM-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#11.6#k846dg": {
+      "id": "FR-PLATFORM-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#12.3#myg5c8": {
+      "id": "FR-PLATFORM-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#12.4#vxxqsw": {
+      "id": "FR-PLATFORM-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#13.1#m1rhyw": {
+      "id": "FR-PLATFORM-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#13.4#4povpj": {
+      "id": "FR-PLATFORM-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#13.4#gsle1": {
+      "id": "FR-PLATFORM-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#13.5#gq1p4v": {
+      "id": "FR-PLATFORM-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#14#e6htm4": {
+      "id": "FR-PLATFORM-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#15#13e6k5": {
+      "id": "FR-PLATFORM-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#2.2#z7zb03": {
+      "id": "FR-PLATFORM-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#2.5#yhk3m9": {
+      "id": "FR-PLATFORM-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.1#75ps25": {
+      "id": "FR-PLATFORM-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.2#xo5llo": {
+      "id": "FR-PLATFORM-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.4#lpziem": {
+      "id": "FR-PLATFORM-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.6#rvjao7": {
+      "id": "FR-PLATFORM-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.7#m829p0": {
+      "id": "FR-PLATFORM-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#4.8#cq0e18": {
+      "id": "FR-PLATFORM-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#5#qlfuuu": {
+      "id": "FR-PLATFORM-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#6#398akt": {
+      "id": "FR-PLATFORM-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#6#39otwv": {
+      "id": "FR-PLATFORM-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#6#624nb6": {
+      "id": "FR-PLATFORM-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#7.12#np2t2s": {
+      "id": "FR-PLATFORM-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#7.2#uofue0": {
+      "id": "FR-PLATFORM-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#7.5#ay7dns": {
+      "id": "FR-PLATFORM-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#7.6#w6819w": {
+      "id": "FR-PLATFORM-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#7.7#v4el1t": {
+      "id": "FR-PLATFORM-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#8.7#39qduz": {
+      "id": "FR-PLATFORM-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#8.8#60h6hf": {
+      "id": "FR-PLATFORM-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.1#qxnpsp": {
+      "id": "FR-PLATFORM-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.12#ed3dwe": {
+      "id": "FR-PLATFORM-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.2#56xz76": {
+      "id": "FR-PLATFORM-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.5#jri4vc": {
+      "id": "FR-PLATFORM-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.6#3hl8am": {
+      "id": "FR-PLATFORM-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.7#cy548q": {
+      "id": "FR-PLATFORM-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.9#i9hvc7": {
+      "id": "FR-REPORT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/00_MASTER_SPEC.md#9.9#jzmzfy": {
+      "id": "FR-REPORT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#11#cidsr0": {
+      "id": "FR-PLATFORM-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#11#jk3chq": {
+      "id": "FR-PLATFORM-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#12#4n3cf2": {
+      "id": "FR-PLATFORM-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#13#3w014y": {
+      "id": "FR-PLATFORM-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#14#beg32c": {
+      "id": "FR-PLATFORM-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#14#xej6ya": {
+      "id": "FR-PLATFORM-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#16#5ngw38": {
+      "id": "FR-PLATFORM-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#16#iorjja": {
+      "id": "FR-PLATFORM-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#18#thf0jm": {
+      "id": "FR-AUTH-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#18#vx9cqr": {
+      "id": "FR-AUTH-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#19#lmrbbo": {
+      "id": "FR-PLATFORM-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#20#91ac0r": {
+      "id": "FR-PLATFORM-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#22#mz3090": {
+      "id": "FR-PLATFORM-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#23#wd1fhi": {
+      "id": "FR-PLATFORM-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#24#2ffa4p": {
+      "id": "FR-PLATFORM-064",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#24#dlzeaq": {
+      "id": "FR-PLATFORM-063",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#24#iixkta": {
+      "id": "FR-PLATFORM-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#25.1#9bz6vp": {
+      "id": "FR-PLATFORM-065",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#25.2#r05g7k": {
+      "id": "FR-PLATFORM-066",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#25.3#2q8c1e": {
+      "id": "FR-PLATFORM-067",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#25.7#9titgl": {
+      "id": "FR-PLATFORM-068",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#26#tgt7u9": {
+      "id": "FR-PLATFORM-069",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#27#b2bl9j": {
+      "id": "FR-PLATFORM-070",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#4#714r54": {
+      "id": "FR-PLATFORM-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#4#7auwrf": {
+      "id": "FR-PLATFORM-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#4#9c70v2": {
+      "id": "FR-PLATFORM-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#4#di38e2": {
+      "id": "FR-PLATFORM-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#6#uxtw8e": {
+      "id": "FR-PLATFORM-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#8#vj6sep": {
+      "id": "FR-PLATFORM-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#9.1#4cj9nk": {
+      "id": "FR-PLATFORM-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#9.2#jpub2p": {
+      "id": "FR-PLATFORM-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#9.4#gct24b": {
+      "id": "FR-PLATFORM-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/01_ARCHITECTURE.md#9.5#7qugxl": {
+      "id": "FR-PLATFORM-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#1#b768ab": {
+      "id": "FR-PLATFORM-071",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#1#h8ztgh": {
+      "id": "FR-PLATFORM-072",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#1.1#ptsqt8": {
+      "id": "FR-PLATFORM-073",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#1.1#yone2z": {
+      "id": "FR-PLATFORM-074",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10#7lyld4": {
+      "id": "FR-PLATFORM-086",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.1#qzkmfc": {
+      "id": "FR-USER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.1#yfyh1m": {
+      "id": "FR-USER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.1#yox897": {
+      "id": "FR-USER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.10#9ebauw": {
+      "id": "FR-BILLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.10#wz8s9b": {
+      "id": "FR-BILLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.11#byskif": {
+      "id": "FR-BILLING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.12#g2066v": {
+      "id": "FR-SETTING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.13#dem7ih": {
+      "id": "FR-ACTIVITY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.13#e7wwyc": {
+      "id": "FR-ACTIVITY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.14#72ca31": {
+      "id": "FR-AUTH-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.14#cmphqs": {
+      "id": "FR-AUTH-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.3#2nsyng": {
+      "id": "FR-CUSTOMER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.4#2gzzzz": {
+      "id": "FR-MEASUREMENT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.5#umo48g": {
+      "id": "FR-MEASUREMENT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.6#9usvk": {
+      "id": "FR-EMPLOYEE-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.7#efrlls": {
+      "id": "FR-ORDER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.8#6zbz95": {
+      "id": "FR-ORDER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.8#i4n7fi": {
+      "id": "FR-ORDER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.9#xv3tby": {
+      "id": "FR-BILLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#10.9#y9sh80": {
+      "id": "FR-BILLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#11.1#fzu8dh": {
+      "id": "FR-PLATFORM-087",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#11.1#tz4lgs": {
+      "id": "FR-PLATFORM-088",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#12.2#lwuut7": {
+      "id": "FR-PLATFORM-089",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#13.1#etd7j5": {
+      "id": "FR-PLATFORM-091",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#13.1#irmi0b": {
+      "id": "FR-PLATFORM-090",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#13.2#3ge5xa": {
+      "id": "FR-PLATFORM-092",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#13.3#amk1tr": {
+      "id": "FR-PLATFORM-093",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#13.4#u43ww4": {
+      "id": "FR-PLATFORM-094",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#14#teb5y7": {
+      "id": "FR-PLATFORM-095",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#2.2#tn26pp": {
+      "id": "FR-PLATFORM-075",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#2.3#84ex9f": {
+      "id": "FR-PLATFORM-076",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#2.3#yblncl": {
+      "id": "FR-PLATFORM-077",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#4.3#pmmd9o": {
+      "id": "FR-PLATFORM-078",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#4.4#gzhnlp": {
+      "id": "FR-PLATFORM-079",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#4.5#d2z7f": {
+      "id": "FR-PLATFORM-080",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#5#6xohn1": {
+      "id": "FR-PLATFORM-082",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#5#c9togm": {
+      "id": "FR-PLATFORM-081",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#5#sti1y5": {
+      "id": "FR-PLATFORM-083",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#7#etc1vf": {
+      "id": "FR-PLATFORM-084",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "docs/02_DATABASE.md#8#l4grrc": {
+      "id": "FR-PLATFORM-085",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    }
+  }
+}

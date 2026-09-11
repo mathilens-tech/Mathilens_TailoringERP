@@ -1,0 +1,3428 @@
+{
+  "module": "PRICING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-PLATFORM-045",
+      "name": "CreateClothPriceRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Pricing/CreateClothPriceRequest.cs",
+      "module": "PRICING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Pricing",
+        "declaration": "public sealed record CreateClothPriceRequest(string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Pricing/CreateClothPriceRequest.cs#CreateClothPriceRequest",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-046",
+      "name": "UpdateClothPriceRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Pricing/UpdateClothPriceRequest.cs",
+      "module": "PRICING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Pricing",
+        "declaration": "public sealed record UpdateClothPriceRequest(string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Pricing/UpdateClothPriceRequest.cs#UpdateClothPriceRequest",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-059",
+      "name": "ClothPricesController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/ClothPricesController.cs",
+      "module": "PRICING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class ClothPricesController : ApiControllerBase",
+        "line": 28,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/cloth-prices\")",
+          "Authorize(Policy = Permissions.PricingView)"
+        ],
+        "members": [
+          {
+            "name": "ClothPricesController",
+            "kind": "constructor",
+            "signature": "public ClothPricesController(ISender sender)",
+            "line": 32,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Export",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Export([FromQuery] ExportFormat format = ExportFormat.Xlsx, CancellationToken cancellationToken = default)",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"export\")",
+              "ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "export",
+              "resolved_route": "/api/v1/cloth-prices/export",
+              "policy": "Permissions.PricingView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Import",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Import(IFormFile file, CancellationToken cancellationToken)",
+            "line": 72,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"import\")",
+              "Authorize(Policy = Permissions.PricingImport)",
+              "RequestSizeLimit(ImportLimits.MaxFileBytes)",
+              "ProducesResponseType(typeof(ApiResponse<ImportResultDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "import",
+              "resolved_route": "/api/v1/cloth-prices/import",
+              "policy": "Permissions.PricingImport",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Create([FromBody] CreateClothPriceRequest request, CancellationToken cancellationToken)",
+            "line": 111,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost",
+              "Authorize(Policy = Permissions.PricingCreate)",
+              "ProducesResponseType(typeof(ApiResponse<ClothPriceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": null,
+              "resolved_route": "/api/v1/cloth-prices",
+              "policy": "Permissions.PricingCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetById",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)",
+            "line": 122,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}\")",
+              "ProducesResponseType(typeof(ApiResponse<ClothPriceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/cloth-prices/{id:guid}",
+              "policy": "Permissions.PricingView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 132,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<ClothPriceDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/cloth-prices",
+              "policy": "Permissions.PricingView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Update",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Update(Guid id, [FromBody] UpdateClothPriceRequest request, CancellationToken cancellationToken)",
+            "line": 149,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"{id:guid}\")",
+              "Authorize(Policy = Permissions.PricingEdit)",
+              "ProducesResponseType(typeof(ApiResponse<ClothPriceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/cloth-prices/{id:guid}",
+              "policy": "Permissions.PricingEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Delete",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)",
+            "line": 161,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpDelete(\"{id:guid}\")",
+              "Authorize(Policy = Permissions.PricingDelete)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "DELETE",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/cloth-prices/{id:guid}",
+              "policy": "Permissions.PricingDelete",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ExportFormat",
+            "target_component": "COMP-PLATFORM-011",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 40,
+              "expression": "ExportFormat format = "
+            }
+          },
+          {
+            "target": "ListAllClothPricesQuery",
+            "target_component": "COMP-PRICING-018",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 42,
+              "expression": "new ListAllClothPricesQuery("
+            }
+          },
+          {
+            "target": "ExportResultFactory",
+            "target_component": "COMP-PLATFORM-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 49,
+              "expression": "ExportResultFactory.Create(…)"
+            }
+          },
+          {
+            "target": "ImportClothPricesCommand",
+            "target_component": "COMP-PRICING-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 91,
+              "expression": "new ImportClothPricesCommand("
+            }
+          },
+          {
+            "target": "ClothPriceImportRow",
+            "target_component": "COMP-PRICING-009",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 92,
+              "expression": "new ClothPriceImportRow("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 76,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 77,
+              "expression": "Error.Validation(…)"
+            }
+          },
+          {
+            "target": "ExcelSheet",
+            "target_component": "COMP-PLATFORM-005",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 84,
+              "expression": "ExcelSheet.Read(…)"
+            }
+          },
+          {
+            "target": "CreateClothPriceCommand",
+            "target_component": "COMP-PRICING-003",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 113,
+              "expression": "new CreateClothPriceCommand("
+            }
+          },
+          {
+            "target": "GetClothPriceByIdQuery",
+            "target_component": "COMP-PRICING-016",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 124,
+              "expression": "new GetClothPriceByIdQuery("
+            }
+          },
+          {
+            "target": "SearchClothPricesQuery",
+            "target_component": "COMP-PRICING-020",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 138,
+              "expression": "new SearchClothPricesQuery("
+            }
+          },
+          {
+            "target": "UpdateClothPriceCommand",
+            "target_component": "COMP-PRICING-012",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 151,
+              "expression": "new UpdateClothPriceCommand("
+            }
+          },
+          {
+            "target": "DeleteClothPriceCommand",
+            "target_component": "COMP-PRICING-006",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ClothPricesController.cs",
+              "line": 163,
+              "expression": "new DeleteClothPriceCommand("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.2",
+            "line": 24
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 128
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 167,
+          "member_count": 8,
+          "dependency_count": 15
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/ClothPricesController.cs#ClothPricesController",
+            "line": 28
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/ClothPricesController.cs#ApiController",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PRICING-001",
+      "name": "ClothPriceDto",
+      "kind": "dto",
+      "path": "src/Application/Pricing/ClothPriceDto.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing",
+        "declaration": "public sealed record ClothPriceDto(Guid Id, string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice, DateTime CreatedAtUtc);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 6,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/ClothPriceDto.cs#ClothPriceDto",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PRICING-002",
+      "name": "ClothPriceMapper",
+      "kind": "class",
+      "path": "src/Application/Pricing/ClothPriceMapper.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing",
+        "declaration": "internal static class ClothPriceMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static ClothPriceDto ToDto(this ClothPrice clothPrice) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/ClothPriceMapper.cs#ClothPriceMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PRICING-003",
+      "name": "CreateClothPriceCommand",
+      "kind": "command",
+      "path": "src/Application/Pricing/Commands/Create/CreateClothPriceCommand.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Create",
+        "declaration": "public sealed record CreateClothPriceCommand(string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice) : ICommand<Result<ClothPriceDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 4,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommand.cs#CreateClothPriceCommand",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-004",
+      "name": "CreateClothPriceCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Create",
+        "declaration": "public sealed class CreateClothPriceCommandHandler : ICommandHandler<CreateClothPriceCommand, Result<ClothPriceDto>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<CreateClothPriceCommand, Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateClothPriceCommandHandler",
+            "kind": "constructor",
+            "signature": "public CreateClothPriceCommandHandler(IClothPriceRepository clothPriceRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ClothPriceDto>> Handle(CreateClothPriceCommand command, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<CreateClothPriceCommand, Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs",
+              "line": 22,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs",
+              "line": 23,
+              "expression": "Error.Conflict(…)"
+            }
+          },
+          {
+            "target": "ClothPrice",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs",
+              "line": 26,
+              "expression": "ClothPrice.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 34,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs#CreateClothPriceCommandHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-005",
+      "name": "CreateClothPriceCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Create",
+        "declaration": "public sealed class CreateClothPriceCommandValidator : AbstractValidator<CreateClothPriceCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<CreateClothPriceCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateClothPriceCommandValidator",
+            "kind": "constructor",
+            "signature": "public CreateClothPriceCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<CreateClothPriceCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 24,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-006",
+      "name": "DeleteClothPriceCommand",
+      "kind": "command",
+      "path": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommand.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Delete",
+        "declaration": "public sealed record DeleteClothPriceCommand(Guid Id) : ICommand<Result>;",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 7,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommand.cs#DeleteClothPriceCommand",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-007",
+      "name": "DeleteClothPriceCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommandHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Delete",
+        "declaration": "public sealed class DeleteClothPriceCommandHandler : ICommandHandler<DeleteClothPriceCommand, Result>",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<DeleteClothPriceCommand, Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "DeleteClothPriceCommandHandler",
+            "kind": "constructor",
+            "signature": "public DeleteClothPriceCommandHandler(IClothPriceRepository clothPriceRepository, ICurrentUserService currentUserService)",
+            "line": 14,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result> Handle(DeleteClothPriceCommand command, CancellationToken cancellationToken)",
+            "line": 20,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICurrentUserService",
+            "target_component": "COMP-PLATFORM-079",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<DeleteClothPriceCommand, Result>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommandHandler.cs",
+              "line": 25,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommandHandler.cs",
+              "line": 26,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 51,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Delete/DeleteClothPriceCommandHandler.cs#DeleteClothPriceCommandHandler",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-008",
+      "name": "ImportClothPricesCommand",
+      "kind": "command",
+      "path": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Import",
+        "declaration": "public sealed record ImportClothPricesCommand(IReadOnlyList<ClothPriceImportRow> Rows) : ICommand<Result<ImportResultDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<ImportResultDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Rows",
+            "kind": "property",
+            "signature": "IReadOnlyList<ClothPriceImportRow> Rows",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<ClothPriceImportRow>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<ImportResultDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs#ImportClothPricesCommand",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-009",
+      "name": "ClothPriceImportRow",
+      "kind": "record",
+      "path": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Import",
+        "declaration": "public sealed record ClothPriceImportRow( int RowNumber, Guid? Id, string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice);",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RowNumber",
+            "kind": "property",
+            "signature": "int RowNumber",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid? Id",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 6,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs#ClothPriceImportRow",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PRICING-010",
+      "name": "ImportClothPricesCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Import",
+        "declaration": "public sealed class ImportClothPricesCommandHandler : ICommandHandler<ImportClothPricesCommand, Result<ImportResultDto>>",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<ImportClothPricesCommand, Result<ImportResultDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ImportClothPricesCommandHandler",
+            "kind": "constructor",
+            "signature": "public ImportClothPricesCommandHandler(IClothPriceRepository clothPriceRepository, IValidator<CreateClothPriceCommand> rowValidator)",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ImportResultDto>> Handle(ImportClothPricesCommand command, CancellationToken cancellationToken)",
+            "line": 25,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FindExistingAsync",
+            "kind": "method",
+            "signature": "private async Task<ClothPrice?> FindExistingAsync(",
+            "line": 77,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IValidator<CreateClothPriceCommand>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<ImportClothPricesCommand, Result<ImportResultDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "CreateClothPriceCommand",
+            "target_component": "COMP-PRICING-003",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+              "line": 38,
+              "expression": "new CreateClothPriceCommand("
+            }
+          },
+          {
+            "target": "ImportRowErrorDto",
+            "target_component": "COMP-PLATFORM-076",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+              "line": 42,
+              "expression": "new ImportRowErrorDto("
+            }
+          },
+          {
+            "target": "ImportResultDto",
+            "target_component": "COMP-PLATFORM-075",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+              "line": 74,
+              "expression": "new ImportResultDto("
+            }
+          },
+          {
+            "target": "ClothPrice",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+              "line": 52,
+              "expression": "ClothPrice.Create(…)"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+              "line": 74,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 94,
+          "member_count": 3,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs#ImportClothPricesCommandHandler",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-011",
+      "name": "ImportClothPricesCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Import",
+        "declaration": "public sealed class ImportClothPricesCommandValidator : AbstractValidator<ImportClothPricesCommand>",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<ImportClothPricesCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ImportClothPricesCommandValidator",
+            "kind": "constructor",
+            "signature": "public ImportClothPricesCommandValidator()",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<ImportClothPricesCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs#ImportClothPricesCommandValidator",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-012",
+      "name": "UpdateClothPriceCommand",
+      "kind": "command",
+      "path": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommand.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Update",
+        "declaration": "public sealed record UpdateClothPriceCommand(Guid Id, string ClothCode, string ClothName, decimal CostPrice, decimal SellingPrice) : ICommand<Result<ClothPriceDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "decimal CostPrice",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "decimal SellingPrice",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommand.cs#UpdateClothPriceCommand",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-013",
+      "name": "UpdateClothPriceCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Update",
+        "declaration": "public sealed class UpdateClothPriceCommandHandler : ICommandHandler<UpdateClothPriceCommand, Result<ClothPriceDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<UpdateClothPriceCommand, Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateClothPriceCommandHandler",
+            "kind": "constructor",
+            "signature": "public UpdateClothPriceCommandHandler(IClothPriceRepository clothPriceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ClothPriceDto>> Handle(UpdateClothPriceCommand command, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<UpdateClothPriceCommand, Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandHandler.cs",
+              "line": 22,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 38,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandHandler.cs#UpdateClothPriceCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-014",
+      "name": "UpdateClothPriceCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Commands.Update",
+        "declaration": "public sealed class UpdateClothPriceCommandValidator : AbstractValidator<UpdateClothPriceCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<UpdateClothPriceCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateClothPriceCommandValidator",
+            "kind": "constructor",
+            "signature": "public UpdateClothPriceCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<UpdateClothPriceCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 27,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-015",
+      "name": "IClothPriceRepository",
+      "kind": "port",
+      "path": "src/Application/Pricing/IClothPriceRepository.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing",
+        "declaration": "public interface IClothPriceRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<ClothPrice?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetByClothCodeAsync",
+            "kind": "method",
+            "signature": "Task<ClothPrice?> GetByClothCodeAsync(string clothCode, CancellationToken cancellationToken)",
+            "line": 12,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<ClothPrice>> SearchAsync(string? searchTerm, int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ListAllAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<ClothPrice>> ListAllAsync(CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "IsUsedOnAnyOrderAsync",
+            "kind": "method",
+            "signature": "Task<bool> IsUsedOnAnyOrderAsync(Guid clothPriceId, CancellationToken cancellationToken)",
+            "line": 27,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(ClothPrice clothPrice)",
+            "line": 29,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 31,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 33,
+          "member_count": 7,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/IClothPriceRepository.cs#IClothPriceRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PRICING-016",
+      "name": "GetClothPriceByIdQuery",
+      "kind": "query",
+      "path": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQuery.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.GetById",
+        "declaration": "public sealed record GetClothPriceByIdQuery(Guid Id) : IQuery<Result<ClothPriceDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQuery.cs#GetClothPriceByIdQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-017",
+      "name": "GetClothPriceByIdQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQueryHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.GetById",
+        "declaration": "public sealed class GetClothPriceByIdQueryHandler : IQueryHandler<GetClothPriceByIdQuery, Result<ClothPriceDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetClothPriceByIdQuery, Result<ClothPriceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetClothPriceByIdQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetClothPriceByIdQueryHandler(IClothPriceRepository clothPriceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ClothPriceDto>> Handle(GetClothPriceByIdQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetClothPriceByIdQuery, Result<ClothPriceDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/GetById/GetClothPriceByIdQueryHandler.cs#GetClothPriceByIdQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-018",
+      "name": "ListAllClothPricesQuery",
+      "kind": "query",
+      "path": "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQuery.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.ListAll",
+        "declaration": "public sealed record ListAllClothPricesQuery : IQuery<Result<IReadOnlyList<ClothPriceDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<IReadOnlyList<ClothPriceDto>>>"
+        ],
+        "attributes": [],
+        "members": [],
+        "depends_on": [
+          {
+            "target": "IQuery<Result<IReadOnlyList<ClothPriceDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 0,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQuery.cs#ListAllClothPricesQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-019",
+      "name": "ListAllClothPricesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQueryHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.ListAll",
+        "declaration": "public sealed class ListAllClothPricesQueryHandler : IQueryHandler<ListAllClothPricesQuery, Result<IReadOnlyList<ClothPriceDto>>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<ListAllClothPricesQuery, Result<IReadOnlyList<ClothPriceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ListAllClothPricesQueryHandler",
+            "kind": "constructor",
+            "signature": "public ListAllClothPricesQueryHandler(IClothPriceRepository clothPriceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<IReadOnlyList<ClothPriceDto>>> Handle(ListAllClothPricesQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<ListAllClothPricesQuery, Result<IReadOnlyList<ClothPriceDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQueryHandler.cs",
+              "line": 20,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 23,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/ListAll/ListAllClothPricesQueryHandler.cs#ListAllClothPricesQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-020",
+      "name": "SearchClothPricesQuery",
+      "kind": "query",
+      "path": "src/Application/Pricing/Queries/Search/SearchClothPricesQuery.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.Search",
+        "declaration": "public sealed record SearchClothPricesQuery(string? SearchTerm, int Page, int PageSize) : IQuery<Result<PagedResult<ClothPriceDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<ClothPriceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchTerm",
+            "kind": "property",
+            "signature": "string? SearchTerm",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<ClothPriceDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.4",
+            "line": 7
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQuery.cs#SearchClothPricesQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-021",
+      "name": "SearchClothPricesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryHandler.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.Search",
+        "declaration": "public sealed class SearchClothPricesQueryHandler : IQueryHandler<SearchClothPricesQuery, Result<PagedResult<ClothPriceDto>>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<SearchClothPricesQuery, Result<PagedResult<ClothPriceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchClothPricesQueryHandler",
+            "kind": "constructor",
+            "signature": "public SearchClothPricesQueryHandler(IClothPriceRepository clothPriceRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<ClothPriceDto>>> Handle(SearchClothPricesQuery query, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IClothPriceRepository",
+            "target_component": "COMP-PRICING-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<SearchClothPricesQuery, Result<PagedResult<ClothPriceDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryHandler.cs",
+              "line": 23,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryHandler.cs#SearchClothPricesQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-PRICING-022",
+      "name": "SearchClothPricesQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs",
+      "module": "PRICING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Pricing.Queries.Search",
+        "declaration": "public sealed class SearchClothPricesQueryValidator : AbstractValidator<SearchClothPricesQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchClothPricesQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchClothPricesQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchClothPricesQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchClothPricesQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#SearchClothPricesQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-PRICING-023",
+      "name": "ClothPrice",
+      "kind": "entity",
+      "path": "src/Domain/Pricing/ClothPrice.cs",
+      "module": "PRICING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Pricing",
+        "declaration": "public sealed class ClothPrice : AuditableEntity",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "public string ClothCode",
+            "line": 16,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "public string ClothName",
+            "line": 18,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CostPrice",
+            "kind": "property",
+            "signature": "public decimal CostPrice",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SellingPrice",
+            "kind": "property",
+            "signature": "public decimal SellingPrice",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothPrice",
+            "kind": "constructor",
+            "signature": "private ClothPrice()",
+            "line": 24,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothPrice",
+            "kind": "constructor",
+            "signature": "private ClothPrice(Guid id)",
+            "line": 29,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static ClothPrice Create(string clothCode, string clothName, decimal costPrice, decimal sellingPrice)",
+            "line": 34,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateDetails",
+            "kind": "method",
+            "signature": "public void UpdateDetails(string clothCode, string clothName, decimal costPrice, decimal sellingPrice) =>",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetDetails",
+            "kind": "method",
+            "signature": "private void SetDetails(string clothCode, string clothName, decimal costPrice, decimal sellingPrice)",
+            "line": 44,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Pricing/ClothPrice.cs",
+              "line": 46,
+              "expression": "Guard.AgainstNullOrWhiteSpace(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08",
+          "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 52,
+          "member_count": 9,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Pricing/ClothPrice.cs#ClothPrice",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-PRICING-024",
+      "name": "PriceDetailPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/price-detail/page.tsx",
+      "module": "PRICING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/price-detail",
+        "declaration": "export default function PriceDetailPage() {",
+        "line": 18,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "PriceDetailPage",
+            "kind": "export",
+            "signature": "export default function PriceDetailPage() {",
+            "line": 18,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ImportExportButtons",
+            "target_component": "COMP-WEB-016",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/clothPrices",
+            "target_component": "COMP-WEB-030",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "45730c5c3e574c2bd27f5bf8c74ba53f1f4905e0",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Call the cloth catalogue Fabric Details, which is what is in it",
+          "commit_count": 8
+        },
+        "metrics": {
+          "lines": 250,
+          "member_count": 1,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/price-detail/page.tsx#PriceDetailPage",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/price-detail",
+            "detail": "web/src/app/dashboard/price-detail/page.tsx",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "45730c5c3e574c2bd27f5bf8c74ba53f1f4905e0",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "mathilens-documentation-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Build-time documentation and engineering-intelligence tooling. NOT part of the shipped product — nothing here is referenced by src/ or web/, and no dependency declared in this file reaches a deployed artifact.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "docs:harvest": "npm run docs:harvest:source && npm run docs:harvest:tests && npm run docs:harvest:requirements && npm run docs:harvest:features && npm run docs:harvest:rules && npm run docs:traceability",
+    "docs:harvest:source": "node scripts/documentation/harvest-source.mjs",
+    "docs:harvest:tests": "node scripts/documentation/harvest-tests.mjs",
+    "docs:harvest:requirements": "node scripts/documentation/harvest-requirements.mjs",
+    "docs:harvest:features": "node scripts/documentation/harvest-features.mjs",
+    "docs:harvest:rules": "node scripts/documentation/harvest-rules.mjs",
+    "docs:traceability": "node scripts/documentation/build-traceability.mjs",
+    "docs:branches": "node scripts/documentation/refresh-branches.mjs",
+    "docs:validate": "node scripts/documentation/validate-documentation.mjs",
+    "docs:validate:strict": "node scripts/documentation/validate-documentation.mjs --mode=error"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

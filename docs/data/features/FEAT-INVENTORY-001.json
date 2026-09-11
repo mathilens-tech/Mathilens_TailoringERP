@@ -1,0 +1,126 @@
+{
+  "id": "FEAT-INVENTORY-001",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Inventory Cloth Receiving",
+  "module": "INVENTORY",
+  "simple_explanation": "Inventory Cloth Receiving — derived from the Receive use case in src/Application/Inventory. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Inventory/Commands/Receive"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommand.cs",
+        "contains": "ReceiveClothCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs",
+        "contains": "ReceiveClothCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+        "contains": "ReceiveClothCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "5 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 10,
+    "requirement_count": 0,
+    "rule_count": 12,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Cloth Receiving",
+    "use_cases": [
+      "Receive"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/dashboard/inventory",
+      "/dashboard/stock"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-INVENTORY-004",
+      "COMP-INVENTORY-005",
+      "COMP-INVENTORY-006",
+      "COMP-INVENTORY-016",
+      "COMP-INVENTORY-017"
+    ],
+    "derived_test_cases": [
+      "TC-INVENTORY-001",
+      "TC-INVENTORY-002",
+      "TC-INVENTORY-003",
+      "TC-INVENTORY-004",
+      "TC-INVENTORY-005",
+      "TC-INVENTORY-006",
+      "TC-INVENTORY-007",
+      "TC-INVENTORY-008",
+      "TC-INVENTORY-009",
+      "TC-INVENTORY-010"
+    ],
+    "derived_rules": [
+      "BR-INVENTORY-001",
+      "BR-INVENTORY-002",
+      "BR-INVENTORY-003",
+      "BR-INVENTORY-004",
+      "BR-INVENTORY-005",
+      "BR-INVENTORY-006",
+      "BR-INVENTORY-007",
+      "BR-INVENTORY-008",
+      "BR-INVENTORY-014",
+      "BR-INVENTORY-015",
+      "BR-INVENTORY-016",
+      "BR-INVENTORY-017"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Inventory/Commands/Receive",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+  "change_history": []
+}

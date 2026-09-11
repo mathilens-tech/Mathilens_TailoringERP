@@ -1,0 +1,135 @@
+{
+  "id": "FEAT-AUTH-005",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Authentication Sign In",
+  "module": "AUTH",
+  "simple_explanation": "Authentication Sign In — derived from the Login use case in src/Application/Auth. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Auth/Commands/Login"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/Login/LoginCommand.cs",
+        "contains": "LoginCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/Login/LoginCommandHandler.cs",
+        "contains": "LoginCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/Login/LoginCommandValidator.cs",
+        "contains": "LoginCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 6 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 8,
+    "requirement_count": 6,
+    "rule_count": 2,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Sign In",
+    "use_cases": [
+      "Login"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/auth/login",
+        "policy": null,
+        "controller": "AuthController",
+        "action": "Login"
+      }
+    ],
+    "frontend_routes": [
+      "/login",
+      "/register"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-AUTH-003",
+      "COMP-AUTH-004",
+      "COMP-AUTH-005"
+    ],
+    "derived_test_cases": [
+      "TC-ACTIVITY-004",
+      "TC-AUTH-001",
+      "TC-AUTH-002",
+      "TC-AUTH-003",
+      "TC-AUTH-004",
+      "TC-AUTH-005",
+      "TC-AUTH-006",
+      "TC-PLATFORM-072"
+    ],
+    "derived_rules": [
+      "BR-AUTH-001",
+      "BR-AUTH-002"
+    ],
+    "derived_requirements": [
+      "FR-AUTH-001",
+      "FR-AUTH-002",
+      "FR-AUTH-003",
+      "FR-AUTH-004",
+      "FR-AUTH-005",
+      "FR-AUTH-006"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "last_commit_date": "2026-09-02"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "POST /api/v1/auth/login"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Auth/Commands/Login",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/auth/login",
+        "detail": "src/Api/Controllers/V1/AuthController.cs",
+        "line": 33
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+  "change_history": []
+}

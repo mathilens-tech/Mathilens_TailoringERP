@@ -1,0 +1,108 @@
+{
+  "id": "FEAT-OCCASION-002",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "Occasion Follow-up",
+  "module": "OCCASION",
+  "simple_explanation": "Occasion Follow-up — derived from the RecordContact use case in src/Application/Occasion. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Occasions/Commands/RecordContact"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommand.cs",
+        "contains": "RecordOccasionContactCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs",
+        "contains": "RecordOccasionContactCommandHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "2 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 2,
+    "test_count": 0,
+    "requirement_count": 0,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Occasion Follow-up",
+    "use_cases": [
+      "RecordContact"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/occasions/contacts",
+        "policy": "Permissions.CustomersEdit",
+        "controller": "OccasionsController",
+        "action": "RecordContact"
+      }
+    ],
+    "frontend_routes": [],
+    "permissions": [
+      "Permissions.CustomersEdit"
+    ],
+    "derived_components": [
+      "COMP-OCCASION-001",
+      "COMP-OCCASION-002"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "POST /api/v1/occasions/contacts"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Occasions/Commands/RecordContact",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/occasions/contacts",
+        "detail": "src/Api/Controllers/V1/OccasionsController.cs",
+        "line": 133
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+  "change_history": []
+}

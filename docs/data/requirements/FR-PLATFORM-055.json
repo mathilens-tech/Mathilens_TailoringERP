@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-055",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Configuration is strongly typed (bound to options classes), never accessed via…",
+  "module": "PLATFORM",
+  "description": "Configuration is strongly typed (bound to options classes), never accessed via scattered stringly-typed lookups throughout the codebase.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "configuration",
+  "requirement_type_evidence": "clause uses \"Configuration\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 14",
+    "section_title": "Configuration Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Configuration is strongly typed (bound to options classes), never accessed via scattered stringly-typed lookups throughout the codebase.",
+    "line": 250,
+    "line_start": 250,
+    "line_end": 250,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 14",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 250
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

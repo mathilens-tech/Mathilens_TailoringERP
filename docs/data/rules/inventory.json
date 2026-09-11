@@ -1,0 +1,1079 @@
+{
+  "module": "INVENTORY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-INVENTORY-001",
+      "entity_version": 1,
+      "statement": "Choose the cloth that was received.",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ClothPriceId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ClothPriceId).NotEmpty()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-002",
+      "entity_version": 1,
+      "statement": "Quantity must be greater than zero.",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-003",
+      "entity_version": 1,
+      "statement": "Unit must satisfy is in enum",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Unit).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Unit).IsInEnum()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-004",
+      "entity_version": 1,
+      "statement": "Enter the date the cloth was received.",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ReceivedOn).NotEqual()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ReceivedOn).NotEqual()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-005",
+      "entity_version": 1,
+      "statement": "Rate Per Unit must satisfy greater than or equal to",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 25,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.RatePerUnit).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.RatePerUnit).GreaterThanOrEqualTo()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 25
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-006",
+      "entity_version": 1,
+      "statement": "Supplier Name must satisfy maximum length",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 29,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SupplierName).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SupplierName).MaximumLength()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 29
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-007",
+      "entity_version": 1,
+      "statement": "Invoice Number must satisfy maximum length",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 32,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.InvoiceNumber).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.InvoiceNumber).MaximumLength()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 32
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-008",
+      "entity_version": 1,
+      "statement": "Notes must satisfy maximum length",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-006",
+          "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+          "line": 35,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Notes).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-006"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-005",
+        "TC-INVENTORY-006",
+        "TC-INVENTORY-007",
+        "TC-INVENTORY-008",
+        "TC-INVENTORY-009",
+        "TC-INVENTORY-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 6,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Notes).MaximumLength()",
+        "symbol": "ReceiveClothCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 35
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-009",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-010",
+          "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-010"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchClothReceiptsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#SearchClothReceiptsQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-010",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-010",
+          "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-010"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchClothReceiptsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#SearchClothReceiptsQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-011",
+      "entity_version": 1,
+      "statement": "The 'from' date must not be after the 'to' date.",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-010",
+          "file": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FromDate).LessThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-010"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FromDate).LessThanOrEqualTo()",
+        "symbol": "SearchClothReceiptsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#SearchClothReceiptsQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-012",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-015",
+          "file": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-015"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "GetStockSummaryQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#GetStockSummaryQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-013",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-015",
+          "file": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-015"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "GetStockSummaryQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#GetStockSummaryQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-014",
+      "entity_version": 1,
+      "statement": "Cloth Price Id must not be empty",
+      "module": "INVENTORY",
+      "category": "calculation",
+      "category_evidence": "statement uses \"Price\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-016",
+          "file": "src/Domain/Inventory/ClothReceipt.cs",
+          "line": 72,
+          "mechanism": "guard-clause",
+          "expression": "ClothPriceId = Guard.AgainstEmpty(clothPriceId, nameof(clothPriceId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-016"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ClothPriceId = Guard.AgainstEmpty(clothPriceId, nameof(clothPriceId)),",
+        "symbol": "ClothReceipt",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt",
+            "line": 72
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-015",
+      "entity_version": 1,
+      "statement": "Cloth Code must not be null or white space",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-016",
+          "file": "src/Domain/Inventory/ClothReceipt.cs",
+          "line": 73,
+          "mechanism": "guard-clause",
+          "expression": "ClothCode = Guard.AgainstNullOrWhiteSpace(clothCode, nameof(clothCode)).Trim(),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-016"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ClothCode = Guard.AgainstNullOrWhiteSpace(clothCode, nameof(clothCode)).Trim(),",
+        "symbol": "ClothReceipt",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt",
+            "line": 73
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-016",
+      "entity_version": 1,
+      "statement": "Cloth Name must not be null or white space",
+      "module": "INVENTORY",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-016",
+          "file": "src/Domain/Inventory/ClothReceipt.cs",
+          "line": 74,
+          "mechanism": "guard-clause",
+          "expression": "ClothName = Guard.AgainstNullOrWhiteSpace(clothName, nameof(clothName)).Trim(),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-016"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ClothName = Guard.AgainstNullOrWhiteSpace(clothName, nameof(clothName)).Trim(),",
+        "symbol": "ClothReceipt",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt",
+            "line": 74
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-INVENTORY-017",
+      "entity_version": 1,
+      "statement": "Quantity must not be negative or zero",
+      "module": "INVENTORY",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-INVENTORY-016",
+          "file": "src/Domain/Inventory/ClothReceipt.cs",
+          "line": 75,
+          "mechanism": "guard-clause",
+          "expression": "Quantity = Guard.AgainstNegativeOrZero(quantity, nameof(quantity)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-INVENTORY-016"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Quantity = Guard.AgainstNegativeOrZero(quantity, nameof(quantity)),",
+        "symbol": "ClothReceipt",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt",
+            "line": 75
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    }
+  ]
+}

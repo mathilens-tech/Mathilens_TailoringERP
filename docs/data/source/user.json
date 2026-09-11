@@ -1,0 +1,4997 @@
+{
+  "module": "USER",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-PLATFORM-048",
+      "name": "CurrentUserResponse",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/CurrentUserResponse.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record CurrentUserResponse( Guid Id, string? Email, string? FullName, IReadOnlyList<string> Roles, IReadOnlyList<string> Permissions);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string? FullName",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Roles",
+            "kind": "property",
+            "signature": "IReadOnlyList<string> Roles",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Permissions",
+            "kind": "property",
+            "signature": "IReadOnlyList<string> Permissions",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<string>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<string>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 11,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/CurrentUserResponse.cs#CurrentUserResponse",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-049",
+      "name": "CreateUserRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record CreateUserRequest( string UserName, string Email, string Password, string FullName, string MobileNumber, string Role);",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserName",
+            "kind": "property",
+            "signature": "string UserName",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string Email",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Password",
+            "kind": "property",
+            "signature": "string Password",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MobileNumber",
+            "kind": "property",
+            "signature": "string MobileNumber",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Role",
+            "kind": "property",
+            "signature": "string Role",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 6,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#CreateUserRequest",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-050",
+      "name": "SetUserRoleRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record SetUserRoleRequest(string Role);",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Role",
+            "kind": "property",
+            "signature": "string Role",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#SetUserRoleRequest",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-051",
+      "name": "UpdateUserRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record UpdateUserRequest( string UserName, string Email, string FullName, string MobileNumber);",
+        "line": 27,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserName",
+            "kind": "property",
+            "signature": "string UserName",
+            "line": 27,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string Email",
+            "line": 27,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 27,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MobileNumber",
+            "kind": "property",
+            "signature": "string MobileNumber",
+            "line": 27,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#UpdateUserRequest",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-052",
+      "name": "SetRolePermissionsRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record SetRolePermissionsRequest(IReadOnlyList<string> Permissions);",
+        "line": 34,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Permissions",
+            "kind": "property",
+            "signature": "IReadOnlyList<string> Permissions",
+            "line": 34,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<string>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#SetRolePermissionsRequest",
+            "line": 34
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-053",
+      "name": "ChangeOwnPasswordRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record ChangeOwnPasswordRequest(string CurrentPassword, string NewPassword);",
+        "line": 37,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CurrentPassword",
+            "kind": "property",
+            "signature": "string CurrentPassword",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "NewPassword",
+            "kind": "property",
+            "signature": "string NewPassword",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#ChangeOwnPasswordRequest",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-054",
+      "name": "SaveRoleRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Users/UserAdminRequests.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Users",
+        "declaration": "public sealed record SaveRoleRequest(string Name);",
+        "line": 40,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Name",
+            "kind": "property",
+            "signature": "string Name",
+            "line": 40,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Users/UserAdminRequests.cs#SaveRoleRequest",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-070",
+      "name": "UsersController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/UsersController.cs",
+      "module": "USER",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class UsersController : ApiControllerBase",
+        "line": 20,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/users\")",
+          "Authorize"
+        ],
+        "members": [
+          {
+            "name": "UsersController",
+            "kind": "constructor",
+            "signature": "public UsersController(",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Me",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Me(CancellationToken cancellationToken)",
+            "line": 50,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"me\")",
+              "ProducesResponseType(typeof(ApiResponse<CurrentUserResponse>), StatusCodes.Status200OK)",
+              "ProducesResponseType(StatusCodes.Status401Unauthorized)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "me",
+              "resolved_route": "/api/v1/users/me",
+              "policy": "Authorize",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "List",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> List(",
+            "line": 70,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "Authorize(Policy = Permissions.UsersView)",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<AppUserDto>>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/users",
+              "policy": "Permissions.UsersView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Roles",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Roles(CancellationToken cancellationToken) =>",
+            "line": 87,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"roles\")",
+              "Authorize(Policy = Permissions.UsersView)",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<string>>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "roles",
+              "resolved_route": "/api/v1/users/roles",
+              "policy": "Permissions.UsersView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "RoleDetails",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RoleDetails(CancellationToken cancellationToken) =>",
+            "line": 94,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"roles/details\")",
+              "Authorize(Policy = Permissions.UsersRoles)",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<AppRoleDto>>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "roles/details",
+              "resolved_route": "/api/v1/users/roles/details",
+              "policy": "Permissions.UsersRoles",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "CreateRole",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> CreateRole([FromBody] SaveRoleRequest request, CancellationToken cancellationToken) =>",
+            "line": 103,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"roles\")",
+              "Authorize(Policy = Permissions.UsersRoles)",
+              "ProducesResponseType(typeof(ApiResponse<AppRoleDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "roles",
+              "resolved_route": "/api/v1/users/roles",
+              "policy": "Permissions.UsersRoles",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "RenameRole",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RenameRole(Guid id, [FromBody] SaveRoleRequest request, CancellationToken cancellationToken) =>",
+            "line": 113,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"roles/{id:guid}\")",
+              "Authorize(Policy = Permissions.UsersRoles)",
+              "ProducesResponseType(typeof(ApiResponse<AppRoleDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "roles/{id:guid}",
+              "resolved_route": "/api/v1/users/roles/{id:guid}",
+              "policy": "Permissions.UsersRoles",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "DeleteRole",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> DeleteRole(Guid id, CancellationToken cancellationToken) =>",
+            "line": 123,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpDelete(\"roles/{id:guid}\")",
+              "Authorize(Policy = Permissions.UsersRoles)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "DELETE",
+              "template": "roles/{id:guid}",
+              "resolved_route": "/api/v1/users/roles/{id:guid}",
+              "policy": "Permissions.UsersRoles",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Create([FromBody] CreateUserRequest request, CancellationToken cancellationToken)",
+            "line": 132,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost",
+              "Authorize(Policy = Permissions.UsersCreate)",
+              "ProducesResponseType(typeof(ApiResponse<AppUserDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": null,
+              "resolved_route": "/api/v1/users",
+              "policy": "Permissions.UsersCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Update",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest request, CancellationToken cancellationToken)",
+            "line": 155,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"{id:guid}\")",
+              "Authorize(Policy = Permissions.UsersEdit)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/users/{id:guid}",
+              "policy": "Permissions.UsersEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "SetRole",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> SetRole(Guid id, [FromBody] SetUserRoleRequest request, CancellationToken cancellationToken)",
+            "line": 175,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"{id:guid}/role\")",
+              "Authorize(Policy = Permissions.UsersEdit)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "{id:guid}/role",
+              "resolved_route": "/api/v1/users/{id:guid}/role",
+              "policy": "Permissions.UsersEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ResetPassword",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ResetPassword(Guid id, CancellationToken cancellationToken)",
+            "line": 193,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"{id:guid}/password\")",
+              "Authorize(Policy = Permissions.UsersPassword)",
+              "ProducesResponseType(typeof(ApiResponse<TemporaryPasswordDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "{id:guid}/password",
+              "resolved_route": "/api/v1/users/{id:guid}/password",
+              "policy": "Permissions.UsersPassword",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "RolePermissions",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RolePermissions(CancellationToken cancellationToken)",
+            "line": 206,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"role-permissions\")",
+              "Authorize(Policy = Permissions.UsersView)",
+              "ProducesResponseType(typeof(ApiResponse<RolePermissionMatrixDto>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "role-permissions",
+              "resolved_route": "/api/v1/users/role-permissions",
+              "policy": "Permissions.UsersView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "IssueResetCode",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> IssueResetCode(Guid id, CancellationToken cancellationToken)",
+            "line": 228,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"{id:guid}/reset-code\")",
+              "Authorize(Policy = Permissions.UsersPassword)",
+              "ProducesResponseType(typeof(ApiResponse<PasswordResetCodeDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "{id:guid}/reset-code",
+              "resolved_route": "/api/v1/users/{id:guid}/reset-code",
+              "policy": "Permissions.UsersPassword",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ChangeOwnPassword",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ChangeOwnPassword([FromBody] ChangeOwnPasswordRequest request, CancellationToken cancellationToken)",
+            "line": 245,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"me/password\")",
+              "ProducesResponseType(typeof(ApiResponse<AuthTokensDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "me/password",
+              "resolved_route": "/api/v1/users/me/password",
+              "policy": "Authorize",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "SetRolePermissions",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> SetRolePermissions(",
+            "line": 258,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"role-permissions/{role}\")",
+              "Authorize(Policy = Permissions.UsersRights)",
+              "ProducesResponseType(typeof(ApiResponse<RolePermissionsDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "role-permissions/{role}",
+              "resolved_route": "/api/v1/users/role-permissions/{role}",
+              "policy": "Permissions.UsersRights",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ResetRolePermissions",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ResetRolePermissions(string role, CancellationToken cancellationToken)",
+            "line": 272,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpDelete(\"role-permissions/{role}\")",
+              "Authorize(Policy = Permissions.UsersRights)",
+              "ProducesResponseType(typeof(ApiResponse<RolePermissionsDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "DELETE",
+              "template": "role-permissions/{role}",
+              "resolved_route": "/api/v1/users/role-permissions/{role}",
+              "policy": "Permissions.UsersRights",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "CurrentUserResponse",
+            "target_component": "COMP-PLATFORM-048",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/UsersController.cs",
+              "line": 63,
+              "expression": "new CurrentUserResponse("
+            }
+          },
+          {
+            "target": "User",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/UsersController.cs",
+              "line": 52,
+              "expression": "User.FindFirstValue(…)"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/UsersController.cs",
+              "line": 76,
+              "expression": "Result.Success(…)"
+            }
+          },
+          {
+            "target": "ChangePasswordCommand",
+            "target_component": "COMP-AUTH-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/UsersController.cs",
+              "line": 248,
+              "expression": "new ChangePasswordCommand("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 66
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 278,
+          "member_count": 17,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/UsersController.cs#UsersController",
+            "line": 20
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/UsersController.cs#ApiController",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-001",
+      "name": "RolePermissionsDto",
+      "kind": "dto",
+      "path": "src/Application/Authorization/RolePermissionDtos.cs",
+      "module": "USER",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Authorization",
+        "declaration": "public sealed record RolePermissionsDto( string Role, IReadOnlyList<string> Permissions, bool IsEditable, bool IsCustomised);",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Role",
+            "kind": "property",
+            "signature": "string Role",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Permissions",
+            "kind": "property",
+            "signature": "IReadOnlyList<string> Permissions",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsEditable",
+            "kind": "property",
+            "signature": "bool IsEditable",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsCustomised",
+            "kind": "property",
+            "signature": "bool IsCustomised",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<string>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 32,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Authorization/RolePermissionDtos.cs#RolePermissionsDto",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-002",
+      "name": "ScreenPermissionsDto",
+      "kind": "dto",
+      "path": "src/Application/Authorization/RolePermissionDtos.cs",
+      "module": "USER",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Authorization",
+        "declaration": "public sealed record ScreenPermissionsDto(string Screen, IReadOnlyList<ScreenPermissionDto> Permissions);",
+        "line": 24,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Screen",
+            "kind": "property",
+            "signature": "string Screen",
+            "line": 24,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Permissions",
+            "kind": "property",
+            "signature": "IReadOnlyList<ScreenPermissionDto> Permissions",
+            "line": 24,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<ScreenPermissionDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 32,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Authorization/RolePermissionDtos.cs#ScreenPermissionsDto",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-003",
+      "name": "ScreenPermissionDto",
+      "kind": "dto",
+      "path": "src/Application/Authorization/RolePermissionDtos.cs",
+      "module": "USER",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Authorization",
+        "declaration": "public sealed record ScreenPermissionDto(string Permission, string Action);",
+        "line": 26,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Permission",
+            "kind": "property",
+            "signature": "string Permission",
+            "line": 26,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Action",
+            "kind": "property",
+            "signature": "string Action",
+            "line": 26,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 32,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Authorization/RolePermissionDtos.cs#ScreenPermissionDto",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-004",
+      "name": "RolePermissionMatrixDto",
+      "kind": "dto",
+      "path": "src/Application/Authorization/RolePermissionDtos.cs",
+      "module": "USER",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Authorization",
+        "declaration": "public sealed record RolePermissionMatrixDto( IReadOnlyList<ScreenPermissionsDto> Screens, IReadOnlyList<RolePermissionsDto> Roles);",
+        "line": 29,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Screens",
+            "kind": "property",
+            "signature": "IReadOnlyList<ScreenPermissionsDto> Screens",
+            "line": 29,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Roles",
+            "kind": "property",
+            "signature": "IReadOnlyList<RolePermissionsDto> Roles",
+            "line": 29,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<ScreenPermissionsDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<RolePermissionsDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 32,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Authorization/RolePermissionDtos.cs#RolePermissionMatrixDto",
+            "line": 29
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-005",
+      "name": "RolePermissionService",
+      "kind": "service",
+      "path": "src/Application/Authorization/RolePermissionService.cs",
+      "module": "USER",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Authorization",
+        "declaration": "public sealed class RolePermissionService : IRolePermissionService",
+        "line": 24,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IRolePermissionService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RolePermissionService",
+            "kind": "constructor",
+            "signature": "public RolePermissionService(ISettingRepository settingRepository, IRoleCatalog roleCatalog, IMemoryCache cache)",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PermissionsForAsync",
+            "kind": "method",
+            "signature": "public async Task<IReadOnlyList<string>> PermissionsForAsync(IEnumerable<string> roles, CancellationToken cancellationToken)",
+            "line": 56,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GetMatrixAsync",
+            "kind": "method",
+            "signature": "public async Task<RolePermissionMatrixDto> GetMatrixAsync(CancellationToken cancellationToken)",
+            "line": 67,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetPermissionsAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<RolePermissionsDto>> SetPermissionsAsync(",
+            "line": 94,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ResetPermissionsAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<RolePermissionsDto>> ResetPermissionsAsync(string role, CancellationToken cancellationToken)",
+            "line": 129,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ValidateAsync",
+            "kind": "method",
+            "signature": "private async Task<Error?> ValidateAsync(string role, IReadOnlyList<string> permissions, CancellationToken cancellationToken)",
+            "line": 153,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OwnerIsFixed",
+            "kind": "method",
+            "signature": "private static Error OwnerIsFixed() => Error.Validation(",
+            "line": 176,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsOwner",
+            "kind": "method",
+            "signature": "private static bool IsOwner(string role) => string.Equals(role, AppRoles.Owner, StringComparison.OrdinalIgnoreCase)",
+            "line": 180,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Granular",
+            "kind": "method",
+            "signature": "private static IReadOnlyList<string> Granular(IEnumerable<string> permissions) =>",
+            "line": 190,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Resolve",
+            "kind": "method",
+            "signature": "private static IReadOnlyList<string> Resolve(string role, IReadOnlyDictionary<string, IReadOnlyList<string>> overrides) =>",
+            "line": 201,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GetOverridesAsync",
+            "kind": "method",
+            "signature": "private async Task<IReadOnlyDictionary<string, IReadOnlyList<string>>> GetOverridesAsync(CancellationToken cancellationToken)",
+            "line": 206,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISettingRepository",
+            "target_component": "COMP-SETTING-007",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IRoleCatalog",
+            "target_component": "COMP-PLATFORM-086",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IMemoryCache",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IRolePermissionService",
+            "target_component": "COMP-PLATFORM-087",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ScreenPermissionsDto",
+            "target_component": "COMP-USER-002",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 76,
+              "expression": "new ScreenPermissionsDto("
+            }
+          },
+          {
+            "target": "ScreenPermissionDto",
+            "target_component": "COMP-USER-003",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 79,
+              "expression": "new ScreenPermissionDto("
+            }
+          },
+          {
+            "target": "RolePermissionsDto",
+            "target_component": "COMP-USER-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 84,
+              "expression": "new RolePermissionsDto("
+            }
+          },
+          {
+            "target": "RolePermissionMatrixDto",
+            "target_component": "COMP-USER-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 91,
+              "expression": "new RolePermissionMatrixDto("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 102,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Setting",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 116,
+              "expression": "Setting.Create(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 134,
+              "expression": "Error.Validation(…)"
+            }
+          },
+          {
+            "target": "AppRoles",
+            "target_component": "COMP-USER-017",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 150,
+              "expression": "AppRoles.PermissionsFor(…)"
+            }
+          },
+          {
+            "target": "Permissions",
+            "target_component": "COMP-USER-018",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Authorization/RolePermissionService.cs",
+              "line": 203,
+              "expression": "Permissions.Expand(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 245,
+          "member_count": 11,
+          "dependency_count": 13
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Authorization/RolePermissionService.cs#RolePermissionService",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-006",
+      "name": "RefreshToken",
+      "kind": "entity",
+      "path": "src/Domain/Identity/RefreshToken.cs",
+      "module": "USER",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#78-identity-settings-messaging-audit",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Identity",
+        "declaration": "public sealed class RefreshToken : IAuditable",
+        "line": 15,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IAuditable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "public Guid Id",
+            "line": 17,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "public Guid UserId",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TokenHash",
+            "kind": "property",
+            "signature": "public string TokenHash",
+            "line": 21,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ExpiresAtUtc",
+            "kind": "property",
+            "signature": "public DateTime ExpiresAtUtc",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RevokedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? RevokedAtUtc",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReplacedByTokenId",
+            "kind": "property",
+            "signature": "public Guid? ReplacedByTokenId",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsRevoked",
+            "kind": "property",
+            "signature": "public bool IsRevoked",
+            "line": 37,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsExpired",
+            "kind": "method",
+            "signature": "public bool IsExpired(DateTime nowUtc) => nowUtc >= ExpiresAtUtc",
+            "line": 39,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsActive",
+            "kind": "method",
+            "signature": "public bool IsActive(DateTime nowUtc) => !IsRevoked && !IsExpired(nowUtc)",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RefreshToken",
+            "kind": "constructor",
+            "signature": "private RefreshToken()",
+            "line": 43,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Issue",
+            "kind": "method",
+            "signature": "public static RefreshToken Issue(Guid userId, string tokenHash, DateTime issuedAtUtc, DateTime expiresAtUtc)",
+            "line": 48,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Revoke",
+            "kind": "method",
+            "signature": "public void Revoke(DateTime revokedAtUtc, Guid? replacedByTokenId = null)",
+            "line": 72,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 83,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 89,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Identity/RefreshToken.cs",
+              "line": 50,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 10.1",
+            "line": 7
+          },
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 17",
+            "line": 8
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 95,
+          "member_count": 18,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Identity/RefreshToken.cs#RefreshToken",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-007",
+      "name": "ActiveSessionService",
+      "kind": "service",
+      "path": "src/Infrastructure/Identity/ActiveSessionService.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class ActiveSessionService : IActiveSessionService",
+        "line": 27,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IActiveSessionService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ActiveSessionService",
+            "kind": "constructor",
+            "signature": "public ActiveSessionService(UserManager<ApplicationUser> userManager, IMemoryCache cache)",
+            "line": 38,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "StartSessionAsync",
+            "kind": "method",
+            "signature": "public async Task StartSessionAsync(Guid userId, string sessionId, CancellationToken cancellationToken)",
+            "line": 44,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsCurrentAsync",
+            "kind": "method",
+            "signature": "public async Task<bool> IsCurrentAsync(Guid userId, string? sessionId, CancellationToken cancellationToken)",
+            "line": 56,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClearSessionAsync",
+            "kind": "method",
+            "signature": "public async Task ClearSessionAsync(Guid userId, CancellationToken cancellationToken)",
+            "line": 73,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GetCurrentAsync",
+            "kind": "method",
+            "signature": "private async Task<string?> GetCurrentAsync(Guid userId, CancellationToken cancellationToken)",
+            "line": 84,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CacheKey",
+            "kind": "method",
+            "signature": "private static string CacheKey(Guid userId) => $\"Session.Active.{userId}\"",
+            "line": 102,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "UserManager<ApplicationUser>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IMemoryCache",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IActiveSessionService",
+            "target_component": "COMP-PLATFORM-078",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "d0b0421d536d2c5a37a2ebb52fa3faf2415e9bd6",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "One signed-in place per account, cut off at once",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 104,
+          "member_count": 6,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ActiveSessionService.cs#ActiveSessionService",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "d0b0421d536d2c5a37a2ebb52fa3faf2415e9bd6",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-USER-008",
+      "name": "ApplicationRole",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/ApplicationRole.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public class ApplicationRole : IdentityRole<Guid>, IAuditable",
+        "line": 15,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [
+          "IdentityRole<Guid>",
+          "IAuditable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 17,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 21,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IdentityRole<Guid>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/ApplicationRole.cs",
+              "line": 27,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.2",
+            "line": 9
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.2",
+            "line": 11
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 37,
+          "member_count": 6,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationRole.cs#ApplicationRole",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-009",
+      "name": "ApplicationUser",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/ApplicationUser.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public class ApplicationUser : IdentityUser<Guid>, IAuditable, ISoftDeletable",
+        "line": 17,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [
+          "IdentityUser<Guid>",
+          "IAuditable",
+          "ISoftDeletable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "public string? FullName",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 37,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 39,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsDeleted",
+            "kind": "property",
+            "signature": "public bool IsDeleted",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DeletedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? DeletedAtUtc",
+            "line": 43,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DeletedBy",
+            "kind": "property",
+            "signature": "public Guid? DeletedBy",
+            "line": 45,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 47,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 53,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SoftDelete",
+            "kind": "method",
+            "signature": "public void SoftDelete(Guid deletedBy, DateTime deletedAtUtc)",
+            "line": 59,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IdentityUser<Guid>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ISoftDeletable",
+            "target_component": "COMP-PLATFORM-107",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/ApplicationUser.cs",
+              "line": 49,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.1",
+            "line": 9
+          },
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 9.3",
+            "line": 12
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 71,
+          "member_count": 11,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationUser.cs#ApplicationUser",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-010",
+      "name": "IdentityService",
+      "kind": "service",
+      "path": "src/Infrastructure/Identity/IdentityService.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class IdentityService : IIdentityService",
+        "line": 23,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IIdentityService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "IdentityService",
+            "kind": "constructor",
+            "signature": "public IdentityService(",
+            "line": 32,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LoginAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AuthTokensDto>> LoginAsync(string userName, string password, CancellationToken cancellationToken)",
+            "line": 48,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RegisterAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AuthTokensDto>> RegisterAsync(string email, string password, CancellationToken cancellationToken)",
+            "line": 71,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RefreshTokenAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AuthTokensDto>> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken)",
+            "line": 105,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RevokeAllActiveTokensAsync",
+            "kind": "method",
+            "signature": "private async Task RevokeAllActiveTokensAsync(Guid userId, DateTime nowUtc, CancellationToken cancellationToken)",
+            "line": 144,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ChangePasswordAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AuthTokensDto>> ChangePasswordAsync(Guid userId, string currentPassword, string newPassword, CancellationToken cancellationToken)",
+            "line": 158,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RedeemResetCodeAsync",
+            "kind": "method",
+            "signature": "public async Task<Result> RedeemResetCodeAsync(string email, string code, string newPassword, CancellationToken cancellationToken)",
+            "line": 197,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RevokeRefreshTokensAsync",
+            "kind": "method",
+            "signature": "private async Task RevokeRefreshTokensAsync(Guid userId, CancellationToken cancellationToken)",
+            "line": 251,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IssueTokensAsync",
+            "kind": "method",
+            "signature": "private async Task<AuthTokensDto> IssueTokensAsync(ApplicationUser user, CancellationToken cancellationToken, RefreshToken? rotatedFrom = null)",
+            "line": 266,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GenerateAccessToken",
+            "kind": "method",
+            "signature": "private string GenerateAccessToken(ApplicationUser user, IList<string> roles, DateTime nowUtc, string sessionId, out DateTime expiresAtUtc)",
+            "line": 303,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CurrentSessionIdOfAsync",
+            "kind": "method",
+            "signature": "private Task<string?> CurrentSessionIdOfAsync(ApplicationUser user) =>",
+            "line": 334,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GenerateRefreshTokenValue",
+            "kind": "method",
+            "signature": "private static string GenerateRefreshTokenValue() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64))",
+            "line": 337,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Hash",
+            "kind": "method",
+            "signature": "private static string Hash(string value) => Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(value)))",
+            "line": 340,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvalidCredentialsError",
+            "kind": "method",
+            "signature": "private static Error InvalidCredentialsError() => Error.Unauthorized(\"Auth.InvalidCredentials\", \"Invalid username or password.\")",
+            "line": 342,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvalidRefreshTokenError",
+            "kind": "method",
+            "signature": "private static Error InvalidRefreshTokenError() => Error.Unauthorized(\"Auth.InvalidRefreshToken\", \"The refresh token is invalid.\")",
+            "line": 344,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IIdentityService",
+            "target_component": "COMP-PLATFORM-080",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 56,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 63,
+              "expression": "Error.Unauthorized(…)"
+            }
+          },
+          {
+            "target": "ApplicationUser",
+            "target_component": "COMP-USER-009",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 84,
+              "expression": "new ApplicationUser {"
+            }
+          },
+          {
+            "target": "FieldError",
+            "target_component": "COMP-PLATFORM-158",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 89,
+              "expression": "new FieldError("
+            }
+          },
+          {
+            "target": "PasswordResetCodes",
+            "target_component": "COMP-USER-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 219,
+              "expression": "PasswordResetCodes.Verify(…)"
+            }
+          },
+          {
+            "target": "RefreshToken",
+            "target_component": "COMP-USER-006",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 266,
+              "expression": "RefreshToken? rotatedFrom = "
+            }
+          },
+          {
+            "target": "AuthTokensDto",
+            "target_component": "COMP-PLATFORM-077",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 300,
+              "expression": "new AuthTokensDto("
+            }
+          },
+          {
+            "target": "RefreshToken",
+            "target_component": "COMP-USER-006",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 280,
+              "expression": "RefreshToken.Issue(…)"
+            }
+          },
+          {
+            "target": "Claim",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 317,
+              "expression": "new Claim("
+            }
+          },
+          {
+            "target": "SymmetricSecurityKey",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 319,
+              "expression": "new SymmetricSecurityKey("
+            }
+          },
+          {
+            "target": "SigningCredentials",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 320,
+              "expression": "new SigningCredentials("
+            }
+          },
+          {
+            "target": "JwtSecurityToken",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 322,
+              "expression": "new JwtSecurityToken("
+            }
+          },
+          {
+            "target": "JwtSecurityTokenHandler",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/IdentityService.cs",
+              "line": 330,
+              "expression": "new JwtSecurityTokenHandler("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 17",
+            "line": 21
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 10.1",
+            "line": 121
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.14",
+            "line": 339
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 346,
+          "member_count": 15,
+          "dependency_count": 14
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/IdentityService.cs#IdentityService",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-011",
+      "name": "JwtOptions",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/JwtOptions.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class JwtOptions",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SigningKey",
+            "kind": "property",
+            "signature": "public required string SigningKey",
+            "line": 12,
+            "modifiers": [
+              "public",
+              "required"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Issuer",
+            "kind": "property",
+            "signature": "public required string Issuer",
+            "line": 14,
+            "modifiers": [
+              "public",
+              "required"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Audience",
+            "kind": "property",
+            "signature": "public required string Audience",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "required"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "AccessTokenExpiryMinutes",
+            "kind": "property",
+            "signature": "public int AccessTokenExpiryMinutes",
+            "line": 18,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RefreshTokenExpiryDays",
+            "kind": "property",
+            "signature": "public int RefreshTokenExpiryDays",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 10.10",
+            "line": 5
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "d7261ed6fdb113a33afe9d8494cdd4b15bbbe4ca",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Application layer: hand-rolled mediator and auth use cases",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 5,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/JwtOptions.cs#JwtOptions",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "d7261ed6fdb113a33afe9d8494cdd4b15bbbe4ca",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-012",
+      "name": "PasswordResetCodes",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/PasswordResetCodes.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#94-identity",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "internal static class PasswordResetCodes",
+        "line": 17,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Generate",
+            "kind": "method",
+            "signature": "public static string Generate()",
+            "line": 42,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Normalize",
+            "kind": "method",
+            "signature": "public static string Normalize(string code) =>",
+            "line": 55,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Hash",
+            "kind": "method",
+            "signature": "public static string Hash(IPasswordHasher<ApplicationUser> hasher, ApplicationUser user, string code) =>",
+            "line": 64,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Verify",
+            "kind": "method",
+            "signature": "public static bool Verify(IPasswordHasher<ApplicationUser> hasher, ApplicationUser user, string storedHash, string suppliedCode) =>",
+            "line": 67,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b3359f9f0b850369144e4121fe57d68b250805a8",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Password changes: self-service, and Owner reset by one-time code",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 70,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/PasswordResetCodes.cs#PasswordResetCodes",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "b3359f9f0b850369144e4121fe57d68b250805a8",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-013",
+      "name": "RoleAdminService",
+      "kind": "service",
+      "path": "src/Infrastructure/Identity/RoleAdminService.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#94-identity",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class RoleAdminService : IRoleAdminService",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IRoleAdminService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RoleAdminService",
+            "kind": "constructor",
+            "signature": "public RoleAdminService(",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListAsync",
+            "kind": "method",
+            "signature": "public async Task<IReadOnlyList<AppRoleDto>> ListAsync(CancellationToken cancellationToken)",
+            "line": 37,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreateAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AppRoleDto>> CreateAsync(string name, CancellationToken cancellationToken)",
+            "line": 60,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RenameAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AppRoleDto>> RenameAsync(Guid id, string name, CancellationToken cancellationToken)",
+            "line": 89,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DeleteAsync",
+            "kind": "method",
+            "signature": "public async Task<Result> DeleteAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 133,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Validate",
+            "kind": "method",
+            "signature": "private static Error? Validate(string name)",
+            "line": 170,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "BuiltInIsFixed",
+            "kind": "method",
+            "signature": "private static Error BuiltInIsFixed(string role) => Error.Validation(",
+            "line": 189,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MoveRightsAsync",
+            "kind": "method",
+            "signature": "private async Task MoveRightsAsync(string fromRole, string toRole, CancellationToken cancellationToken)",
+            "line": 194,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RemoveRightsAsync",
+            "kind": "method",
+            "signature": "private async Task RemoveRightsAsync(string role, CancellationToken cancellationToken)",
+            "line": 207,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IRoleAdminService",
+            "target_component": "COMP-PLATFORM-084",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AppRoleDto",
+            "target_component": "COMP-PLATFORM-085",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 52,
+              "expression": "new AppRoleDto("
+            }
+          },
+          {
+            "target": "RoleCatalog",
+            "target_component": "COMP-USER-014",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 48,
+              "expression": "RoleCatalog.Order(…)"
+            }
+          },
+          {
+            "target": "AppRoles",
+            "target_component": "COMP-USER-017",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 55,
+              "expression": "AppRoles.IsBuiltIn(…)"
+            }
+          },
+          {
+            "target": "ApplicationRole",
+            "target_component": "COMP-USER-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 75,
+              "expression": "new ApplicationRole {"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 66,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleAdminService.cs",
+              "line": 72,
+              "expression": "Error.Conflict(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 219,
+          "member_count": 9,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/RoleAdminService.cs#RoleAdminService",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-014",
+      "name": "RoleCatalog",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/RoleCatalog.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#94-identity",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class RoleCatalog : IRoleCatalog",
+        "line": 15,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IRoleCatalog"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RoleCatalog",
+            "kind": "constructor",
+            "signature": "public RoleCatalog(RoleManager<ApplicationRole> roleManager)",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListRoleNamesAsync",
+            "kind": "method",
+            "signature": "public async Task<IReadOnlyList<string>> ListRoleNamesAsync(CancellationToken cancellationToken)",
+            "line": 24,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RoleExistsAsync",
+            "kind": "method",
+            "signature": "public Task<bool> RoleExistsAsync(string role, CancellationToken cancellationToken) =>",
+            "line": 34,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Order",
+            "kind": "method",
+            "signature": "public static IReadOnlyList<string> Order(IEnumerable<string> names)",
+            "line": 38,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "RoleManager<ApplicationRole>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IRoleCatalog",
+            "target_component": "COMP-PLATFORM-086",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AppRoles",
+            "target_component": "COMP-USER-017",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/RoleCatalog.cs",
+              "line": 44,
+              "expression": "AppRoles.IsBuiltIn(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 48,
+          "member_count": 4,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/RoleCatalog.cs#RoleCatalog",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-015",
+      "name": "TemporaryPasswords",
+      "kind": "class",
+      "path": "src/Infrastructure/Identity/TemporaryPasswords.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#94-identity",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "internal static class TemporaryPasswords",
+        "line": 17,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Generate",
+            "kind": "method",
+            "signature": "public static string Generate()",
+            "line": 46,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 68,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/TemporaryPasswords.cs#TemporaryPasswords",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-016",
+      "name": "UserAdminService",
+      "kind": "service",
+      "path": "src/Infrastructure/Identity/UserAdminService.cs",
+      "module": "USER",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#94-identity",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Identity",
+        "declaration": "public sealed class UserAdminService : IUserAdminService",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IUserAdminService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserAdminService",
+            "kind": "constructor",
+            "signature": "public UserAdminService(",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListUsersAsync",
+            "kind": "method",
+            "signature": "public async Task<PagedResult<AppUserDto>> ListUsersAsync(int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 37,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreateUserAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<AppUserDto>> CreateUserAsync(",
+            "line": 66,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MobileNumberError",
+            "kind": "method",
+            "signature": "private static Error? MobileNumberError(string mobileNumber)",
+            "line": 138,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FieldFor",
+            "kind": "method",
+            "signature": "private static string FieldFor(string identityErrorCode) =>",
+            "line": 167,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateUserAsync",
+            "kind": "method",
+            "signature": "public async Task<Result> UpdateUserAsync(",
+            "line": 172,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FailureFrom",
+            "kind": "method",
+            "signature": "private static Error FailureFrom(IdentityResult result, string message) =>",
+            "line": 251,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GetFullNameAsync",
+            "kind": "method",
+            "signature": "public async Task<string?> GetFullNameAsync(Guid userId, CancellationToken cancellationToken) =>",
+            "line": 257,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetRoleAsync",
+            "kind": "method",
+            "signature": "public async Task<Result> SetRoleAsync(Guid userId, string role, CancellationToken cancellationToken)",
+            "line": 263,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ResetPasswordAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<TemporaryPasswordDto>> ResetPasswordAsync(Guid userId, CancellationToken cancellationToken)",
+            "line": 296,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IssueResetCodeAsync",
+            "kind": "method",
+            "signature": "public async Task<Result<PasswordResetCodeDto>> IssueResetCodeAsync(Guid userId, CancellationToken cancellationToken)",
+            "line": 352,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IUserAdminService",
+            "target_component": "COMP-PLATFORM-088",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AppUserDto",
+            "target_component": "COMP-PLATFORM-089",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 54,
+              "expression": "new AppUserDto("
+            }
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 63,
+              "expression": "new PagedResult<"
+            }
+          },
+          {
+            "target": "FieldError",
+            "target_component": "COMP-PLATFORM-158",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 92,
+              "expression": "new FieldError("
+            }
+          },
+          {
+            "target": "ApplicationUser",
+            "target_component": "COMP-USER-009",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 118,
+              "expression": "new ApplicationUser {"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 79,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 79,
+              "expression": "Error.Validation(…)"
+            }
+          },
+          {
+            "target": "IndianPhoneNumber",
+            "target_component": "COMP-PLATFORM-152",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 115,
+              "expression": "IndianPhoneNumber.Normalize(…)"
+            }
+          },
+          {
+            "target": "TemporaryPasswordDto",
+            "target_component": "COMP-PLATFORM-091",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 349,
+              "expression": "new TemporaryPasswordDto("
+            }
+          },
+          {
+            "target": "TemporaryPasswords",
+            "target_component": "COMP-USER-015",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 306,
+              "expression": "TemporaryPasswords.Generate(…)"
+            }
+          },
+          {
+            "target": "PasswordResetCodeDto",
+            "target_component": "COMP-PLATFORM-090",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 396,
+              "expression": "new PasswordResetCodeDto("
+            }
+          },
+          {
+            "target": "PasswordResetCodes",
+            "target_component": "COMP-USER-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/Identity/UserAdminService.cs",
+              "line": 360,
+              "expression": "PasswordResetCodes.Generate(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [
+          {
+            "line": 163,
+            "text": "/ Everything Identity rejected used to be reported under the password, which was true while a",
+            "matched": "used to (?:fail|be|report|throw|crash|return)/i"
+          }
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 399,
+          "member_count": 11,
+          "dependency_count": 12
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/UserAdminService.cs#UserAdminService",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-USER-017",
+      "name": "AppRoles",
+      "kind": "class",
+      "path": "src/Shared/Authorization/AppRoles.cs",
+      "module": "USER",
+      "layer": "Shared",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Shared.Authorization",
+        "declaration": "public static class AppRoles",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "PermissionsFor",
+            "kind": "method",
+            "signature": "public static IReadOnlyList<string> PermissionsFor(IEnumerable<string> roles) =>",
+            "line": 77,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsBuiltIn",
+            "kind": "method",
+            "signature": "public static bool IsBuiltIn(string role) => ByRole.ContainsKey(role)",
+            "line": 81,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsKnownRole",
+            "kind": "method",
+            "signature": "public static bool IsKnownRole(string role) => ByRole.ContainsKey(role)",
+            "line": 83,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Permissions",
+            "target_component": "COMP-USER-018",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Shared/Authorization/AppRoles.cs",
+              "line": 78,
+              "expression": "Permissions.Expand(…)"
+            }
+          },
+          {
+            "target": "ByRole",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Shared/Authorization/AppRoles.cs",
+              "line": 81,
+              "expression": "ByRole.ContainsKey(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 85,
+          "member_count": 3,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Authorization/AppRoles.cs#AppRoles",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-USER-018",
+      "name": "Permissions",
+      "kind": "class",
+      "path": "src/Shared/Authorization/Permissions.cs",
+      "module": "USER",
+      "layer": "Shared",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#116-permissions",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Shared.Authorization",
+        "declaration": "public static class Permissions",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "HasManageActions",
+            "kind": "method",
+            "signature": "public static bool HasManageActions(string module) =>",
+            "line": 170,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Expand",
+            "kind": "method",
+            "signature": "public static IReadOnlyList<string> Expand(IEnumerable<string> permissions)",
+            "line": 180,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ActionsByModule",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Shared/Authorization/Permissions.cs",
+              "line": 171,
+              "expression": "ActionsByModule.TryGetValue(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 209,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Authorization/Permissions.cs#Permissions",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-USER-019",
+      "name": "Modules",
+      "kind": "constant",
+      "path": "src/Shared/Authorization/Permissions.cs",
+      "module": "USER",
+      "layer": "Shared",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Shared.Authorization",
+        "declaration": "public static class Modules",
+        "line": 38,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 209,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Authorization/Permissions.cs#Modules",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-020",
+      "name": "ProfilePage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/profile/page.tsx",
+      "module": "USER",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/profile",
+        "declaration": "export default function ProfilePage() {",
+        "line": 24,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ProfilePage",
+            "kind": "export",
+            "signature": "export default function ProfilePage() {",
+            "line": 24,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 205,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/profile/page.tsx#ProfilePage",
+            "line": 24
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/profile",
+            "detail": "web/src/app/dashboard/profile/page.tsx",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-021",
+      "name": "UserRightsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/user-rights/page.tsx",
+      "module": "USER",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/user-rights",
+        "declaration": "export default function UserRightsPage() {",
+        "line": 13,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserRightsPage",
+            "kind": "export",
+            "signature": "export default function UserRightsPage() {",
+            "line": 13,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/settings/RoleRightsSection",
+            "target_component": "COMP-SETTING-028",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/user-rights/page.tsx#UserRightsPage",
+            "line": 13
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/user-rights",
+            "detail": "web/src/app/dashboard/user-rights/page.tsx",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-022",
+      "name": "UserRolesPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/user-roles/page.tsx",
+      "module": "USER",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/user-roles",
+        "declaration": "export default function UserRolesPage() {",
+        "line": 27,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserRolesPage",
+            "kind": "export",
+            "signature": "export default function UserRolesPage() {",
+            "line": 27,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 284,
+          "member_count": 1,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/user-roles/page.tsx#UserRolesPage",
+            "line": 27
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/user-roles",
+            "detail": "web/src/app/dashboard/user-roles/page.tsx",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-023",
+      "name": "UsersPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/users/page.tsx",
+      "module": "USER",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/users",
+        "declaration": "export default function UsersPage() {",
+        "line": 48,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UsersPage",
+            "kind": "export",
+            "signature": "export default function UsersPage() {",
+            "line": 48,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/PhoneNumberInput",
+            "target_component": "COMP-WEB-020",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Sign in with a username, and hand a new user a password they must replace",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 690,
+          "member_count": 1,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/users/page.tsx#UsersPage",
+            "line": 48
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/users",
+            "detail": "web/src/app/dashboard/users/page.tsx",
+            "line": 48
+          }
+        ]
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-USER-024",
+      "name": "ChangePasswordForm",
+      "kind": "react-component",
+      "path": "web/src/components/users/ChangePasswordForm.tsx",
+      "module": "USER",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function ChangePasswordForm({ onDone }: { onDone?: () => void }) {",
+        "line": 22,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ChangePasswordForm",
+            "kind": "export",
+            "signature": "export function ChangePasswordForm({ onDone }: { onDone?: () => void }) {",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 122,
+          "member_count": 1,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/users/ChangePasswordForm.tsx#ChangePasswordForm",
+            "line": 22
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

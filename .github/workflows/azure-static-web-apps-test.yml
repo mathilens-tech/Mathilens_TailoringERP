@@ -1,0 +1,40 @@
+name: Azure Static Web Apps - swa-radhafabric-test
+
+# The test stack's frontend. Deliberately narrower than the production workflow: no pull_request
+# trigger and no close job, because preview environments belong to the production app where they
+# are reviewed. This one exists to put the dev branch on www.test-radhafabric.mathilens.com.
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+
+      - name: Build and Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        env:
+          # Both are baked into the client bundle at build time, so they are set here rather than
+          # in the app's settings — changing either needs a rebuild, not a restart.
+          #
+          # The test API, never production: this is what keeps the test site's writes inside the
+          # test database. Set via:
+          #   gh variable set NEXT_PUBLIC_API_BASE_URL_TEST --body "https://..."
+          NEXT_PUBLIC_API_BASE_URL: ${{ vars.NEXT_PUBLIC_API_BASE_URL_TEST }}
+          # The shop the deployment is customised for — the wordmark on the login screen. Falls back
+          # to the value compiled into lib/customer.ts when the variable is unset.
+          NEXT_PUBLIC_CUSTOMER_NAME: ${{ vars.NEXT_PUBLIC_CUSTOMER_NAME }}
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_RADHAFABRIC_TEST }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "web"
+          output_location: "out"

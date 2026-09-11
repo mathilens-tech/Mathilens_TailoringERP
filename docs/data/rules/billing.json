@@ -1,0 +1,1181 @@
+{
+  "module": "BILLING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-BILLING-001",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-003",
+          "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-003"
+      ],
+      "test_cases": [
+        "TC-BILLING-005",
+        "TC-BILLING-006",
+        "TC-BILLING-007",
+        "TC-BILLING-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "CreateInvoiceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#CreateInvoiceCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-002",
+      "entity_version": 1,
+      "statement": "Tax Amount must satisfy greater than or equal to",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-003",
+          "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.TaxAmount).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-003"
+      ],
+      "test_cases": [
+        "TC-BILLING-005",
+        "TC-BILLING-006",
+        "TC-BILLING-007",
+        "TC-BILLING-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.TaxAmount).GreaterThanOrEqualTo()",
+        "symbol": "CreateInvoiceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#CreateInvoiceCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-003",
+      "entity_version": 1,
+      "statement": "Discount Amount must satisfy greater than or equal to",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-003",
+          "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs",
+          "line": 15,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.DiscountAmount).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-003"
+      ],
+      "test_cases": [
+        "TC-BILLING-005",
+        "TC-BILLING-006",
+        "TC-BILLING-007",
+        "TC-BILLING-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.DiscountAmount).GreaterThanOrEqualTo()",
+        "symbol": "CreateInvoiceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#CreateInvoiceCommandValidator",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-004",
+      "entity_version": 1,
+      "statement": "Invoice Id must satisfy not empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-006",
+          "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.InvoiceId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-006"
+      ],
+      "test_cases": [
+        "TC-BILLING-012",
+        "TC-BILLING-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.InvoiceId).NotEmpty()",
+        "symbol": "RecordPaymentCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#RecordPaymentCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-005",
+      "entity_version": 1,
+      "statement": "Amount must satisfy greater than",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-006",
+          "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Amount).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-006"
+      ],
+      "test_cases": [
+        "TC-BILLING-012",
+        "TC-BILLING-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Amount).GreaterThan()",
+        "symbol": "RecordPaymentCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#RecordPaymentCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-006",
+      "entity_version": 1,
+      "statement": "Method must satisfy is in enum",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-006",
+          "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs",
+          "line": 15,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Method).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-006"
+      ],
+      "test_cases": [
+        "TC-BILLING-012",
+        "TC-BILLING-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Method).IsInEnum()",
+        "symbol": "RecordPaymentCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#RecordPaymentCommandValidator",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-007",
+      "entity_version": 1,
+      "statement": "Invoice Id must satisfy not empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-009",
+          "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.InvoiceId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-009"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.InvoiceId).NotEmpty()",
+        "symbol": "VoidInvoiceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs#VoidInvoiceCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-008",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-025",
+          "file": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-025"
+      ],
+      "test_cases": [
+        "TC-BILLING-021",
+        "TC-BILLING-022",
+        "TC-BILLING-023",
+        "TC-BILLING-024",
+        "TC-BILLING-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchInvoicesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-009",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-025",
+          "file": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-025"
+      ],
+      "test_cases": [
+        "TC-BILLING-021",
+        "TC-BILLING-022",
+        "TC-BILLING-023",
+        "TC-BILLING-024",
+        "TC-BILLING-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchInvoicesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-010",
+      "entity_version": 1,
+      "statement": "Status must satisfy is in enum",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-025",
+          "file": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Status).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-025"
+      ],
+      "test_cases": [
+        "TC-BILLING-021",
+        "TC-BILLING-022",
+        "TC-BILLING-023",
+        "TC-BILLING-024",
+        "TC-BILLING-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Status).IsInEnum()",
+        "symbol": "SearchInvoicesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-011",
+      "entity_version": 1,
+      "statement": "The 'from' date must not be after the 'to' date.",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-025",
+          "file": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FromUtc).LessThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-025"
+      ],
+      "test_cases": [
+        "TC-BILLING-021",
+        "TC-BILLING-022",
+        "TC-BILLING-023",
+        "TC-BILLING-024",
+        "TC-BILLING-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FromUtc).LessThanOrEqualTo()",
+        "symbol": "SearchInvoicesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-012",
+      "entity_version": 1,
+      "statement": "Only an unpaid invoice with no recorded payments can be voided.",
+      "module": "BILLING",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-026",
+          "file": "src/Domain/Billing/Invoice.cs",
+          "line": 130,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"Only an unpaid invoice with no recorded payments can be voided.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-026"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-009",
+        "TC-BILLING-011",
+        "TC-BILLING-014",
+        "TC-BILLING-015",
+        "TC-BILLING-017",
+        "TC-BILLING-019",
+        "TC-BILLING-020",
+        "TC-BILLING-026",
+        "TC-BILLING-027",
+        "TC-BILLING-028",
+        "TC-BILLING-029",
+        "TC-BILLING-030",
+        "TC-BILLING-031",
+        "TC-BILLING-032",
+        "TC-BILLING-033",
+        "TC-BILLING-034",
+        "TC-BILLING-035",
+        "TC-BILLING-036",
+        "TC-BILLING-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 20,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"Only an unpaid invoice with no recorded payments can be voided.\");",
+        "symbol": "Invoice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Invoice.cs#Invoice",
+            "line": 130
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-013",
+      "entity_version": 1,
+      "statement": "Order Id must not be empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-026",
+          "file": "src/Domain/Billing/Invoice.cs",
+          "line": 94,
+          "mechanism": "guard-clause",
+          "expression": "OrderId = Guard.AgainstEmpty(orderId, nameof(orderId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-026"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-009",
+        "TC-BILLING-011",
+        "TC-BILLING-014",
+        "TC-BILLING-015",
+        "TC-BILLING-017",
+        "TC-BILLING-019",
+        "TC-BILLING-020",
+        "TC-BILLING-026",
+        "TC-BILLING-027",
+        "TC-BILLING-028",
+        "TC-BILLING-029",
+        "TC-BILLING-030",
+        "TC-BILLING-031",
+        "TC-BILLING-032",
+        "TC-BILLING-033",
+        "TC-BILLING-034",
+        "TC-BILLING-035",
+        "TC-BILLING-036",
+        "TC-BILLING-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 20,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "OrderId = Guard.AgainstEmpty(orderId, nameof(orderId)),",
+        "symbol": "Invoice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Invoice.cs#Invoice",
+            "line": 94
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-014",
+      "entity_version": 1,
+      "statement": "Customer Id must not be empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-026",
+          "file": "src/Domain/Billing/Invoice.cs",
+          "line": 95,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-026"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-009",
+        "TC-BILLING-011",
+        "TC-BILLING-014",
+        "TC-BILLING-015",
+        "TC-BILLING-017",
+        "TC-BILLING-019",
+        "TC-BILLING-020",
+        "TC-BILLING-026",
+        "TC-BILLING-027",
+        "TC-BILLING-028",
+        "TC-BILLING-029",
+        "TC-BILLING-030",
+        "TC-BILLING-031",
+        "TC-BILLING-032",
+        "TC-BILLING-033",
+        "TC-BILLING-034",
+        "TC-BILLING-035",
+        "TC-BILLING-036",
+        "TC-BILLING-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 20,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),",
+        "symbol": "Invoice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Invoice.cs#Invoice",
+            "line": 95
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-015",
+      "entity_version": 1,
+      "statement": "Invoice Id must not be empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-028",
+          "file": "src/Domain/Billing/Payment.cs",
+          "line": 40,
+          "mechanism": "guard-clause",
+          "expression": "InvoiceId = Guard.AgainstEmpty(invoiceId, nameof(invoiceId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "InvoiceId = Guard.AgainstEmpty(invoiceId, nameof(invoiceId)),",
+        "symbol": "Payment",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Payment.cs#Payment",
+            "line": 40
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-016",
+      "entity_version": 1,
+      "statement": "Amount must not be negative or zero",
+      "module": "BILLING",
+      "category": "calculation",
+      "category_evidence": "statement uses \"Amount\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-028",
+          "file": "src/Domain/Billing/Payment.cs",
+          "line": 41,
+          "mechanism": "guard-clause",
+          "expression": "Amount = Guard.AgainstNegativeOrZero(amount, nameof(amount)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Amount = Guard.AgainstNegativeOrZero(amount, nameof(amount)),",
+        "symbol": "Payment",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Payment.cs#Payment",
+            "line": 41
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-017",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-028",
+          "file": "src/Domain/Billing/Payment.cs",
+          "line": 48,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "Payment",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Payment.cs#Payment",
+            "line": 48
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    },
+    {
+      "id": "BR-BILLING-018",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "BILLING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-BILLING-028",
+          "file": "src/Domain/Billing/Payment.cs",
+          "line": 55,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-BILLING-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "Payment",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Payment.cs#Payment",
+            "line": 55
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": []
+    }
+  ]
+}

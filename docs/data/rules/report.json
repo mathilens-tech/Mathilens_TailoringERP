@@ -1,0 +1,320 @@
+{
+  "module": "REPORT",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-REPORT-001",
+      "entity_version": 1,
+      "statement": "'ToUtc' must be on or after 'FromUtc'.",
+      "module": "REPORT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-REPORT-004",
+          "file": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-REPORT-004"
+      ],
+      "test_cases": [
+        "TC-REPORT-002",
+        "TC-REPORT-003",
+        "TC-REPORT-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()",
+        "symbol": "GetOrderCollectionsReportQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs#GetOrderCollectionsReportQueryValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": []
+    },
+    {
+      "id": "BR-REPORT-002",
+      "entity_version": 1,
+      "statement": "'ToUtc' must be on or after 'FromUtc'.",
+      "module": "REPORT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-REPORT-007",
+          "file": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-REPORT-007"
+      ],
+      "test_cases": [
+        "TC-REPORT-006",
+        "TC-REPORT-007"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()",
+        "symbol": "GetOrderStatusSummaryReportQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs#GetOrderStatusSummaryReportQueryValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": []
+    },
+    {
+      "id": "BR-REPORT-003",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "REPORT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-REPORT-010",
+          "file": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-REPORT-010"
+      ],
+      "test_cases": [
+        "TC-REPORT-009",
+        "TC-REPORT-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "GetOutstandingInvoicesReportQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#GetOutstandingInvoicesReportQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": []
+    },
+    {
+      "id": "BR-REPORT-004",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "REPORT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-REPORT-010",
+          "file": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-REPORT-010"
+      ],
+      "test_cases": [
+        "TC-REPORT-009",
+        "TC-REPORT-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "GetOutstandingInvoicesReportQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#GetOutstandingInvoicesReportQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": []
+    },
+    {
+      "id": "BR-REPORT-005",
+      "entity_version": 1,
+      "statement": "'ToUtc' must be on or after 'FromUtc'.",
+      "module": "REPORT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-REPORT-013",
+          "file": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-REPORT-013"
+      ],
+      "test_cases": [
+        "TC-REPORT-012",
+        "TC-REPORT-013",
+        "TC-REPORT-014"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()",
+        "symbol": "GetRevenueReportQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs#GetRevenueReportQueryValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": []
+    }
+  ]
+}

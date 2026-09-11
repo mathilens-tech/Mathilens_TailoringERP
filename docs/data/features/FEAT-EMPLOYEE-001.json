@@ -1,0 +1,152 @@
+{
+  "id": "FEAT-EMPLOYEE-001",
+  "schema_version": "1.0.0",
+  "entity_version": 2,
+  "name": "Employee Retirement",
+  "module": "EMPLOYEE",
+  "simple_explanation": "Employee Retirement — derived from the Retire use case in src/Application/Employee. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Employees/Commands/Retire"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Retire/RetireEmployeeCommand.cs",
+        "contains": "RetireEmployeeCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs",
+        "contains": "RetireEmployeeCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Domain/Employees/Employee.cs",
+        "contains": "Employee",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 2,
+    "test_count": 0,
+    "requirement_count": 1,
+    "rule_count": 3,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Employee Retirement",
+    "use_cases": [
+      "Retire"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/employees/{id:guid}/retire",
+        "policy": "Permissions.EmployeesRetire",
+        "controller": "EmployeesController",
+        "action": "Retire"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/employee/[id]",
+      "/dashboard/employees",
+      "/dashboard/employees/[id]",
+      "/dashboard/employees/new"
+    ],
+    "permissions": [
+      "Permissions.EmployeesRetire"
+    ],
+    "derived_components": [
+      "COMP-EMPLOYEE-008",
+      "COMP-EMPLOYEE-009",
+      "COMP-EMPLOYEE-027"
+    ],
+    "derived_test_cases": [
+      "TC-EMPLOYEE-001",
+      "TC-EMPLOYEE-002",
+      "TC-EMPLOYEE-003",
+      "TC-EMPLOYEE-005",
+      "TC-EMPLOYEE-013",
+      "TC-EMPLOYEE-015",
+      "TC-EMPLOYEE-016",
+      "TC-EMPLOYEE-020",
+      "TC-EMPLOYEE-022",
+      "TC-EMPLOYEE-026",
+      "TC-EMPLOYEE-027",
+      "TC-EMPLOYEE-028",
+      "TC-EMPLOYEE-029",
+      "TC-EMPLOYEE-030",
+      "TC-EMPLOYEE-031",
+      "TC-EMPLOYEE-032",
+      "TC-EMPLOYEE-033",
+      "TC-EMPLOYEE-034",
+      "TC-EMPLOYEE-035",
+      "TC-EMPLOYEE-036",
+      "TC-EMPLOYEE-037",
+      "TC-EMPLOYEE-038",
+      "TC-EMPLOYEE-039",
+      "TC-EMPLOYEE-040",
+      "TC-ORDER-004"
+    ],
+    "derived_rules": [
+      "BR-EMPLOYEE-020",
+      "BR-EMPLOYEE-021",
+      "BR-EMPLOYEE-022"
+    ],
+    "derived_requirements": [
+      "FR-EMPLOYEE-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "last_commit_date": "2026-08-15"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "POST /api/v1/employees/{id:guid}/retire"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Commands/Retire",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/employees/{id:guid}/retire",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 176
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+  "change_history": []
+}

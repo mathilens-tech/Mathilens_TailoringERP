@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-011",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "3 — Production ready — Every change is written as if it ships to a paying customer's…",
+  "module": "PLATFORM",
+  "description": "3 — Production ready — Every change is written as if it ships to a paying customer's shop today — no demo-quality shortcuts",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 6",
+    "section_title": "Development Rules",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "3 — Production ready — Every change is written as if it ships to a paying customer's shop today — no demo-quality shortcuts",
+    "line": 283,
+    "line_start": 283,
+    "line_end": 283,
+    "form": "table-row"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 6",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 283
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

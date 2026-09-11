@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-061",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "SaaS operation: onboarding a new shop becomes a data-only operation (create a new…",
+  "module": "PLATFORM",
+  "description": "SaaS operation: onboarding a new shop becomes a data-only operation (create a new tenant record and associated data), never a code, infrastructure, or database-engine change.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "data",
+  "requirement_type_evidence": "clause uses \"database\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 23",
+    "section_title": "Future SaaS Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "SaaS operation: onboarding a new shop becomes a data-only operation (create a new tenant record and associated data), never a code, infrastructure, or database-engine change.",
+    "line": 341,
+    "line_start": 341,
+    "line_end": 344,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 23",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 341
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

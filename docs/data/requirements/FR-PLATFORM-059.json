@@ -1,0 +1,93 @@
+{
+  "id": "FR-PLATFORM-059",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Reports are served by dedicated Application queries, shaped specifically for their…",
+  "module": "PLATFORM",
+  "description": "Reports are served by dedicated Application queries, shaped specifically for their report output — never by reusing a detail-page query and discarding most of the data (00MASTERSPEC.md § 9.9).",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "reporting",
+  "requirement_type_evidence": "clause uses \"Reports\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 20",
+    "section_title": "Reporting Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Reports are served by dedicated Application queries, shaped specifically for their report output — never by reusing a detail-page query and discarding most of the data (00MASTERSPEC.md § 9.9).",
+    "line": 319,
+    "line_start": 319,
+    "line_end": 319,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-PLATFORM-142",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 20 at line 11"
+    },
+    {
+      "component": "COMP-PLATFORM-068",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 20 at line 17"
+    },
+    {
+      "component": "COMP-REPORT-001",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 20 at line 6"
+    },
+    {
+      "component": "COMP-REPORT-008",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 20 at line 8"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 4,
+    "test_count": 14,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 20",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 319
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

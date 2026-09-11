@@ -1,0 +1,1229 @@
+{
+  "module": "PLATFORM",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-PLATFORM-001",
+      "entity_version": 1,
+      "statement": "The file could not be read as an Excel workbook (.xlsx).",
+      "module": "PLATFORM",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-005",
+          "file": "src/Api/Common/Excel/ExcelSheet.cs",
+          "line": 61,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidDataException(\"The file could not be read as an Excel workbook (.xlsx).\", ex);"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidDataException(\"The file could not be read as an Excel workbook (.xlsx).\", ex);",
+        "symbol": "ExcelSheet",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Common/Excel/ExcelSheet.cs#ExcelSheet",
+            "line": 61
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-002",
+      "entity_version": 1,
+      "statement": "The workbook contains no worksheets.",
+      "module": "PLATFORM",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-005",
+          "file": "src/Api/Common/Excel/ExcelSheet.cs",
+          "line": 67,
+          "mechanism": "domain-invariant",
+          "expression": "?? throw new InvalidDataException(\"The workbook contains no worksheets.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "?? throw new InvalidDataException(\"The workbook contains no worksheets.\");",
+        "symbol": "ExcelSheet",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Common/Excel/ExcelSheet.cs#ExcelSheet",
+            "line": 67
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-003",
+      "entity_version": 1,
+      "statement": "The worksheet is empty.",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-005",
+          "file": "src/Api/Common/Excel/ExcelSheet.cs",
+          "line": 72,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidDataException(\"The worksheet is empty.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidDataException(\"The worksheet is empty.\");",
+        "symbol": "ExcelSheet",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Common/Excel/ExcelSheet.cs#ExcelSheet",
+            "line": 72
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-004",
+      "entity_version": 1,
+      "statement": "The first row must contain column headers.",
+      "module": "PLATFORM",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-005",
+          "file": "src/Api/Common/Excel/ExcelSheet.cs",
+          "line": 89,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidDataException(\"The first row must contain column headers.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidDataException(\"The first row must contain column headers.\");",
+        "symbol": "ExcelSheet",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Common/Excel/ExcelSheet.cs#ExcelSheet",
+            "line": 89
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-005",
+      "entity_version": 1,
+      "statement": "Max File Bytes is 10 * 1024 * 1024",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-006",
+          "file": "src/Api/Common/Excel/ImportLimits.cs",
+          "line": 9,
+          "mechanism": "constant",
+          "expression": "public const long MaxFileBytes = 10 * 1024 * 1024;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-006"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const long MaxFileBytes = 10 * 1024 * 1024;",
+        "symbol": "ImportLimits",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Common/Excel/ImportLimits.cs#ImportLimits",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-006",
+      "entity_version": 1,
+      "statement": "Id must not be empty",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-105",
+          "file": "src/Domain/Common/AuditableEntity.cs",
+          "line": 38,
+          "mechanism": "guard-clause",
+          "expression": "Id = Guard.AgainstEmpty(id, nameof(id));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-105"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-082",
+        "TC-PLATFORM-083",
+        "TC-PLATFORM-084",
+        "TC-PLATFORM-085",
+        "TC-PLATFORM-086",
+        "TC-PLATFORM-087",
+        "TC-PLATFORM-088"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Id = Guard.AgainstEmpty(id, nameof(id));",
+        "symbol": "AuditableEntity",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Common/AuditableEntity.cs#AuditableEntity",
+            "line": 38
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-007",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-105",
+          "file": "src/Domain/Common/AuditableEntity.cs",
+          "line": 47,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-105"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-082",
+        "TC-PLATFORM-083",
+        "TC-PLATFORM-084",
+        "TC-PLATFORM-085",
+        "TC-PLATFORM-086",
+        "TC-PLATFORM-087",
+        "TC-PLATFORM-088"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "AuditableEntity",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Common/AuditableEntity.cs#AuditableEntity",
+            "line": 47
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-008",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-105",
+          "file": "src/Domain/Common/AuditableEntity.cs",
+          "line": 56,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-105"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-082",
+        "TC-PLATFORM-083",
+        "TC-PLATFORM-084",
+        "TC-PLATFORM-085",
+        "TC-PLATFORM-086",
+        "TC-PLATFORM-087",
+        "TC-PLATFORM-088"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "AuditableEntity",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Common/AuditableEntity.cs#AuditableEntity",
+            "line": 56
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-009",
+      "entity_version": 1,
+      "statement": "Deleted By must not be empty",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-105",
+          "file": "src/Domain/Common/AuditableEntity.cs",
+          "line": 72,
+          "mechanism": "guard-clause",
+          "expression": "DeletedBy = Guard.AgainstEmpty(deletedBy, nameof(deletedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-105"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-082",
+        "TC-PLATFORM-083",
+        "TC-PLATFORM-084",
+        "TC-PLATFORM-085",
+        "TC-PLATFORM-086",
+        "TC-PLATFORM-087",
+        "TC-PLATFORM-088"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "DeletedBy = Guard.AgainstEmpty(deletedBy, nameof(deletedBy));",
+        "symbol": "AuditableEntity",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Common/AuditableEntity.cs#AuditableEntity",
+            "line": 72
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-010",
+      "entity_version": 1,
+      "statement": "Max Item Quantity is 100_000",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-146",
+          "file": "src/Shared/Constants/OrderLimits.cs",
+          "line": 16,
+          "mechanism": "constant",
+          "expression": "public const int MaxItemQuantity = 100_000;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-146"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const int MaxItemQuantity = 100_000;",
+        "symbol": "OrderLimits",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Constants/OrderLimits.cs#OrderLimits",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-011",
+      "entity_version": 1,
+      "statement": "Default Page is 1",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-147",
+          "file": "src/Shared/Constants/PaginationDefaults.cs",
+          "line": 10,
+          "mechanism": "constant",
+          "expression": "public const int DefaultPage = 1;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-147"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const int DefaultPage = 1;",
+        "symbol": "PaginationDefaults",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Constants/PaginationDefaults.cs#PaginationDefaults",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-012",
+      "entity_version": 1,
+      "statement": "Default Page Size is 20",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-147",
+          "file": "src/Shared/Constants/PaginationDefaults.cs",
+          "line": 11,
+          "mechanism": "constant",
+          "expression": "public const int DefaultPageSize = 20;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-147"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const int DefaultPageSize = 20;",
+        "symbol": "PaginationDefaults",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Constants/PaginationDefaults.cs#PaginationDefaults",
+            "line": 11
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-013",
+      "entity_version": 1,
+      "statement": "Max Page Size is 100",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-147",
+          "file": "src/Shared/Constants/PaginationDefaults.cs",
+          "line": 12,
+          "mechanism": "constant",
+          "expression": "public const int MaxPageSize = 100;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-147"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const int MaxPageSize = 100;",
+        "symbol": "PaginationDefaults",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Constants/PaginationDefaults.cs#PaginationDefaults",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-014",
+      "entity_version": 1,
+      "statement": "Minimum Length is 5",
+      "module": "PLATFORM",
+      "category": "policy",
+      "category_evidence": "documented constant",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-150",
+          "file": "src/Shared/Constants/UserNameRules.cs",
+          "line": 15,
+          "mechanism": "constant",
+          "expression": "public const int MinimumLength = 5;"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-150"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "constant",
+        "raw": "public const int MinimumLength = 5;",
+        "symbol": "UserNameRules",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Constants/UserNameRules.cs#UserNameRules",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-015",
+      "entity_version": 1,
+      "statement": "Value cannot be null, empty, or whitespace.",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"cannot be\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-153",
+          "file": "src/Shared/Guards/Guard.cs",
+          "line": 19,
+          "mechanism": "domain-invariant",
+          "expression": "throw new ArgumentException(\"Value cannot be null, empty, or whitespace.\", paramName);"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-153"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-100",
+        "TC-PLATFORM-101",
+        "TC-PLATFORM-102",
+        "TC-PLATFORM-103",
+        "TC-PLATFORM-104",
+        "TC-PLATFORM-105",
+        "TC-PLATFORM-106",
+        "TC-PLATFORM-107",
+        "TC-PLATFORM-108",
+        "TC-PLATFORM-109",
+        "TC-PLATFORM-110"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new ArgumentException(\"Value cannot be null, empty, or whitespace.\", paramName);",
+        "symbol": "Guard",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Guards/Guard.cs#Guard",
+            "line": 19
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-016",
+      "entity_version": 1,
+      "statement": "Value cannot be an empty GUID.",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"cannot be\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-153",
+          "file": "src/Shared/Guards/Guard.cs",
+          "line": 29,
+          "mechanism": "domain-invariant",
+          "expression": "throw new ArgumentException(\"Value cannot be an empty GUID.\", paramName);"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-153"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-100",
+        "TC-PLATFORM-101",
+        "TC-PLATFORM-102",
+        "TC-PLATFORM-103",
+        "TC-PLATFORM-104",
+        "TC-PLATFORM-105",
+        "TC-PLATFORM-106",
+        "TC-PLATFORM-107",
+        "TC-PLATFORM-108",
+        "TC-PLATFORM-109",
+        "TC-PLATFORM-110"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new ArgumentException(\"Value cannot be an empty GUID.\", paramName);",
+        "symbol": "Guard",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Guards/Guard.cs#Guard",
+            "line": 29
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-017",
+      "entity_version": 1,
+      "statement": "A successful result cannot contain an error.",
+      "module": "PLATFORM",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-159",
+          "file": "src/Shared/Results/Result.cs",
+          "line": 14,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"A successful result cannot contain an error.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-159"
+      ],
+      "test_cases": [
+        "TC-AUTH-001",
+        "TC-AUTH-002",
+        "TC-AUTH-007",
+        "TC-AUTH-008",
+        "TC-CUSTOMER-001",
+        "TC-PLATFORM-068",
+        "TC-PLATFORM-069",
+        "TC-PLATFORM-070",
+        "TC-PLATFORM-071",
+        "TC-PLATFORM-072",
+        "TC-PLATFORM-073",
+        "TC-PLATFORM-074",
+        "TC-PLATFORM-075",
+        "TC-PLATFORM-076",
+        "TC-PLATFORM-077",
+        "TC-PLATFORM-078",
+        "TC-PLATFORM-121",
+        "TC-PLATFORM-122",
+        "TC-PLATFORM-123",
+        "TC-PLATFORM-124",
+        "TC-PLATFORM-125"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 21,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"A successful result cannot contain an error.\");",
+        "symbol": "Result",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Results/Result.cs#Result",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-018",
+      "entity_version": 1,
+      "statement": "A failed result must contain an error.",
+      "module": "PLATFORM",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-159",
+          "file": "src/Shared/Results/Result.cs",
+          "line": 19,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"A failed result must contain an error.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-159"
+      ],
+      "test_cases": [
+        "TC-AUTH-001",
+        "TC-AUTH-002",
+        "TC-AUTH-007",
+        "TC-AUTH-008",
+        "TC-CUSTOMER-001",
+        "TC-PLATFORM-068",
+        "TC-PLATFORM-069",
+        "TC-PLATFORM-070",
+        "TC-PLATFORM-071",
+        "TC-PLATFORM-072",
+        "TC-PLATFORM-073",
+        "TC-PLATFORM-074",
+        "TC-PLATFORM-075",
+        "TC-PLATFORM-076",
+        "TC-PLATFORM-077",
+        "TC-PLATFORM-078",
+        "TC-PLATFORM-121",
+        "TC-PLATFORM-122",
+        "TC-PLATFORM-123",
+        "TC-PLATFORM-124",
+        "TC-PLATFORM-125"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 21,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"A failed result must contain an error.\");",
+        "symbol": "Result",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Results/Result.cs#Result",
+            "line": 19
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    },
+    {
+      "id": "BR-PLATFORM-019",
+      "entity_version": 1,
+      "statement": "The value of a failed result cannot be accessed.",
+      "module": "PLATFORM",
+      "category": "validation",
+      "category_evidence": "statement uses \"cannot be\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PLATFORM-293",
+          "file": "src/Shared/Results/Result.cs",
+          "line": 61,
+          "mechanism": "domain-invariant",
+          "expression": ": throw new InvalidOperationException(\"The value of a failed result cannot be accessed.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PLATFORM-293"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": ": throw new InvalidOperationException(\"The value of a failed result cannot be accessed.\");",
+        "symbol": "Result<TValue>",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Shared/Results/Result.cs#Result<TValue>",
+            "line": 61
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "7a31abb70f6327c4b2e0472427878f85b06cd910",
+      "change_history": []
+    }
+  ]
+}

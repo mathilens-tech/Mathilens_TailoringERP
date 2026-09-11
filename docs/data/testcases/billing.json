@@ -1,0 +1,5304 @@
+{
+  "module": "BILLING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-BILLING-001",
+      "title": "Handle with existing order with items creates invoice from order total",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Billing.Commands.Create)",
+      "subject_component": "COMP-BILLING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::CreateInvoiceCommandHandlerTests.Handle_WithExistingOrderWithItems_CreatesInvoiceFromOrderTotal",
+      "assertions": [
+        "1000m",
+        "1050m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandHandlerTests",
+        "method": "Handle_WithExistingOrderWithItems_CreatesInvoiceFromOrderTotal",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingOrderWithItems_CreatesInvoiceFromOrderTotal()",
+        "is_async": true,
+        "line": 23,
+        "body_lines": 18,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Create",
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Domain.Measurements",
+          "MathilensERP.Domain.Orders"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-049",
+            "name": "Order",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-081",
+            "name": "IInvoiceNumberGenerator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::Handle_WithExistingOrderWithItems_CreatesInvoiceFromOrderTotal",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-002",
+      "title": "Handle with unknown order returns not found",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Billing.Commands.Create)",
+      "subject_component": "COMP-BILLING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::CreateInvoiceCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound",
+      "assertions": [
+        "\"Order.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandHandlerTests",
+        "method": "Handle_WithUnknownOrder_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownOrder_ReturnsNotFound()",
+        "is_async": true,
+        "line": 43,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Create",
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Domain.Measurements",
+          "MathilensERP.Domain.Orders"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-081",
+            "name": "IInvoiceNumberGenerator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::Handle_WithUnknownOrder_ReturnsNotFound",
+            "line": 43
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-003",
+      "title": "Handle with order with no items returns conflict",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Billing.Commands.Create)",
+      "subject_component": "COMP-BILLING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::CreateInvoiceCommandHandlerTests.Handle_WithOrderWithNoItems_ReturnsConflict",
+      "assertions": [
+        "\"Order.NoItems\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandHandlerTests",
+        "method": "Handle_WithOrderWithNoItems_ReturnsConflict",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithOrderWithNoItems_ReturnsConflict()",
+        "is_async": true,
+        "line": 57,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Create",
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Domain.Measurements",
+          "MathilensERP.Domain.Orders"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-049",
+            "name": "Order",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-081",
+            "name": "IInvoiceNumberGenerator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::Handle_WithOrderWithNoItems_ReturnsConflict",
+            "line": 57
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-004",
+      "title": "Handle with discount exceeding total returns conflict",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.Billing.Commands.Create)",
+      "subject_component": "COMP-BILLING-002",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::CreateInvoiceCommandHandlerTests.Handle_WithDiscountExceedingTotal_ReturnsConflict",
+      "assertions": [
+        "\"Invoice.InvalidTotal\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandHandlerTests",
+        "method": "Handle_WithDiscountExceedingTotal_ReturnsConflict",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithDiscountExceedingTotal_ReturnsConflict()",
+        "is_async": true,
+        "line": 72,
+        "body_lines": 15,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Create",
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Domain.Measurements",
+          "MathilensERP.Domain.Orders"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-002",
+            "name": "CreateInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-049",
+            "name": "Order",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-081",
+            "name": "IInvoiceNumberGenerator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs::Handle_WithDiscountExceedingTotal_ReturnsConflict",
+            "line": 72
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-005",
+      "title": "Validate with valid command passes",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::CreateInvoiceCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-006",
+      "title": "Validate with empty order ID fails",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::CreateInvoiceCommandValidatorTests.Validate_WithEmptyOrderId_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandValidatorTests",
+        "method": "Validate_WithEmptyOrderId_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithEmptyOrderId_Fails()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::Validate_WithEmptyOrderId_Fails",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-007",
+      "title": "Validate with negative tax fails",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::CreateInvoiceCommandValidatorTests.Validate_WithNegativeTax_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandValidatorTests",
+        "method": "Validate_WithNegativeTax_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNegativeTax_Fails()",
+        "is_async": false,
+        "line": 27,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::Validate_WithNegativeTax_Fails",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-008",
+      "title": "Validate with negative discount fails",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::CreateInvoiceCommandValidatorTests.Validate_WithNegativeDiscount_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Create",
+        "class": "CreateInvoiceCommandValidatorTests",
+        "method": "Validate_WithNegativeDiscount_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNegativeDiscount_Fails()",
+        "is_async": false,
+        "line": 36,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.Create"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-001",
+            "name": "CreateInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-003",
+            "name": "CreateInvoiceCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs::Validate_WithNegativeDiscount_Fails",
+            "line": 36
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-009",
+      "title": "Handle with acceptable amount records payment and saves",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::RecordPaymentCommandHandlerTests.Handle_WithAcceptableAmount_RecordsPaymentAndSaves",
+      "assertions": [
+        "400m",
+        "InvoiceStatus.PartiallyPaid"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.RecordPayment",
+        "class": "RecordPaymentCommandHandlerTests",
+        "method": "Handle_WithAcceptableAmount_RecordsPaymentAndSaves",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithAcceptableAmount_RecordsPaymentAndSaves()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.RecordPayment",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-004",
+            "name": "RecordPaymentCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::Handle_WithAcceptableAmount_RecordsPaymentAndSaves",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-010",
+      "title": "Handle with unknown invoice returns not found",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::RecordPaymentCommandHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound",
+      "assertions": [
+        "\"Invoice.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.RecordPayment",
+        "class": "RecordPaymentCommandHandlerTests",
+        "method": "Handle_WithUnknownInvoice_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownInvoice_ReturnsNotFound()",
+        "is_async": true,
+        "line": 27,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.RecordPayment",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-004",
+            "name": "RecordPaymentCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::Handle_WithUnknownInvoice_ReturnsNotFound",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-011",
+      "title": "Handle with amount exceeding balance returns conflict",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::RecordPaymentCommandHandlerTests.Handle_WithAmountExceedingBalance_ReturnsConflict",
+      "assertions": [
+        "\"Invoice.PaymentNotAcceptable\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.RecordPayment",
+        "class": "RecordPaymentCommandHandlerTests",
+        "method": "Handle_WithAmountExceedingBalance_ReturnsConflict",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithAmountExceedingBalance_ReturnsConflict()",
+        "is_async": true,
+        "line": 40,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.RecordPayment",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-004",
+            "name": "RecordPaymentCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-005",
+            "name": "RecordPaymentCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs::Handle_WithAmountExceedingBalance_ReturnsConflict",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-012",
+      "title": "Validate with valid command passes",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs::RecordPaymentCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.RecordPayment",
+        "class": "RecordPaymentCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 11,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.RecordPayment",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-004",
+            "name": "RecordPaymentCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-006",
+            "name": "RecordPaymentCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-006",
+            "name": "RecordPaymentCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-013",
+      "title": "Validate with non positive amount fails",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs::RecordPaymentCommandValidatorTests.Validate_WithNonPositiveAmount_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.RecordPayment",
+        "class": "RecordPaymentCommandValidatorTests",
+        "method": "Validate_WithNonPositiveAmount_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithNonPositiveAmount_Fails()",
+        "is_async": false,
+        "line": 19,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Commands.RecordPayment",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-004",
+            "name": "RecordPaymentCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-006",
+            "name": "RecordPaymentCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-006",
+            "name": "RecordPaymentCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs::Validate_WithNonPositiveAmount_Fails",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-014",
+      "title": "Handle with unpaid invoice voids and saves",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-008",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::VoidInvoiceCommandHandlerTests.Handle_WithUnpaidInvoice_VoidsAndSaves",
+      "assertions": [
+        "InvoiceStatus.Void"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Void",
+        "class": "VoidInvoiceCommandHandlerTests",
+        "method": "Handle_WithUnpaidInvoice_VoidsAndSaves",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnpaidInvoice_VoidsAndSaves()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Void",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-007",
+            "name": "VoidInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::Handle_WithUnpaidInvoice_VoidsAndSaves",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-015",
+      "title": "Handle with paid invoice returns conflict",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-008",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::VoidInvoiceCommandHandlerTests.Handle_WithPaidInvoice_ReturnsConflict",
+      "assertions": [
+        "\"Invoice.CannotVoid\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Void",
+        "class": "VoidInvoiceCommandHandlerTests",
+        "method": "Handle_WithPaidInvoice_ReturnsConflict",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithPaidInvoice_ReturnsConflict()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Void",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-007",
+            "name": "VoidInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::Handle_WithPaidInvoice_ReturnsConflict",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-016",
+      "title": "Handle with unknown invoice returns not found",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-008",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::VoidInvoiceCommandHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound",
+      "assertions": [
+        "\"Invoice.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Commands.Void",
+        "class": "VoidInvoiceCommandHandlerTests",
+        "method": "Handle_WithUnknownInvoice_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownInvoice_ReturnsNotFound()",
+        "is_async": true,
+        "line": 42,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Commands.Void",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-007",
+            "name": "VoidInvoiceCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-008",
+            "name": "VoidInvoiceCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs::Handle_WithUnknownInvoice_ReturnsNotFound",
+            "line": 42
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-017",
+      "title": "Handle with existing invoice returns DTO",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-017",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs::GetInvoiceByIdQueryHandlerTests.Handle_WithExistingInvoice_ReturnsDto",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.GetById",
+        "class": "GetInvoiceByIdQueryHandlerTests",
+        "method": "Handle_WithExistingInvoice_ReturnsDto",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingInvoice_ReturnsDto()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Queries.GetById",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-016",
+            "name": "GetInvoiceByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-017",
+            "name": "GetInvoiceByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-017",
+            "name": "GetInvoiceByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs::Handle_WithExistingInvoice_ReturnsDto",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-018",
+      "title": "Handle with unknown invoice returns not found",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-017",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs::GetInvoiceByIdQueryHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound",
+      "assertions": [
+        "\"Invoice.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.GetById",
+        "class": "GetInvoiceByIdQueryHandlerTests",
+        "method": "Handle_WithUnknownInvoice_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownInvoice_ReturnsNotFound()",
+        "is_async": true,
+        "line": 25,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Queries.GetById",
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-016",
+            "name": "GetInvoiceByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-017",
+            "name": "GetInvoiceByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-017",
+            "name": "GetInvoiceByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs::Handle_WithUnknownInvoice_ReturnsNotFound",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-019",
+      "title": "Handle maps paged invoices to dtos",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-024",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs::SearchInvoicesQueryHandlerTests.Handle_MapsPagedInvoicesToDtos",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryHandlerTests",
+        "method": "Handle_MapsPagedInvoicesToDtos",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_MapsPagedInvoicesToDtos()",
+        "is_async": true,
+        "line": 12,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Queries.Search",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-024",
+            "name": "SearchInvoicesQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-024",
+            "name": "SearchInvoicesQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs::Handle_MapsPagedInvoicesToDtos",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-020",
+      "title": "Handle passes date range through to the repository",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-024",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs::SearchInvoicesQueryHandlerTests.Handle_PassesDateRangeThroughToTheRepository",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryHandlerTests",
+        "method": "Handle_PassesDateRangeThroughToTheRepository",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_PassesDateRangeThroughToTheRepository()",
+        "is_async": true,
+        "line": 30,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing",
+          "MathilensERP.Application.Billing.Queries.Search",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-010",
+            "name": "IInvoiceRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-024",
+            "name": "SearchInvoicesQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-024",
+            "name": "SearchInvoicesQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateTime",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs::Handle_PassesDateRangeThroughToTheRepository",
+            "line": 30
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-021",
+      "title": "Validate with valid query passes",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::SearchInvoicesQueryValidatorTests.Validate_WithValidQuery_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryValidatorTests",
+        "method": "Validate_WithValidQuery_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidQuery_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::Validate_WithValidQuery_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-022",
+      "title": "Validate with page size out of bounds fails",
+      "module": "BILLING",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::SearchInvoicesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryValidatorTests",
+        "method": "Validate_WithPageSizeOutOfBounds_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "signature": "public void Validate_WithPageSizeOutOfBounds_Fails(int pageSize)",
+        "is_async": false,
+        "line": 20,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::Validate_WithPageSizeOutOfBounds_Fails",
+            "line": 20
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#Theory x2",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-023",
+      "title": "Validate with date range passes",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::SearchInvoicesQueryValidatorTests.Validate_WithDateRange_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryValidatorTests",
+        "method": "Validate_WithDateRange_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithDateRange_Passes()",
+        "is_async": false,
+        "line": 29,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateTime"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::Validate_WithDateRange_Passes",
+            "line": 29
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-024",
+      "title": "Validate with from after to fails",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::SearchInvoicesQueryValidatorTests.Validate_WithFromAfterTo_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryValidatorTests",
+        "method": "Validate_WithFromAfterTo_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithFromAfterTo_Fails()",
+        "is_async": false,
+        "line": 40,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateTime"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::Validate_WithFromAfterTo_Fails",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-025",
+      "title": "Validate with only one end of the range passes",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-025",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::SearchInvoicesQueryValidatorTests.Validate_WithOnlyOneEndOfTheRange_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Billing.Queries.Search",
+        "class": "SearchInvoicesQueryValidatorTests",
+        "method": "Validate_WithOnlyOneEndOfTheRange_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithOnlyOneEndOfTheRange_Passes()",
+        "is_async": false,
+        "line": 52,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Billing.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-023",
+            "name": "SearchInvoicesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-BILLING-025",
+            "name": "SearchInvoicesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "DateTime"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs::Validate_WithOnlyOneEndOfTheRange_Passes",
+            "line": 52
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-026",
+      "title": "Create with valid inputs computes total and starts unpaid",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Create_WithValidInputs_ComputesTotalAndStartsUnpaid",
+      "assertions": [
+        "1000m",
+        "950m",
+        "0m",
+        "InvoiceStatus.Unpaid"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Create_WithValidInputs_ComputesTotalAndStartsUnpaid",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithValidInputs_ComputesTotalAndStartsUnpaid()",
+        "is_async": false,
+        "line": 8,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Create_WithValidInputs_ComputesTotalAndStartsUnpaid",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-027",
+      "title": "Create with zero subtotal throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Create_WithZeroSubtotal_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Create_WithZeroSubtotal_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithZeroSubtotal_Throws()",
+        "is_async": false,
+        "line": 26,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentOutOfRangeException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Create_WithZeroSubtotal_Throws",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-028",
+      "title": "Create with negative tax throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Create_WithNegativeTax_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Create_WithNegativeTax_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithNegativeTax_Throws()",
+        "is_async": false,
+        "line": 32,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentOutOfRangeException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Create_WithNegativeTax_Throws",
+            "line": 32
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-029",
+      "title": "Create with discount exceeding subtotal plus tax throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Create_WithDiscountExceedingSubtotalPlusTax_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Create_WithDiscountExceedingSubtotalPlusTax_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithDiscountExceedingSubtotalPlusTax_Throws()",
+        "is_async": false,
+        "line": 38,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentOutOfRangeException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Create_WithDiscountExceedingSubtotalPlusTax_Throws",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-030",
+      "title": "Record payment with partial amount sets partially paid",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.RecordPayment_WithPartialAmount_SetsPartiallyPaid",
+      "assertions": [
+        "400m",
+        "600m",
+        "InvoiceStatus.PartiallyPaid"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "RecordPayment_WithPartialAmount_SetsPartiallyPaid",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void RecordPayment_WithPartialAmount_SetsPartiallyPaid()",
+        "is_async": false,
+        "line": 44,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::RecordPayment_WithPartialAmount_SetsPartiallyPaid",
+            "line": 44
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-031",
+      "title": "Record payment covering full balance sets paid",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.RecordPayment_CoveringFullBalance_SetsPaid",
+      "assertions": [
+        "1000m",
+        "0m",
+        "InvoiceStatus.Paid",
+        "2"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "RecordPayment_CoveringFullBalance_SetsPaid",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void RecordPayment_CoveringFullBalance_SetsPaid()",
+        "is_async": false,
+        "line": 57,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::RecordPayment_CoveringFullBalance_SetsPaid",
+            "line": 57
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-032",
+      "title": "Record payment exceeding remaining balance throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.RecordPayment_ExceedingRemainingBalance_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "RecordPayment_ExceedingRemainingBalance_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void RecordPayment_ExceedingRemainingBalance_Throws()",
+        "is_async": false,
+        "line": 71,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid",
+          "InvalidOperationException"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::RecordPayment_ExceedingRemainingBalance_Throws",
+            "line": 71
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-033",
+      "title": "Record payment with non positive amount throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.RecordPayment_WithNonPositiveAmount_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "RecordPayment_WithNonPositiveAmount_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void RecordPayment_WithNonPositiveAmount_Throws()",
+        "is_async": false,
+        "line": 79,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid",
+          "InvalidOperationException"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::RecordPayment_WithNonPositiveAmount_Throws",
+            "line": 79
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-034",
+      "title": "Can accept payment on void invoice returns false",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.CanAcceptPayment_OnVoidInvoice_ReturnsFalse",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "CanAcceptPayment_OnVoidInvoice_ReturnsFalse",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void CanAcceptPayment_OnVoidInvoice_ReturnsFalse()",
+        "is_async": false,
+        "line": 87,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::CanAcceptPayment_OnVoidInvoice_ReturnsFalse",
+            "line": 87
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-035",
+      "title": "Void on unpaid invoice sets void status",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Void_OnUnpaidInvoice_SetsVoidStatus",
+      "assertions": [
+        "InvoiceStatus.Void"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Void_OnUnpaidInvoice_SetsVoidStatus",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Void_OnUnpaidInvoice_SetsVoidStatus()",
+        "is_async": false,
+        "line": 96,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Void_OnUnpaidInvoice_SetsVoidStatus",
+            "line": 96
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-036",
+      "title": "Void on invoice with payments throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Void_OnInvoiceWithPayments_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Void_OnInvoiceWithPayments_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Void_OnInvoiceWithPayments_Throws()",
+        "is_async": false,
+        "line": 106,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid",
+          "InvalidOperationException"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Void_OnInvoiceWithPayments_Throws",
+            "line": 106
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-037",
+      "title": "Void already voided throws",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-026",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::InvoiceTests.Void_AlreadyVoided_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/Billing/InvoiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.Billing",
+        "class": "InvoiceTests",
+        "method": "Void_AlreadyVoided_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Void_AlreadyVoided_Throws()",
+        "is_async": false,
+        "line": 115,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-BILLING-026",
+            "name": "Invoice",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid",
+          "InvalidOperationException"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/Billing/InvoiceTests.cs::Void_AlreadyVoided_Throws",
+            "line": 115
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-BILLING-038",
+      "title": "Reads back the invoice it was created for",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Reads_back_the_invoice_it_was_created_for",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Reads_back_the_invoice_it_was_created_for",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Reads_back_the_invoice_it_was_created_for()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Reads_back_the_invoice_it_was_created_for",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-039",
+      "title": "Does not repeat itself for the same invoice",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Does_not_repeat_itself_for_the_same_invoice",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Does_not_repeat_itself_for_the_same_invoice",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Does_not_repeat_itself_for_the_same_invoice()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Does_not_repeat_itself_for_the_same_invoice",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-040",
+      "title": "Does not carry the invoice ID in the clear",
+      "module": "BILLING",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Does_not_carry_the_invoice_id_in_the_clear",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Does_not_carry_the_invoice_id_in_the_clear",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Does_not_carry_the_invoice_id_in_the_clear()",
+        "is_async": false,
+        "line": 40,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Does_not_carry_the_invoice_id_in_the_clear",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-041",
+      "title": "Refuses anything it did not issue",
+      "module": "BILLING",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "4 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Refuses_anything_it_did_not_issue",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Refuses_anything_it_did_not_issue",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(\"\")",
+          "InlineData(\"   \")",
+          "InlineData(\"not-a-token\")",
+          "InlineData(\"!!!not base64 at all!!!\")"
+        ],
+        "signature": "public void Refuses_anything_it_did_not_issue(string token)",
+        "is_async": false,
+        "line": 55,
+        "body_lines": 4,
+        "inline_data": [
+          "InlineData(\"\")",
+          "InlineData(\"   \")",
+          "InlineData(\"not-a-token\")",
+          "InlineData(\"!!!not base64 at all!!!\")"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Refuses_anything_it_did_not_issue",
+            "line": 55
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#Theory x4",
+            "line": 55
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-042",
+      "title": "Refuses a token that has been edited",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Refuses_a_token_that_has_been_edited",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Refuses_a_token_that_has_been_edited",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Refuses_a_token_that_has_been_edited()",
+        "is_async": false,
+        "line": 61,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Refuses_a_token_that_has_been_edited",
+            "line": 61
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-BILLING-043",
+      "title": "Refuses a token issued under a different key",
+      "module": "BILLING",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Infrastructure",
+      "category_evidence": "namespace segment Infrastructure",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-BILLING-030",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::InvoiceShareTokenServiceTests.Refuses_a_token_issued_under_a_different_key",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Infrastructure.Billing",
+        "class": "InvoiceShareTokenServiceTests",
+        "method": "Refuses_a_token_issued_under_a_different_key",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Refuses_a_token_issued_under_a_different_key()",
+        "is_async": false,
+        "line": 74,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Infrastructure.Billing"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-BILLING-030",
+            "name": "InvoiceShareTokenService",
+            "via": "class-name-convention",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "ConfigurationBuilder",
+          "Dictionary",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs::Refuses_a_token_issued_under_a_different_key",
+            "line": 74
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-PLATFORM-012",
+      "title": "Create without bearer token returns unauthorized",
+      "module": "BILLING",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "Create_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 18,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices",
+            "normalized": "/api/v1/invoices",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "Guid",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::Create_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-013",
+      "title": "Create with empty order ID returns validation error envelope",
+      "module": "BILLING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.Create_WithEmptyOrderId_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "Create_WithEmptyOrderId_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithEmptyOrderId_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices",
+            "normalized": "/api/v1/invoices",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::Create_WithEmptyOrderId_ReturnsValidationErrorEnvelope",
+            "line": 26
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-014",
+      "title": "Create with negative tax returns validation error envelope",
+      "module": "BILLING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.Create_WithNegativeTax_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "Create_WithNegativeTax_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Create_WithNegativeTax_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 38,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices",
+            "normalized": "/api/v1/invoices",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "Guid",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::Create_WithNegativeTax_ReturnsValidationErrorEnvelope",
+            "line": 38
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-015",
+      "title": "Get by ID without bearer token returns unauthorized",
+      "module": "BILLING",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "GetById_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetById_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 50,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices/{Guid.NewGuid()}",
+            "normalized": "/api/v1/invoices/{param}",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::GetById_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 50
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices/{Guid.NewGuid()}",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 50
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-016",
+      "title": "Record payment with non positive amount returns validation error envelope",
+      "module": "BILLING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.RecordPayment_WithNonPositiveAmount_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "RecordPayment_WithNonPositiveAmount_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task RecordPayment_WithNonPositiveAmount_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 58,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices/{Guid.NewGuid()}/payments",
+            "normalized": "/api/v1/invoices/{param}/payments",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::RecordPayment_WithNonPositiveAmount_ReturnsValidationErrorEnvelope",
+            "line": 58
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices/{Guid.NewGuid()}/payments",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 58
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-017",
+      "title": "Search with page size above maximum returns validation error envelope",
+      "module": "BILLING",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::InvoicesEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Billing",
+        "class": "InvoicesEndpointsTests",
+        "method": "Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 70,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/invoices",
+            "normalized": "/api/v1/invoices",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-063"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-063",
+            "name": "InvoicesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs::Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+            "line": 70
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/invoices",
+            "detail": "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs",
+            "line": 70
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

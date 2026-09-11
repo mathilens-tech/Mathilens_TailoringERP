@@ -1,0 +1,322 @@
+{
+  "schema_version": "1.0.0",
+  "prefix": "FEAT",
+  "next": {
+    "ACTIVITY": 2,
+    "AUTH": 5,
+    "BILLING": 4,
+    "CUSTOMER": 3,
+    "EMPLOYEE": 4,
+    "INVENTORY": 3,
+    "MEASUREMENT": 3,
+    "OCCASION": 2,
+    "ORDER": 6,
+    "PRICING": 2,
+    "REPORT": 4,
+    "SETTING": 2,
+    "WHATSAPP": 3
+  },
+  "entries": {
+    "feature:ACTIVITY|Activity Filtering": {
+      "id": "FEAT-ACTIVITY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ACTIVITY|Management": {
+      "id": "FEAT-ACTIVITY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:AUTH|Password Change": {
+      "id": "FEAT-AUTH-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:AUTH|Password Reset": {
+      "id": "FEAT-AUTH-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:AUTH|Registration": {
+      "id": "FEAT-AUTH-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:AUTH|Session Renewal": {
+      "id": "FEAT-AUTH-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:AUTH|Sign In": {
+      "id": "FEAT-AUTH-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:BILLING|Invoice Sharing": {
+      "id": "FEAT-BILLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:BILLING|Invoice Voiding": {
+      "id": "FEAT-BILLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:BILLING|Management": {
+      "id": "FEAT-BILLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:BILLING|Payment Recording": {
+      "id": "FEAT-BILLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:CUSTOMER|Duplicate Detection": {
+      "id": "FEAT-CUSTOMER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:CUSTOMER|Import & Export": {
+      "id": "FEAT-CUSTOMER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:CUSTOMER|Management": {
+      "id": "FEAT-CUSTOMER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:EMPLOYEE|Employee Retirement": {
+      "id": "FEAT-EMPLOYEE-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:EMPLOYEE|Employee Work History": {
+      "id": "FEAT-EMPLOYEE-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:EMPLOYEE|Import & Export": {
+      "id": "FEAT-EMPLOYEE-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:EMPLOYEE|Management": {
+      "id": "FEAT-EMPLOYEE-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:INVENTORY|Cloth Receiving": {
+      "id": "FEAT-INVENTORY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:INVENTORY|Management": {
+      "id": "FEAT-INVENTORY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:INVENTORY|Stock Levels": {
+      "id": "FEAT-INVENTORY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:MEASUREMENT|Management": {
+      "id": "FEAT-MEASUREMENT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:MEASUREMENT|Measurement Capture": {
+      "id": "FEAT-MEASUREMENT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:MEASUREMENT|Measurement History": {
+      "id": "FEAT-MEASUREMENT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:OCCASION|Management": {
+      "id": "FEAT-OCCASION-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:OCCASION|Occasion Follow-up": {
+      "id": "FEAT-OCCASION-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Customer Order History": {
+      "id": "FEAT-ORDER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Import & Export": {
+      "id": "FEAT-ORDER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Management": {
+      "id": "FEAT-ORDER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Order Items": {
+      "id": "FEAT-ORDER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Status Lifecycle": {
+      "id": "FEAT-ORDER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:ORDER|Work Assignment": {
+      "id": "FEAT-ORDER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:PRICING|Import & Export": {
+      "id": "FEAT-PRICING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:PRICING|Management": {
+      "id": "FEAT-PRICING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:REPORT|Collections Reporting": {
+      "id": "FEAT-REPORT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:REPORT|Order Status Reporting": {
+      "id": "FEAT-REPORT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:REPORT|Outstanding Invoice Reporting": {
+      "id": "FEAT-REPORT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:REPORT|Revenue Reporting": {
+      "id": "FEAT-REPORT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:SETTING|Management": {
+      "id": "FEAT-SETTING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:SETTING|Settings Management": {
+      "id": "FEAT-SETTING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:WHATSAPP|Management": {
+      "id": "FEAT-WHATSAPP-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:WHATSAPP|Message Sending": {
+      "id": "FEAT-WHATSAPP-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "feature:WHATSAPP|Share Tracking": {
+      "id": "FEAT-WHATSAPP-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    }
+  }
+}

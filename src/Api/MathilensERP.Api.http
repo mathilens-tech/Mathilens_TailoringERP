@@ -1,0 +1,6 @@
+@MathilensERP.Api_HostAddress = http://localhost:5232
+
+GET {{MathilensERP.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,3248 @@
+{
+  "module": "REPORT",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-PLATFORM-068",
+      "name": "ReportsController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/ReportsController.cs",
+      "module": "REPORT",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class ReportsController : ApiControllerBase",
+        "line": 21,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/reports\")",
+          "Authorize(Policy = Permissions.ReportsView)"
+        ],
+        "members": [
+          {
+            "name": "ReportsController",
+            "kind": "constructor",
+            "signature": "public ReportsController(ISender sender)",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Export",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Export(",
+            "line": 44,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"export\")",
+              "ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "export",
+              "resolved_route": "/api/v1/reports/export",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Revenue",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Revenue([FromQuery] DateTime fromUtc, [FromQuery] DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 145,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"revenue\")",
+              "ProducesResponseType(typeof(ApiResponse<RevenueReportDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "revenue",
+              "resolved_route": "/api/v1/reports/revenue",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "OrderCollections",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> OrderCollections([FromQuery] DateTime fromUtc, [FromQuery] DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 159,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"order-collections\")",
+              "ProducesResponseType(typeof(ApiResponse<OrderCollectionsReportDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "order-collections",
+              "resolved_route": "/api/v1/reports/order-collections",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "OrderStatusSummary",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> OrderStatusSummary([FromQuery] DateTime fromUtc, [FromQuery] DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 169,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"order-status-summary\")",
+              "ProducesResponseType(typeof(ApiResponse<OrderStatusSummaryReportDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "order-status-summary",
+              "resolved_route": "/api/v1/reports/order-status-summary",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "OutstandingInvoices",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> OutstandingInvoices(",
+            "line": 179,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"outstanding-invoices\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<OutstandingInvoiceDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "outstanding-invoices",
+              "resolved_route": "/api/v1/reports/outstanding-invoices",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ExportFormat",
+            "target_component": "COMP-PLATFORM-011",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 48,
+              "expression": "ExportFormat format = "
+            }
+          },
+          {
+            "target": "GetOrderCollectionsReportQuery",
+            "target_component": "COMP-REPORT-002",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 59,
+              "expression": "new GetOrderCollectionsReportQuery("
+            }
+          },
+          {
+            "target": "GetRevenueReportQuery",
+            "target_component": "COMP-REPORT-011",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 82,
+              "expression": "new GetRevenueReportQuery("
+            }
+          },
+          {
+            "target": "GetOrderStatusSummaryReportQuery",
+            "target_component": "COMP-REPORT-005",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 102,
+              "expression": "new GetOrderStatusSummaryReportQuery("
+            }
+          },
+          {
+            "target": "GetOutstandingInvoicesReportQuery",
+            "target_component": "COMP-REPORT-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 119,
+              "expression": "new GetOutstandingInvoicesReportQuery("
+            }
+          },
+          {
+            "target": "ExportResultFactory",
+            "target_component": "COMP-PLATFORM-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 66,
+              "expression": "ExportResultFactory.Create(…)"
+            }
+          },
+          {
+            "target": "ApiErrorResponse",
+            "target_component": "COMP-PLATFORM-021",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ReportsController.cs",
+              "line": 135,
+              "expression": "ApiErrorResponse.From(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 17
+          },
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 20",
+            "line": 17
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 175
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e885f22e707cafd886c18e37d968e5fcb8d03b9a",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Export for the four figure reports",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 188,
+          "member_count": 6,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/ReportsController.cs#ReportsController",
+            "line": 21
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/ReportsController.cs#ApiController",
+            "line": 21
+          }
+        ]
+      },
+      "last_verified_commit": "e885f22e707cafd886c18e37d968e5fcb8d03b9a",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-001",
+      "name": "IReportRepository",
+      "kind": "port",
+      "path": "src/Application/Reports/IReportRepository.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public interface IReportRepository",
+        "line": 11,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetRevenueAsync",
+            "kind": "method",
+            "signature": "Task<RevenueReportDto> GetRevenueAsync(DateTime fromUtc, DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 13,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetOrderCollectionsAsync",
+            "kind": "method",
+            "signature": "Task<OrderCollectionsReportDto> GetOrderCollectionsAsync(DateTime fromUtc, DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetOrderStatusSummaryAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<OrderStatusCountDto>> GetOrderStatusSummaryAsync(DateTime fromUtc, DateTime toUtc, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetOutstandingInvoicesAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<OutstandingInvoiceDto>> GetOutstandingInvoicesAsync(int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 19,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 20",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/IReportRepository.cs#IReportRepository",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-002",
+      "name": "GetOrderCollectionsReportQuery",
+      "kind": "query",
+      "path": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQuery.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderCollections",
+        "declaration": "public sealed record GetOrderCollectionsReportQuery(DateTime FromUtc, DateTime ToUtc) : IQuery<Result<OrderCollectionsReportDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<OrderCollectionsReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<OrderCollectionsReportDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQuery.cs#GetOrderCollectionsReportQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-003",
+      "name": "GetOrderCollectionsReportQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandler.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderCollections",
+        "declaration": "public sealed class GetOrderCollectionsReportQueryHandler : IQueryHandler<GetOrderCollectionsReportQuery, Result<OrderCollectionsReportDto>>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetOrderCollectionsReportQuery, Result<OrderCollectionsReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetOrderCollectionsReportQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetOrderCollectionsReportQueryHandler(IReportRepository reportRepository)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<OrderCollectionsReportDto>> Handle(GetOrderCollectionsReportQuery query, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReportRepository",
+            "target_component": "COMP-REPORT-001",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetOrderCollectionsReportQuery, Result<OrderCollectionsReportDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandler.cs",
+              "line": 19,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandler.cs#GetOrderCollectionsReportQueryHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-REPORT-004",
+      "name": "GetOrderCollectionsReportQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderCollections",
+        "declaration": "public sealed class GetOrderCollectionsReportQueryValidator : AbstractValidator<GetOrderCollectionsReportQuery>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetOrderCollectionsReportQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetOrderCollectionsReportQueryValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetOrderCollectionsReportQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 14,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs#GetOrderCollectionsReportQueryValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-005",
+      "name": "GetOrderStatusSummaryReportQuery",
+      "kind": "query",
+      "path": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQuery.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderStatusSummary",
+        "declaration": "public sealed record GetOrderStatusSummaryReportQuery(DateTime FromUtc, DateTime ToUtc) : IQuery<Result<OrderStatusSummaryReportDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<OrderStatusSummaryReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<OrderStatusSummaryReportDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQuery.cs#GetOrderStatusSummaryReportQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-006",
+      "name": "GetOrderStatusSummaryReportQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandler.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderStatusSummary",
+        "declaration": "public sealed class GetOrderStatusSummaryReportQueryHandler : IQueryHandler<GetOrderStatusSummaryReportQuery, Result<OrderStatusSummaryReportDto>>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetOrderStatusSummaryReportQuery, Result<OrderStatusSummaryReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetOrderStatusSummaryReportQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetOrderStatusSummaryReportQueryHandler(IReportRepository reportRepository)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<OrderStatusSummaryReportDto>> Handle(GetOrderStatusSummaryReportQuery query, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReportRepository",
+            "target_component": "COMP-REPORT-001",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetOrderStatusSummaryReportQuery, Result<OrderStatusSummaryReportDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "OrderStatusSummaryReportDto",
+            "target_component": "COMP-REPORT-017",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandler.cs",
+              "line": 19,
+              "expression": "new OrderStatusSummaryReportDto("
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandler.cs#GetOrderStatusSummaryReportQueryHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-REPORT-007",
+      "name": "GetOrderStatusSummaryReportQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OrderStatusSummary",
+        "declaration": "public sealed class GetOrderStatusSummaryReportQueryValidator : AbstractValidator<GetOrderStatusSummaryReportQuery>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetOrderStatusSummaryReportQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetOrderStatusSummaryReportQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetOrderStatusSummaryReportQueryValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetOrderStatusSummaryReportQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 14,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs#GetOrderStatusSummaryReportQueryValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-008",
+      "name": "GetOutstandingInvoicesReportQuery",
+      "kind": "query",
+      "path": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQuery.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OutstandingInvoices",
+        "declaration": "public sealed record GetOutstandingInvoicesReportQuery(int Page, int PageSize) : IQuery<Result<PagedResult<OutstandingInvoiceDto>>>;",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<OutstandingInvoiceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<OutstandingInvoiceDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 20",
+            "line": 8
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQuery.cs#GetOutstandingInvoicesReportQuery",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-009",
+      "name": "GetOutstandingInvoicesReportQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandler.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OutstandingInvoices",
+        "declaration": "public sealed class GetOutstandingInvoicesReportQueryHandler",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 24,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandler.cs#GetOutstandingInvoicesReportQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-010",
+      "name": "GetOutstandingInvoicesReportQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.OutstandingInvoices",
+        "declaration": "public sealed class GetOutstandingInvoicesReportQueryValidator : AbstractValidator<GetOutstandingInvoicesReportQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetOutstandingInvoicesReportQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetOutstandingInvoicesReportQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetOutstandingInvoicesReportQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetOutstandingInvoicesReportQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 17,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#GetOutstandingInvoicesReportQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-011",
+      "name": "GetRevenueReportQuery",
+      "kind": "query",
+      "path": "src/Application/Reports/Queries/Revenue/GetRevenueReportQuery.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.Revenue",
+        "declaration": "public sealed record GetRevenueReportQuery(DateTime FromUtc, DateTime ToUtc) : IQuery<Result<RevenueReportDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<RevenueReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<RevenueReportDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/Revenue/GetRevenueReportQuery.cs#GetRevenueReportQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-012",
+      "name": "GetRevenueReportQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandler.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.Revenue",
+        "declaration": "public sealed class GetRevenueReportQueryHandler : IQueryHandler<GetRevenueReportQuery, Result<RevenueReportDto>>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetRevenueReportQuery, Result<RevenueReportDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetRevenueReportQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetRevenueReportQueryHandler(IReportRepository reportRepository)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<RevenueReportDto>> Handle(GetRevenueReportQuery query, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReportRepository",
+            "target_component": "COMP-REPORT-001",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetRevenueReportQuery, Result<RevenueReportDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandler.cs",
+              "line": 19,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandler.cs#GetRevenueReportQueryHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-REPORT-013",
+      "name": "GetRevenueReportQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports.Queries.Revenue",
+        "declaration": "public sealed class GetRevenueReportQueryValidator : AbstractValidator<GetRevenueReportQuery>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetRevenueReportQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetRevenueReportQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetRevenueReportQueryValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetRevenueReportQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 14,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs#GetRevenueReportQueryValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-REPORT-014",
+      "name": "RevenueReportDto",
+      "kind": "dto",
+      "path": "src/Application/Reports/ReportDtos.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public sealed record RevenueReportDto( DateTime FromUtc, DateTime ToUtc, int InvoiceCount, decimal TotalInvoiced, decimal TotalCollected, decimal TotalOutstanding);",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceCount",
+            "kind": "property",
+            "signature": "int InvoiceCount",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalInvoiced",
+            "kind": "property",
+            "signature": "decimal TotalInvoiced",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalCollected",
+            "kind": "property",
+            "signature": "decimal TotalCollected",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalOutstanding",
+            "kind": "property",
+            "signature": "decimal TotalOutstanding",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 6,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/ReportDtos.cs#RevenueReportDto",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-015",
+      "name": "OrderCollectionsReportDto",
+      "kind": "dto",
+      "path": "src/Application/Reports/ReportDtos.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public sealed record OrderCollectionsReportDto( DateTime FromUtc, DateTime ToUtc, int OrderCount, decimal OrderValue, decimal DeliveredValue, decimal CollectedAmount, decimal PendingAmount, decimal CancelledValue, decimal DiscountsGiven);",
+        "line": 36,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderCount",
+            "kind": "property",
+            "signature": "int OrderCount",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderValue",
+            "kind": "property",
+            "signature": "decimal OrderValue",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DeliveredValue",
+            "kind": "property",
+            "signature": "decimal DeliveredValue",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CollectedAmount",
+            "kind": "property",
+            "signature": "decimal CollectedAmount",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PendingAmount",
+            "kind": "property",
+            "signature": "decimal PendingAmount",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CancelledValue",
+            "kind": "property",
+            "signature": "decimal CancelledValue",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountsGiven",
+            "kind": "property",
+            "signature": "decimal DiscountsGiven",
+            "line": 36,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 9,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/ReportDtos.cs#OrderCollectionsReportDto",
+            "line": 36
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-016",
+      "name": "OrderStatusCountDto",
+      "kind": "dto",
+      "path": "src/Application/Reports/ReportDtos.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public sealed record OrderStatusCountDto(OrderStatus Status, int Count);",
+        "line": 47,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "OrderStatus Status",
+            "line": 47,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Count",
+            "kind": "property",
+            "signature": "int Count",
+            "line": 47,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "OrderStatus",
+            "target_component": "COMP-ORDER-051",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/ReportDtos.cs#OrderStatusCountDto",
+            "line": 47
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-017",
+      "name": "OrderStatusSummaryReportDto",
+      "kind": "dto",
+      "path": "src/Application/Reports/ReportDtos.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public sealed record OrderStatusSummaryReportDto(DateTime FromUtc, DateTime ToUtc, IReadOnlyList<OrderStatusCountDto> StatusCounts);",
+        "line": 49,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime FromUtc",
+            "line": 49,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime ToUtc",
+            "line": 49,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "StatusCounts",
+            "kind": "property",
+            "signature": "IReadOnlyList<OrderStatusCountDto> StatusCounts",
+            "line": 49,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<OrderStatusCountDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/ReportDtos.cs#OrderStatusSummaryReportDto",
+            "line": 49
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-018",
+      "name": "OutstandingInvoiceDto",
+      "kind": "dto",
+      "path": "src/Application/Reports/ReportDtos.cs",
+      "module": "REPORT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Reports",
+        "declaration": "public sealed record OutstandingInvoiceDto( Guid Id, Guid CustomerId, decimal TotalAmount, decimal AmountPaid, decimal RemainingBalance, InvoiceStatus Status, DateTime CreatedAtUtc);",
+        "line": 51,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalAmount",
+            "kind": "property",
+            "signature": "decimal TotalAmount",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "AmountPaid",
+            "kind": "property",
+            "signature": "decimal AmountPaid",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RemainingBalance",
+            "kind": "property",
+            "signature": "decimal RemainingBalance",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "InvoiceStatus Status",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 51,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "InvoiceStatus",
+            "target_component": "COMP-BILLING-027",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 7,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Reports/ReportDtos.cs#OutstandingInvoiceDto",
+            "line": 51
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-019",
+      "name": "BirthdayReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/birthday/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/birthday",
+        "declaration": "export default function BirthdayReportPage() {",
+        "line": 5,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "BirthdayReportPage",
+            "kind": "export",
+            "signature": "export default function BirthdayReportPage() {",
+            "line": 5,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/reports/OccasionReport",
+            "target_component": "COMP-REPORT-020",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/birthday/page.tsx#BirthdayReportPage",
+            "line": 5
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/birthday",
+            "detail": "web/src/app/dashboard/reports/birthday/page.tsx",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-020",
+      "name": "OccasionReport",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/reports/OccasionReport.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function OccasionReport({",
+        "line": 67,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OccasionReport",
+            "kind": "export",
+            "signature": "export function OccasionReport({",
+            "line": 67,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ExportButton",
+            "target_component": "COMP-WEB-015",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 312,
+          "member_count": 1,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/OccasionReport.tsx#OccasionReport",
+            "line": 67
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-021",
+      "name": "OrderCollectionsReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/order-collections/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/order-collections",
+        "declaration": "export default function OrderCollectionsReportPage() {",
+        "line": 11,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderCollectionsReportPage",
+            "kind": "export",
+            "signature": "export default function OrderCollectionsReportPage() {",
+            "line": 11,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/ExportButton",
+            "target_component": "COMP-WEB-015",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/reports",
+            "target_component": "COMP-WEB-042",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/app/dashboard/reports/ReportRange",
+            "target_component": "COMP-REPORT-025",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 103,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/order-collections/page.tsx#OrderCollectionsReportPage",
+            "line": 11
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/order-collections",
+            "detail": "web/src/app/dashboard/reports/order-collections/page.tsx",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-022",
+      "name": "OrderStatusReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/order-status/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/order-status",
+        "declaration": "export default function OrderStatusReportPage() {",
+        "line": 12,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderStatusReportPage",
+            "kind": "export",
+            "signature": "export default function OrderStatusReportPage() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/ExportButton",
+            "target_component": "COMP-WEB-015",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/reports",
+            "target_component": "COMP-WEB-042",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/StatusBadge",
+            "target_component": "COMP-WEB-023",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/app/dashboard/reports/ReportRange",
+            "target_component": "COMP-REPORT-025",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 86,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/order-status/page.tsx#OrderStatusReportPage",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/order-status",
+            "detail": "web/src/app/dashboard/reports/order-status/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-023",
+      "name": "OutstandingInvoicesReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/outstanding-invoices/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/outstanding-invoices",
+        "declaration": "export default function OutstandingInvoicesReportPage() {",
+        "line": 17,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OutstandingInvoicesReportPage",
+            "kind": "export",
+            "signature": "export default function OutstandingInvoicesReportPage() {",
+            "line": 17,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/StatusBadge",
+            "target_component": "COMP-WEB-023",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ExportButton",
+            "target_component": "COMP-WEB-015",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/reports",
+            "target_component": "COMP-WEB-042",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 105,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/outstanding-invoices/page.tsx#OutstandingInvoicesReportPage",
+            "line": 17
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/outstanding-invoices",
+            "detail": "web/src/app/dashboard/reports/outstanding-invoices/page.tsx",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-024",
+      "name": "ReportsIndexPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports",
+        "declaration": "export default function ReportsIndexPage() {",
+        "line": 12,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ReportsIndexPage",
+            "kind": "export",
+            "signature": "export default function ReportsIndexPage() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/page.tsx#ReportsIndexPage",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports",
+            "detail": "web/src/app/dashboard/reports/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-025",
+      "name": "StatTile",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/reports/ReportRange.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function StatTile({ label, value, description }: { label: string; value: string; description?: string }) {",
+        "line": 121,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ALL_TIME_FROM",
+            "kind": "export",
+            "signature": "export const ALL_TIME_FROM = \"1900-01-01\";",
+            "line": 12,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "RANGE_PRESETS",
+            "kind": "export",
+            "signature": "export const RANGE_PRESETS = [",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "PresetOptionKey",
+            "kind": "export",
+            "signature": "export type PresetOptionKey = (typeof RANGE_PRESETS)[number][\"key\"];",
+            "line": 57,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "PresetKey",
+            "kind": "export",
+            "signature": "export type PresetKey = PresetOptionKey | \"custom\";",
+            "line": 58,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "DEFAULT_PRESET",
+            "kind": "export",
+            "signature": "export const DEFAULT_PRESET: PresetKey = \"all\";",
+            "line": 66,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toIsoDate",
+            "kind": "export",
+            "signature": "export function toIsoDate(date: Date): string {",
+            "line": 69,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "presetRange",
+            "kind": "export",
+            "signature": "export function presetRange(key: PresetOptionKey): { from: string; to: string } {",
+            "line": 76,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toUtcRange",
+            "kind": "export",
+            "signature": "export function toUtcRange(fromDate: string, toDate: string): { fromUtc: string; toUtc: string } {",
+            "line": 103,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "StatTile",
+            "kind": "export",
+            "signature": "export function StatTile({ label, value, description }: { label: string; value: string; description?: string }) {",
+            "line": 121,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "StatFigure",
+            "kind": "export",
+            "signature": "export type StatFigure = { label: string; value: string; description?: string };",
+            "line": 136,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "StatFigures",
+            "kind": "export",
+            "signature": "export function StatFigures({ figures }: { figures: StatFigure[] }) {",
+            "line": 145,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ReportRange",
+            "kind": "export",
+            "signature": "export type ReportRange = ReturnType<typeof useReportRange>;",
+            "line": 185,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "useReportRange",
+            "kind": "export",
+            "signature": "export function useReportRange(initial: PresetKey = DEFAULT_PRESET) {",
+            "line": 198,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ReportRangeFilter",
+            "kind": "export",
+            "signature": "export function ReportRangeFilter({ range }: { range: ReportRange }) {",
+            "line": 230,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 316,
+          "member_count": 14,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/ReportRange.tsx#StatTile",
+            "line": 121
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-026",
+      "name": "RevenueReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/revenue/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/revenue",
+        "declaration": "export default function RevenueReportPage() {",
+        "line": 11,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RevenueReportPage",
+            "kind": "export",
+            "signature": "export default function RevenueReportPage() {",
+            "line": 11,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/ExportButton",
+            "target_component": "COMP-WEB-015",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/reports",
+            "target_component": "COMP-WEB-042",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/app/dashboard/reports/ReportRange",
+            "target_component": "COMP-REPORT-025",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 86,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/revenue/page.tsx#RevenueReportPage",
+            "line": 11
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/revenue",
+            "detail": "web/src/app/dashboard/reports/revenue/page.tsx",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-REPORT-027",
+      "name": "WeddingReportPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/reports/wedding/page.tsx",
+      "module": "REPORT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/reports/wedding",
+        "declaration": "export default function WeddingReportPage() {",
+        "line": 5,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "WeddingReportPage",
+            "kind": "export",
+            "signature": "export default function WeddingReportPage() {",
+            "line": 5,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/reports/OccasionReport",
+            "target_component": "COMP-REPORT-020",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/reports/wedding/page.tsx#WeddingReportPage",
+            "line": 5
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/reports/wedding",
+            "detail": "web/src/app/dashboard/reports/wedding/page.tsx",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

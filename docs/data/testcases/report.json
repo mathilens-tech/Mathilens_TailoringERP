@@ -1,0 +1,2368 @@
+{
+  "module": "REPORT",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-PLATFORM-048",
+      "title": "Revenue without bearer token returns unauthorized",
+      "module": "REPORT",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.Revenue_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "Revenue_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Revenue_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 18,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/revenue",
+            "normalized": "/api/v1/reports/revenue",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::Revenue_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/revenue",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-049",
+      "title": "Revenue with to before from returns validation error envelope",
+      "module": "REPORT",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.Revenue_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "Revenue_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Revenue_WithToBeforeFrom_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 26,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/revenue",
+            "normalized": "/api/v1/reports/revenue",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::Revenue_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+            "line": 26
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/revenue",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-050",
+      "title": "Order collections without bearer token returns unauthorized",
+      "module": "REPORT",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OrderCollections_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OrderCollections_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OrderCollections_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 38,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/order-collections",
+            "normalized": "/api/v1/reports/order-collections",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OrderCollections_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 38
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/order-collections",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 38
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-051",
+      "title": "Order collections with to before from returns validation error envelope",
+      "module": "REPORT",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OrderCollections_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OrderCollections_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OrderCollections_WithToBeforeFrom_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 46,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/order-collections",
+            "normalized": "/api/v1/reports/order-collections",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OrderCollections_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+            "line": 46
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/order-collections",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 46
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-052",
+      "title": "Order status summary without bearer token returns unauthorized",
+      "module": "REPORT",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OrderStatusSummary_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OrderStatusSummary_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OrderStatusSummary_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 58,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/order-status-summary",
+            "normalized": "/api/v1/reports/order-status-summary",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OrderStatusSummary_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 58
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/order-status-summary",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 58
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-053",
+      "title": "Order status summary with to before from returns validation error envelope",
+      "module": "REPORT",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OrderStatusSummary_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OrderStatusSummary_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OrderStatusSummary_WithToBeforeFrom_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 66,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/order-status-summary",
+            "normalized": "/api/v1/reports/order-status-summary",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OrderStatusSummary_WithToBeforeFrom_ReturnsValidationErrorEnvelope",
+            "line": 66
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/order-status-summary",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 66
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-054",
+      "title": "Outstanding invoices without bearer token returns unauthorized",
+      "module": "REPORT",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OutstandingInvoices_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OutstandingInvoices_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OutstandingInvoices_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 78,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/outstanding-invoices",
+            "normalized": "/api/v1/reports/outstanding-invoices",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OutstandingInvoices_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 78
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/outstanding-invoices",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 78
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-055",
+      "title": "Outstanding invoices with page size above maximum returns validation error envelope",
+      "module": "REPORT",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::ReportsEndpointsTests.OutstandingInvoices_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.Reports",
+        "class": "ReportsEndpointsTests",
+        "method": "OutstandingInvoices_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task OutstandingInvoices_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 86,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/reports/outstanding-invoices",
+            "normalized": "/api/v1/reports/outstanding-invoices",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-068"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-068",
+            "name": "ReportsController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs::OutstandingInvoices_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+            "line": 86
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/reports/outstanding-invoices",
+            "detail": "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs",
+            "line": 86
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-REPORT-001",
+      "title": "Handle returns report from repository",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-003",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandlerTests.cs::GetOrderCollectionsReportQueryHandlerTests.Handle_ReturnsReportFromRepository",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderCollections",
+        "class": "GetOrderCollectionsReportQueryHandlerTests",
+        "method": "Handle_ReturnsReportFromRepository",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_ReturnsReportFromRepository()",
+        "is_async": true,
+        "line": 10,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports",
+          "MathilensERP.Application.Reports.Queries.OrderCollections"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-001",
+            "name": "IReportRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-002",
+            "name": "GetOrderCollectionsReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-003",
+            "name": "GetOrderCollectionsReportQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-003",
+            "name": "GetOrderCollectionsReportQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-015",
+            "name": "OrderCollectionsReportDto",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateTime",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandlerTests.cs::Handle_ReturnsReportFromRepository",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-REPORT-002",
+      "title": "Validate with to after from passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::GetOrderCollectionsReportQueryValidatorTests.Validate_WithToAfterFrom_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderCollections",
+        "class": "GetOrderCollectionsReportQueryValidatorTests",
+        "method": "Validate_WithToAfterFrom_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToAfterFrom_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OrderCollections"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-002",
+            "name": "GetOrderCollectionsReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::Validate_WithToAfterFrom_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-003",
+      "title": "Validate with same from and to passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::GetOrderCollectionsReportQueryValidatorTests.Validate_WithSameFromAndTo_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderCollections",
+        "class": "GetOrderCollectionsReportQueryValidatorTests",
+        "method": "Validate_WithSameFromAndTo_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithSameFromAndTo_Passes()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OrderCollections"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-002",
+            "name": "GetOrderCollectionsReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::Validate_WithSameFromAndTo_Passes",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-004",
+      "title": "Validate with to before from fails",
+      "module": "REPORT",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::GetOrderCollectionsReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderCollections",
+        "class": "GetOrderCollectionsReportQueryValidatorTests",
+        "method": "Validate_WithToBeforeFrom_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToBeforeFrom_Fails()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OrderCollections"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-002",
+            "name": "GetOrderCollectionsReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-004",
+            "name": "GetOrderCollectionsReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs::Validate_WithToBeforeFrom_Fails",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-005",
+      "title": "Handle wraps repository counts with the requested range",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-006",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandlerTests.cs::GetOrderStatusSummaryReportQueryHandlerTests.Handle_WrapsRepositoryCountsWithTheRequestedRange",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderStatusSummary",
+        "class": "GetOrderStatusSummaryReportQueryHandlerTests",
+        "method": "Handle_WrapsRepositoryCountsWithTheRequestedRange",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WrapsRepositoryCountsWithTheRequestedRange()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports",
+          "MathilensERP.Application.Reports.Queries.OrderStatusSummary",
+          "MathilensERP.Domain.Orders"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-001",
+            "name": "IReportRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-005",
+            "name": "GetOrderStatusSummaryReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-006",
+            "name": "GetOrderStatusSummaryReportQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-006",
+            "name": "GetOrderStatusSummaryReportQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-016",
+            "name": "OrderStatusCountDto",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateTime",
+          "List",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandlerTests.cs::Handle_WrapsRepositoryCountsWithTheRequestedRange",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-REPORT-006",
+      "title": "Validate with to after from passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-007",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs::GetOrderStatusSummaryReportQueryValidatorTests.Validate_WithToAfterFrom_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderStatusSummary",
+        "class": "GetOrderStatusSummaryReportQueryValidatorTests",
+        "method": "Validate_WithToAfterFrom_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToAfterFrom_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OrderStatusSummary"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-005",
+            "name": "GetOrderStatusSummaryReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-007",
+            "name": "GetOrderStatusSummaryReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-007",
+            "name": "GetOrderStatusSummaryReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs::Validate_WithToAfterFrom_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-007",
+      "title": "Validate with to before from fails",
+      "module": "REPORT",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-007",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs::GetOrderStatusSummaryReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OrderStatusSummary",
+        "class": "GetOrderStatusSummaryReportQueryValidatorTests",
+        "method": "Validate_WithToBeforeFrom_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToBeforeFrom_Fails()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OrderStatusSummary"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-005",
+            "name": "GetOrderStatusSummaryReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-007",
+            "name": "GetOrderStatusSummaryReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-007",
+            "name": "GetOrderStatusSummaryReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs::Validate_WithToBeforeFrom_Fails",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-008",
+      "title": "Handle returns paged result from repository",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-009",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandlerTests.cs::GetOutstandingInvoicesReportQueryHandlerTests.Handle_ReturnsPagedResultFromRepository",
+      "assertions": [
+        "600m"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OutstandingInvoices",
+        "class": "GetOutstandingInvoicesReportQueryHandlerTests",
+        "method": "Handle_ReturnsPagedResultFromRepository",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_ReturnsPagedResultFromRepository()",
+        "is_async": true,
+        "line": 12,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports",
+          "MathilensERP.Application.Reports.Queries.OutstandingInvoices",
+          "MathilensERP.Domain.Billing",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-001",
+            "name": "IReportRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-008",
+            "name": "GetOutstandingInvoicesReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-009",
+            "name": "GetOutstandingInvoicesReportQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-009",
+            "name": "GetOutstandingInvoicesReportQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-018",
+            "name": "OutstandingInvoiceDto",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandlerTests.cs::Handle_ReturnsPagedResultFromRepository",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-REPORT-009",
+      "title": "Validate with valid query passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-010",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs::GetOutstandingInvoicesReportQueryValidatorTests.Validate_WithValidQuery_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OutstandingInvoices",
+        "class": "GetOutstandingInvoicesReportQueryValidatorTests",
+        "method": "Validate_WithValidQuery_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidQuery_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OutstandingInvoices"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-008",
+            "name": "GetOutstandingInvoicesReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-010",
+            "name": "GetOutstandingInvoicesReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-010",
+            "name": "GetOutstandingInvoicesReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs::Validate_WithValidQuery_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-010",
+      "title": "Validate with page size out of bounds fails",
+      "module": "REPORT",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-010",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs::GetOutstandingInvoicesReportQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.OutstandingInvoices",
+        "class": "GetOutstandingInvoicesReportQueryValidatorTests",
+        "method": "Validate_WithPageSizeOutOfBounds_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "signature": "public void Validate_WithPageSizeOutOfBounds_Fails(int pageSize)",
+        "is_async": false,
+        "line": 20,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.OutstandingInvoices"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-008",
+            "name": "GetOutstandingInvoicesReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-010",
+            "name": "GetOutstandingInvoicesReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-010",
+            "name": "GetOutstandingInvoicesReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs::Validate_WithPageSizeOutOfBounds_Fails",
+            "line": 20
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs#Theory x2",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-011",
+      "title": "Handle returns report from repository",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-012",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandlerTests.cs::GetRevenueReportQueryHandlerTests.Handle_ReturnsReportFromRepository",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.Revenue",
+        "class": "GetRevenueReportQueryHandlerTests",
+        "method": "Handle_ReturnsReportFromRepository",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_ReturnsReportFromRepository()",
+        "is_async": true,
+        "line": 10,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports",
+          "MathilensERP.Application.Reports.Queries.Revenue"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-001",
+            "name": "IReportRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-011",
+            "name": "GetRevenueReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-012",
+            "name": "GetRevenueReportQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-012",
+            "name": "GetRevenueReportQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-014",
+            "name": "RevenueReportDto",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "DateTime",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandlerTests.cs::Handle_ReturnsReportFromRepository",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-REPORT-012",
+      "title": "Validate with to after from passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-013",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::GetRevenueReportQueryValidatorTests.Validate_WithToAfterFrom_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.Revenue",
+        "class": "GetRevenueReportQueryValidatorTests",
+        "method": "Validate_WithToAfterFrom_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToAfterFrom_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.Revenue"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-011",
+            "name": "GetRevenueReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::Validate_WithToAfterFrom_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-013",
+      "title": "Validate with same from and to passes",
+      "module": "REPORT",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-013",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::GetRevenueReportQueryValidatorTests.Validate_WithSameFromAndTo_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.Revenue",
+        "class": "GetRevenueReportQueryValidatorTests",
+        "method": "Validate_WithSameFromAndTo_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithSameFromAndTo_Passes()",
+        "is_async": false,
+        "line": 18,
+        "body_lines": 8,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.Revenue"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-011",
+            "name": "GetRevenueReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::Validate_WithSameFromAndTo_Passes",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-REPORT-014",
+      "title": "Validate with to before from fails",
+      "module": "REPORT",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-REPORT-013",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::GetRevenueReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.Reports.Queries.Revenue",
+        "class": "GetRevenueReportQueryValidatorTests",
+        "method": "Validate_WithToBeforeFrom_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithToBeforeFrom_Fails()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Reports.Queries.Revenue"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-REPORT-011",
+            "name": "GetRevenueReportQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-REPORT-013",
+            "name": "GetRevenueReportQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "UtcNow"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Reports backend (Phase 3, module 4 of 4) — completes Phase 3",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs::Validate_WithToBeforeFrom_Fails",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "change_history": [],
+      "entity_version": 2
+    }
+  ]
+}

@@ -1,0 +1,3527 @@
+{
+  "module": "SETTING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-PLATFORM-047",
+      "name": "UpsertSettingRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Settings/UpsertSettingRequest.cs",
+      "module": "SETTING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Settings",
+        "declaration": "public sealed record UpsertSettingRequest(string Value);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Value",
+            "kind": "property",
+            "signature": "string Value",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Settings/UpsertSettingRequest.cs#UpsertSettingRequest",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-069",
+      "name": "SettingsController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/SettingsController.cs",
+      "module": "SETTING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class SettingsController : ApiControllerBase",
+        "line": 21,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/settings\")",
+          "Authorize(Policy = Permissions.SettingsView)"
+        ],
+        "members": [
+          {
+            "name": "SettingsController",
+            "kind": "constructor",
+            "signature": "public SettingsController(ISender sender)",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Upsert",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Upsert(string key, [FromBody] UpsertSettingRequest request, CancellationToken cancellationToken)",
+            "line": 35,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"{key}\")",
+              "Authorize(Policy = Permissions.SettingsEdit)",
+              "ProducesResponseType(typeof(ApiResponse<SettingDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "{key}",
+              "resolved_route": "/api/v1/settings/{key}",
+              "policy": "Permissions.SettingsEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetByKey",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetByKey(string key, CancellationToken cancellationToken)",
+            "line": 45,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{key}\")",
+              "ProducesResponseType(typeof(ApiResponse<SettingDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{key}",
+              "resolved_route": "/api/v1/settings/{key}",
+              "policy": "Permissions.SettingsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "List",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> List(",
+            "line": 55,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<SettingDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/settings",
+              "policy": "Permissions.SettingsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Delete",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Delete(string key, CancellationToken cancellationToken)",
+            "line": 69,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpDelete(\"{key}\")",
+              "Authorize(Policy = Permissions.SettingsEdit)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "DELETE",
+              "template": "{key}",
+              "resolved_route": "/api/v1/settings/{key}",
+              "policy": "Permissions.SettingsEdit",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "UpsertSettingCommand",
+            "target_component": "COMP-SETTING-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/SettingsController.cs",
+              "line": 37,
+              "expression": "new UpsertSettingCommand("
+            }
+          },
+          {
+            "target": "GetSettingByKeyQuery",
+            "target_component": "COMP-SETTING-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/SettingsController.cs",
+              "line": 47,
+              "expression": "new GetSettingByKeyQuery("
+            }
+          },
+          {
+            "target": "ListSettingsQuery",
+            "target_component": "COMP-SETTING-010",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/SettingsController.cs",
+              "line": 60,
+              "expression": "new ListSettingsQuery("
+            }
+          },
+          {
+            "target": "DeleteSettingCommand",
+            "target_component": "COMP-SETTING-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/SettingsController.cs",
+              "line": 71,
+              "expression": "new DeleteSettingCommand("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 17
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.12",
+            "line": 17
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.12",
+            "line": 30
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 51
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 75,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/SettingsController.cs#SettingsController",
+            "line": 21
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/SettingsController.cs#ApiController",
+            "line": 21
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-001",
+      "name": "DeleteSettingCommand",
+      "kind": "command",
+      "path": "src/Application/Settings/Commands/Delete/DeleteSettingCommand.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Delete",
+        "declaration": "public sealed record DeleteSettingCommand(string Key) : ICommand<Result>;",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Key",
+            "kind": "property",
+            "signature": "string Key",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 7,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Delete/DeleteSettingCommand.cs#DeleteSettingCommand",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-002",
+      "name": "DeleteSettingCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Settings/Commands/Delete/DeleteSettingCommandHandler.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Delete",
+        "declaration": "public sealed class DeleteSettingCommandHandler : ICommandHandler<DeleteSettingCommand, Result>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<DeleteSettingCommand, Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "DeleteSettingCommandHandler",
+            "kind": "constructor",
+            "signature": "public DeleteSettingCommandHandler(ISettingRepository settingRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result> Handle(DeleteSettingCommand command, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISettingRepository",
+            "target_component": "COMP-SETTING-007",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<DeleteSettingCommand, Result>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Settings/Commands/Delete/DeleteSettingCommandHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Settings/Commands/Delete/DeleteSettingCommandHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Delete/DeleteSettingCommandHandler.cs#DeleteSettingCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-SETTING-003",
+      "name": "DeleteSettingCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Delete",
+        "declaration": "public sealed class DeleteSettingCommandValidator : AbstractValidator<DeleteSettingCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<DeleteSettingCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "DeleteSettingCommandValidator",
+            "kind": "constructor",
+            "signature": "public DeleteSettingCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<DeleteSettingCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs#DeleteSettingCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-004",
+      "name": "UpsertSettingCommand",
+      "kind": "command",
+      "path": "src/Application/Settings/Commands/Upsert/UpsertSettingCommand.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Upsert",
+        "declaration": "public sealed record UpsertSettingCommand(string Key, string Value) : ICommand<Result<SettingDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<SettingDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Key",
+            "kind": "property",
+            "signature": "string Key",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Value",
+            "kind": "property",
+            "signature": "string Value",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<SettingDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Upsert/UpsertSettingCommand.cs#UpsertSettingCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-005",
+      "name": "UpsertSettingCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandHandler.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Upsert",
+        "declaration": "public sealed class UpsertSettingCommandHandler : ICommandHandler<UpsertSettingCommand, Result<SettingDto>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<UpsertSettingCommand, Result<SettingDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpsertSettingCommandHandler",
+            "kind": "constructor",
+            "signature": "public UpsertSettingCommandHandler(ISettingRepository settingRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<SettingDto>> Handle(UpsertSettingCommand command, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISettingRepository",
+            "target_component": "COMP-SETTING-007",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<UpsertSettingCommand, Result<SettingDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Setting",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandHandler.cs",
+              "line": 23,
+              "expression": "Setting.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 36,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandHandler.cs#UpsertSettingCommandHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-SETTING-006",
+      "name": "UpsertSettingCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Commands.Upsert",
+        "declaration": "public sealed class UpsertSettingCommandValidator : AbstractValidator<UpsertSettingCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<UpsertSettingCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpsertSettingCommandValidator",
+            "kind": "constructor",
+            "signature": "public UpsertSettingCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<UpsertSettingCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#UpsertSettingCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-007",
+      "name": "ISettingRepository",
+      "kind": "port",
+      "path": "src/Application/Settings/ISettingRepository.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings",
+        "declaration": "public interface ISettingRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByKeyAsync",
+            "kind": "method",
+            "signature": "Task<Setting?> GetByKeyAsync(string key, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ListAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<Setting>> ListAsync(int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ListByKeyPrefixAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<Setting>> ListByKeyPrefixAsync(string keyPrefix, CancellationToken cancellationToken)",
+            "line": 18,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(Setting setting)",
+            "line": 20,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Remove",
+            "kind": "method",
+            "signature": "void Remove(Setting setting)",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 24,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 6,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/ISettingRepository.cs#ISettingRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-008",
+      "name": "GetSettingByKeyQuery",
+      "kind": "query",
+      "path": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQuery.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Queries.GetByKey",
+        "declaration": "public sealed record GetSettingByKeyQuery(string Key) : IQuery<Result<SettingDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<SettingDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Key",
+            "kind": "property",
+            "signature": "string Key",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<SettingDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQuery.cs#GetSettingByKeyQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-009",
+      "name": "GetSettingByKeyQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandler.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Queries.GetByKey",
+        "declaration": "public sealed class GetSettingByKeyQueryHandler : IQueryHandler<GetSettingByKeyQuery, Result<SettingDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetSettingByKeyQuery, Result<SettingDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetSettingByKeyQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetSettingByKeyQueryHandler(ISettingRepository settingRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<SettingDto>> Handle(GetSettingByKeyQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISettingRepository",
+            "target_component": "COMP-SETTING-007",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetSettingByKeyQuery, Result<SettingDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandler.cs#GetSettingByKeyQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-SETTING-010",
+      "name": "ListSettingsQuery",
+      "kind": "query",
+      "path": "src/Application/Settings/Queries/List/ListSettingsQuery.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Queries.List",
+        "declaration": "public sealed record ListSettingsQuery(int Page, int PageSize) : IQuery<Result<PagedResult<SettingDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<SettingDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<SettingDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/List/ListSettingsQuery.cs#ListSettingsQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-011",
+      "name": "ListSettingsQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Settings/Queries/List/ListSettingsQueryHandler.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Queries.List",
+        "declaration": "public sealed class ListSettingsQueryHandler : IQueryHandler<ListSettingsQuery, Result<PagedResult<SettingDto>>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<ListSettingsQuery, Result<PagedResult<SettingDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ListSettingsQueryHandler",
+            "kind": "constructor",
+            "signature": "public ListSettingsQueryHandler(ISettingRepository settingRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<SettingDto>>> Handle(ListSettingsQuery query, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISettingRepository",
+            "target_component": "COMP-SETTING-007",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<ListSettingsQuery, Result<PagedResult<SettingDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Settings/Queries/List/ListSettingsQueryHandler.cs",
+              "line": 23,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/List/ListSettingsQueryHandler.cs#ListSettingsQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-SETTING-012",
+      "name": "ListSettingsQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings.Queries.List",
+        "declaration": "public sealed class ListSettingsQueryValidator : AbstractValidator<ListSettingsQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<ListSettingsQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ListSettingsQueryValidator",
+            "kind": "constructor",
+            "signature": "public ListSettingsQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<ListSettingsQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 17,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#ListSettingsQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-SETTING-013",
+      "name": "SettingDto",
+      "kind": "dto",
+      "path": "src/Application/Settings/SettingDto.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings",
+        "declaration": "public sealed record SettingDto(Guid Id, string Key, string Value, DateTime CreatedAtUtc, DateTime? LastModifiedAtUtc);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Key",
+            "kind": "property",
+            "signature": "string Key",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Value",
+            "kind": "property",
+            "signature": "string Value",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "DateTime? LastModifiedAtUtc",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/SettingDto.cs#SettingDto",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-014",
+      "name": "SettingMapper",
+      "kind": "class",
+      "path": "src/Application/Settings/SettingMapper.cs",
+      "module": "SETTING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Settings",
+        "declaration": "internal static class SettingMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static SettingDto ToDto(this Setting setting) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/SettingMapper.cs#SettingMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-015",
+      "name": "Setting",
+      "kind": "entity",
+      "path": "src/Domain/Settings/Setting.cs",
+      "module": "SETTING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#78-identity-settings-messaging-audit",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Settings",
+        "declaration": "public sealed class Setting : IAuditable",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IAuditable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "public Guid Id",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Key",
+            "kind": "property",
+            "signature": "public string Key",
+            "line": 21,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Value",
+            "kind": "property",
+            "signature": "public string Value",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Setting",
+            "kind": "constructor",
+            "signature": "private Setting()",
+            "line": 33,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static Setting Create(string key, string value)",
+            "line": 38,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateValue",
+            "kind": "method",
+            "signature": "public void UpdateValue(string value) => Value = value",
+            "line": 48,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 50,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 56,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Settings/Setting.cs",
+              "line": 43,
+              "expression": "Guard.AgainstNullOrWhiteSpace(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.12",
+            "line": 7
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.12",
+            "line": 12
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 62,
+          "member_count": 12,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Settings/Setting.cs#Setting",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-SETTING-016",
+      "name": "AdvancedSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/advanced/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/advanced",
+        "declaration": "export default function AdvancedSettingsPage() {",
+        "line": 33,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "AdvancedSettingsPage",
+            "kind": "export",
+            "signature": "export default function AdvancedSettingsPage() {",
+            "line": 33,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/tailoring-rates",
+            "target_component": "COMP-WEB-045",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/garments",
+            "target_component": "COMP-WEB-033",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/user-profile",
+            "target_component": "COMP-WEB-046",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 223,
+          "member_count": 1,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/advanced/page.tsx#AdvancedSettingsPage",
+            "line": 33
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/advanced",
+            "detail": "web/src/app/dashboard/settings/advanced/page.tsx",
+            "line": 33
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-017",
+      "name": "AppearanceSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/appearance/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/appearance",
+        "declaration": "export default function AppearanceSettingsPage() {",
+        "line": 11,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "AppearanceSettingsPage",
+            "kind": "export",
+            "signature": "export default function AppearanceSettingsPage() {",
+            "line": 11,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/settings/appearance/ThemePicker",
+            "target_component": "COMP-SETTING-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e26068defa6d7e8e7d09b41050e46e373f408435",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Rebuild the order screen, and print a bill slip a shop would recognise",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/appearance/page.tsx#AppearanceSettingsPage",
+            "line": 11
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/appearance",
+            "detail": "web/src/app/dashboard/settings/appearance/page.tsx",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "e26068defa6d7e8e7d09b41050e46e373f408435",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-018",
+      "name": "ThemePicker",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/settings/appearance/ThemePicker.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function ThemePicker() {",
+        "line": 90,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ThemePicker",
+            "kind": "export",
+            "signature": "export function ThemePicker() {",
+            "line": 90,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e26068defa6d7e8e7d09b41050e46e373f408435",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Rebuild the order screen, and print a bill slip a shop would recognise",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 260,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/appearance/ThemePicker.tsx#ThemePicker",
+            "line": 90
+          }
+        ]
+      },
+      "last_verified_commit": "e26068defa6d7e8e7d09b41050e46e373f408435",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-019",
+      "name": "BusinessModeSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/business-mode/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/business-mode",
+        "declaration": "export default function BusinessModeSettingsPage() {",
+        "line": 23,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "BusinessModeSettingsPage",
+            "kind": "export",
+            "signature": "export default function BusinessModeSettingsPage() {",
+            "line": 23,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 101,
+          "member_count": 1,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/business-mode/page.tsx#BusinessModeSettingsPage",
+            "line": 23
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/business-mode",
+            "detail": "web/src/app/dashboard/settings/business-mode/page.tsx",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-020",
+      "name": "ChangePasswordPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/change-password/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/change-password",
+        "declaration": "export default function ChangePasswordPage() {",
+        "line": 11,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ChangePasswordPage",
+            "kind": "export",
+            "signature": "export default function ChangePasswordPage() {",
+            "line": 11,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/users/ChangePasswordForm",
+            "target_component": "COMP-USER-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/change-password/page.tsx#ChangePasswordPage",
+            "line": 11
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/change-password",
+            "detail": "web/src/app/dashboard/settings/change-password/page.tsx",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-021",
+      "name": "GarmentSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/garments/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/garments",
+        "declaration": "export default function GarmentSettingsPage() {",
+        "line": 37,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentSettingsPage",
+            "kind": "export",
+            "signature": "export default function GarmentSettingsPage() {",
+            "line": 37,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/orders",
+            "target_component": "COMP-WEB-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/tailoring-rates",
+            "target_component": "COMP-WEB-045",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-measurement-templates",
+            "target_component": "COMP-WEB-058",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 402,
+          "member_count": 1,
+          "dependency_count": 13
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/garments/page.tsx#GarmentSettingsPage",
+            "line": 37
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/garments",
+            "detail": "web/src/app/dashboard/settings/garments/page.tsx",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-022",
+      "name": "InvoiceSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/invoice/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/invoice",
+        "declaration": "export default function InvoiceSettingsPage() {",
+        "line": 32,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceSettingsPage",
+            "kind": "export",
+            "signature": "export default function InvoiceSettingsPage() {",
+            "line": 32,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/orders/InvoiceDocument",
+            "target_component": "COMP-BILLING-038",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/orders/invoice-preview-sample",
+            "target_component": "COMP-BILLING-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 281,
+          "member_count": 1,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/invoice/page.tsx#InvoiceSettingsPage",
+            "line": 32
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/invoice",
+            "detail": "web/src/app/dashboard/settings/invoice/page.tsx",
+            "line": 32
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-023",
+      "name": "MeasurementTemplatesSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/measurement-templates/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/measurement-templates",
+        "declaration": "export default function MeasurementTemplatesSettingsPage() {",
+        "line": 12,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementTemplatesSettingsPage",
+            "kind": "export",
+            "signature": "export default function MeasurementTemplatesSettingsPage() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/settings/MeasurementTemplatesSection",
+            "target_component": "COMP-SETTING-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/measurement-templates/page.tsx#MeasurementTemplatesSettingsPage",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/measurement-templates",
+            "detail": "web/src/app/dashboard/settings/measurement-templates/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-024",
+      "name": "MeasurementTemplatesSection",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/settings/MeasurementTemplatesSection.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function MeasurementTemplatesSection() {",
+        "line": 36,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementTemplatesSection",
+            "kind": "export",
+            "signature": "export function MeasurementTemplatesSection() {",
+            "line": 36,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-measurement-templates",
+            "target_component": "COMP-WEB-058",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 426,
+          "member_count": 1,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/MeasurementTemplatesSection.tsx#MeasurementTemplatesSection",
+            "line": 36
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-025",
+      "name": "OrderDurationSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/order-duration/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/order-duration",
+        "declaration": "export default function OrderDurationSettingsPage() {",
+        "line": 30,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderDurationSettingsPage",
+            "kind": "export",
+            "signature": "export default function OrderDurationSettingsPage() {",
+            "line": 30,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/settings",
+            "target_component": "COMP-WEB-043",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 113,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/order-duration/page.tsx#OrderDurationSettingsPage",
+            "line": 30
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/order-duration",
+            "detail": "web/src/app/dashboard/settings/order-duration/page.tsx",
+            "line": 30
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-026",
+      "name": "OrderNumberSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/order-number/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/order-number",
+        "declaration": "export default function OrderNumberSettingsPage() {",
+        "line": 25,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderNumberSettingsPage",
+            "kind": "export",
+            "signature": "export default function OrderNumberSettingsPage() {",
+            "line": 25,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/settings",
+            "target_component": "COMP-WEB-043",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cff2bc176675c78eed7c84a7b913f80516686264",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Number orders RFA-1111, so a first order does not look like a first order",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 133,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/order-number/page.tsx#OrderNumberSettingsPage",
+            "line": 25
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/order-number",
+            "detail": "web/src/app/dashboard/settings/order-number/page.tsx",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "cff2bc176675c78eed7c84a7b913f80516686264",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-027",
+      "name": "SettingsIndexPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings",
+        "declaration": "export default function SettingsIndexPage() {",
+        "line": 14,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SettingsIndexPage",
+            "kind": "export",
+            "signature": "export default function SettingsIndexPage() {",
+            "line": 14,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 23,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/page.tsx#SettingsIndexPage",
+            "line": 14
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings",
+            "detail": "web/src/app/dashboard/settings/page.tsx",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-028",
+      "name": "RoleRightsSection",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/settings/RoleRightsSection.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function RoleRightsSection() {",
+        "line": 116,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RoleRightsSection",
+            "kind": "export",
+            "signature": "export function RoleRightsSection() {",
+            "line": 116,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "45730c5c3e574c2bd27f5bf8c74ba53f1f4905e0",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Call the cloth catalogue Fabric Details, which is what is in it",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 353,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/RoleRightsSection.tsx#RoleRightsSection",
+            "line": 116
+          }
+        ]
+      },
+      "last_verified_commit": "45730c5c3e574c2bd27f5bf8c74ba53f1f4905e0",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-029",
+      "name": "TailoringCostSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/tailoring-cost/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/tailoring-cost",
+        "declaration": "export default function TailoringCostSettingsPage() {",
+        "line": 57,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MAX_TAILORING_RATE_DIGITS",
+            "kind": "export",
+            "signature": "export const MAX_TAILORING_RATE_DIGITS = 4;",
+            "line": 21,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "TailoringCostSettingsPage",
+            "kind": "export",
+            "signature": "export default function TailoringCostSettingsPage() {",
+            "line": 57,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/garments",
+            "target_component": "COMP-WEB-033",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 241,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/tailoring-cost/page.tsx#TailoringCostSettingsPage",
+            "line": 57
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/tailoring-cost",
+            "detail": "web/src/app/dashboard/settings/tailoring-cost/page.tsx",
+            "line": 57
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-SETTING-030",
+      "name": "WorkingDaysSettingsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/settings/working-days/page.tsx",
+      "module": "SETTING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/settings/working-days",
+        "declaration": "export default function WorkingDaysSettingsPage() {",
+        "line": 42,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "WorkingDaysSettingsPage",
+            "kind": "export",
+            "signature": "export default function WorkingDaysSettingsPage() {",
+            "line": 42,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 256,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/settings/working-days/page.tsx#WorkingDaysSettingsPage",
+            "line": 42
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/settings/working-days",
+            "detail": "web/src/app/dashboard/settings/working-days/page.tsx",
+            "line": 42
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

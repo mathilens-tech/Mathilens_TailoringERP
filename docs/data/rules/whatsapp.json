@@ -1,0 +1,654 @@
+{
+  "module": "WHATSAPP",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-WHATSAPP-001",
+      "entity_version": 1,
+      "statement": "Customer Id must satisfy not empty",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-005",
+          "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CustomerId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-005"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-005",
+        "TC-WHATSAPP-006",
+        "TC-WHATSAPP-007",
+        "TC-WHATSAPP-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CustomerId).NotEmpty()",
+        "symbol": "SendWhatsAppMessageCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#SendWhatsAppMessageCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-002",
+      "entity_version": 1,
+      "statement": "Message Type must satisfy is in enum",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-005",
+          "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.MessageType).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-005"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-005",
+        "TC-WHATSAPP-006",
+        "TC-WHATSAPP-007",
+        "TC-WHATSAPP-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.MessageType).IsInEnum()",
+        "symbol": "SendWhatsAppMessageCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#SendWhatsAppMessageCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-003",
+      "entity_version": 1,
+      "statement": "Content must satisfy not empty, maximum length",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-005",
+          "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs",
+          "line": 15,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Content).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-005"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-005",
+        "TC-WHATSAPP-006",
+        "TC-WHATSAPP-007",
+        "TC-WHATSAPP-008"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Content).NotEmpty().MaximumLength()",
+        "symbol": "SendWhatsAppMessageCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#SendWhatsAppMessageCommandValidator",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-004",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-011",
+          "file": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-011"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-012",
+        "TC-WHATSAPP-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchWhatsAppMessagesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#SearchWhatsAppMessagesQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-005",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-011",
+          "file": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-011"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-012",
+        "TC-WHATSAPP-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchWhatsAppMessagesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#SearchWhatsAppMessagesQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-006",
+      "entity_version": 1,
+      "statement": "Status must satisfy is in enum",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-011",
+          "file": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Status).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-011"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-012",
+        "TC-WHATSAPP-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Status).IsInEnum()",
+        "symbol": "SearchWhatsAppMessagesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#SearchWhatsAppMessagesQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-007",
+      "entity_version": 1,
+      "statement": "Customer Id must not be empty",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-014",
+          "file": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+          "line": 48,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-014"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-009",
+        "TC-WHATSAPP-011",
+        "TC-WHATSAPP-014",
+        "TC-WHATSAPP-015",
+        "TC-WHATSAPP-016",
+        "TC-WHATSAPP-017",
+        "TC-WHATSAPP-018"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),",
+        "symbol": "WhatsAppMessage",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage",
+            "line": 48
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-008",
+      "entity_version": 1,
+      "statement": "Content must not be null or white space",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-014",
+          "file": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+          "line": 51,
+          "mechanism": "guard-clause",
+          "expression": "Content = Guard.AgainstNullOrWhiteSpace(content, nameof(content)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-014"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-009",
+        "TC-WHATSAPP-011",
+        "TC-WHATSAPP-014",
+        "TC-WHATSAPP-015",
+        "TC-WHATSAPP-016",
+        "TC-WHATSAPP-017",
+        "TC-WHATSAPP-018"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Content = Guard.AgainstNullOrWhiteSpace(content, nameof(content)),",
+        "symbol": "WhatsAppMessage",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage",
+            "line": 51
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-009",
+      "entity_version": 1,
+      "statement": "Provider Message Id must not be null or white space",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-014",
+          "file": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+          "line": 59,
+          "mechanism": "guard-clause",
+          "expression": "ProviderMessageId = Guard.AgainstNullOrWhiteSpace(providerMessageId, nameof(providerMessageId));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-014"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-009",
+        "TC-WHATSAPP-011",
+        "TC-WHATSAPP-014",
+        "TC-WHATSAPP-015",
+        "TC-WHATSAPP-016",
+        "TC-WHATSAPP-017",
+        "TC-WHATSAPP-018"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ProviderMessageId = Guard.AgainstNullOrWhiteSpace(providerMessageId, nameof(providerMessageId));",
+        "symbol": "WhatsAppMessage",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage",
+            "line": 59
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    },
+    {
+      "id": "BR-WHATSAPP-010",
+      "entity_version": 1,
+      "statement": "Failure Reason must not be null or white space",
+      "module": "WHATSAPP",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-WHATSAPP-014",
+          "file": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+          "line": 66,
+          "mechanism": "guard-clause",
+          "expression": "FailureReason = Guard.AgainstNullOrWhiteSpace(failureReason, nameof(failureReason));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-WHATSAPP-014"
+      ],
+      "test_cases": [
+        "TC-WHATSAPP-009",
+        "TC-WHATSAPP-011",
+        "TC-WHATSAPP-014",
+        "TC-WHATSAPP-015",
+        "TC-WHATSAPP-016",
+        "TC-WHATSAPP-017",
+        "TC-WHATSAPP-018"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "FailureReason = Guard.AgainstNullOrWhiteSpace(failureReason, nameof(failureReason));",
+        "symbol": "WhatsAppMessage",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage",
+            "line": 66
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": []
+    }
+  ]
+}

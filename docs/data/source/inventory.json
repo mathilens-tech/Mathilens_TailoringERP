@@ -1,0 +1,2846 @@
+{
+  "module": "INVENTORY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-INVENTORY-001",
+      "name": "ClothReceiptDto",
+      "kind": "dto",
+      "path": "src/Application/Inventory/ClothReceiptDto.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory",
+        "declaration": "public sealed record ClothReceiptDto( Guid Id, Guid ClothPriceId, string ClothCode, string ClothName, decimal Quantity, ClothUnit Unit, DateOnly ReceivedOn, string? SupplierName, string? InvoiceNumber, decimal? RatePerUnit, decimal? TotalCost, string? Notes, DateTime CreatedAtUtc);",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid ClothPriceId",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantity",
+            "kind": "property",
+            "signature": "decimal Quantity",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "ClothUnit Unit",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReceivedOn",
+            "kind": "property",
+            "signature": "DateOnly ReceivedOn",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SupplierName",
+            "kind": "property",
+            "signature": "string? SupplierName",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string? InvoiceNumber",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RatePerUnit",
+            "kind": "property",
+            "signature": "decimal? RatePerUnit",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalCost",
+            "kind": "property",
+            "signature": "decimal? TotalCost",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "string? Notes",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ClothUnit",
+            "target_component": "COMP-INVENTORY-017",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 13,
+          "dependency_count": 13
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/ClothReceiptDto.cs#ClothReceiptDto",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-002",
+      "name": "ClothReceiptMapper",
+      "kind": "class",
+      "path": "src/Application/Inventory/ClothReceiptMapper.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory",
+        "declaration": "internal static class ClothReceiptMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static ClothReceiptDto ToDto(this ClothReceipt receipt) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 23,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/ClothReceiptMapper.cs#ClothReceiptMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-003",
+      "name": "ClothStockRow",
+      "kind": "record",
+      "path": "src/Application/Inventory/ClothStockRow.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory",
+        "declaration": "public sealed record ClothStockRow( Guid ClothPriceId, string ClothCode, string ClothName, ClothUnit Unit, decimal Received, decimal Used, DateOnly? LastReceivedOn);",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid ClothPriceId",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "ClothUnit Unit",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Received",
+            "kind": "property",
+            "signature": "decimal Received",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Used",
+            "kind": "property",
+            "signature": "decimal Used",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastReceivedOn",
+            "kind": "property",
+            "signature": "DateOnly? LastReceivedOn",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ClothUnit",
+            "target_component": "COMP-INVENTORY-017",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 7,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/ClothStockRow.cs#ClothStockRow",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-004",
+      "name": "ReceiveClothCommand",
+      "kind": "command",
+      "path": "src/Application/Inventory/Commands/Receive/ReceiveClothCommand.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Commands.Receive",
+        "declaration": "public sealed record ReceiveClothCommand( Guid ClothPriceId, decimal Quantity, ClothUnit Unit, DateOnly ReceivedOn, string? SupplierName, string? InvoiceNumber, decimal? RatePerUnit, string? Notes) : ICommand<Result<ClothReceiptDto>>;",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<ClothReceiptDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid ClothPriceId",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantity",
+            "kind": "property",
+            "signature": "decimal Quantity",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "ClothUnit Unit",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReceivedOn",
+            "kind": "property",
+            "signature": "DateOnly ReceivedOn",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SupplierName",
+            "kind": "property",
+            "signature": "string? SupplierName",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string? InvoiceNumber",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RatePerUnit",
+            "kind": "property",
+            "signature": "decimal? RatePerUnit",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "string? Notes",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ClothUnit",
+            "target_component": "COMP-INVENTORY-017",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<ClothReceiptDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 8,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommand.cs#ReceiveClothCommand",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-INVENTORY-005",
+      "name": "ReceiveClothCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Commands.Receive",
+        "declaration": "public sealed class ReceiveClothCommandHandler : ICommandHandler<ReceiveClothCommand, Result<ClothReceiptDto>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<ReceiveClothCommand, Result<ClothReceiptDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ReceiveClothCommandHandler",
+            "kind": "constructor",
+            "signature": "public ReceiveClothCommandHandler(",
+            "line": 13,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ClothReceiptDto>> Handle(ReceiveClothCommand command, CancellationToken cancellationToken)",
+            "line": 21,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ICommandHandler<ReceiveClothCommand, Result<ClothReceiptDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs",
+              "line": 28,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs",
+              "line": 28,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "ClothReceipt",
+            "target_component": "COMP-INVENTORY-016",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs",
+              "line": 32,
+              "expression": "ClothReceipt.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 50,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandHandler.cs#ReceiveClothCommandHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-INVENTORY-006",
+      "name": "ReceiveClothCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Commands.Receive",
+        "declaration": "public sealed class ReceiveClothCommandValidator : AbstractValidator<ReceiveClothCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<ReceiveClothCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ReceiveClothCommandValidator",
+            "kind": "constructor",
+            "signature": "public ReceiveClothCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<ReceiveClothCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 39,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#ReceiveClothCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-INVENTORY-007",
+      "name": "IClothReceiptRepository",
+      "kind": "port",
+      "path": "src/Application/Inventory/IClothReceiptRepository.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory",
+        "declaration": "public interface IClothReceiptRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<ClothReceipt?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<ClothReceipt>> SearchAsync(",
+            "line": 15,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetStockSummaryAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<ClothStockRow>> GetStockSummaryAsync(",
+            "line": 29,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(ClothReceipt receipt)",
+            "line": 35,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 37,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 39,
+          "member_count": 5,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/IClothReceiptRepository.cs#IClothReceiptRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-008",
+      "name": "SearchClothReceiptsQuery",
+      "kind": "query",
+      "path": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQuery.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Search",
+        "declaration": "public sealed record SearchClothReceiptsQuery( string? Search, Guid? ClothPriceId, DateOnly? FromDate, DateOnly? ToDate, int Page, int PageSize) : IQuery<Result<PagedResult<ClothReceiptDto>>>;",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<ClothReceiptDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Search",
+            "kind": "property",
+            "signature": "string? Search",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid? ClothPriceId",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FromDate",
+            "kind": "property",
+            "signature": "DateOnly? FromDate",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToDate",
+            "kind": "property",
+            "signature": "DateOnly? ToDate",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<ClothReceiptDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 16,
+          "member_count": 6,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQuery.cs#SearchClothReceiptsQuery",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-INVENTORY-009",
+      "name": "SearchClothReceiptsQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryHandler.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Search",
+        "declaration": "public sealed class SearchClothReceiptsQueryHandler",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 29,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryHandler.cs#SearchClothReceiptsQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-010",
+      "name": "SearchClothReceiptsQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Search",
+        "declaration": "public sealed class SearchClothReceiptsQueryValidator : AbstractValidator<SearchClothReceiptsQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchClothReceiptsQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchClothReceiptsQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchClothReceiptsQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchClothReceiptsQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#SearchClothReceiptsQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-INVENTORY-011",
+      "name": "GetStockSummaryQuery",
+      "kind": "query",
+      "path": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Stock",
+        "declaration": "public sealed record GetStockSummaryQuery(string? Search, int Page, int PageSize)",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Search",
+            "kind": "property",
+            "signature": "string? Search",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 33,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#GetStockSummaryQuery",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-012",
+      "name": "StockSummaryDto",
+      "kind": "dto",
+      "path": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Stock",
+        "declaration": "public sealed record StockSummaryDto( Guid ClothPriceId, string ClothCode, string ClothName, IReadOnlyList<StockQuantityDto> Quantities, DateOnly? LastReceivedOn);",
+        "line": 20,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid ClothPriceId",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "string ClothCode",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "string ClothName",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantities",
+            "kind": "property",
+            "signature": "IReadOnlyList<StockQuantityDto> Quantities",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastReceivedOn",
+            "kind": "property",
+            "signature": "DateOnly? LastReceivedOn",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<StockQuantityDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 33,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#StockSummaryDto",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-013",
+      "name": "StockQuantityDto",
+      "kind": "dto",
+      "path": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Stock",
+        "declaration": "public sealed record StockQuantityDto(ClothUnit Unit, decimal Received, decimal Used, decimal Available);",
+        "line": 32,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "ClothUnit Unit",
+            "line": 32,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Received",
+            "kind": "property",
+            "signature": "decimal Received",
+            "line": 32,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Used",
+            "kind": "property",
+            "signature": "decimal Used",
+            "line": 32,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Available",
+            "kind": "property",
+            "signature": "decimal Available",
+            "line": 32,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ClothUnit",
+            "target_component": "COMP-INVENTORY-017",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 33,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQuery.cs#StockQuantityDto",
+            "line": 32
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-014",
+      "name": "GetStockSummaryQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryHandler.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Stock",
+        "declaration": "public sealed class GetStockSummaryQueryHandler",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 42,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryHandler.cs#GetStockSummaryQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-015",
+      "name": "GetStockSummaryQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs",
+      "module": "INVENTORY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Inventory.Queries.Stock",
+        "declaration": "public sealed class GetStockSummaryQueryValidator : AbstractValidator<GetStockSummaryQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetStockSummaryQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetStockSummaryQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetStockSummaryQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetStockSummaryQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 17,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#GetStockSummaryQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-INVENTORY-016",
+      "name": "ClothReceipt",
+      "kind": "entity",
+      "path": "src/Domain/Inventory/ClothReceipt.cs",
+      "module": "INVENTORY",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#77-inventory-pricing",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Inventory",
+        "declaration": "public sealed class ClothReceipt : AuditableEntity",
+        "line": 19,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "public Guid ClothPriceId",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothCode",
+            "kind": "property",
+            "signature": "public string ClothCode",
+            "line": 24,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothName",
+            "kind": "property",
+            "signature": "public string ClothName",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantity",
+            "kind": "property",
+            "signature": "public decimal Quantity",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "public ClothUnit Unit",
+            "line": 30,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReceivedOn",
+            "kind": "property",
+            "signature": "public DateOnly ReceivedOn",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SupplierName",
+            "kind": "property",
+            "signature": "public string? SupplierName",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "public string? InvoiceNumber",
+            "line": 38,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RatePerUnit",
+            "kind": "property",
+            "signature": "public decimal? RatePerUnit",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "public string? Notes",
+            "line": 43,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalCost",
+            "kind": "property",
+            "signature": "public decimal? TotalCost",
+            "line": 46,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothReceipt",
+            "kind": "constructor",
+            "signature": "private ClothReceipt()",
+            "line": 48,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ClothReceipt",
+            "kind": "constructor",
+            "signature": "private ClothReceipt(Guid id)",
+            "line": 53,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static ClothReceipt Create(",
+            "line": 58,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Blank",
+            "kind": "method",
+            "signature": "private static string? Blank(string? value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim()",
+            "line": 94,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Inventory/ClothReceipt.cs",
+              "line": 72,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 96,
+          "member_count": 15,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothReceipt.cs#ClothReceipt",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-INVENTORY-017",
+      "name": "ClothUnit",
+      "kind": "enum",
+      "path": "src/Domain/Inventory/ClothUnit.cs",
+      "module": "INVENTORY",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#77-inventory-pricing",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Inventory",
+        "declaration": "public enum ClothUnit",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Metres",
+            "kind": "enum-member",
+            "signature": "Metres",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Yards",
+            "kind": "enum-member",
+            "signature": "Yards",
+            "line": 10,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Pieces",
+            "kind": "enum-member",
+            "signature": "Pieces",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Rolls",
+            "kind": "enum-member",
+            "signature": "Rolls",
+            "line": 12,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 14,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Inventory/ClothUnit.cs#ClothUnit",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-018",
+      "name": "InventoryPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/inventory/page.tsx",
+      "module": "INVENTORY",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/inventory",
+        "declaration": "export default function InventoryPage() {",
+        "line": 37,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InventoryPage",
+            "kind": "export",
+            "signature": "export default function InventoryPage() {",
+            "line": 37,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-debounced-value",
+            "target_component": "COMP-WEB-057",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/clothPrices",
+            "target_component": "COMP-WEB-030",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/inventory",
+            "target_component": "COMP-WEB-035",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "MODIFIED",
+          "last_commit": "201cf5ce083e5246ddf076ce83baa3f1ca80e572",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Call the receipts screen Inventory Transaction",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 405,
+          "member_count": 1,
+          "dependency_count": 12
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/inventory/page.tsx#InventoryPage",
+            "line": 37
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/inventory",
+            "detail": "web/src/app/dashboard/inventory/page.tsx",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "201cf5ce083e5246ddf076ce83baa3f1ca80e572",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-INVENTORY-019",
+      "name": "StockDetailsPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/stock/page.tsx",
+      "module": "INVENTORY",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/stock",
+        "declaration": "export default function StockDetailsPage() {",
+        "line": 20,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "StockDetailsPage",
+            "kind": "export",
+            "signature": "export default function StockDetailsPage() {",
+            "line": 20,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-debounced-value",
+            "target_component": "COMP-WEB-057",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/inventory",
+            "target_component": "COMP-WEB-035",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "MODIFIED",
+          "last_commit": "b72e9bb173f424c97891de4e7aa8c71ec9661c23",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Say what went wrong on Stock Details, instead of that something did",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 173,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/stock/page.tsx#StockDetailsPage",
+            "line": 20
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/stock",
+            "detail": "web/src/app/dashboard/stock/page.tsx",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "b72e9bb173f424c97891de4e7aa8c71ec9661c23",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-031",
+      "name": "ReceiveClothRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Inventory/ReceiveClothRequest.cs",
+      "module": "INVENTORY",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Inventory",
+        "declaration": "public sealed record ReceiveClothRequest( Guid ClothPriceId, decimal Quantity, ClothUnit Unit, DateOnly ReceivedOn, string? SupplierName, string? InvoiceNumber, decimal? RatePerUnit, string? Notes);",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ClothPriceId",
+            "kind": "property",
+            "signature": "Guid ClothPriceId",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantity",
+            "kind": "property",
+            "signature": "decimal Quantity",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Unit",
+            "kind": "property",
+            "signature": "ClothUnit Unit",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReceivedOn",
+            "kind": "property",
+            "signature": "DateOnly ReceivedOn",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SupplierName",
+            "kind": "property",
+            "signature": "string? SupplierName",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string? InvoiceNumber",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RatePerUnit",
+            "kind": "property",
+            "signature": "decimal? RatePerUnit",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "string? Notes",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ClothUnit",
+            "target_component": "COMP-INVENTORY-017",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 8,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Inventory/ReceiveClothRequest.cs#ReceiveClothRequest",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-062",
+      "name": "InventoryController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/InventoryController.cs",
+      "module": "INVENTORY",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class InventoryController : ApiControllerBase",
+        "line": 23,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/inventory\")",
+          "Authorize(Policy = Permissions.InventoryView)"
+        ],
+        "members": [
+          {
+            "name": "InventoryController",
+            "kind": "constructor",
+            "signature": "public InventoryController(ISender sender)",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReceiveCloth",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ReceiveCloth([FromBody] ReceiveClothRequest request, CancellationToken cancellationToken)",
+            "line": 38,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"cloth-receipts\")",
+              "Authorize(Policy = Permissions.InventoryCreate)",
+              "ProducesResponseType(typeof(ApiResponse<ClothReceiptDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "cloth-receipts",
+              "resolved_route": "/api/v1/inventory/cloth-receipts",
+              "policy": "Permissions.InventoryCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "SearchClothReceipts",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> SearchClothReceipts(",
+            "line": 62,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"cloth-receipts\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<ClothReceiptDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "cloth-receipts",
+              "resolved_route": "/api/v1/inventory/cloth-receipts",
+              "policy": "Permissions.InventoryView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "StockSummary",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> StockSummary(",
+            "line": 85,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"stock\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<StockSummaryDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "stock",
+              "resolved_route": "/api/v1/inventory/stock",
+              "policy": "Permissions.InventoryView",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ReceiveClothCommand",
+            "target_component": "COMP-INVENTORY-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InventoryController.cs",
+              "line": 40,
+              "expression": "new ReceiveClothCommand("
+            }
+          },
+          {
+            "target": "SearchClothReceiptsQuery",
+            "target_component": "COMP-INVENTORY-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InventoryController.cs",
+              "line": 71,
+              "expression": "new SearchClothReceiptsQuery("
+            }
+          },
+          {
+            "target": "GetStockSummaryQuery",
+            "target_component": "COMP-INVENTORY-011",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InventoryController.cs",
+              "line": 91,
+              "expression": "new GetStockSummaryQuery("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.2",
+            "line": 18
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 55
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 95,
+          "member_count": 4,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/InventoryController.cs#InventoryController",
+            "line": 23
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/InventoryController.cs#ApiController",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

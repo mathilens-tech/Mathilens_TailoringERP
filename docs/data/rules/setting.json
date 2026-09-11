@@ -1,0 +1,578 @@
+{
+  "module": "SETTING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-SETTING-001",
+      "entity_version": 1,
+      "statement": "Key must satisfy not empty",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-003",
+          "file": "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Key).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-003"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Key).NotEmpty()",
+        "symbol": "DeleteSettingCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs#DeleteSettingCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-002",
+      "entity_version": 1,
+      "statement": "Key must satisfy not empty, maximum length",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-006",
+          "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Key).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-006"
+      ],
+      "test_cases": [
+        "TC-SETTING-005",
+        "TC-SETTING-006",
+        "TC-SETTING-007"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Key).NotEmpty().MaximumLength()",
+        "symbol": "UpsertSettingCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#UpsertSettingCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-003",
+      "entity_version": 1,
+      "statement": "Value must satisfy not null, maximum length",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-006",
+          "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Value).NotNull().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-006"
+      ],
+      "test_cases": [
+        "TC-SETTING-005",
+        "TC-SETTING-006",
+        "TC-SETTING-007"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Value).NotNull().MaximumLength()",
+        "symbol": "UpsertSettingCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#UpsertSettingCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-004",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-012",
+          "file": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-012"
+      ],
+      "test_cases": [
+        "TC-SETTING-011",
+        "TC-SETTING-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "ListSettingsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#ListSettingsQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-005",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-012",
+          "file": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-012"
+      ],
+      "test_cases": [
+        "TC-SETTING-011",
+        "TC-SETTING-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 2,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "ListSettingsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#ListSettingsQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-006",
+      "entity_version": 1,
+      "statement": "Key must not be null or white space",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-015",
+          "file": "src/Domain/Settings/Setting.cs",
+          "line": 43,
+          "mechanism": "guard-clause",
+          "expression": "Key = Guard.AgainstNullOrWhiteSpace(key, nameof(key)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-015"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-024",
+        "TC-MEASUREMENT-025",
+        "TC-MEASUREMENT-026",
+        "TC-MEASUREMENT-027",
+        "TC-MEASUREMENT-028",
+        "TC-MEASUREMENT-030",
+        "TC-SETTING-001",
+        "TC-SETTING-003",
+        "TC-SETTING-004",
+        "TC-SETTING-008",
+        "TC-SETTING-010",
+        "TC-SETTING-013",
+        "TC-SETTING-014",
+        "TC-SETTING-015",
+        "TC-USER-001",
+        "TC-USER-002",
+        "TC-USER-003",
+        "TC-USER-004",
+        "TC-USER-005",
+        "TC-USER-006",
+        "TC-USER-007",
+        "TC-USER-008",
+        "TC-USER-009",
+        "TC-USER-010",
+        "TC-USER-011",
+        "TC-USER-012",
+        "TC-USER-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 27,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Key = Guard.AgainstNullOrWhiteSpace(key, nameof(key)),",
+        "symbol": "Setting",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Settings/Setting.cs#Setting",
+            "line": 43
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-007",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-015",
+          "file": "src/Domain/Settings/Setting.cs",
+          "line": 52,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-015"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-024",
+        "TC-MEASUREMENT-025",
+        "TC-MEASUREMENT-026",
+        "TC-MEASUREMENT-027",
+        "TC-MEASUREMENT-028",
+        "TC-MEASUREMENT-030",
+        "TC-SETTING-001",
+        "TC-SETTING-003",
+        "TC-SETTING-004",
+        "TC-SETTING-008",
+        "TC-SETTING-010",
+        "TC-SETTING-013",
+        "TC-SETTING-014",
+        "TC-SETTING-015",
+        "TC-USER-001",
+        "TC-USER-002",
+        "TC-USER-003",
+        "TC-USER-004",
+        "TC-USER-005",
+        "TC-USER-006",
+        "TC-USER-007",
+        "TC-USER-008",
+        "TC-USER-009",
+        "TC-USER-010",
+        "TC-USER-011",
+        "TC-USER-012",
+        "TC-USER-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 27,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "Setting",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Settings/Setting.cs#Setting",
+            "line": 52
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    },
+    {
+      "id": "BR-SETTING-008",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "SETTING",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-SETTING-015",
+          "file": "src/Domain/Settings/Setting.cs",
+          "line": 58,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-SETTING-015"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-024",
+        "TC-MEASUREMENT-025",
+        "TC-MEASUREMENT-026",
+        "TC-MEASUREMENT-027",
+        "TC-MEASUREMENT-028",
+        "TC-MEASUREMENT-030",
+        "TC-SETTING-001",
+        "TC-SETTING-003",
+        "TC-SETTING-004",
+        "TC-SETTING-008",
+        "TC-SETTING-010",
+        "TC-SETTING-013",
+        "TC-SETTING-014",
+        "TC-SETTING-015",
+        "TC-USER-001",
+        "TC-USER-002",
+        "TC-USER-003",
+        "TC-USER-004",
+        "TC-USER-005",
+        "TC-USER-006",
+        "TC-USER-007",
+        "TC-USER-008",
+        "TC-USER-009",
+        "TC-USER-010",
+        "TC-USER-011",
+        "TC-USER-012",
+        "TC-USER-013"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 27,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "Setting",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Settings/Setting.cs#Setting",
+            "line": 58
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "change_history": []
+    }
+  ]
+}

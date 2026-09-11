@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-056",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Long-running or deferred work (batch WhatsApp sends, report generation/export)…",
+  "module": "PLATFORM",
+  "description": "Long-running or deferred work (batch WhatsApp sends, report generation/export) executes as a background job, never inline in a request/response cycle.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "NEEDS_REVIEW",
+  "requirement_type_evidence": "clause is open-ended or undecided",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 16",
+    "section_title": "Background Job Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Long-running or deferred work (batch WhatsApp sends, report generation/export) executes as a background job, never inline in a request/response cycle.",
+    "line": 260,
+    "line_start": 260,
+    "line_end": 260,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "needs-review",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "NEEDS_REVIEW",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 16",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 260
+      }
+    ],
+    "notes": "Clause is open-ended or marked undecided in the source document."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- 00_MASTER_SPEC.md § 7.11 — Swagger surfaces the XML <summary> docs on controller
+         actions, so they are generated here despite being suppressed solution-wide. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <UserSecretsId>6790a7f2-7c56-468f-b6f8-104274bfb155</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\MathilensERP.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\MathilensERP.Infrastructure.csproj" />
+    <ProjectReference Include="..\Domain\MathilensERP.Domain.csproj" />
+  </ItemGroup>
+
+  <!-- PDFsharp resolves no fonts of its own on this package, so the faces ship inside the assembly
+       rather than being read off whatever host the API lands on. See EmbeddedFontResolver.
+       Noto Sans is SIL Open Font License 1.1 — Fonts/LICENSE.txt travels with them. -->
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Export\Fonts\NotoSans-Regular.ttf" LogicalName="MathilensERP.Api.Fonts.NotoSans-Regular.ttf" />
+    <EmbeddedResource Include="Common\Export\Fonts\NotoSans-Bold.ttf" LogicalName="MathilensERP.Api.Fonts.NotoSans-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.2.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+  </ItemGroup>
+
+</Project>

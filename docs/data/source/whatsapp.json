@@ -1,0 +1,3828 @@
+{
+  "module": "WHATSAPP",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-PLATFORM-055",
+      "name": "RecordWhatsAppShareRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/WhatsApp/RecordWhatsAppShareRequest.cs",
+      "module": "WHATSAPP",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.WhatsApp",
+        "declaration": "public sealed record RecordWhatsAppShareRequest(Guid CustomerId, string OrderNumber, string InvoiceNumber);",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderNumber",
+            "kind": "property",
+            "signature": "string OrderNumber",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string InvoiceNumber",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/WhatsApp/RecordWhatsAppShareRequest.cs#RecordWhatsAppShareRequest",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-056",
+      "name": "SendWhatsAppMessageRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/WhatsApp/SendWhatsAppMessageRequest.cs",
+      "module": "WHATSAPP",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.WhatsApp",
+        "declaration": "public sealed record SendWhatsAppMessageRequest(Guid CustomerId, Guid? OrderId, WhatsAppMessageType MessageType, string Content);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid? OrderId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MessageType",
+            "kind": "property",
+            "signature": "WhatsAppMessageType MessageType",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Content",
+            "kind": "property",
+            "signature": "string Content",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "WhatsAppMessageType",
+            "target_component": "COMP-WHATSAPP-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 6,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/WhatsApp/SendWhatsAppMessageRequest.cs#SendWhatsAppMessageRequest",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-071",
+      "name": "WhatsAppMessagesController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+      "module": "WHATSAPP",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class WhatsAppMessagesController : ApiControllerBase",
+        "line": 22,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/whatsapp-messages\")",
+          "Authorize(Policy = Permissions.WhatsAppView)"
+        ],
+        "members": [
+          {
+            "name": "WhatsAppMessagesController",
+            "kind": "constructor",
+            "signature": "public WhatsAppMessagesController(ISender sender)",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RecordShareOpened",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RecordShareOpened([FromBody] RecordWhatsAppShareRequest request, CancellationToken cancellationToken)",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"share-opened\")",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "share-opened",
+              "resolved_route": "/api/v1/whatsapp-messages/share-opened",
+              "policy": "Permissions.WhatsAppView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Send",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Send([FromBody] SendWhatsAppMessageRequest request, CancellationToken cancellationToken)",
+            "line": 52,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost",
+              "Authorize(Policy = Permissions.WhatsAppSend)",
+              "ProducesResponseType(typeof(ApiResponse<WhatsAppMessageDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": null,
+              "resolved_route": "/api/v1/whatsapp-messages",
+              "policy": "Permissions.WhatsAppSend",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetById",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)",
+            "line": 63,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}\")",
+              "ProducesResponseType(typeof(ApiResponse<WhatsAppMessageDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/whatsapp-messages/{id:guid}",
+              "policy": "Permissions.WhatsAppView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 73,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<WhatsAppMessageDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/whatsapp-messages",
+              "policy": "Permissions.WhatsAppView",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "RecordWhatsAppShareCommand",
+            "target_component": "COMP-WHATSAPP-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+              "line": 42,
+              "expression": "new RecordWhatsAppShareCommand("
+            }
+          },
+          {
+            "target": "SendWhatsAppMessageCommand",
+            "target_component": "COMP-WHATSAPP-003",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+              "line": 54,
+              "expression": "new SendWhatsAppMessageCommand("
+            }
+          },
+          {
+            "target": "GetWhatsAppMessageByIdQuery",
+            "target_component": "COMP-WHATSAPP-007",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+              "line": 65,
+              "expression": "new GetWhatsAppMessageByIdQuery("
+            }
+          },
+          {
+            "target": "SearchWhatsAppMessagesQuery",
+            "target_component": "COMP-WHATSAPP-009",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+              "line": 81,
+              "expression": "new SearchWhatsAppMessagesQuery("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 18
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 69
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 85,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/WhatsAppMessagesController.cs#WhatsAppMessagesController",
+            "line": 22
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/WhatsAppMessagesController.cs#ApiController",
+            "line": 22
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-001",
+      "name": "RecordWhatsAppShareCommand",
+      "kind": "command",
+      "path": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Commands.RecordShare",
+        "declaration": "public sealed record RecordWhatsAppShareCommand( Guid CustomerId, string OrderNumber, string InvoiceNumber) : ICommand<Result>;",
+        "line": 20,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderNumber",
+            "kind": "property",
+            "signature": "string OrderNumber",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string InvoiceNumber",
+            "line": 20,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICustomerRepository",
+            "target_component": "COMP-CUSTOMER-024",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 27,
+              "expression": "ICustomerRepository _customerRepository;"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 42,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 43,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "ICustomerRepository",
+            "target_component": "COMP-CUSTOMER-024",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 39,
+              "expression": "_customerRepository.GetByIdAsync(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 49,
+          "member_count": 3,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs#RecordWhatsAppShareCommand",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-WHATSAPP-002",
+      "name": "RecordWhatsAppShareCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Commands.RecordShare",
+        "declaration": "public sealed class RecordWhatsAppShareCommandHandler : ICommandHandler<RecordWhatsAppShareCommand, Result>",
+        "line": 25,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<RecordWhatsAppShareCommand, Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RecordWhatsAppShareCommandHandler",
+            "kind": "constructor",
+            "signature": "public RecordWhatsAppShareCommandHandler(ICustomerRepository customerRepository)",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result> Handle(RecordWhatsAppShareCommand command, CancellationToken cancellationToken)",
+            "line": 34,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ICustomerRepository",
+            "target_component": "COMP-CUSTOMER-024",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<RecordWhatsAppShareCommand, Result>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 42,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+              "line": 43,
+              "expression": "Error.NotFound(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 49,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs#RecordWhatsAppShareCommandHandler",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-WHATSAPP-003",
+      "name": "SendWhatsAppMessageCommand",
+      "kind": "command",
+      "path": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommand.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Commands.Send",
+        "declaration": "public sealed record SendWhatsAppMessageCommand(Guid CustomerId, Guid? OrderId, WhatsAppMessageType MessageType, string Content) : ICommand<Result<WhatsAppMessageDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<WhatsAppMessageDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid? OrderId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MessageType",
+            "kind": "property",
+            "signature": "WhatsAppMessageType MessageType",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Content",
+            "kind": "property",
+            "signature": "string Content",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "WhatsAppMessageType",
+            "target_component": "COMP-WHATSAPP-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<WhatsAppMessageDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 4,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommand.cs#SendWhatsAppMessageCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-WHATSAPP-004",
+      "name": "SendWhatsAppMessageCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Commands.Send",
+        "declaration": "public sealed class SendWhatsAppMessageCommandHandler : ICommandHandler<SendWhatsAppMessageCommand, Result<WhatsAppMessageDto>>",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<SendWhatsAppMessageCommand, Result<WhatsAppMessageDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SendWhatsAppMessageCommandHandler",
+            "kind": "constructor",
+            "signature": "public SendWhatsAppMessageCommandHandler(",
+            "line": 24,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<WhatsAppMessageDto>> Handle(SendWhatsAppMessageCommand command, CancellationToken cancellationToken)",
+            "line": 36,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ICommandHandler<SendWhatsAppMessageCommand, Result<WhatsAppMessageDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs",
+              "line": 41,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs",
+              "line": 42,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "WhatsAppMessage",
+            "target_component": "COMP-WHATSAPP-014",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs",
+              "line": 54,
+              "expression": "WhatsAppMessage.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 11.5",
+            "line": 15
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 74,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandler.cs#SendWhatsAppMessageCommandHandler",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-WHATSAPP-005",
+      "name": "SendWhatsAppMessageCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Commands.Send",
+        "declaration": "public sealed class SendWhatsAppMessageCommandValidator : AbstractValidator<SendWhatsAppMessageCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SendWhatsAppMessageCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SendWhatsAppMessageCommandValidator",
+            "kind": "constructor",
+            "signature": "public SendWhatsAppMessageCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SendWhatsAppMessageCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#SendWhatsAppMessageCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-WHATSAPP-006",
+      "name": "IWhatsAppMessageRepository",
+      "kind": "port",
+      "path": "src/Application/WhatsApp/IWhatsAppMessageRepository.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp",
+        "declaration": "public interface IWhatsAppMessageRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<WhatsAppMessage?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<WhatsAppMessage>> SearchAsync(",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(WhatsAppMessage message)",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/IWhatsAppMessageRepository.cs#IWhatsAppMessageRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-007",
+      "name": "GetWhatsAppMessageByIdQuery",
+      "kind": "query",
+      "path": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQuery.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Queries.GetById",
+        "declaration": "public sealed record GetWhatsAppMessageByIdQuery(Guid Id) : IQuery<Result<WhatsAppMessageDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<WhatsAppMessageDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<WhatsAppMessageDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQuery.cs#GetWhatsAppMessageByIdQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-WHATSAPP-008",
+      "name": "GetWhatsAppMessageByIdQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Queries.GetById",
+        "declaration": "public sealed class GetWhatsAppMessageByIdQueryHandler : IQueryHandler<GetWhatsAppMessageByIdQuery, Result<WhatsAppMessageDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetWhatsAppMessageByIdQuery, Result<WhatsAppMessageDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetWhatsAppMessageByIdQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetWhatsAppMessageByIdQueryHandler(IWhatsAppMessageRepository messageRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<WhatsAppMessageDto>> Handle(GetWhatsAppMessageByIdQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IWhatsAppMessageRepository",
+            "target_component": "COMP-WHATSAPP-006",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetWhatsAppMessageByIdQuery, Result<WhatsAppMessageDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "WhatsAppMessage",
+            "target_component": "COMP-WHATSAPP-014",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs",
+              "line": 22,
+              "expression": "var message = _messageRepository.GetByIdAsync(…); message.ToDto(…)  [IWhatsAppMessageRepository.GetByIdAsync returns WhatsAppMessage]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs#GetWhatsAppMessageByIdQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-WHATSAPP-009",
+      "name": "SearchWhatsAppMessagesQuery",
+      "kind": "query",
+      "path": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQuery.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Queries.Search",
+        "declaration": "public sealed record SearchWhatsAppMessagesQuery( Guid? CustomerId, Guid? OrderId, WhatsAppMessageStatus? Status, int Page, int PageSize) : IQuery<Result<PagedResult<WhatsAppMessageDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<WhatsAppMessageDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid? CustomerId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid? OrderId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "WhatsAppMessageStatus? Status",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "WhatsAppMessageStatus?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<WhatsAppMessageDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQuery.cs#SearchWhatsAppMessagesQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-WHATSAPP-010",
+      "name": "SearchWhatsAppMessagesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandler.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Queries.Search",
+        "declaration": "public sealed class SearchWhatsAppMessagesQueryHandler : IQueryHandler<SearchWhatsAppMessagesQuery, Result<PagedResult<WhatsAppMessageDto>>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<SearchWhatsAppMessagesQuery, Result<PagedResult<WhatsAppMessageDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchWhatsAppMessagesQueryHandler",
+            "kind": "constructor",
+            "signature": "public SearchWhatsAppMessagesQueryHandler(IWhatsAppMessageRepository messageRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<WhatsAppMessageDto>>> Handle(SearchWhatsAppMessagesQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IWhatsAppMessageRepository",
+            "target_component": "COMP-WHATSAPP-006",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<SearchWhatsAppMessagesQuery, Result<PagedResult<WhatsAppMessageDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandler.cs",
+              "line": 22,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandler.cs#SearchWhatsAppMessagesQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-WHATSAPP-011",
+      "name": "SearchWhatsAppMessagesQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp.Queries.Search",
+        "declaration": "public sealed class SearchWhatsAppMessagesQueryValidator : AbstractValidator<SearchWhatsAppMessagesQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchWhatsAppMessagesQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchWhatsAppMessagesQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchWhatsAppMessagesQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchWhatsAppMessagesQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#SearchWhatsAppMessagesQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-WHATSAPP-012",
+      "name": "WhatsAppMessageDto",
+      "kind": "dto",
+      "path": "src/Application/WhatsApp/WhatsAppMessageDto.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp",
+        "declaration": "public sealed record WhatsAppMessageDto( Guid Id, Guid CustomerId, Guid? OrderId, WhatsAppMessageType MessageType, string Content, WhatsAppMessageStatus Status, string? ProviderMessageId, string? FailureReason, DateTime CreatedAtUtc);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid? OrderId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MessageType",
+            "kind": "property",
+            "signature": "WhatsAppMessageType MessageType",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Content",
+            "kind": "property",
+            "signature": "string Content",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "WhatsAppMessageStatus Status",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ProviderMessageId",
+            "kind": "property",
+            "signature": "string? ProviderMessageId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FailureReason",
+            "kind": "property",
+            "signature": "string? FailureReason",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "WhatsAppMessageType",
+            "target_component": "COMP-WHATSAPP-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "WhatsAppMessageStatus",
+            "target_component": "COMP-WHATSAPP-015",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 9,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/WhatsAppMessageDto.cs#WhatsAppMessageDto",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-013",
+      "name": "WhatsAppMessageMapper",
+      "kind": "class",
+      "path": "src/Application/WhatsApp/WhatsAppMessageMapper.cs",
+      "module": "WHATSAPP",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.WhatsApp",
+        "declaration": "internal static class WhatsAppMessageMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static WhatsAppMessageDto ToDto(this WhatsAppMessage message) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 19,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/WhatsApp/WhatsAppMessageMapper.cs#WhatsAppMessageMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-014",
+      "name": "WhatsAppMessage",
+      "kind": "entity",
+      "path": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+      "module": "WHATSAPP",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#78-identity-settings-messaging-audit",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.WhatsApp",
+        "declaration": "public sealed class WhatsAppMessage : AuditableEntity",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "public Guid CustomerId",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "public Guid? OrderId",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MessageType",
+            "kind": "property",
+            "signature": "public WhatsAppMessageType MessageType",
+            "line": 24,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Content",
+            "kind": "property",
+            "signature": "public string Content",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "public WhatsAppMessageStatus Status",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ProviderMessageId",
+            "kind": "property",
+            "signature": "public string? ProviderMessageId",
+            "line": 30,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FailureReason",
+            "kind": "property",
+            "signature": "public string? FailureReason",
+            "line": 32,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "WhatsAppMessage",
+            "kind": "constructor",
+            "signature": "private WhatsAppMessage()",
+            "line": 34,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "WhatsAppMessage",
+            "kind": "constructor",
+            "signature": "private WhatsAppMessage(Guid id)",
+            "line": 39,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static WhatsAppMessage Create(Guid customerId, Guid? orderId, WhatsAppMessageType messageType, string content)",
+            "line": 44,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MarkSent",
+            "kind": "method",
+            "signature": "public void MarkSent(string providerMessageId)",
+            "line": 56,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MarkFailed",
+            "kind": "method",
+            "signature": "public void MarkFailed(string failureReason)",
+            "line": 63,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/WhatsApp/WhatsAppMessage.cs",
+              "line": 48,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 8
+          },
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 11.5",
+            "line": 9
+          },
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 26",
+            "line": 14
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 69,
+          "member_count": 12,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessage.cs#WhatsAppMessage",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-WHATSAPP-015",
+      "name": "WhatsAppMessageStatus",
+      "kind": "enum",
+      "path": "src/Domain/WhatsApp/WhatsAppMessageStatus.cs",
+      "module": "WHATSAPP",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#78-identity-settings-messaging-audit",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.WhatsApp",
+        "declaration": "public enum WhatsAppMessageStatus",
+        "line": 3,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Pending",
+            "kind": "enum-member",
+            "signature": "Pending",
+            "line": 5,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Sent",
+            "kind": "enum-member",
+            "signature": "Sent",
+            "line": 6,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Failed",
+            "kind": "enum-member",
+            "signature": "Failed",
+            "line": 7,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 3,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessageStatus.cs#WhatsAppMessageStatus",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-016",
+      "name": "WhatsAppMessageType",
+      "kind": "enum",
+      "path": "src/Domain/WhatsApp/WhatsAppMessageType.cs",
+      "module": "WHATSAPP",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#78-identity-settings-messaging-audit",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.WhatsApp",
+        "declaration": "public enum WhatsAppMessageType",
+        "line": 4,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderStatusUpdate",
+            "kind": "enum-member",
+            "signature": "OrderStatusUpdate",
+            "line": 6,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "DeliveryReminder",
+            "kind": "enum-member",
+            "signature": "DeliveryReminder",
+            "line": 7,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Custom",
+            "kind": "enum-member",
+            "signature": "Custom",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 3
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 3,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/WhatsApp/WhatsAppMessageType.cs#WhatsAppMessageType",
+            "line": 4
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-017",
+      "name": "MetaWhatsAppSender",
+      "kind": "service",
+      "path": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+      "module": "WHATSAPP",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#97-whatsapp",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.WhatsApp",
+        "declaration": "public sealed class MetaWhatsAppSender : IWhatsAppSender",
+        "line": 20,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IWhatsAppSender"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MetaWhatsAppSender",
+            "kind": "constructor",
+            "signature": "public MetaWhatsAppSender(HttpClient httpClient, IOptions<WhatsAppOptions> options, ILogger<MetaWhatsAppSender> logger)",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SendTextMessageAsync",
+            "kind": "method",
+            "signature": "public async Task<WhatsAppSendResult> SendTextMessageAsync(string toPhoneNumber, string message, CancellationToken cancellationToken)",
+            "line": 33,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "NormalizePhoneNumber",
+            "kind": "method",
+            "signature": "private static string NormalizePhoneNumber(string phoneNumber) =>",
+            "line": 79,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "HttpClient",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IOptions<WhatsAppOptions>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ILogger<MetaWhatsAppSender>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IWhatsAppSender",
+            "target_component": "COMP-PLATFORM-092",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "HttpRequestMessage",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+              "line": 48,
+              "expression": "new HttpRequestMessage("
+            }
+          },
+          {
+            "target": "AuthenticationHeaderValue",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+              "line": 52,
+              "expression": "new AuthenticationHeaderValue("
+            }
+          },
+          {
+            "target": "WhatsAppSendResult",
+            "target_component": "COMP-PLATFORM-093",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+              "line": 37,
+              "expression": "WhatsAppSendResult.Failed(…)"
+            }
+          },
+          {
+            "target": "JsonContent",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+              "line": 50,
+              "expression": "JsonContent.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 13",
+            "line": 72
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 88,
+          "member_count": 3,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaWhatsAppSender",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-WHATSAPP-018",
+      "name": "MetaSendResponse",
+      "kind": "dto",
+      "path": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+      "module": "WHATSAPP",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.WhatsApp",
+        "declaration": "private sealed record MetaSendResponse(MetaMessage[]? Messages, MetaError? Error);",
+        "line": 82,
+        "modifiers": [
+          "private",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Messages",
+            "kind": "property",
+            "signature": "MetaMessage[]? Messages",
+            "line": 82,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Error",
+            "kind": "property",
+            "signature": "MetaError? Error",
+            "line": 82,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "MetaMessage[]?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "MetaError?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 13",
+            "line": 72
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 88,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaSendResponse",
+            "line": 82
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-019",
+      "name": "MetaMessage",
+      "kind": "record",
+      "path": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+      "module": "WHATSAPP",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.WhatsApp",
+        "declaration": "private sealed record MetaMessage(string Id);",
+        "line": 84,
+        "modifiers": [
+          "private",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "string Id",
+            "line": 84,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 13",
+            "line": 72
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 88,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaMessage",
+            "line": 84
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-020",
+      "name": "MetaError",
+      "kind": "record",
+      "path": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs",
+      "module": "WHATSAPP",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.WhatsApp",
+        "declaration": "private sealed record MetaError(string Message);",
+        "line": 86,
+        "modifiers": [
+          "private",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Message",
+            "kind": "property",
+            "signature": "string Message",
+            "line": 86,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 13",
+            "line": 72
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 88,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/WhatsApp/MetaWhatsAppSender.cs#MetaError",
+            "line": 86
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-021",
+      "name": "WhatsAppOptions",
+      "kind": "class",
+      "path": "src/Infrastructure/WhatsApp/WhatsAppOptions.cs",
+      "module": "WHATSAPP",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.WhatsApp",
+        "declaration": "public sealed class WhatsAppOptions",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "AccessToken",
+            "kind": "property",
+            "signature": "public string? AccessToken",
+            "line": 14,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumberId",
+            "kind": "property",
+            "signature": "public string? PhoneNumberId",
+            "line": 17,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ApiVersion",
+            "kind": "property",
+            "signature": "public string ApiVersion",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "BaseUrl",
+            "kind": "property",
+            "signature": "public string BaseUrl",
+            "line": 21,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 13.1",
+            "line": 7
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/WhatsApp/WhatsAppOptions.cs#WhatsAppOptions",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-022",
+      "name": "NewWhatsAppMessagePage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/whatsapp/new/page.tsx",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/whatsapp/new",
+        "declaration": "export default function NewWhatsAppMessagePage() {",
+        "line": 16,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "NewWhatsAppMessagePage",
+            "kind": "export",
+            "signature": "export default function NewWhatsAppMessagePage() {",
+            "line": 16,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/SearchPicker",
+            "target_component": "COMP-WEB-022",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/whatsapp",
+            "target_component": "COMP-WEB-048",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 107,
+          "member_count": 1,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/whatsapp/new/page.tsx#NewWhatsAppMessagePage",
+            "line": 16
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/whatsapp/new",
+            "detail": "web/src/app/dashboard/whatsapp/new/page.tsx",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-023",
+      "name": "WhatsAppMessagesPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/whatsapp/page.tsx",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/whatsapp",
+        "declaration": "export default function WhatsAppMessagesPage() {",
+        "line": 12,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "WhatsAppMessagesPage",
+            "kind": "export",
+            "signature": "export default function WhatsAppMessagesPage() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/whatsapp",
+            "target_component": "COMP-WEB-048",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "2e18ebf0ca9ef88c7034a5b79c1850fdcd566fa3",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Make every screen readable on a phone without scrolling sideways",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 125,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/whatsapp/page.tsx#WhatsAppMessagesPage",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/whatsapp",
+            "detail": "web/src/app/dashboard/whatsapp/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "2e18ebf0ca9ef88c7034a5b79c1850fdcd566fa3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-024",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/dashboard/whatsapp/[id]/page.tsx",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/whatsapp/[id]",
+        "declaration": "export default function Page() {",
+        "line": 12,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/whatsapp/[id]/PageClient",
+            "target_component": "COMP-WHATSAPP-025",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/whatsapp/[id]/page.tsx#Page",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/whatsapp/[id]",
+            "detail": "web/src/app/dashboard/whatsapp/[id]/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-025",
+      "name": "WhatsAppMessageDetailPage",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/whatsapp/[id]/PageClient.tsx",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function WhatsAppMessageDetailPage() {",
+        "line": 10,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "WhatsAppMessageDetailPage",
+            "kind": "export",
+            "signature": "export default function WhatsAppMessageDetailPage() {",
+            "line": 10,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/whatsapp",
+            "target_component": "COMP-WEB-048",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 82,
+          "member_count": 1,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/whatsapp/[id]/PageClient.tsx#WhatsAppMessageDetailPage",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-026",
+      "name": "ShareViaWhatsAppButton",
+      "kind": "react-component",
+      "path": "web/src/components/whatsapp/ShareViaWhatsAppButton.tsx",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function ShareViaWhatsAppButton({",
+        "line": 88,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ShareViaWhatsAppProps",
+            "kind": "export",
+            "signature": "export type ShareViaWhatsAppProps = {",
+            "line": 26,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ShareViaWhatsAppButton",
+            "kind": "export",
+            "signature": "export function ShareViaWhatsAppButton({",
+            "line": 88,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/whatsapp",
+            "target_component": "COMP-WEB-048",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/whatsapp/provider",
+            "target_component": "COMP-WHATSAPP-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "abb297f213efb397feafa795ee4f0e8217a36605",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Tell a customer their order is ready, and thank them once it is collected",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 273,
+          "member_count": 2,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/whatsapp/ShareViaWhatsAppButton.tsx#ShareViaWhatsAppButton",
+            "line": 88
+          }
+        ]
+      },
+      "last_verified_commit": "abb297f213efb397feafa795ee4f0e8217a36605",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-027",
+      "name": "WhatsAppDelivery",
+      "kind": "dto",
+      "path": "web/src/lib/whatsapp/provider.ts",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export type WhatsAppDelivery = {",
+        "line": 14,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "WhatsAppDelivery",
+            "kind": "export",
+            "signature": "export type WhatsAppDelivery = {",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "WhatsAppOpenError",
+            "kind": "export",
+            "signature": "export class WhatsAppOpenError extends Error {",
+            "line": 38,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "WhatsAppApp",
+            "kind": "export",
+            "signature": "export type WhatsAppApp = \"business\" | \"standard\";",
+            "line": 53,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "DEFAULT_WHATSAPP_APP",
+            "kind": "export",
+            "signature": "export const DEFAULT_WHATSAPP_APP: WhatsAppApp = \"business\";",
+            "line": 71,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toWhatsAppApp",
+            "kind": "export",
+            "signature": "export function toWhatsAppApp(value: string | null | undefined): WhatsAppApp {",
+            "line": 74,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "createManualWhatsAppProvider",
+            "kind": "export",
+            "signature": "export function createManualWhatsAppProvider(",
+            "line": 110,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "manualWhatsAppProvider",
+            "kind": "export",
+            "signature": "export const manualWhatsAppProvider: WhatsAppDelivery = createManualWhatsAppProvider();",
+            "line": 155,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildClickToChatUrl",
+            "kind": "export",
+            "signature": "export function buildClickToChatUrl(phoneNumber: string, message: string): string {",
+            "line": 166,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildAndroidIntentUrl",
+            "kind": "export",
+            "signature": "export function buildAndroidIntentUrl(",
+            "line": 186,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildShareUrl",
+            "kind": "export",
+            "signature": "export function buildShareUrl(",
+            "line": 211,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "46312ec91a6bd01dd8237b7f1a95242a0dc4fe0f",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Open WhatsApp Business on Android, which naming the package never did",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 220,
+          "member_count": 10,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/lib/whatsapp/provider.ts#WhatsAppDelivery",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "46312ec91a6bd01dd8237b7f1a95242a0dc4fe0f",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-WHATSAPP-028",
+      "name": "ShopIdentity",
+      "kind": "dto",
+      "path": "web/src/lib/whatsapp/whatsapp-service.ts",
+      "module": "WHATSAPP",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export type ShopIdentity = {",
+        "line": 24,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ShopIdentity",
+            "kind": "export",
+            "signature": "export type ShopIdentity = {",
+            "line": 24,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceShare",
+            "kind": "export",
+            "signature": "export type InvoiceShare = {",
+            "line": 29,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ShareKind",
+            "kind": "export",
+            "signature": "export type ShareKind = \"invoice\" | \"ready\" | \"delivered\";",
+            "line": 49,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "StatusShare",
+            "kind": "export",
+            "signature": "export type StatusShare = {",
+            "line": 55,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ShareBlockedReason",
+            "kind": "export",
+            "signature": "export type ShareBlockedReason =",
+            "line": 68,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SHARE_BLOCKED_MESSAGES",
+            "kind": "export",
+            "signature": "export const SHARE_BLOCKED_MESSAGES: Record<ShareBlockedReason, string> = {",
+            "line": 74,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toWhatsAppNumber",
+            "kind": "export",
+            "signature": "export function toWhatsAppNumber(rawPhoneNumber: string | null | undefined): string | null {",
+            "line": 94,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildInvoiceMessage",
+            "kind": "export",
+            "signature": "export function buildInvoiceMessage(share: InvoiceShare, shop: ShopIdentity): string {",
+            "line": 138,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildReadyMessage",
+            "kind": "export",
+            "signature": "export function buildReadyMessage(share: StatusShare, shop: ShopIdentity): string {",
+            "line": 171,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildDeliveredMessage",
+            "kind": "export",
+            "signature": "export function buildDeliveredMessage(share: StatusShare, shop: ShopIdentity): string {",
+            "line": 203,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "shareInvoice",
+            "kind": "export",
+            "signature": "export async function shareInvoice(",
+            "line": 222,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildInvoiceUrl",
+            "kind": "export",
+            "signature": "export function buildInvoiceUrl(token: string): string {",
+            "line": 238,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/whatsapp/provider",
+            "target_component": "COMP-WHATSAPP-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "abb297f213efb397feafa795ee4f0e8217a36605",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Tell a customer their order is ready, and thank them once it is collected",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 241,
+          "member_count": 12,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/lib/whatsapp/whatsapp-service.ts#ShopIdentity",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "abb297f213efb397feafa795ee4f0e8217a36605",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

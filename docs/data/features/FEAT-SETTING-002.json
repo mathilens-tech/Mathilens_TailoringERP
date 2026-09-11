@@ -1,0 +1,194 @@
+{
+  "id": "FEAT-SETTING-002",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Settings Management",
+  "module": "SETTING",
+  "simple_explanation": "Settings Management — derived from the GetByKey, List, Upsert use cases in src/Application/Setting. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Settings/Commands/Upsert",
+      "src/Application/Settings/Queries/GetByKey",
+      "src/Application/Settings/Queries/List"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommand.cs",
+        "contains": "UpsertSettingCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandHandler.cs",
+        "contains": "UpsertSettingCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs",
+        "contains": "UpsertSettingCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "8 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 8,
+    "test_count": 10,
+    "requirement_count": 1,
+    "rule_count": 4,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Settings Management",
+    "use_cases": [
+      "GetByKey",
+      "List",
+      "Upsert"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/settings",
+        "policy": "Permissions.SettingsView",
+        "controller": "SettingsController",
+        "action": "List"
+      },
+      {
+        "method": "PUT",
+        "route": "/api/v1/settings/{key}",
+        "policy": "Permissions.SettingsEdit",
+        "controller": "SettingsController",
+        "action": "Upsert"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/settings/{key}",
+        "policy": "Permissions.SettingsView",
+        "controller": "SettingsController",
+        "action": "GetByKey"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/settings",
+      "/dashboard/settings/advanced",
+      "/dashboard/settings/appearance",
+      "/dashboard/settings/business-mode",
+      "/dashboard/settings/change-password",
+      "/dashboard/settings/garments",
+      "/dashboard/settings/invoice",
+      "/dashboard/settings/measurement-templates",
+      "/dashboard/settings/order-duration",
+      "/dashboard/settings/order-number",
+      "/dashboard/settings/tailoring-cost",
+      "/dashboard/settings/working-days"
+    ],
+    "permissions": [
+      "Permissions.SettingsEdit",
+      "Permissions.SettingsView"
+    ],
+    "derived_components": [
+      "COMP-SETTING-004",
+      "COMP-SETTING-005",
+      "COMP-SETTING-006",
+      "COMP-SETTING-008",
+      "COMP-SETTING-009",
+      "COMP-SETTING-010",
+      "COMP-SETTING-011",
+      "COMP-SETTING-012"
+    ],
+    "derived_test_cases": [
+      "TC-SETTING-003",
+      "TC-SETTING-004",
+      "TC-SETTING-005",
+      "TC-SETTING-006",
+      "TC-SETTING-007",
+      "TC-SETTING-008",
+      "TC-SETTING-009",
+      "TC-SETTING-010",
+      "TC-SETTING-011",
+      "TC-SETTING-012"
+    ],
+    "derived_rules": [
+      "BR-SETTING-002",
+      "BR-SETTING-003",
+      "BR-SETTING-004",
+      "BR-SETTING-005"
+    ],
+    "derived_requirements": [
+      "FR-SETTING-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/settings",
+    "GET /api/v1/settings/{key}",
+    "PUT /api/v1/settings/{key}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Settings/Commands/Upsert",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Settings/Queries/GetByKey",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Settings/Queries/List",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/settings",
+        "detail": "src/Api/Controllers/V1/SettingsController.cs",
+        "line": 55
+      },
+      {
+        "kind": "route",
+        "ref": "PUT /api/v1/settings/{key}",
+        "detail": "src/Api/Controllers/V1/SettingsController.cs",
+        "line": 35
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/settings/{key}",
+        "detail": "src/Api/Controllers/V1/SettingsController.cs",
+        "line": 45
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+  "change_history": []
+}

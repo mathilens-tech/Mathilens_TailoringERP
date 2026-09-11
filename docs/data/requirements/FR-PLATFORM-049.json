@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-049",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Never holds module-specific or business-specific logic — if it's specific to Orders,…",
+  "module": "PLATFORM",
+  "description": "Never holds module-specific or business-specific logic — if it's specific to Orders, it belongs in the Orders area of Domain/Application, not in Shared.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 9.5",
+    "section_title": "Shared Layer",
+    "parent_section": "§ 9",
+    "parent_section_title": "Layer Communication Rules",
+    "quote": "Never holds module-specific or business-specific logic — if it's specific to Orders, it belongs in the Orders area of Domain/Application, not in Shared.",
+    "line": 213,
+    "line_start": 213,
+    "line_end": 213,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 9.5",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 213
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

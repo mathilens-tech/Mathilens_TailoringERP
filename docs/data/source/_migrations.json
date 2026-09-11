@@ -1,0 +1,2058 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:25:57.496Z",
+  "harvester_version": "1.0.0",
+  "migrations": [
+    {
+      "id": "20260804193942_InitialCreate",
+      "name": "InitialCreate",
+      "timestamp": "20260804193942",
+      "path": "src/Infrastructure/Persistence/Migrations/20260804193942_InitialCreate.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 15,
+          "table": "RefreshTokens",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 36,
+          "table": "Roles",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 55,
+          "table": "Users",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 88,
+          "table": "RoleClaims",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 109,
+          "table": "UserClaims",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 130,
+          "table": "UserLogins",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 150,
+          "table": "UserRoles",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 174,
+          "table": "UserTokens",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 194,
+          "table": "RefreshTokens",
+          "column": null,
+          "name": "IX_RefreshTokens_TokenHash",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 200,
+          "table": "RefreshTokens",
+          "column": null,
+          "name": "IX_RefreshTokens_UserId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 205,
+          "table": "RoleClaims",
+          "column": null,
+          "name": "IX_RoleClaims_RoleId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 210,
+          "table": "Roles",
+          "column": null,
+          "name": "RoleNameIndex",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 216,
+          "table": "UserClaims",
+          "column": null,
+          "name": "IX_UserClaims_UserId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 221,
+          "table": "UserLogins",
+          "column": null,
+          "name": "IX_UserLogins_UserId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 226,
+          "table": "UserRoles",
+          "column": null,
+          "name": "IX_UserRoles_RoleId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 231,
+          "table": "Users",
+          "column": null,
+          "name": "EmailIndex",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 236,
+          "table": "Users",
+          "column": null,
+          "name": "IX_Users_IsDeleted",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 241,
+          "table": "Users",
+          "column": null,
+          "name": "UserNameIndex",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 251,
+          "table": "RefreshTokens",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 254,
+          "table": "RoleClaims",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 257,
+          "table": "UserClaims",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 260,
+          "table": "UserLogins",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 263,
+          "table": "UserRoles",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 266,
+          "table": "UserTokens",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 269,
+          "table": "Roles",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 272,
+          "table": "Users",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "RefreshTokens",
+        "RoleClaims",
+        "Roles",
+        "UserClaims",
+        "UserLogins",
+        "UserRoles",
+        "UserTokens",
+        "Users"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add database foundation: EF Core + PostgreSQL, ASP.NET Core Identity",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805060611_AddCustomers",
+      "name": "AddCustomers",
+      "timestamp": "20260805060611",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805060611_AddCustomers.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "Customers",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 38,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_FullName",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 43,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 52,
+          "table": "Customers",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Customers"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Customer Management backend (Phase 2, module 1 of 5)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805062723_AddMeasurements",
+      "name": "AddMeasurements",
+      "timestamp": "20260805062723",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805062723_AddMeasurements.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "MeasurementHistory",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 32,
+          "table": "Measurements",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 54,
+          "table": "MeasurementHistory",
+          "column": null,
+          "name": "IX_MeasurementHistory_CreatedAtUtc",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 59,
+          "table": "MeasurementHistory",
+          "column": null,
+          "name": "IX_MeasurementHistory_MeasurementId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 64,
+          "table": "Measurements",
+          "column": null,
+          "name": "IX_Measurements_CustomerId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 69,
+          "table": "Measurements",
+          "column": null,
+          "name": "IX_Measurements_CustomerId_GarmentType",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 78,
+          "table": "MeasurementHistory",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 81,
+          "table": "Measurements",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "MeasurementHistory",
+        "Measurements"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805063641_AddEmployees",
+      "name": "AddEmployees",
+      "timestamp": "20260805063641",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805063641_AddEmployees.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "Employees",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 44,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_IsDeleted",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 49,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_UserId",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 60,
+          "table": "Employees",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Employees"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805065242_AddOrders",
+      "name": "AddOrders",
+      "timestamp": "20260805065242",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805065242_AddOrders.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "Orders",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 49,
+          "table": "OrderItems",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 78,
+          "table": "FabricDetails",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 108,
+          "table": "FabricDetails",
+          "column": null,
+          "name": "IX_FabricDetails_OrderItemId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 114,
+          "table": "OrderItems",
+          "column": null,
+          "name": "IX_OrderItems_OrderId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 119,
+          "table": "Orders",
+          "column": null,
+          "name": "IX_Orders_CustomerId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 124,
+          "table": "Orders",
+          "column": null,
+          "name": "IX_Orders_EmployeeId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 129,
+          "table": "Orders",
+          "column": null,
+          "name": "IX_Orders_Status_DueAtUtc",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 138,
+          "table": "FabricDetails",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 141,
+          "table": "OrderItems",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 144,
+          "table": "Orders",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "FabricDetails",
+        "OrderItems",
+        "Orders"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Tailoring Orders + Fabric Details backend (Phase 2, modules 4-5 of 5)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805071012_AddBilling",
+      "name": "AddBilling",
+      "timestamp": "20260805071012",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805071012_AddBilling.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "Invoices",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 53,
+          "table": "Payments",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 77,
+          "table": "Invoices",
+          "column": null,
+          "name": "IX_Invoices_CustomerId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 82,
+          "table": "Invoices",
+          "column": null,
+          "name": "IX_Invoices_OrderId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 87,
+          "table": "Invoices",
+          "column": null,
+          "name": "IX_Invoices_Status_CreatedAtUtc",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 92,
+          "table": "Payments",
+          "column": null,
+          "name": "IX_Payments_CreatedAtUtc",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 97,
+          "table": "Payments",
+          "column": null,
+          "name": "IX_Payments_InvoiceId",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 106,
+          "table": "Payments",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 109,
+          "table": "Invoices",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Invoices",
+        "Payments"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805073016_AddWhatsAppMessages",
+      "name": "AddWhatsAppMessages",
+      "timestamp": "20260805073016",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805073016_AddWhatsAppMessages.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "WhatsAppMessages",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 52,
+          "table": "WhatsAppMessages",
+          "column": null,
+          "name": "IX_WhatsAppMessages_CustomerId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 57,
+          "table": "WhatsAppMessages",
+          "column": null,
+          "name": "IX_WhatsAppMessages_OrderId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 62,
+          "table": "WhatsAppMessages",
+          "column": null,
+          "name": "IX_WhatsAppMessages_Status_CreatedAtUtc",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 71,
+          "table": "WhatsAppMessages",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "WhatsAppMessages"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260805074231_AddSettings",
+      "name": "AddSettings",
+      "timestamp": "20260805074231",
+      "path": "src/Infrastructure/Persistence/Migrations/20260805074231_AddSettings.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "Settings",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 32,
+          "table": "Settings",
+          "column": null,
+          "name": "IX_Settings_Key",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 42,
+          "table": "Settings",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Settings"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "210b05db93972ebbd8302e55fd4ed88bc04fc939",
+        "last_commit_date": "2026-08-05",
+        "last_commit_subject": "Add Settings backend (Phase 3, module 3 of 4)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260808083232_AddClothPrices",
+      "name": "AddClothPrices",
+      "timestamp": "20260808083232",
+      "path": "src/Infrastructure/Persistence/Migrations/20260808083232_AddClothPrices.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "ClothPrices",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 37,
+          "table": "ClothPrices",
+          "column": null,
+          "name": "IX_ClothPrices_ClothCode",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 42,
+          "table": "ClothPrices",
+          "column": null,
+          "name": "IX_ClothPrices_IsDeleted",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 51,
+          "table": "ClothPrices",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "ClothPrices"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+        "last_commit_date": "2026-08-08",
+        "last_commit_subject": "Add Price Detail catalog (cloth code/name, cost/selling price)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260810070700_AddOrderNotes",
+      "name": "AddOrderNotes",
+      "timestamp": "20260810070700",
+      "path": "src/Infrastructure/Persistence/Migrations/20260810070700_AddOrderNotes.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 13,
+          "table": "Orders",
+          "column": "Notes",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 24,
+          "table": "Orders",
+          "column": "Notes",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Orders"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+        "last_commit_date": "2026-08-10",
+        "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260810094245_AddOrderDeliveredAt",
+      "name": "AddOrderDeliveredAt",
+      "timestamp": "20260810094245",
+      "path": "src/Infrastructure/Persistence/Migrations/20260810094245_AddOrderDeliveredAt.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 14,
+          "table": "Orders",
+          "column": "DeliveredAtUtc",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 24,
+          "table": "Orders",
+          "column": "DeliveredAtUtc",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Orders"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+        "last_commit_date": "2026-08-10",
+        "last_commit_subject": "Block delivery while payment is pending, add Orders & Collections report",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260810124950_AddCustomerProfileFields",
+      "name": "AddCustomerProfileFields",
+      "timestamp": "20260810124950",
+      "path": "src/Infrastructure/Persistence/Migrations/20260810124950_AddCustomerProfileFields.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 14,
+          "table": "Customers",
+          "column": "DateOfBirth",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 20,
+          "table": "Customers",
+          "column": "Gender",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 27,
+          "table": "Customers",
+          "column": "Religion",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 34,
+          "table": "Customers",
+          "column": "WeddingDate",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 40,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_Religion",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 49,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_Religion",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 53,
+          "table": "Customers",
+          "column": "DateOfBirth",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 57,
+          "table": "Customers",
+          "column": "Gender",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 61,
+          "table": "Customers",
+          "column": "Religion",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 65,
+          "table": "Customers",
+          "column": "WeddingDate",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Customers"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "b398251f8ae8ae64ff0d545401b69042a3892f58",
+        "last_commit_date": "2026-08-10",
+        "last_commit_subject": "Add delete guards, customer profile fields and order history (backend)",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260810135437_AddActivityLogs",
+      "name": "AddActivityLogs",
+      "timestamp": "20260810135437",
+      "path": "src/Infrastructure/Persistence/Migrations/20260810135437_AddActivityLogs.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "ActivityLogs",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 31,
+          "table": "ActivityLogs",
+          "column": null,
+          "name": "IX_ActivityLogs_OccurredAtUtc",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 36,
+          "table": "ActivityLogs",
+          "column": null,
+          "name": "IX_ActivityLogs_Screen",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 41,
+          "table": "ActivityLogs",
+          "column": null,
+          "name": "IX_ActivityLogs_UserId",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 50,
+          "table": "ActivityLogs",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "ActivityLogs"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+        "last_commit_date": "2026-08-10",
+        "last_commit_subject": "Add activity log with date, user and screen filters",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813051938_AddEmployeeCodeAndUniqueContactIndexes",
+      "name": "AddEmployeeCodeAndUniqueContactIndexes",
+      "timestamp": "20260813051938",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813051938_AddEmployeeCodeAndUniqueContactIndexes.cs",
+      "operations": [
+        {
+          "op": "DropIndex",
+          "direction": "up",
+          "line": 26,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 30,
+          "table": "Employees",
+          "column": "EmployeeCode",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 42,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 53,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_EmployeeCode",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 60,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 67,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 78,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_EmployeeCode",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 82,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 86,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 90,
+          "table": "Employees",
+          "column": "EmployeeCode",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "down",
+          "line": 94,
+          "table": "Customers",
+          "column": null,
+          "name": "IX_Customers_PhoneNumber",
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Customers",
+        "Employees"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813080744_AddActivityDescriptionAndRequiredEmployeePhone",
+      "name": "AddActivityDescriptionAndRequiredEmployeePhone",
+      "timestamp": "20260813080744",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813080744_AddActivityDescriptionAndRequiredEmployeePhone.cs",
+      "operations": [
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 26,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "DropIndex",
+          "direction": "up",
+          "line": 42,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "AlterColumn",
+          "direction": "up",
+          "line": 46,
+          "table": "Employees",
+          "column": "PhoneNumber",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 58,
+          "table": "ActivityLogs",
+          "column": "Description",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 65,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 76,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 80,
+          "table": "ActivityLogs",
+          "column": "Description",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AlterColumn",
+          "direction": "down",
+          "line": 84,
+          "table": "Employees",
+          "column": "PhoneNumber",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "down",
+          "line": 94,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_PhoneNumber",
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "ActivityLogs",
+        "Employees"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813085347_AddEmployeeLifecycleAndOrderWorkTimestamps",
+      "name": "AddEmployeeLifecycleAndOrderWorkTimestamps",
+      "timestamp": "20260813085347",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813085347_AddEmployeeLifecycleAndOrderWorkTimestamps.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 14,
+          "table": "Orders",
+          "column": "WorkCompletedAtUtc",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 20,
+          "table": "Orders",
+          "column": "WorkStartedAtUtc",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 26,
+          "table": "Employees",
+          "column": "EmploymentType",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 34,
+          "table": "Employees",
+          "column": "JoiningDate",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 41,
+          "table": "Employees",
+          "column": "LastWorkingDate",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 57,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 68,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_LastWorkingDate",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 77,
+          "table": "Employees",
+          "column": null,
+          "name": "IX_Employees_LastWorkingDate",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 81,
+          "table": "Orders",
+          "column": "WorkCompletedAtUtc",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 85,
+          "table": "Orders",
+          "column": "WorkStartedAtUtc",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 89,
+          "table": "Employees",
+          "column": "EmploymentType",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 93,
+          "table": "Employees",
+          "column": "JoiningDate",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 97,
+          "table": "Employees",
+          "column": "LastWorkingDate",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Employees",
+        "Orders"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813092738_AddClothReceipts",
+      "name": "AddClothReceipts",
+      "timestamp": "20260813092738",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813092738_AddClothReceipts.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "ClothReceipts",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 43,
+          "table": "ClothReceipts",
+          "column": null,
+          "name": "IX_ClothReceipts_ClothPriceId",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 48,
+          "table": "ClothReceipts",
+          "column": null,
+          "name": "IX_ClothReceipts_IsDeleted",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 53,
+          "table": "ClothReceipts",
+          "column": null,
+          "name": "IX_ClothReceipts_ReceivedOn",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 62,
+          "table": "ClothReceipts",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "ClothReceipts"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813100321_LinkOrderFabricToClothForStock",
+      "name": "LinkOrderFabricToClothForStock",
+      "timestamp": "20260813100321",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813100321_LinkOrderFabricToClothForStock.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 14,
+          "table": "FabricDetails",
+          "column": "ClothCode",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 21,
+          "table": "FabricDetails",
+          "column": "ClothPriceId",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 27,
+          "table": "FabricDetails",
+          "column": "Unit",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 39,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 48,
+          "table": "FabricDetails",
+          "column": null,
+          "name": "IX_FabricDetails_ClothPriceId",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 58,
+          "table": "FabricDetails",
+          "column": null,
+          "name": "IX_FabricDetails_ClothPriceId",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 62,
+          "table": "FabricDetails",
+          "column": "ClothCode",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 66,
+          "table": "FabricDetails",
+          "column": "ClothPriceId",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 70,
+          "table": "FabricDetails",
+          "column": "Unit",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "FabricDetails"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260813172014_AddOccasionContacts",
+      "name": "AddOccasionContacts",
+      "timestamp": "20260813172014",
+      "path": "src/Infrastructure/Persistence/Migrations/20260813172014_AddOccasionContacts.cs",
+      "operations": [
+        {
+          "op": "CreateTable",
+          "direction": "up",
+          "line": 14,
+          "table": "OccasionContacts",
+          "column": null,
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 44,
+          "table": "OccasionContacts",
+          "column": null,
+          "name": "IX_OccasionContacts_ContactedOn",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 49,
+          "table": "OccasionContacts",
+          "column": null,
+          "name": "IX_OccasionContacts_CustomerId_Occasion_OccasionYear",
+          "detail": null
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 56,
+          "table": "OccasionContacts",
+          "column": null,
+          "name": "IX_OccasionContacts_IsDeleted",
+          "detail": null
+        },
+        {
+          "op": "DropTable",
+          "direction": "down",
+          "line": 65,
+          "table": "OccasionContacts",
+          "column": null,
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "OccasionContacts"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+        "last_commit_date": "2026-08-13",
+        "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814060913_AddOrderNumbers",
+      "name": "AddOrderNumbers",
+      "timestamp": "20260814060913",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814060913_AddOrderNumbers.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 19,
+          "table": "Orders",
+          "column": "OrderNumber",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 30,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 41,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 59,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 68,
+          "table": "Orders",
+          "column": null,
+          "name": "IX_Orders_OrderNumber",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 78,
+          "table": "Orders",
+          "column": null,
+          "name": "IX_Orders_OrderNumber",
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 82,
+          "table": "Orders",
+          "column": "OrderNumber",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "down",
+          "line": 86,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        }
+      ],
+      "tables_touched": [
+        "Orders"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+        "last_commit_date": "2026-08-14",
+        "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814093357_AddActivityLogChanges",
+      "name": "AddActivityLogChanges",
+      "timestamp": "20260814093357",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814093357_AddActivityLogChanges.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 13,
+          "table": "ActivityLogs",
+          "column": "Changes",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 23,
+          "table": "ActivityLogs",
+          "column": "Changes",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "ActivityLogs"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+        "last_commit_date": "2026-08-14",
+        "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814094112_BackfillOrdersMissingNumbers",
+      "name": "BackfillOrdersMissingNumbers",
+      "timestamp": "20260814094112",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814094112_BackfillOrdersMissingNumbers.cs",
+      "operations": [
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 28,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        }
+      ],
+      "tables_touched": [],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+        "last_commit_date": "2026-08-14",
+        "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814122330_AddInvoiceNumbers",
+      "name": "AddInvoiceNumbers",
+      "timestamp": "20260814122330",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814122330_AddInvoiceNumbers.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 21,
+          "table": "Invoices",
+          "column": "InvoiceNumber",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 32,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 42,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 64,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "CreateIndex",
+          "direction": "up",
+          "line": 76,
+          "table": "Invoices",
+          "column": null,
+          "name": "IX_Invoices_InvoiceNumber",
+          "detail": null
+        },
+        {
+          "op": "DropIndex",
+          "direction": "down",
+          "line": 87,
+          "table": "Invoices",
+          "column": null,
+          "name": "IX_Invoices_InvoiceNumber",
+          "detail": null
+        },
+        {
+          "op": "Sql",
+          "direction": "down",
+          "line": 91,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 93,
+          "table": "Invoices",
+          "column": "InvoiceNumber",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Invoices"
+      ],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+        "last_commit_date": "2026-08-14",
+        "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814185132_NormalizeCustomerPhoneNumbers",
+      "name": "NormalizeCustomerPhoneNumbers",
+      "timestamp": "20260814185132",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814185132_NormalizeCustomerPhoneNumbers.cs",
+      "operations": [
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 35,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        }
+      ],
+      "tables_touched": [],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+        "last_commit_date": "2026-08-15",
+        "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260814191937_NormalizeEmployeePhoneNumbers",
+      "name": "NormalizeEmployeePhoneNumbers",
+      "timestamp": "20260814191937",
+      "path": "src/Infrastructure/Persistence/Migrations/20260814191937_NormalizeEmployeePhoneNumbers.cs",
+      "operations": [
+        {
+          "op": "Sql",
+          "direction": "up",
+          "line": 26,
+          "table": null,
+          "column": null,
+          "name": null,
+          "detail": "raw SQL executed — inspect the migration directly; not parsed"
+        }
+      ],
+      "tables_touched": [],
+      "raw_sql": true,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+        "last_commit_date": "2026-08-15",
+        "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260816113847_AddUserFullName",
+      "name": "AddUserFullName",
+      "timestamp": "20260816113847",
+      "path": "src/Infrastructure/Persistence/Migrations/20260816113847_AddUserFullName.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 13,
+          "table": "Users",
+          "column": "FullName",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 24,
+          "table": "Users",
+          "column": "FullName",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Users"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+        "last_commit_date": "2026-08-16",
+        "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+        "commit_count": 1
+      }
+    },
+    {
+      "id": "20260820034238_AddMeasurementNotes",
+      "name": "AddMeasurementNotes",
+      "timestamp": "20260820034238",
+      "path": "src/Infrastructure/Persistence/Migrations/20260820034238_AddMeasurementNotes.cs",
+      "operations": [
+        {
+          "op": "AddColumn",
+          "direction": "up",
+          "line": 13,
+          "table": "Measurements",
+          "column": "Notes",
+          "name": null,
+          "detail": null
+        },
+        {
+          "op": "DropColumn",
+          "direction": "down",
+          "line": 24,
+          "table": "Measurements",
+          "column": "Notes",
+          "name": null,
+          "detail": null
+        }
+      ],
+      "tables_touched": [
+        "Measurements"
+      ],
+      "raw_sql": false,
+      "git": {
+        "state": "COMMITTED",
+        "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+        "last_commit_date": "2026-08-20",
+        "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+        "commit_count": 1
+      }
+    }
+  ]
+}

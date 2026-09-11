@@ -1,0 +1,52 @@
+[Unit]
+Description=Mathilens Tailoring ERP API (test)
+Documentation=https://github.com/code-with-murali/Mathilens_TailoringERP
+After=network-online.target postgresql.service
+Wants=network-online.target
+Requires=postgresql.service
+
+[Service]
+# Type=simple, not notify: the app does not call UseSystemd(), so nothing ever sends systemd the
+# readiness signal that notify waits for, and startup would hang until the timeout.
+Type=simple
+User=mathilens
+Group=mathilens
+WorkingDirectory=/opt/mathilens-api
+ExecStart=/usr/bin/dotnet /opt/mathilens-api/MathilensERP.Api.dll
+
+# Kestrel binds loopback only; nginx is the only thing that talks to it, and binding publicly
+# would expose the API on :5000 alongside the TLS one nginx serves.
+Environment=ASPNETCORE_URLS=http://127.0.0.1:5000
+
+# Anything but Development, so Program.cs applies migrations and seeds roles on boot — the same
+# path a deployed App Service takes. Development would skip it and serve against whatever schema
+# happened to be there.
+Environment=ASPNETCORE_ENVIRONMENT=Test
+
+# Without this the app never learns the request arrived over HTTPS.
+#
+# nginx terminates TLS and proxies to Kestrel over plain HTTP on loopback, so Request.IsHttps is
+# false and app.UseHttpsRedirection() (Program.cs) answers 307 to the https URL — which nginx
+# proxies straight back as http. That is an infinite redirect, and it is the single most likely
+# way this deployment breaks on first boot. Enabling forwarded headers makes Kestrel read
+# X-Forwarded-Proto, which the nginx site sets. Default options trust loopback proxies only,
+# which is exactly nginx here.
+Environment=ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+
+Environment=DOTNET_PrintTelemetryMessage=false
+EnvironmentFile=/etc/mathilens/test.env
+
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+SyslogIdentifier=mathilens-api
+
+# The API needs to read its own directory and nothing else on the box.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/mathilens-api
+
+[Install]
+WantedBy=multi-user.target

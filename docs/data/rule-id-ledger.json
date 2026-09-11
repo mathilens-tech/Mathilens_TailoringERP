@@ -1,0 +1,1695 @@
+{
+  "schema_version": "1.0.0",
+  "prefix": "BR",
+  "next": {
+    "ACTIVITY": 6,
+    "AUTH": 5,
+    "BILLING": 18,
+    "CUSTOMER": 19,
+    "EMPLOYEE": 22,
+    "INVENTORY": 17,
+    "MEASUREMENT": 22,
+    "ORDER": 62,
+    "PLATFORM": 19,
+    "PRICING": 17,
+    "REPORT": 5,
+    "SETTING": 8,
+    "USER": 9,
+    "WHATSAPP": 10
+  },
+  "entries": {
+    "src/Api/Common/Excel/ExcelSheet.cs#domain-invariant#321d64": {
+      "id": "BR-PLATFORM-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ExcelSheet.cs#domain-invariant#ak6ra": {
+      "id": "BR-PLATFORM-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ExcelSheet.cs#domain-invariant#lr2jm4": {
+      "id": "BR-PLATFORM-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ExcelSheet.cs#domain-invariant#yrq8uq": {
+      "id": "BR-PLATFORM-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Api/Common/Excel/ImportLimits.cs#constant#4i12rs": {
+      "id": "BR-PLATFORM-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-ACTIVITY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-ACTIVITY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#fluent-validation#oo89mj": {
+      "id": "BR-ACTIVITY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Login/LoginCommandValidator.cs#fluent-validation#k96iwo": {
+      "id": "BR-AUTH-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Login/LoginCommandValidator.cs#fluent-validation#wisjrj": {
+      "id": "BR-AUTH-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidator.cs#fluent-validation#7uy0k8": {
+      "id": "BR-AUTH-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Register/RegisterCommandValidator.cs#fluent-validation#ao7ono": {
+      "id": "BR-AUTH-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Auth/Commands/Register/RegisterCommandValidator.cs#fluent-validation#c5mf19": {
+      "id": "BR-AUTH-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-BILLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#fluent-validation#5kv6k6": {
+      "id": "BR-BILLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#fluent-validation#p4dyb8": {
+      "id": "BR-BILLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#fluent-validation#a43ecb": {
+      "id": "BR-BILLING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#fluent-validation#b8rstv": {
+      "id": "BR-BILLING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#fluent-validation#ovhrz6": {
+      "id": "BR-BILLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs#fluent-validation#ovhrz6": {
+      "id": "BR-BILLING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-BILLING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#fluent-validation#cvd0mk": {
+      "id": "BR-BILLING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#fluent-validation#fq9oo": {
+      "id": "BR-BILLING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-BILLING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#fluent-validation#d3mb9y": {
+      "id": "BR-CUSTOMER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#fluent-validation#josncr": {
+      "id": "BR-CUSTOMER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#fluent-validation#p10ev8": {
+      "id": "BR-CUSTOMER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#fluent-validation#u67l0y": {
+      "id": "BR-CUSTOMER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#fluent-validation#yroxri": {
+      "id": "BR-CUSTOMER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Import/ImportCustomersCommandValidator.cs#fluent-validation#4faj28": {
+      "id": "BR-CUSTOMER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#d3mb9y": {
+      "id": "BR-CUSTOMER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#josncr": {
+      "id": "BR-CUSTOMER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#p10ev8": {
+      "id": "BR-CUSTOMER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-CUSTOMER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#u67l0y": {
+      "id": "BR-CUSTOMER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#fluent-validation#yroxri": {
+      "id": "BR-CUSTOMER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-CUSTOMER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-CUSTOMER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#fluent-validation#xn99mq": {
+      "id": "BR-CUSTOMER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#1nxm81": {
+      "id": "BR-EMPLOYEE-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#7qmbu9": {
+      "id": "BR-EMPLOYEE-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#9l0byx": {
+      "id": "BR-EMPLOYEE-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#d3mb9y": {
+      "id": "BR-EMPLOYEE-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#p10ev8": {
+      "id": "BR-EMPLOYEE-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#qmguvc": {
+      "id": "BR-EMPLOYEE-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#fluent-validation#u67l0y": {
+      "id": "BR-EMPLOYEE-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs#fluent-validation#4faj28": {
+      "id": "BR-EMPLOYEE-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#1nxm81": {
+      "id": "BR-EMPLOYEE-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#7qmbu9": {
+      "id": "BR-EMPLOYEE-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#9l0byx": {
+      "id": "BR-EMPLOYEE-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#d3mb9y": {
+      "id": "BR-EMPLOYEE-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#p10ev8": {
+      "id": "BR-EMPLOYEE-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#qmguvc": {
+      "id": "BR-EMPLOYEE-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-EMPLOYEE-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#fluent-validation#u67l0y": {
+      "id": "BR-EMPLOYEE-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-EMPLOYEE-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-EMPLOYEE-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#fluent-validation#xn99mq": {
+      "id": "BR-EMPLOYEE-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#2wygam": {
+      "id": "BR-INVENTORY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#5dzn6j": {
+      "id": "BR-INVENTORY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#ifvla2": {
+      "id": "BR-INVENTORY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#josncr": {
+      "id": "BR-INVENTORY-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#m7j7ko": {
+      "id": "BR-INVENTORY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#slj1t2": {
+      "id": "BR-INVENTORY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#widuye": {
+      "id": "BR-INVENTORY-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Commands/Receive/ReceiveClothCommandValidator.cs#fluent-validation#wx4op": {
+      "id": "BR-INVENTORY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-INVENTORY-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#fluent-validation#fq9oo": {
+      "id": "BR-INVENTORY-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Search/SearchClothReceiptsQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-INVENTORY-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-INVENTORY-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Inventory/Queries/Stock/GetStockSummaryQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-INVENTORY-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#fluent-validation#905ymu": {
+      "id": "BR-MEASUREMENT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#fluent-validation#dzu148": {
+      "id": "BR-MEASUREMENT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#fluent-validation#ey1arz": {
+      "id": "BR-MEASUREMENT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#fluent-validation#905ymu": {
+      "id": "BR-MEASUREMENT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-MEASUREMENT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-MEASUREMENT-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-MEASUREMENT-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#fluent-validation#jlz9pp": {
+      "id": "BR-MEASUREMENT-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#fluent-validation#31nbmo": {
+      "id": "BR-MEASUREMENT-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#fluent-validation#34g39q": {
+      "id": "BR-MEASUREMENT-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#fluent-validation#dzu148": {
+      "id": "BR-MEASUREMENT-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Measurements/Templates/MeasurementPointDto.cs#domain-invariant#2xub5h": {
+      "id": "BR-MEASUREMENT-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#fluent-validation#3qt8pe": {
+      "id": "BR-ORDER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#fluent-validation#dzu148": {
+      "id": "BR-ORDER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#fluent-validation#y8i3e0": {
+      "id": "BR-ORDER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs#fluent-validation#x91zdt": {
+      "id": "BR-ORDER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#2znt96": {
+      "id": "BR-ORDER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#3qt8pe": {
+      "id": "BR-ORDER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#5s8vrx": {
+      "id": "BR-ORDER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#dzu148": {
+      "id": "BR-ORDER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#ey1arz": {
+      "id": "BR-ORDER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#geg1zj": {
+      "id": "BR-ORDER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#josncr": {
+      "id": "BR-ORDER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#nwrio3": {
+      "id": "BR-ORDER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#qxdym3": {
+      "id": "BR-ORDER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#r2xgnp": {
+      "id": "BR-ORDER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#v241ci": {
+      "id": "BR-ORDER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#x8zc6y": {
+      "id": "BR-ORDER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#fluent-validation#y8i3e0": {
+      "id": "BR-ORDER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Delete/DeleteOrderCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-ORDER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs#fluent-validation#tdvd2u": {
+      "id": "BR-ORDER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#2znt96": {
+      "id": "BR-ORDER-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#5s8vrx": {
+      "id": "BR-ORDER-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#geg1zj": {
+      "id": "BR-ORDER-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#r2xgnp": {
+      "id": "BR-ORDER-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#fluent-validation#tdvd2u": {
+      "id": "BR-ORDER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#fluent-validation#2zr73v": {
+      "id": "BR-ORDER-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#fluent-validation#t2nifo": {
+      "id": "BR-ORDER-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#fluent-validation#ey1arz": {
+      "id": "BR-ORDER-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#fluent-validation#josncr": {
+      "id": "BR-ORDER-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-ORDER-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#fluent-validation#x8zc6y": {
+      "id": "BR-ORDER-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#fluent-validation#3qt8pe": {
+      "id": "BR-ORDER-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#fluent-validation#3uc1rz": {
+      "id": "BR-ORDER-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#fluent-validation#dzu148": {
+      "id": "BR-ORDER-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#fluent-validation#tdvd2u": {
+      "id": "BR-ORDER-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#fluent-validation#y8i3e0": {
+      "id": "BR-ORDER-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-ORDER-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#fluent-validation#cvd0mk": {
+      "id": "BR-ORDER-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-ORDER-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#fluent-validation#6y1a7l": {
+      "id": "BR-PRICING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#fluent-validation#75c5aj": {
+      "id": "BR-PRICING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#fluent-validation#twp0wc": {
+      "id": "BR-PRICING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#fluent-validation#yvacfh": {
+      "id": "BR-PRICING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs#fluent-validation#4faj28": {
+      "id": "BR-PRICING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#fluent-validation#6y1a7l": {
+      "id": "BR-PRICING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#fluent-validation#75c5aj": {
+      "id": "BR-PRICING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#fluent-validation#scndkh": {
+      "id": "BR-PRICING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#fluent-validation#twp0wc": {
+      "id": "BR-PRICING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#fluent-validation#yvacfh": {
+      "id": "BR-PRICING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-PRICING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-PRICING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#fluent-validation#xn99mq": {
+      "id": "BR-PRICING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs#fluent-validation#oo89mj": {
+      "id": "BR-REPORT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidator.cs#fluent-validation#oo89mj": {
+      "id": "BR-REPORT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-REPORT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-REPORT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidator.cs#fluent-validation#oo89mj": {
+      "id": "BR-REPORT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Delete/DeleteSettingCommandValidator.cs#fluent-validation#52e9rh": {
+      "id": "BR-SETTING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#fluent-validation#pz8jbn": {
+      "id": "BR-SETTING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Commands/Upsert/UpsertSettingCommandValidator.cs#fluent-validation#sp9e13": {
+      "id": "BR-SETTING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-SETTING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/Settings/Queries/List/ListSettingsQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-SETTING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#fluent-validation#b322er": {
+      "id": "BR-WHATSAPP-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#fluent-validation#ey1arz": {
+      "id": "BR-WHATSAPP-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidator.cs#fluent-validation#qwyuj7": {
+      "id": "BR-WHATSAPP-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#fluent-validation#82d1im": {
+      "id": "BR-WHATSAPP-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#fluent-validation#cvd0mk": {
+      "id": "BR-WHATSAPP-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidator.cs#fluent-validation#h7362a": {
+      "id": "BR-WHATSAPP-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Activity/ActivityLog.cs#guard-clause#2ed24y": {
+      "id": "BR-ACTIVITY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Activity/ActivityLog.cs#guard-clause#3niddu": {
+      "id": "BR-ACTIVITY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Activity/ActivityLog.cs#guard-clause#lg13c": {
+      "id": "BR-ACTIVITY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Invoice.cs#domain-invariant#nnla91": {
+      "id": "BR-BILLING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Invoice.cs#guard-clause#kge2wf": {
+      "id": "BR-BILLING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Invoice.cs#guard-clause#yje1r3": {
+      "id": "BR-BILLING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Payment.cs#guard-clause#3zdd0i": {
+      "id": "BR-BILLING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Payment.cs#guard-clause#be9loe": {
+      "id": "BR-BILLING-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Payment.cs#guard-clause#qo8683": {
+      "id": "BR-BILLING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Billing/Payment.cs#guard-clause#uv0aat": {
+      "id": "BR-BILLING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/AuditableEntity.cs#guard-clause#80oqoh": {
+      "id": "BR-PLATFORM-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/AuditableEntity.cs#guard-clause#be9loe": {
+      "id": "BR-PLATFORM-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/AuditableEntity.cs#guard-clause#qo8683": {
+      "id": "BR-PLATFORM-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Common/AuditableEntity.cs#guard-clause#xzc45q": {
+      "id": "BR-PLATFORM-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/Customer.cs#guard-clause#6nrccy": {
+      "id": "BR-CUSTOMER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/Customer.cs#guard-clause#6uvqnh": {
+      "id": "BR-CUSTOMER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/OccasionContact.cs#guard-clause#98vq5l": {
+      "id": "BR-CUSTOMER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Customers/OccasionContact.cs#guard-clause#kge2wf": {
+      "id": "BR-CUSTOMER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Employees/Employee.cs#guard-clause#6nrccy": {
+      "id": "BR-EMPLOYEE-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Employees/Employee.cs#guard-clause#6uvqnh": {
+      "id": "BR-EMPLOYEE-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Employees/Employee.cs#guard-clause#eh23pt": {
+      "id": "BR-EMPLOYEE-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Identity/RefreshToken.cs#guard-clause#76q7y1": {
+      "id": "BR-USER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Identity/RefreshToken.cs#guard-clause#be9loe": {
+      "id": "BR-USER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Identity/RefreshToken.cs#guard-clause#iuhbss": {
+      "id": "BR-USER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Identity/RefreshToken.cs#guard-clause#qo8683": {
+      "id": "BR-USER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothReceipt.cs#guard-clause#60kuhn": {
+      "id": "BR-INVENTORY-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothReceipt.cs#guard-clause#th4xa0": {
+      "id": "BR-INVENTORY-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothReceipt.cs#guard-clause#uvpw03": {
+      "id": "BR-INVENTORY-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Inventory/ClothReceipt.cs#guard-clause#z6taj8": {
+      "id": "BR-INVENTORY-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#domain-invariant#905ymu": {
+      "id": "BR-MEASUREMENT-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#guard-clause#2640dy": {
+      "id": "BR-MEASUREMENT-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#guard-clause#2qi4j1": {
+      "id": "BR-MEASUREMENT-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#guard-clause#f0np1a": {
+      "id": "BR-MEASUREMENT-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#guard-clause#jtbmw2": {
+      "id": "BR-MEASUREMENT-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/Measurement.cs#guard-clause#kge2wf": {
+      "id": "BR-MEASUREMENT-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementHistory.cs#guard-clause#be9loe": {
+      "id": "BR-MEASUREMENT-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementHistory.cs#guard-clause#lg2fl0": {
+      "id": "BR-MEASUREMENT-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementHistory.cs#guard-clause#qo8683": {
+      "id": "BR-MEASUREMENT-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Measurements/MeasurementValue.cs#domain-invariant#do8vqt": {
+      "id": "BR-MEASUREMENT-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/FabricDetails.cs#guard-clause#4cgao7": {
+      "id": "BR-ORDER-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/FabricDetails.cs#guard-clause#th4xa0": {
+      "id": "BR-ORDER-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/FabricDetails.cs#guard-clause#vxyit2": {
+      "id": "BR-ORDER-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#4f38rw": {
+      "id": "BR-ORDER-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#552hd7": {
+      "id": "BR-ORDER-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#juufwd": {
+      "id": "BR-ORDER-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#q0aihz": {
+      "id": "BR-ORDER-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#rkivay": {
+      "id": "BR-ORDER-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#domain-invariant#wuo7u9": {
+      "id": "BR-ORDER-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#guard-clause#gy7f9b": {
+      "id": "BR-ORDER-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#guard-clause#kge2wf": {
+      "id": "BR-ORDER-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#4jq5zv": {
+      "id": "BR-ORDER-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#5ycxt2": {
+      "id": "BR-ORDER-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#a77hvn": {
+      "id": "BR-ORDER-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#d9yzqo": {
+      "id": "BR-ORDER-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#ea1ir1": {
+      "id": "BR-ORDER-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/Order.cs#state-table#ux9y4f": {
+      "id": "BR-ORDER-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/OrderItem.cs#guard-clause#c0p6pm": {
+      "id": "BR-ORDER-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Orders/OrderItem.cs#guard-clause#yje1r3": {
+      "id": "BR-ORDER-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Pricing/ClothPrice.cs#guard-clause#60kuhn": {
+      "id": "BR-PRICING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Pricing/ClothPrice.cs#guard-clause#76abwa": {
+      "id": "BR-PRICING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Pricing/ClothPrice.cs#guard-clause#aymyar": {
+      "id": "BR-PRICING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Pricing/ClothPrice.cs#guard-clause#uvpw03": {
+      "id": "BR-PRICING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Settings/Setting.cs#guard-clause#be9loe": {
+      "id": "BR-SETTING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Settings/Setting.cs#guard-clause#qo8683": {
+      "id": "BR-SETTING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/Settings/Setting.cs#guard-clause#rg8en": {
+      "id": "BR-SETTING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessage.cs#guard-clause#3lv0cr": {
+      "id": "BR-WHATSAPP-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessage.cs#guard-clause#i40oy3": {
+      "id": "BR-WHATSAPP-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessage.cs#guard-clause#kge2wf": {
+      "id": "BR-WHATSAPP-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Domain/WhatsApp/WhatsAppMessage.cs#guard-clause#y8nqj0": {
+      "id": "BR-WHATSAPP-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationRole.cs#guard-clause#be9loe": {
+      "id": "BR-USER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationRole.cs#guard-clause#qo8683": {
+      "id": "BR-USER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationUser.cs#guard-clause#be9loe": {
+      "id": "BR-USER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationUser.cs#guard-clause#qo8683": {
+      "id": "BR-USER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Infrastructure/Identity/ApplicationUser.cs#guard-clause#xzc45q": {
+      "id": "BR-USER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/OrderLimits.cs#constant#isit8w": {
+      "id": "BR-PLATFORM-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/PaginationDefaults.cs#constant#9twcw7": {
+      "id": "BR-PLATFORM-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/PaginationDefaults.cs#constant#htj3jv": {
+      "id": "BR-PLATFORM-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/PaginationDefaults.cs#constant#jv40c3": {
+      "id": "BR-PLATFORM-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Constants/UserNameRules.cs#constant#u1sd47": {
+      "id": "BR-PLATFORM-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Guards/Guard.cs#domain-invariant#2hztma": {
+      "id": "BR-PLATFORM-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Guards/Guard.cs#domain-invariant#5ql2ob": {
+      "id": "BR-PLATFORM-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Result.cs#domain-invariant#3um3c1": {
+      "id": "BR-PLATFORM-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Result.cs#domain-invariant#dwjox7": {
+      "id": "BR-PLATFORM-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "src/Shared/Results/Result.cs#domain-invariant#y6qrak": {
+      "id": "BR-PLATFORM-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    }
+  }
+}

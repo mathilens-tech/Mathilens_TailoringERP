@@ -1,0 +1,133 @@
+{
+  "id": "FEAT-REPORT-003",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Reports Outstanding Invoice Reporting",
+  "module": "REPORT",
+  "simple_explanation": "Reports Outstanding Invoice Reporting — derived from the OutstandingInvoices use case in src/Application/Report. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Reports/Queries/OutstandingInvoices"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQuery.cs",
+        "contains": "GetOutstandingInvoicesReportQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandler.cs",
+        "contains": "GetOutstandingInvoicesReportQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidator.cs",
+        "contains": "GetOutstandingInvoicesReportQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 3,
+    "requirement_count": 2,
+    "rule_count": 2,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Outstanding Invoice Reporting",
+    "use_cases": [
+      "OutstandingInvoices"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/reports/outstanding-invoices",
+        "policy": "Permissions.ReportsView",
+        "controller": "ReportsController",
+        "action": "OutstandingInvoices"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/reports",
+      "/dashboard/reports/birthday",
+      "/dashboard/reports/order-collections",
+      "/dashboard/reports/order-status",
+      "/dashboard/reports/outstanding-invoices",
+      "/dashboard/reports/revenue",
+      "/dashboard/reports/wedding"
+    ],
+    "permissions": [
+      "Permissions.ReportsView"
+    ],
+    "derived_components": [
+      "COMP-REPORT-008",
+      "COMP-REPORT-009",
+      "COMP-REPORT-010"
+    ],
+    "derived_test_cases": [
+      "TC-REPORT-008",
+      "TC-REPORT-009",
+      "TC-REPORT-010"
+    ],
+    "derived_rules": [
+      "BR-REPORT-003",
+      "BR-REPORT-004"
+    ],
+    "derived_requirements": [
+      "FR-REPORT-001",
+      "FR-REPORT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/reports/outstanding-invoices"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Reports/Queries/OutstandingInvoices",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/reports/outstanding-invoices",
+        "detail": "src/Api/Controllers/V1/ReportsController.cs",
+        "line": 179
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "5b6084f22f75d7a67d6dd7cf227e4eab6e0fd403",
+  "change_history": []
+}

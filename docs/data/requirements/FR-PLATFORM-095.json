@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-095",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Why this is deferred, not designed now: adding TenantId to every entity before there…",
+  "module": "PLATFORM",
+  "description": "Why this is deferred, not designed now: adding TenantId to every entity before there is a second tenant sharing infrastructure would be speculative schema complexity with no current user, which 00MASTERSPEC.md § 4.5 YAGNI explicitly rules out.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "NEEDS_REVIEW",
+  "requirement_type_evidence": "clause is open-ended or undecided",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 14",
+    "section_title": "Future Multi-Tenant Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Why this is deferred, not designed now: adding TenantId to every entity before there is a second tenant sharing infrastructure would be speculative schema complexity with no current user, which 00MASTERSPEC.md § 4.5 YAGNI explicitly rules out.",
+    "line": 470,
+    "line_start": 470,
+    "line_end": 470,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "needs-review",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "NEEDS_REVIEW",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 14",
+        "detail": "docs/02_DATABASE.md",
+        "line": 470
+      }
+    ],
+    "notes": "Clause is open-ended or marked undecided in the source document."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-063",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "TenantId will be resolved once per request from the authenticated user's claims (17.…",
+  "module": "PLATFORM",
+  "description": "TenantId will be resolved once per request from the authenticated user's claims (17. Authentication Flow) and injected into the DbContext — never accepted as client-supplied input.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "security",
+  "requirement_type_evidence": "clause uses \"authenticated\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 24",
+    "section_title": "Future Multi-Tenant Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "TenantId will be resolved once per request from the authenticated user's claims (17. Authentication Flow) and injected into the DbContext — never accepted as client-supplied input.",
+    "line": 350,
+    "line_start": 350,
+    "line_end": 350,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 24",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 350
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

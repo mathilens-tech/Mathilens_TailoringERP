@@ -1,0 +1,100 @@
+{
+  "id": "FEAT-AUTH-001",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "Authentication Password Change",
+  "module": "AUTH",
+  "simple_explanation": "Authentication Password Change — derived from the ChangePassword use case in src/Application/Auth. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Auth/Commands/ChangePassword"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/ChangePassword/ChangePasswordCommand.cs",
+        "contains": "ChangePasswordCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Auth/Commands/ChangePassword/ChangePasswordCommandHandler.cs",
+        "contains": "ChangePasswordCommandHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "2 component(s) and 6 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 2,
+    "test_count": 0,
+    "requirement_count": 6,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Password Change",
+    "use_cases": [
+      "ChangePassword"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/login",
+      "/register"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-AUTH-001",
+      "COMP-AUTH-002"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [],
+    "derived_requirements": [
+      "FR-AUTH-001",
+      "FR-AUTH-002",
+      "FR-AUTH-003",
+      "FR-AUTH-004",
+      "FR-AUTH-005",
+      "FR-AUTH-006"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "b3359f9f0b850369144e4121fe57d68b250805a8",
+      "last_commit_date": "2026-08-13"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Auth/Commands/ChangePassword",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "b3359f9f0b850369144e4121fe57d68b250805a8",
+  "change_history": []
+}

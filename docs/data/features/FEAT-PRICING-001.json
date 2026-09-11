@@ -1,0 +1,135 @@
+{
+  "id": "FEAT-PRICING-001",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Cloth Pricing Import & Export",
+  "module": "PRICING",
+  "simple_explanation": "Cloth Pricing Import & Export — derived from the Import use case in src/Application/Pricing. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Pricing/Commands/Import"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs",
+        "contains": "ImportClothPricesCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommand.cs",
+        "contains": "ClothPriceImportRow",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandHandler.cs",
+        "contains": "ImportClothPricesCommandHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "4 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 4,
+    "test_count": 0,
+    "requirement_count": 0,
+    "rule_count": 1,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Import & Export",
+    "use_cases": [
+      "Import"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/cloth-prices/export",
+        "policy": "Permissions.PricingView",
+        "controller": "ClothPricesController",
+        "action": "Export"
+      },
+      {
+        "method": "POST",
+        "route": "/api/v1/cloth-prices/import",
+        "policy": "Permissions.PricingImport",
+        "controller": "ClothPricesController",
+        "action": "Import"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/price-detail"
+    ],
+    "permissions": [
+      "Permissions.PricingImport",
+      "Permissions.PricingView"
+    ],
+    "derived_components": [
+      "COMP-PRICING-008",
+      "COMP-PRICING-009",
+      "COMP-PRICING-010",
+      "COMP-PRICING-011"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [
+      "BR-PRICING-005"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "last_commit_date": "2026-08-10"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/cloth-prices/export",
+    "POST /api/v1/cloth-prices/import"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Pricing/Commands/Import",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/cloth-prices/export",
+        "detail": "src/Api/Controllers/V1/ClothPricesController.cs",
+        "line": 40
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/cloth-prices/import",
+        "detail": "src/Api/Controllers/V1/ClothPricesController.cs",
+        "line": 72
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+  "change_history": []
+}

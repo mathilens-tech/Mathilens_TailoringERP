@@ -1,0 +1,2160 @@
+{
+  "module": "ACTIVITY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-ACTIVITY-001",
+      "name": "ActivityDescriptionBuilder",
+      "kind": "class",
+      "path": "src/Application/Activity/ActivityDescriptionBuilder.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public static class ActivityDescriptionBuilder",
+        "line": 20,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Describe",
+            "kind": "method",
+            "signature": "public static string? Describe(object? request)",
+            "line": 25,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ActivityValues",
+            "target_component": "COMP-ACTIVITY-007",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/ActivityDescriptionBuilder.cs",
+              "line": 49,
+              "expression": "ActivityValues.Humanize(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "515a30b8dc9050147cdbb289d293767b6ca086f0",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Make the Activity Log read as one line per action, in the shop's own words",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 84,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityDescriptionBuilder.cs#ActivityDescriptionBuilder",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "515a30b8dc9050147cdbb289d293767b6ca086f0",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-ACTIVITY-002",
+      "name": "ActivityDescriptor",
+      "kind": "class",
+      "path": "src/Application/Activity/ActivityDescriptor.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public static partial class ActivityDescriptor",
+        "line": 13,
+        "modifiers": [
+          "public",
+          "static",
+          "partial"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ScreenFor",
+            "kind": "method",
+            "signature": "public static string ScreenFor(Type requestType)",
+            "line": 22,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ActionFor",
+            "kind": "method",
+            "signature": "public static string ActionFor(Type requestType)",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PascalCaseBoundary",
+            "kind": "method",
+            "signature": "private static partial Regex PascalCaseBoundary()",
+            "line": 53,
+            "modifiers": [
+              "private",
+              "static",
+              "partial"
+            ],
+            "attributes": [
+              "GeneratedRegex(@\"(?<!^)([A-Z][a-z]+|[A-Z]+(?![a-z]))\")"
+            ]
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 55,
+          "member_count": 3,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityDescriptor.cs#ActivityDescriptor",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-003",
+      "name": "ActivityLogDto",
+      "kind": "dto",
+      "path": "src/Application/Activity/ActivityLogDtos.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public sealed record ActivityLogDto( Guid Id, Guid? UserId, string? UserName, string Screen, string Action, string RequestName, string? Description, /// <summary>What each edited field was and became. Empty for a create or a delete, which have only one side.</summary> IReadOnlyList<ActivityChangeDto> Changes, DateTime OccurredAtUtc);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "Guid? UserId",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserName",
+            "kind": "property",
+            "signature": "string? UserName",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Screen",
+            "kind": "property",
+            "signature": "string Screen",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Action",
+            "kind": "property",
+            "signature": "string Action",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RequestName",
+            "kind": "property",
+            "signature": "string RequestName",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Description",
+            "kind": "property",
+            "signature": "string? Description",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Changes",
+            "kind": "property",
+            "signature": "IReadOnlyList<ActivityChangeDto> Changes",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccurredAtUtc",
+            "kind": "property",
+            "signature": "DateTime OccurredAtUtc",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<ActivityChangeDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 9,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityLogDtos.cs#ActivityLogDto",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-004",
+      "name": "ActivityChangeDto",
+      "kind": "dto",
+      "path": "src/Application/Activity/ActivityLogDtos.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public sealed record ActivityChangeDto(string Entity, string Field, string? From, string? To);",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Entity",
+            "kind": "property",
+            "signature": "string Entity",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Field",
+            "kind": "property",
+            "signature": "string Field",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "From",
+            "kind": "property",
+            "signature": "string? From",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "To",
+            "kind": "property",
+            "signature": "string? To",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityLogDtos.cs#ActivityChangeDto",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-005",
+      "name": "ActivityLogFiltersDto",
+      "kind": "dto",
+      "path": "src/Application/Activity/ActivityLogDtos.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public sealed record ActivityLogFiltersDto(IReadOnlyList<string> Screens, IReadOnlyList<ActivityLogUserDto> Users);",
+        "line": 19,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Screens",
+            "kind": "property",
+            "signature": "IReadOnlyList<string> Screens",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Users",
+            "kind": "property",
+            "signature": "IReadOnlyList<ActivityLogUserDto> Users",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<string>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<ActivityLogUserDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityLogDtos.cs#ActivityLogFiltersDto",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-006",
+      "name": "ActivityLogUserDto",
+      "kind": "dto",
+      "path": "src/Application/Activity/ActivityLogDtos.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public sealed record ActivityLogUserDto(Guid UserId, string UserName);",
+        "line": 21,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "Guid UserId",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserName",
+            "kind": "property",
+            "signature": "string UserName",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityLogDtos.cs#ActivityLogUserDto",
+            "line": 21
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-007",
+      "name": "ActivityValues",
+      "kind": "class",
+      "path": "src/Application/Activity/ActivityValues.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public static partial class ActivityValues",
+        "line": 13,
+        "modifiers": [
+          "public",
+          "static",
+          "partial"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "IsSecret",
+            "kind": "method",
+            "signature": "public static bool IsSecret(string propertyName) =>",
+            "line": 27,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Format",
+            "kind": "method",
+            "signature": "public static string? Format(object? value) => value switch",
+            "line": 38,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Humanize",
+            "kind": "method",
+            "signature": "public static string Humanize(string name) => PascalCaseBoundary().Replace(name, \" $1\").Trim()",
+            "line": 54,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Count",
+            "kind": "method",
+            "signature": "private static int Count(IEnumerable enumerable)",
+            "line": 56,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PascalCaseBoundary",
+            "kind": "method",
+            "signature": "private static partial Regex PascalCaseBoundary()",
+            "line": 73,
+            "modifiers": [
+              "private",
+              "static",
+              "partial"
+            ],
+            "attributes": [
+              "GeneratedRegex(@\"(?<!^)([A-Z][a-z]+|[A-Z]+(?![a-z]))\")"
+            ]
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "SecretNameFragments",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/ActivityValues.cs",
+              "line": 28,
+              "expression": "SecretNameFragments.Any(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "515a30b8dc9050147cdbb289d293767b6ca086f0",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Make the Activity Log read as one line per action, in the shop's own words",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 75,
+          "member_count": 5,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/ActivityValues.cs#ActivityValues",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "515a30b8dc9050147cdbb289d293767b6ca086f0",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-ACTIVITY-008",
+      "name": "EntityChange",
+      "kind": "record",
+      "path": "src/Application/Activity/EntityChange.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public sealed record EntityChange(string Entity, string Field, string? From, string? To);",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Entity",
+            "kind": "property",
+            "signature": "string Entity",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Field",
+            "kind": "property",
+            "signature": "string Field",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "From",
+            "kind": "property",
+            "signature": "string? From",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "To",
+            "kind": "property",
+            "signature": "string? To",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/EntityChange.cs#EntityChange",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-009",
+      "name": "IEntityChangeCollector",
+      "kind": "port",
+      "path": "src/Application/Activity/EntityChange.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public interface IEntityChangeCollector",
+        "line": 23,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Record",
+            "kind": "method",
+            "signature": "void Record(IEnumerable<EntityChange> changes)",
+            "line": 25,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Drain",
+            "kind": "method",
+            "signature": "IReadOnlyList<EntityChange> Drain()",
+            "line": 28,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/EntityChange.cs#IEntityChangeCollector",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-010",
+      "name": "IActivityLogRepository",
+      "kind": "port",
+      "path": "src/Application/Activity/IActivityLogRepository.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity",
+        "declaration": "public interface IActivityLogRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "AddAsync",
+            "kind": "method",
+            "signature": "Task AddAsync(ActivityLog activityLog, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<ActivityLog>> SearchAsync(",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ListScreensAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<string>> ListScreensAsync(CancellationToken cancellationToken)",
+            "line": 21,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 3,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/IActivityLogRepository.cs#IActivityLogRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-ACTIVITY-011",
+      "name": "GetActivityLogFiltersQuery",
+      "kind": "query",
+      "path": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQuery.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity.Queries.Filters",
+        "declaration": "public sealed record GetActivityLogFiltersQuery : IQuery<Result<ActivityLogFiltersDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<ActivityLogFiltersDto>>"
+        ],
+        "attributes": [],
+        "members": [],
+        "depends_on": [
+          {
+            "target": "IQuery<Result<ActivityLogFiltersDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 0,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQuery.cs#GetActivityLogFiltersQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-ACTIVITY-012",
+      "name": "GetActivityLogFiltersQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity.Queries.Filters",
+        "declaration": "public sealed class GetActivityLogFiltersQueryHandler : IQueryHandler<GetActivityLogFiltersQuery, Result<ActivityLogFiltersDto>>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetActivityLogFiltersQuery, Result<ActivityLogFiltersDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetActivityLogFiltersQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetActivityLogFiltersQueryHandler(IActivityLogRepository activityLogRepository)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ActivityLogFiltersDto>> Handle(GetActivityLogFiltersQuery query, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IActivityLogRepository",
+            "target_component": "COMP-ACTIVITY-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetActivityLogFiltersQuery, Result<ActivityLogFiltersDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ActivityLogFiltersDto",
+            "target_component": "COMP-ACTIVITY-005",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs",
+              "line": 20,
+              "expression": "new ActivityLogFiltersDto("
+            }
+          },
+          {
+            "target": "ActivityLogUserDto",
+            "target_component": "COMP-ACTIVITY-006",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs",
+              "line": 22,
+              "expression": "new ActivityLogUserDto("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs",
+              "line": 20,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs#GetActivityLogFiltersQueryHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-ACTIVITY-013",
+      "name": "SearchActivityLogsQuery",
+      "kind": "query",
+      "path": "src/Application/Activity/Queries/Search/SearchActivityLogsQuery.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity.Queries.Search",
+        "declaration": "public sealed record SearchActivityLogsQuery( DateTime? FromUtc, DateTime? ToUtc, Guid? UserId, string? Screen, int Page, int PageSize) : IQuery<Result<PagedResult<ActivityLogDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<ActivityLogDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime? FromUtc",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime? ToUtc",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "Guid? UserId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Screen",
+            "kind": "property",
+            "signature": "string? Screen",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<ActivityLogDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.4",
+            "line": 7
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 6,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQuery.cs#SearchActivityLogsQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-ACTIVITY-014",
+      "name": "SearchActivityLogsQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity.Queries.Search",
+        "declaration": "public sealed class SearchActivityLogsQueryHandler : IQueryHandler<SearchActivityLogsQuery, Result<PagedResult<ActivityLogDto>>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<SearchActivityLogsQuery, Result<PagedResult<ActivityLogDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchActivityLogsQueryHandler",
+            "kind": "constructor",
+            "signature": "public SearchActivityLogsQueryHandler(IActivityLogRepository activityLogRepository)",
+            "line": 14,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<ActivityLogDto>>> Handle(SearchActivityLogsQuery query, CancellationToken cancellationToken)",
+            "line": 19,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReadChanges",
+            "kind": "method",
+            "signature": "private static IReadOnlyList<ActivityChangeDto> ReadChanges(string? json)",
+            "line": 36,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IActivityLogRepository",
+            "target_component": "COMP-ACTIVITY-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<SearchActivityLogsQuery, Result<PagedResult<ActivityLogDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ActivityLogDto",
+            "target_component": "COMP-ACTIVITY-003",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs",
+              "line": 25,
+              "expression": "new ActivityLogDto("
+            }
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs",
+              "line": 29,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 53,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs#SearchActivityLogsQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-ACTIVITY-015",
+      "name": "SearchActivityLogsQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs",
+      "module": "ACTIVITY",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Activity.Queries.Search",
+        "declaration": "public sealed class SearchActivityLogsQueryValidator : AbstractValidator<SearchActivityLogsQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchActivityLogsQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchActivityLogsQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchActivityLogsQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchActivityLogsQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add activity log with date, user and screen filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#SearchActivityLogsQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-ACTIVITY-016",
+      "name": "ActivityLog",
+      "kind": "class",
+      "path": "src/Domain/Activity/ActivityLog.cs",
+      "module": "ACTIVITY",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Activity",
+        "declaration": "public sealed class ActivityLog",
+        "line": 13,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "public Guid Id",
+            "line": 15,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "public Guid? UserId",
+            "line": 17,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserName",
+            "kind": "property",
+            "signature": "public string? UserName",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Screen",
+            "kind": "property",
+            "signature": "public string Screen",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Action",
+            "kind": "property",
+            "signature": "public string Action",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RequestName",
+            "kind": "property",
+            "signature": "public string RequestName",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Description",
+            "kind": "property",
+            "signature": "public string? Description",
+            "line": 36,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Changes",
+            "kind": "property",
+            "signature": "public string? Changes",
+            "line": 46,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccurredAtUtc",
+            "kind": "property",
+            "signature": "public DateTime OccurredAtUtc",
+            "line": 48,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ActivityLog",
+            "kind": "constructor",
+            "signature": "private ActivityLog()",
+            "line": 50,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Record",
+            "kind": "method",
+            "signature": "public static ActivityLog Record(",
+            "line": 55,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Activity/ActivityLog.cs",
+              "line": 69,
+              "expression": "Guard.AgainstNullOrWhiteSpace(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Give orders a number, and the activity log a before-and-after",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 77,
+          "member_count": 11,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Activity/ActivityLog.cs#ActivityLog",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-ACTIVITY-017",
+      "name": "ActivityLogPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/activity/page.tsx",
+      "module": "ACTIVITY",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/activity",
+        "declaration": "export default function ActivityLogPage() {",
+        "line": 85,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ActivityLogPage",
+            "kind": "export",
+            "signature": "export default function ActivityLogPage() {",
+            "line": 85,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "201cf5ce083e5246ddf076ce83baa3f1ca80e572",
+          "last_commit_date": "2026-09-05",
+          "last_commit_subject": "Call the receipts screen Inventory Transaction",
+          "commit_count": 8
+        },
+        "metrics": {
+          "lines": 303,
+          "member_count": 1,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/activity/page.tsx#ActivityLogPage",
+            "line": 85
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/activity",
+            "detail": "web/src/app/dashboard/activity/page.tsx",
+            "line": 85
+          }
+        ]
+      },
+      "last_verified_commit": "201cf5ce083e5246ddf076ce83baa3f1ca80e572",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-057",
+      "name": "ActivityLogsController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/ActivityLogsController.cs",
+      "module": "ACTIVITY",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class ActivityLogsController : ApiControllerBase",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/activity-logs\")",
+          "Authorize(Policy = Permissions.ActivityView)"
+        ],
+        "members": [
+          {
+            "name": "ActivityLogsController",
+            "kind": "constructor",
+            "signature": "public ActivityLogsController(ISender sender)",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 31,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<ActivityLogDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/activity-logs",
+              "policy": "Permissions.ActivityView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Filters",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Filters(CancellationToken cancellationToken)",
+            "line": 48,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"filters\")",
+              "ProducesResponseType(typeof(ApiResponse<ActivityLogFiltersDto>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "filters",
+              "resolved_route": "/api/v1/activity-logs/filters",
+              "policy": "Permissions.ActivityView",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "SearchActivityLogsQuery",
+            "target_component": "COMP-ACTIVITY-013",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ActivityLogsController.cs",
+              "line": 40,
+              "expression": "new SearchActivityLogsQuery("
+            }
+          },
+          {
+            "target": "GetActivityLogFiltersQuery",
+            "target_component": "COMP-ACTIVITY-011",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/ActivityLogsController.cs",
+              "line": 50,
+              "expression": "new GetActivityLogFiltersQuery("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 12",
+            "line": 14
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Add role-based user rights and the user administration screen",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 54,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/ActivityLogsController.cs#ActivityLogsController",
+            "line": 18
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/ActivityLogsController.cs#ApiController",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "cecccf3c1364a0830c8fff934746cd24cbbce606",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "FR-PLATFORM-083",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Physical deletion, where ever required (e.g., a compliance-driven erasure request), is…",
+  "module": "PLATFORM",
+  "description": "Physical deletion, where ever required (e.g., a compliance-driven erasure request), is a distinct, explicitly named, audited operation — never the default delete path.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "audit",
+  "requirement_type_evidence": "clause uses \"audited\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 5",
+    "section_title": "Soft Delete",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Physical deletion, where ever required (e.g., a compliance-driven erasure request), is a distinct, explicitly named, audited operation — never the default delete path.",
+    "line": 135,
+    "line_start": 135,
+    "line_end": 135,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-ORDER-015",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 11"
+    },
+    {
+      "component": "COMP-ORDER-049",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 72"
+    },
+    {
+      "component": "COMP-PLATFORM-105",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 61"
+    },
+    {
+      "component": "COMP-PLATFORM-107",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 4"
+    },
+    {
+      "component": "COMP-PLATFORM-111",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 93"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 5,
+    "test_count": 75,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 5",
+        "detail": "docs/02_DATABASE.md",
+        "line": 135
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

@@ -1,0 +1,99 @@
+{
+  "id": "FR-BILLING-003",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Validation Rules — Amount must be positive and must not cause the sum of payments on…",
+  "module": "BILLING",
+  "description": "Validation Rules — Amount must be positive and must not cause the sum of payments on an invoice to exceed the invoice total; must reference a valid, non-deleted invoice",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "validation",
+  "requirement_type_evidence": "clause uses \"Validation\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 10.10",
+    "section_title": "Payments",
+    "parent_section": "§ 10",
+    "parent_section_title": "Required Entities",
+    "quote": "Validation Rules — Amount must be positive and must not cause the sum of payments on an invoice to exceed the invoice total; must reference a valid, non-deleted invoice",
+    "line": 326,
+    "line_start": 326,
+    "line_end": 326,
+    "form": "table-row"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-BILLING-026",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.10 at line 108"
+    },
+    {
+      "component": "COMP-BILLING-028",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.10 at line 7"
+    },
+    {
+      "component": "COMP-BILLING-028",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.10 at line 52"
+    },
+    {
+      "component": "COMP-PLATFORM-128",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.10 at line 7"
+    },
+    {
+      "component": "COMP-PLATFORM-128",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.10 at line 29"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 5,
+    "test_count": 20,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 10.10",
+        "detail": "docs/02_DATABASE.md",
+        "line": 326
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

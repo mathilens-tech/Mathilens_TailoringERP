@@ -1,0 +1,75 @@
+{
+  "id": "FR-PLATFORM-009",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Module may introduce an alternate technology in the same category without an amendment…",
+  "module": "PLATFORM",
+  "description": "No module may introduce an alternate technology in the same category without an amendment here.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 5",
+    "section_title": "Technology Stack",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "No module may introduce an alternate technology in the same category without an amendment here.",
+    "line": 260,
+    "line_start": 260,
+    "line_end": 261,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-AUTH-004",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 5 at line 10"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 1,
+    "test_count": 2,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 5",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 260
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

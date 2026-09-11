@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* 00_MASTER_SPEC.md § 9.3 — dark mode follows system preference by default, with an
+   explicit user override (next-themes toggles the `dark` class on <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* The Royal Fabric light theme: white cards on a light slate page, one blue for everything
+   interactive. Every screen reads these — the sidebar's active item is bg-primary/10 + text-primary,
+   a card is bg-surface + border-border — so the palette lives here and nowhere else. A screen that
+   wants a different look changes these values under its own class rather than hardcoding a colour;
+   that is what keeps Customers and New Order looking like one application. */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --border: #e2e8f0;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-foreground: #ffffff;
+
+  --success: #16a34a;
+  --success-hover: #15803d;
+  --warning: #d97706;
+  --warning-hover: #b45309;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --info: #2563eb;
+  --info-hover: #1d4ed8;
+}
+
+.dark {
+  --background: #0a0b0f;
+  --foreground: #ededf1;
+  --surface: #16181f;
+  --surface-hover: #1e212a;
+  --border: #262a35;
+
+  /* The same blue, lifted for a dark background — the brand does not change with the theme. */
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-foreground: #ffffff;
+
+  --success: #22c55e;
+  --success-hover: #4ade80;
+  --warning: #f59e0b;
+  --warning-hover: #fbbf24;
+  --danger: #ef4444;
+  --danger-hover: #f87171;
+  --info: #3b82f6;
+  --info-hover: #60a5fa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  /* Nothing in this app is meant to be reached by scrolling sideways. A stray wide element is a
+     bug to fix, not a reason to hand the reader a second axis — clip rather than hidden so
+     position: sticky inside the page keeps working. */
+  overflow-x: clip;
+}
+
+/*
+  Number fields with no stepper.
+
+  Quantities, prices and measurement points are typed at the counter, never nudged one at a time,
+  and the arrows only eat width from already narrow columns — on the New Order screen's item rows
+  there are five fields to a line and the steppers were taking a character's worth from each. They
+  also invite a click that changes a price by one, which is never what anyone meant.
+
+  The inputs stay type="number", so a phone still opens the numeric keypad and the browser still
+  refuses letters. This lived in the New Order page's own stylesheet until that was deleted in
+  favour of the shared theme; it is a class here so any screen can opt in, rather than a blanket
+  rule on every number input in the application.
+*/
+.no-spinner input[type="number"]::-webkit-outer-spin-button,
+.no-spinner input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.no-spinner input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/*
+  Tables that become cards on a phone.
+
+  A six-column table cannot be read on a 360px screen, and the usual answer — a horizontal
+  scrollbar — hides half the row behind a gesture nobody makes. Below the md breakpoint each row
+  becomes its own card and each cell a "Label  value" line, so every column is still on screen and
+  the only scrolling is downwards.
+
+  The label comes from `data-label` on the cell rather than from the header, because the header is
+  what gets hidden. A cell with an empty `data-label` — the actions column — prints no label and
+  keeps its controls to the right.
+
+  Specificity is deliberate: `table.stacked td` outranks a single Tailwind utility, so the
+  `px-4 py-3 text-right whitespace-nowrap` already on these cells is overridden without !important
+  and without having to strip it from every screen.
+*/
+@media (max-width: 767px) {
+  table.stacked,
+  table.stacked tbody,
+  table.stacked tr,
+  table.stacked td {
+    display: block;
+    width: 100%;
+  }
+
+  table.stacked thead {
+    display: none;
+  }
+
+  table.stacked tr {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    margin-bottom: 0.625rem;
+    padding: 0.25rem 0;
+  }
+
+  table.stacked tr:last-child {
+    margin-bottom: 0;
+  }
+
+  table.stacked td {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border: 0;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  table.stacked td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    max-width: 45%;
+    font-weight: 500;
+    text-align: left;
+    color: color-mix(in srgb, var(--foreground) 65%, transparent);
+  }
+
+  table.stacked td[data-label=""]::before,
+  table.stacked td:not([data-label])::before {
+    display: none;
+  }
+
+  table.stacked td[data-label=""] {
+    justify-content: flex-end;
+    padding-top: 0.5rem;
+  }
+
+  /* The rounded, ruled box a table normally sits in belongs to the table. Once the rows are cards
+     it would be a border around a stack of borders. */
+  .table-wrap {
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+    background: transparent;
+  }
+}
+
+/*
+  Stop iOS zooming the page when a field is tapped.
+
+  Mobile Safari zooms the viewport in on focus whenever the focused control's text is smaller than
+  16px, and then leaves it zoomed — so tapping the customer name on New Order threw the whole layout
+  sideways and the next field had to be hunted for. Every control in the app is `text-sm` (14px),
+  which is exactly the trigger.
+
+  16px is a threshold, not a taste: at 16px the zoom does not fire, and one pixel under it does.
+  This applies only below the app's mobile breakpoint, so the denser 14px is untouched on desktop
+  where no zoom happens. The alternative fix — `maximum-scale=1` on the viewport — also stops it,
+  by taking pinch-zoom away from everyone for the life of the page. That is not a trade worth making
+  for a form field.
+
+  Specificity, as with `table.stacked td` above: `:root input` is (0,1,1) and outranks the `text-sm`
+  utility at (0,1,0), so the utility is beaten without !important and without stripping it off 82
+  controls by hand.
+*/
+@media (max-width: 767px) {
+  :root input,
+  :root select,
+  :root textarea {
+    font-size: 16px;
+  }
+}
+
+/*
+  A dialog arriving.
+
+  Short and small on purpose — 140ms and eight pixels. A dialog appearing from nowhere reads as the
+  page having jumped; anything longer than this reads as the app being slow, and a big movement
+  reads as decoration. The point is only to say "this is new, and it came from here".
+
+  Honoured by the media query below: an animation is a nicety, and a reader who has asked their
+  system for less motion has asked for exactly this to stop.
+*/
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+
+@keyframes modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.modal-panel {
+  animation: modal-panel-in 0.14s ease-out;
+}
+
+.modal-backdrop {
+  animation: modal-backdrop-in 0.14s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-panel,
+  .modal-backdrop {
+    animation: none;
+  }
+}
+
+/* Printed pages (invoices, etc.) should read as plain paper regardless of the active theme —
+   dark mode's near-black background would otherwise print as a solid ink block. */
+@media print {
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #171717;
+    --surface: #f4f4f5;
+    --border: #d4d4d8;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

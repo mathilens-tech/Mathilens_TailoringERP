@@ -1,0 +1,133 @@
+{
+  "id": "FEAT-REPORT-001",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Reports Collections Reporting",
+  "module": "REPORT",
+  "simple_explanation": "Reports Collections Reporting — derived from the OrderCollections use case in src/Application/Report. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Reports/Queries/OrderCollections"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQuery.cs",
+        "contains": "GetOrderCollectionsReportQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandler.cs",
+        "contains": "GetOrderCollectionsReportQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidator.cs",
+        "contains": "GetOrderCollectionsReportQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 4,
+    "requirement_count": 2,
+    "rule_count": 1,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Collections Reporting",
+    "use_cases": [
+      "OrderCollections"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/reports/order-collections",
+        "policy": "Permissions.ReportsView",
+        "controller": "ReportsController",
+        "action": "OrderCollections"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/reports",
+      "/dashboard/reports/birthday",
+      "/dashboard/reports/order-collections",
+      "/dashboard/reports/order-status",
+      "/dashboard/reports/outstanding-invoices",
+      "/dashboard/reports/revenue",
+      "/dashboard/reports/wedding"
+    ],
+    "permissions": [
+      "Permissions.ReportsView"
+    ],
+    "derived_components": [
+      "COMP-REPORT-002",
+      "COMP-REPORT-003",
+      "COMP-REPORT-004"
+    ],
+    "derived_test_cases": [
+      "TC-REPORT-001",
+      "TC-REPORT-002",
+      "TC-REPORT-003",
+      "TC-REPORT-004"
+    ],
+    "derived_rules": [
+      "BR-REPORT-001"
+    ],
+    "derived_requirements": [
+      "FR-REPORT-001",
+      "FR-REPORT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "last_commit_date": "2026-08-10"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/reports/order-collections"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Reports/Queries/OrderCollections",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/reports/order-collections",
+        "detail": "src/Api/Controllers/V1/ReportsController.cs",
+        "line": 159
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+  "change_history": []
+}

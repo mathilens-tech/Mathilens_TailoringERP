@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>New Order — Vibrant Editorial</title>
+<style>
+  :root{
+    --bg:#0f0d1a; --panel:#171426; --panel-2:#1e1a33; --line:rgba(255,255,255,.09);
+    --ink:#fdfbff; --muted:#a8a3c4;
+    --pink:#ff5d8f; --orange:#ff8a5b; --purple:#8b5cf6; --teal:#2dd4bf; --yellow:#ffd166;
+    --font:"Segoe UI",Inter,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+  .shell{max-width:1200px;margin:0 auto;padding:0 0 100px}
+
+  .hero{position:relative;padding:40px 32px 64px;overflow:hidden;
+    background:linear-gradient(120deg,#ff5d8f 0%,#ff8a5b 35%,#8b5cf6 75%,#2dd4bf 120%);
+    background-size:180% 180%;}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 85% -10%, rgba(255,255,255,.35), transparent 60%);}
+  .topbar{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:#1a0e1e}
+  .brand .mark{width:32px;height:32px;border-radius:10px;background:#1a0e1e;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px}
+  .crumbs{font-size:12.5px;color:rgba(20,10,25,.7);font-weight:600}
+  .crumbs b{color:#1a0e1e}
+
+  .hero-main{position:relative;z-index:1;margin-top:36px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:22px}
+  h1{margin:0;font-size:54px;line-height:.98;letter-spacing:-.03em;color:#1a0e1e;font-weight:900}
+  .hero-sub{margin-top:12px;font-size:14px;color:rgba(20,10,25,.75);font-weight:700}
+  .hero-sub b{color:#1a0e1e}
+  .hero-actions{display:flex;gap:12px}
+  .btn{border:none;cursor:pointer;font-family:inherit;font-weight:800;font-size:13.5px;border-radius:999px;padding:15px 26px;transition:.15s transform}
+  .btn:active{transform:scale(.97)}
+  .btn-dark{background:#1a0e1e;color:#fff}
+  .btn-light{background:rgba(255,255,255,.55);color:#1a0e1e;backdrop-filter:blur(6px)}
+  .btn-accent{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;box-shadow:0 10px 24px -10px rgba(255,93,143,.5)}
+  .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+  .content{padding:0 32px;margin-top:-34px;position:relative;z-index:2}
+  .grid{display:grid;grid-template-columns:1.6fr 1fr;gap:22px}
+  @media (max-width:960px){.grid{grid-template-columns:1fr}}
+  .stack{display:flex;flex-direction:column;gap:22px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(0,0,0,.6)}
+  .card-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px}
+  .card-head h2{margin:0;font-size:14px;font-weight:800;display:flex;align-items:center;gap:10px;letter-spacing:.01em}
+  .step-no{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#1a0e1e}
+  .step-no.p1{background:var(--pink)} .step-no.p2{background:var(--orange)} .step-no.p3{background:var(--purple);color:#fff} .step-no.p4{background:var(--teal)} .step-no.p5{background:var(--yellow)}
+  .card-body{padding:4px 24px 24px}
+  .card-body.tight{padding:0 0 8px}
+
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field label{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+  .value{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+  .customer{display:flex;align-items:center;gap:16px;padding:16px;border-radius:16px;background:linear-gradient(135deg, rgba(255,93,143,.14), rgba(139,92,246,.14));border:1px solid var(--line)}
+  .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+  .customer .name{font-weight:800;font-size:15px}
+  .customer .meta{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .badge{margin-left:auto;font-size:10.5px;font-weight:800;color:#1a0e1e;background:var(--teal);padding:6px 12px;border-radius:999px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  thead th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:12px 24px;border-bottom:1px solid var(--line)}
+  tbody td{padding:16px 24px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(255,255,255,.03)}
+  .garment{font-weight:800}
+  .code{color:var(--muted);font-size:12px;margin-top:2px}
+  .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+  .add-row{padding:16px 24px;display:flex;align-items:center;gap:9px;color:var(--pink);font-weight:800;font-size:13px;cursor:pointer}
+  .add-row .plus{width:20px;height:20px;border-radius:6px;background:rgba(255,93,143,.15);display:flex;align-items:center;justify-content:center;font-size:13px}
+
+  .measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .measure-grid .value{text-align:center;font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,rgba(45,212,191,.12),rgba(139,92,246,.12));color:var(--teal)}
+  @media (max-width:960px){.measure-grid{grid-template-columns:repeat(2,1fr)}}
+
+  .pill-toggle{display:inline-flex;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:4px}
+  .pill-toggle span{padding:7px 15px;font-size:12px;font-weight:700;border-radius:999px;color:var(--muted)}
+  .pill-toggle span.active{background:linear-gradient(135deg,var(--orange),var(--pink));color:#1a0e1e}
+
+  .summary-line{display:flex;justify-content:space-between;font-size:13.5px;padding:10px 0;color:var(--muted)}
+  .summary-line b{color:var(--ink);font-weight:700}
+  .summary-total{margin-top:8px;padding:20px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;justify-content:space-between;align-items:baseline}
+  .summary-total .label{font-size:12.5px;color:rgba(255,255,255,.85);font-weight:700}
+  .summary-total .amount{font-size:27px;font-weight:900;letter-spacing:-.02em;color:#fff}
+  .balance{font-size:12px;color:var(--yellow);font-weight:700;margin-top:10px;text-align:right}
+
+  .status-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .chip{font-size:10.5px;font-weight:800;padding:7px 12px;border-radius:999px}
+  .chip.info{background:rgba(45,212,191,.15);color:var(--teal)}
+  .chip.warning{background:rgba(255,209,102,.15);color:var(--yellow)}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="hero">
+      <div class="topbar">
+        <div class="brand"><span class="mark">M</span> Mathilens ERP</div>
+        <div class="crumbs">Orders / <b>New Order</b></div>
+      </div>
+      <div class="hero-main">
+        <div>
+          <h1>New<br/>Order</h1>
+          <p class="hero-sub">Order <b>#ORD-2026-0184</b> · Created 08 Aug 2026 · Draft</p>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-light">Save Draft</button>
+          <button class="btn btn-dark">Create Order →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="grid">
+        <div class="stack">
+          <div class="card">
+            <div class="card-head"><h2><span class="step-no p1">1</span> Customer</h2><span style="font-size:12px;color:var(--pink);font-weight:800;cursor:pointer">Change</span></div>
+            <div class="card-body">
+              <div class="customer">
+                <div class="avatar">AI</div>
+                <div>
+                  <div class="name">Ananya Iyer</div>
+                  <div class="meta">+91 98765 43210 · No. 12, Lake View Apartments, Bengaluru</div>
+                </div>
+                <span class="badge">Returning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2><span class="step-no p2">2</span> Order Details</h2></div>
+            <div class="card-body">
+              <div class="row2">
+                <div class="field"><label>Assigned Tailor</label><div class="value">Ravi Kumar</div></div>
+                <div class="field"><label>Due Date</label><div class="value">20 Aug 2026 (12 days)</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2><span class="step-no p3">3</span> Garments &amp; Items</h2><span style="font-size:12px;color:var(--muted)">3 items</span></div>
+            <div class="card-body tight">
+              <table>
+                <thead><tr><th>Garment</th><th>Qty</th><th class="num">Unit Price</th><th class="num">Total</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><div class="garment">Formal Shirt</div><div class="code">SC-104 · Cotton Blend, Sky Blue</div></td>
+                    <td>2</td><td class="num">₹850.00</td><td class="num">₹1,700.00</td>
+                  </tr>
+                  <tr>
+                    <td><div class="garment">Tailored Trouser</div><div class="code">TW-221 · Formal Wool, Charcoal</div></td>
+                    <td>1</td><td class="num">₹1,450.00</td><td class="num">₹1,450.00</td>
+                  </tr>
+                  <tr>
+                    <td><div class="garment">Nehru Jacket</div><div class="code">NJ-057 · Silk Blend, Maroon</div></td>
+                    <td>1</td><td class="num">₹2,200.00</td><td class="num">₹2,200.00</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="add-row"><span class="plus">+</span> Add another item</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h2><span class="step-no p4">4</span> Fabric Details</h2>
+              <div class="pill-toggle"><span>Customer Supplied</span><span class="active">Shop Supplied</span></div>
+            </div>
+            <div class="card-body">
+              <div class="row2">
+                <div class="field"><label>Fabric Type</label><div class="value">Premium Silk Blend</div></div>
+                <div class="field"><label>Color</label><div class="value">Maroon</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2><span class="step-no p5">5</span> Measurements — Formal Shirt</h2><span style="font-size:12px;color:var(--muted)">in cm</span></div>
+            <div class="card-body">
+              <div class="measure-grid">
+                <div class="field"><label>Chest</label><div class="value">39</div></div>
+                <div class="field"><label>Waist</label><div class="value">34</div></div>
+                <div class="field"><label>Shoulder</label><div class="value">17.5</div></div>
+                <div class="field"><label>Sleeve</label><div class="value">24</div></div>
+                <div class="field"><label>Shirt Length</label><div class="value">29</div></div>
+                <div class="field"><label>Collar</label><div class="value">15.5</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="card" style="position:sticky;top:24px">
+            <div class="card-head"><h2>Order Summary</h2></div>
+            <div class="card-body">
+              <div class="summary-line"><span>Subtotal (3 items)</span><b>₹5,350.00</b></div>
+              <div class="summary-line"><span>Discount</span><b style="color:var(--pink)">−₹150.00</b></div>
+              <div class="summary-line"><span>GST (5%)</span><b>₹260.00</b></div>
+              <div class="summary-total"><span class="label">Total Due</span><span class="amount">₹5,460.00</span></div>
+              <div class="balance">Advance paid ₹2,000.00 · Balance ₹3,460.00</div>
+
+              <div class="status-strip">
+                <span class="chip info">Received</span>
+                <span class="chip warning">Payment pending</span>
+              </div>
+
+              <button class="btn btn-accent" style="width:100%;margin-top:20px">Create Order</button>
+              <button class="btn btn-outline" style="width:100%;margin-top:12px">Preview Invoice</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

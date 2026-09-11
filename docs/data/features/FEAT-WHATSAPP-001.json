@@ -1,0 +1,162 @@
+{
+  "id": "FEAT-WHATSAPP-001",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "WhatsApp Management",
+  "module": "WHATSAPP",
+  "simple_explanation": "WhatsApp Management — derived from the GetById, Search use cases in src/Application/Whatsapp. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/WhatsApp/Queries/GetById",
+      "src/Application/WhatsApp/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQuery.cs",
+        "contains": "GetWhatsAppMessageByIdQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandler.cs",
+        "contains": "GetWhatsAppMessageByIdQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQuery.cs",
+        "contains": "SearchWhatsAppMessagesQuery",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "6 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 5,
+    "test_count": 5,
+    "requirement_count": 0,
+    "rule_count": 7,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "GetById",
+      "Search"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/whatsapp-messages",
+        "policy": "Permissions.WhatsAppView",
+        "controller": "WhatsAppMessagesController",
+        "action": "Search"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/whatsapp-messages/{id:guid}",
+        "policy": "Permissions.WhatsAppView",
+        "controller": "WhatsAppMessagesController",
+        "action": "GetById"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/whatsapp",
+      "/dashboard/whatsapp/[id]",
+      "/dashboard/whatsapp/new"
+    ],
+    "permissions": [
+      "Permissions.WhatsAppView"
+    ],
+    "derived_components": [
+      "COMP-WHATSAPP-007",
+      "COMP-WHATSAPP-008",
+      "COMP-WHATSAPP-009",
+      "COMP-WHATSAPP-010",
+      "COMP-WHATSAPP-011",
+      "COMP-WHATSAPP-014"
+    ],
+    "derived_test_cases": [
+      "TC-WHATSAPP-009",
+      "TC-WHATSAPP-010",
+      "TC-WHATSAPP-011",
+      "TC-WHATSAPP-012",
+      "TC-WHATSAPP-013",
+      "TC-WHATSAPP-014",
+      "TC-WHATSAPP-015",
+      "TC-WHATSAPP-016",
+      "TC-WHATSAPP-017",
+      "TC-WHATSAPP-018"
+    ],
+    "derived_rules": [
+      "BR-WHATSAPP-004",
+      "BR-WHATSAPP-005",
+      "BR-WHATSAPP-006",
+      "BR-WHATSAPP-007",
+      "BR-WHATSAPP-008",
+      "BR-WHATSAPP-009",
+      "BR-WHATSAPP-010"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/whatsapp-messages",
+    "GET /api/v1/whatsapp-messages/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/WhatsApp/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/WhatsApp/Queries/Search",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/whatsapp-messages",
+        "detail": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+        "line": 73
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/whatsapp-messages/{id:guid}",
+        "detail": "src/Api/Controllers/V1/WhatsAppMessagesController.cs",
+        "line": 63
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+  "change_history": []
+}

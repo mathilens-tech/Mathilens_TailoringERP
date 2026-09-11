@@ -1,0 +1,1027 @@
+{
+  "module": "PRICING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-PRICING-001",
+      "entity_version": 1,
+      "statement": "Cloth Code must satisfy not empty, maximum length",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-005",
+          "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ClothCode).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ClothCode).NotEmpty().MaximumLength()",
+        "symbol": "CreateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-002",
+      "entity_version": 1,
+      "statement": "Cloth Name must satisfy not empty, maximum length",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-005",
+          "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ClothName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ClothName).NotEmpty().MaximumLength()",
+        "symbol": "CreateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-003",
+      "entity_version": 1,
+      "statement": "Cost Price must satisfy greater than",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-005",
+          "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CostPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CostPrice).GreaterThan()",
+        "symbol": "CreateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-004",
+      "entity_version": 1,
+      "statement": "Selling Price must satisfy greater than",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-005",
+          "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SellingPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-005"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SellingPrice).GreaterThan()",
+        "symbol": "CreateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs#CreateClothPriceCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-005",
+      "entity_version": 1,
+      "statement": "The spreadsheet contains no data rows.",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-011",
+          "file": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Rows).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-011"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Rows).NotEmpty()",
+        "symbol": "ImportClothPricesCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Import/ImportClothPricesCommandValidator.cs#ImportClothPricesCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-006",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-014",
+          "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "UpdateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-007",
+      "entity_version": 1,
+      "statement": "Cloth Code must satisfy not empty, maximum length",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-014",
+          "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ClothCode).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ClothCode).NotEmpty().MaximumLength()",
+        "symbol": "UpdateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-008",
+      "entity_version": 1,
+      "statement": "Cloth Name must satisfy not empty, maximum length",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-014",
+          "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ClothName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ClothName).NotEmpty().MaximumLength()",
+        "symbol": "UpdateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-009",
+      "entity_version": 1,
+      "statement": "Cost Price must satisfy greater than",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-014",
+          "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CostPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CostPrice).GreaterThan()",
+        "symbol": "UpdateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-010",
+      "entity_version": 1,
+      "statement": "Selling Price must satisfy greater than",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-014",
+          "file": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs",
+          "line": 23,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SellingPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SellingPrice).GreaterThan()",
+        "symbol": "UpdateClothPriceCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Commands/Update/UpdateClothPriceCommandValidator.cs#UpdateClothPriceCommandValidator",
+            "line": 23
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-011",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-022",
+          "file": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchClothPricesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#SearchClothPricesQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-012",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-022",
+          "file": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchClothPricesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#SearchClothPricesQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-013",
+      "entity_version": 1,
+      "statement": "Search Term must satisfy maximum length",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-022",
+          "file": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SearchTerm).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SearchTerm).MaximumLength()",
+        "symbol": "SearchClothPricesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Pricing/Queries/Search/SearchClothPricesQueryValidator.cs#SearchClothPricesQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-014",
+      "entity_version": 1,
+      "statement": "Cloth Code must not be null or white space",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-023",
+          "file": "src/Domain/Pricing/ClothPrice.cs",
+          "line": 46,
+          "mechanism": "guard-clause",
+          "expression": "ClothCode = Guard.AgainstNullOrWhiteSpace(clothCode, nameof(clothCode));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-023"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-002",
+        "TC-INVENTORY-003"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ClothCode = Guard.AgainstNullOrWhiteSpace(clothCode, nameof(clothCode));",
+        "symbol": "ClothPrice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Pricing/ClothPrice.cs#ClothPrice",
+            "line": 46
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-015",
+      "entity_version": 1,
+      "statement": "Cloth Name must not be null or white space",
+      "module": "PRICING",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-023",
+          "file": "src/Domain/Pricing/ClothPrice.cs",
+          "line": 47,
+          "mechanism": "guard-clause",
+          "expression": "ClothName = Guard.AgainstNullOrWhiteSpace(clothName, nameof(clothName));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-023"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-002",
+        "TC-INVENTORY-003"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "ClothName = Guard.AgainstNullOrWhiteSpace(clothName, nameof(clothName));",
+        "symbol": "ClothPrice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Pricing/ClothPrice.cs#ClothPrice",
+            "line": 47
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-016",
+      "entity_version": 1,
+      "statement": "Cost Price must not be negative or zero",
+      "module": "PRICING",
+      "category": "calculation",
+      "category_evidence": "statement uses \"Price\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-023",
+          "file": "src/Domain/Pricing/ClothPrice.cs",
+          "line": 48,
+          "mechanism": "guard-clause",
+          "expression": "CostPrice = Guard.AgainstNegativeOrZero(costPrice, nameof(costPrice));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-023"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-002",
+        "TC-INVENTORY-003"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CostPrice = Guard.AgainstNegativeOrZero(costPrice, nameof(costPrice));",
+        "symbol": "ClothPrice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Pricing/ClothPrice.cs#ClothPrice",
+            "line": 48
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    },
+    {
+      "id": "BR-PRICING-017",
+      "entity_version": 1,
+      "statement": "Selling Price must not be negative or zero",
+      "module": "PRICING",
+      "category": "calculation",
+      "category_evidence": "statement uses \"Price\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-PRICING-023",
+          "file": "src/Domain/Pricing/ClothPrice.cs",
+          "line": 49,
+          "mechanism": "guard-clause",
+          "expression": "SellingPrice = Guard.AgainstNegativeOrZero(sellingPrice, nameof(sellingPrice));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-PRICING-023"
+      ],
+      "test_cases": [
+        "TC-INVENTORY-001",
+        "TC-INVENTORY-002",
+        "TC-INVENTORY-003"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "SellingPrice = Guard.AgainstNegativeOrZero(sellingPrice, nameof(sellingPrice));",
+        "symbol": "ClothPrice",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+          "last_commit_date": "2026-08-08"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Pricing/ClothPrice.cs#ClothPrice",
+            "line": 49
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0d3d16fc729c79a7c96788d546829eb0f6d22780",
+      "change_history": []
+    }
+  ]
+}

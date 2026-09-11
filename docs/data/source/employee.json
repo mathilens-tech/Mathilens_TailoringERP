@@ -1,0 +1,5238 @@
+{
+  "module": "EMPLOYEE",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-EMPLOYEE-001",
+      "name": "CreateEmployeeCommand",
+      "kind": "command",
+      "path": "src/Application/Employees/Commands/Create/CreateEmployeeCommand.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Create",
+        "declaration": "public sealed record CreateEmployeeCommand( string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email, DateOnly JoiningDate, EmploymentType EmploymentType) : ICommand<Result<EmployeeDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "DateOnly JoiningDate",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "EmploymentType EmploymentType",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 16,
+          "member_count": 7,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommand.cs#CreateEmployeeCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-002",
+      "name": "CreateEmployeeCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Create",
+        "declaration": "public sealed class CreateEmployeeCommandHandler : ICommandHandler<CreateEmployeeCommand, Result<EmployeeDto>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<CreateEmployeeCommand, Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateEmployeeCommandHandler",
+            "kind": "constructor",
+            "signature": "public CreateEmployeeCommandHandler(IEmployeeRepository employeeRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<EmployeeDto>> Handle(CreateEmployeeCommand command, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<CreateEmployeeCommand, Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmployeeUniqueness",
+            "target_component": "COMP-EMPLOYEE-015",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs",
+              "line": 22,
+              "expression": "EmployeeUniqueness.FindConflictAsync(…)"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs",
+              "line": 26,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs",
+              "line": 29,
+              "expression": "Employee.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 44,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandHandler.cs#CreateEmployeeCommandHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-EMPLOYEE-003",
+      "name": "CreateEmployeeCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Create",
+        "declaration": "public sealed class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<CreateEmployeeCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateEmployeeCommandValidator",
+            "kind": "constructor",
+            "signature": "public CreateEmployeeCommandValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<CreateEmployeeCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 39,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-004",
+      "name": "ImportEmployeesCommand",
+      "kind": "command",
+      "path": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Import",
+        "declaration": "public sealed record ImportEmployeesCommand(IReadOnlyList<EmployeeImportRow> Rows) : ICommand<Result<ImportResultDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<ImportResultDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Rows",
+            "kind": "property",
+            "signature": "IReadOnlyList<EmployeeImportRow> Rows",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<EmployeeImportRow>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<ImportResultDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 19,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs#ImportEmployeesCommand",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-005",
+      "name": "EmployeeImportRow",
+      "kind": "record",
+      "path": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Import",
+        "declaration": "public sealed record EmployeeImportRow( int RowNumber, Guid? Id, string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email);",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RowNumber",
+            "kind": "property",
+            "signature": "int RowNumber",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid? Id",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 19,
+          "member_count": 7,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs#EmployeeImportRow",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-006",
+      "name": "ImportEmployeesCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Import",
+        "declaration": "public sealed class ImportEmployeesCommandHandler : ICommandHandler<ImportEmployeesCommand, Result<ImportResultDto>>",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<ImportEmployeesCommand, Result<ImportResultDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ImportEmployeesCommandHandler",
+            "kind": "constructor",
+            "signature": "public ImportEmployeesCommandHandler(IEmployeeRepository employeeRepository, IValidator<CreateEmployeeCommand> rowValidator)",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<ImportResultDto>> Handle(ImportEmployeesCommand command, CancellationToken cancellationToken)",
+            "line": 29,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FindExistingAsync",
+            "kind": "method",
+            "signature": "private async Task<Employee?> FindExistingAsync(",
+            "line": 104,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IValidator<CreateEmployeeCommand>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<ImportEmployeesCommand, Result<ImportResultDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 47,
+              "expression": "EmploymentType employmentType = "
+            }
+          },
+          {
+            "target": "CreateEmployeeCommand",
+            "target_component": "COMP-EMPLOYEE-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 49,
+              "expression": "new CreateEmployeeCommand("
+            }
+          },
+          {
+            "target": "ImportRowErrorDto",
+            "target_component": "COMP-PLATFORM-076",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 54,
+              "expression": "new ImportRowErrorDto("
+            }
+          },
+          {
+            "target": "ImportResultDto",
+            "target_component": "COMP-PLATFORM-075",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 101,
+              "expression": "new ImportResultDto("
+            }
+          },
+          {
+            "target": "EmployeeUniqueness",
+            "target_component": "COMP-EMPLOYEE-015",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 64,
+              "expression": "EmployeeUniqueness.FindConflictAsync(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 74,
+              "expression": "Employee.Create(…)"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+              "line": 101,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 127,
+          "member_count": 3,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs#ImportEmployeesCommandHandler",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-EMPLOYEE-007",
+      "name": "ImportEmployeesCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Import",
+        "declaration": "public sealed class ImportEmployeesCommandValidator : AbstractValidator<ImportEmployeesCommand>",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<ImportEmployeesCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ImportEmployeesCommandValidator",
+            "kind": "constructor",
+            "signature": "public ImportEmployeesCommandValidator()",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<ImportEmployeesCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs#ImportEmployeesCommandValidator",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-008",
+      "name": "RetireEmployeeCommand",
+      "kind": "command",
+      "path": "src/Application/Employees/Commands/Retire/RetireEmployeeCommand.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Retire",
+        "declaration": "public sealed record RetireEmployeeCommand(Guid Id, DateOnly? LastWorkingDate) : ICommand<Result<EmployeeDto>>;",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastWorkingDate",
+            "kind": "property",
+            "signature": "DateOnly? LastWorkingDate",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Retire/RetireEmployeeCommand.cs#RetireEmployeeCommand",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-009",
+      "name": "RetireEmployeeCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Retire",
+        "declaration": "public sealed class RetireEmployeeCommandHandler : ICommandHandler<RetireEmployeeCommand, Result<EmployeeDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<RetireEmployeeCommand, Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RetireEmployeeCommandHandler",
+            "kind": "constructor",
+            "signature": "public RetireEmployeeCommandHandler(IEmployeeRepository employeeRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<EmployeeDto>> Handle(RetireEmployeeCommand command, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<RetireEmployeeCommand, Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs",
+              "line": 22,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs",
+              "line": 34,
+              "expression": "var employee = _employeeRepository.GetByIdAsync(…); employee.Retire(…)  [IEmployeeRepository.GetByIdAsync returns Employee]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 46,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Retire/RetireEmployeeCommandHandler.cs#RetireEmployeeCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-EMPLOYEE-010",
+      "name": "UpdateEmployeeCommand",
+      "kind": "command",
+      "path": "src/Application/Employees/Commands/Update/UpdateEmployeeCommand.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Update",
+        "declaration": "public sealed record UpdateEmployeeCommand( Guid Id, string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email, DateOnly JoiningDate, EmploymentType EmploymentType) : ICommand<Result<EmployeeDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "DateOnly JoiningDate",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "EmploymentType EmploymentType",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 17,
+          "member_count": 8,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommand.cs#UpdateEmployeeCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-011",
+      "name": "UpdateEmployeeCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Update",
+        "declaration": "public sealed class UpdateEmployeeCommandHandler : ICommandHandler<UpdateEmployeeCommand, Result<EmployeeDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<UpdateEmployeeCommand, Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateEmployeeCommandHandler",
+            "kind": "constructor",
+            "signature": "public UpdateEmployeeCommandHandler(IEmployeeRepository employeeRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<EmployeeDto>> Handle(UpdateEmployeeCommand command, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<UpdateEmployeeCommand, Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs",
+              "line": 22,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "EmployeeUniqueness",
+            "target_component": "COMP-EMPLOYEE-015",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs",
+              "line": 26,
+              "expression": "EmployeeUniqueness.FindConflictAsync(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs",
+              "line": 33,
+              "expression": "var employee = _employeeRepository.GetByIdAsync(…); employee.UpdateDetails(…)  [IEmployeeRepository.GetByIdAsync returns Employee]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 46,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandHandler.cs#UpdateEmployeeCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-EMPLOYEE-012",
+      "name": "UpdateEmployeeCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Commands.Update",
+        "declaration": "public sealed class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<UpdateEmployeeCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateEmployeeCommandValidator",
+            "kind": "constructor",
+            "signature": "public UpdateEmployeeCommandValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<UpdateEmployeeCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 41,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-013",
+      "name": "EmployeeDto",
+      "kind": "dto",
+      "path": "src/Application/Employees/EmployeeDto.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees",
+        "declaration": "public sealed record EmployeeDto( Guid Id, string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email, DateOnly JoiningDate, EmploymentType EmploymentType, DateOnly? LastWorkingDate, bool IsActive, DateTime CreatedAtUtc);",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "DateOnly JoiningDate",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "EmploymentType EmploymentType",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastWorkingDate",
+            "kind": "property",
+            "signature": "DateOnly? LastWorkingDate",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsActive",
+            "kind": "property",
+            "signature": "bool IsActive",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 11,
+          "dependency_count": 11
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/EmployeeDto.cs#EmployeeDto",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-014",
+      "name": "EmployeeMapper",
+      "kind": "class",
+      "path": "src/Application/Employees/EmployeeMapper.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees",
+        "declaration": "internal static class EmployeeMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static EmployeeDto ToDto(this Employee employee) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 21,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/EmployeeMapper.cs#EmployeeMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-015",
+      "name": "EmployeeUniqueness",
+      "kind": "class",
+      "path": "src/Application/Employees/EmployeeUniqueness.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees",
+        "declaration": "internal static class EmployeeUniqueness",
+        "line": 11,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FindConflictAsync",
+            "kind": "method",
+            "signature": "public static async Task<Error?> FindConflictAsync(",
+            "line": 13,
+            "modifiers": [
+              "public",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/EmployeeUniqueness.cs",
+              "line": 27,
+              "expression": "Error.Conflict(…)"
+            }
+          },
+          {
+            "target": "IndianPhoneNumber",
+            "target_component": "COMP-PLATFORM-152",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/EmployeeUniqueness.cs",
+              "line": 44,
+              "expression": "IndianPhoneNumber.Normalize(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 75,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/EmployeeUniqueness.cs#EmployeeUniqueness",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-016",
+      "name": "IEmployeeRepository",
+      "kind": "port",
+      "path": "src/Application/Employees/IEmployeeRepository.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees",
+        "declaration": "public interface IEmployeeRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<Employee?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<Employee>> SearchAsync(string? searchTerm, int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ListAllAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<Employee>> ListAllAsync(CancellationToken cancellationToken)",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetByPhoneNumberAsync",
+            "kind": "method",
+            "signature": "Task<Employee?> GetByPhoneNumberAsync(string phoneNumber, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetByEmailAsync",
+            "kind": "method",
+            "signature": "Task<Employee?> GetByEmailAsync(string email, CancellationToken cancellationToken)",
+            "line": 23,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetByEmployeeCodeAsync",
+            "kind": "method",
+            "signature": "Task<Employee?> GetByEmployeeCodeAsync(string employeeCode, CancellationToken cancellationToken)",
+            "line": 26,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(Employee employee)",
+            "line": 28,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 30,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 32,
+          "member_count": 8,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/IEmployeeRepository.cs#IEmployeeRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-017",
+      "name": "GetEmployeeByIdQuery",
+      "kind": "query",
+      "path": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQuery.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.GetById",
+        "declaration": "public sealed record GetEmployeeByIdQuery(Guid Id) : IQuery<Result<EmployeeDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQuery.cs#GetEmployeeByIdQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-018",
+      "name": "GetEmployeeByIdQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.GetById",
+        "declaration": "public sealed class GetEmployeeByIdQueryHandler : IQueryHandler<GetEmployeeByIdQuery, Result<EmployeeDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetEmployeeByIdQuery, Result<EmployeeDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetEmployeeByIdQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetEmployeeByIdQueryHandler(IEmployeeRepository employeeRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<EmployeeDto>> Handle(GetEmployeeByIdQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetEmployeeByIdQuery, Result<EmployeeDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs",
+              "line": 22,
+              "expression": "var employee = _employeeRepository.GetByIdAsync(…); employee.ToDto(…)  [IEmployeeRepository.GetByIdAsync returns Employee]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandler.cs#GetEmployeeByIdQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-EMPLOYEE-019",
+      "name": "ListAllEmployeesQuery",
+      "kind": "query",
+      "path": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQuery.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.ListAll",
+        "declaration": "public sealed record ListAllEmployeesQuery : IQuery<Result<IReadOnlyList<EmployeeDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<IReadOnlyList<EmployeeDto>>>"
+        ],
+        "attributes": [],
+        "members": [],
+        "depends_on": [
+          {
+            "target": "IQuery<Result<IReadOnlyList<EmployeeDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 0,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQuery.cs#ListAllEmployeesQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-020",
+      "name": "ListAllEmployeesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQueryHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.ListAll",
+        "declaration": "public sealed class ListAllEmployeesQueryHandler : IQueryHandler<ListAllEmployeesQuery, Result<IReadOnlyList<EmployeeDto>>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<ListAllEmployeesQuery, Result<IReadOnlyList<EmployeeDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ListAllEmployeesQueryHandler",
+            "kind": "constructor",
+            "signature": "public ListAllEmployeesQueryHandler(IEmployeeRepository employeeRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<IReadOnlyList<EmployeeDto>>> Handle(ListAllEmployeesQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<ListAllEmployeesQuery, Result<IReadOnlyList<EmployeeDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQueryHandler.cs",
+              "line": 20,
+              "expression": "Result.Success(…)"
+            }
+          },
+          {
+            "target": "Employee",
+            "target_component": "COMP-EMPLOYEE-027",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQueryHandler.cs",
+              "line": 20,
+              "expression": "var employees = _employeeRepository.ListAllAsync(…); employees.Select(…)  [IEmployeeRepository.ListAllAsync returns Employee]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 23,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/ListAll/ListAllEmployeesQueryHandler.cs#ListAllEmployeesQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-EMPLOYEE-021",
+      "name": "GetEmployeeOrderHistoryQuery",
+      "kind": "query",
+      "path": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.OrderHistory",
+        "declaration": "public sealed record GetEmployeeOrderHistoryQuery(Guid EmployeeId, int Page, int PageSize)",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeId",
+            "kind": "property",
+            "signature": "Guid EmployeeId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 29,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs#GetEmployeeOrderHistoryQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-022",
+      "name": "EmployeeOrderDto",
+      "kind": "dto",
+      "path": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.OrderHistory",
+        "declaration": "public sealed record EmployeeOrderDto( Guid OrderId, string CustomerName, string Status, int ItemCount, DateTime CreatedAtUtc, DateTime DueAtUtc, DateTime? WorkStartedAtUtc, DateTime? WorkCompletedAtUtc, DateTime? DeliveredAtUtc);",
+        "line": 19,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid OrderId",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerName",
+            "kind": "property",
+            "signature": "string CustomerName",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "string Status",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ItemCount",
+            "kind": "property",
+            "signature": "int ItemCount",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DueAtUtc",
+            "kind": "property",
+            "signature": "DateTime DueAtUtc",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "WorkStartedAtUtc",
+            "kind": "property",
+            "signature": "DateTime? WorkStartedAtUtc",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "WorkCompletedAtUtc",
+            "kind": "property",
+            "signature": "DateTime? WorkCompletedAtUtc",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DeliveredAtUtc",
+            "kind": "property",
+            "signature": "DateTime? DeliveredAtUtc",
+            "line": 19,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 29,
+          "member_count": 9,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQuery.cs#EmployeeOrderDto",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-023",
+      "name": "GetEmployeeOrderHistoryQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQueryHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.OrderHistory",
+        "declaration": "public sealed class GetEmployeeOrderHistoryQueryHandler",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 51,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/OrderHistory/GetEmployeeOrderHistoryQueryHandler.cs#GetEmployeeOrderHistoryQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-024",
+      "name": "SearchEmployeesQuery",
+      "kind": "query",
+      "path": "src/Application/Employees/Queries/Search/SearchEmployeesQuery.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.Search",
+        "declaration": "public sealed record SearchEmployeesQuery(string? SearchTerm, int Page, int PageSize) : IQuery<Result<PagedResult<EmployeeDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<EmployeeDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchTerm",
+            "kind": "property",
+            "signature": "string? SearchTerm",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<EmployeeDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.4",
+            "line": 7
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQuery.cs#SearchEmployeesQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-025",
+      "name": "SearchEmployeesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Employees/Queries/Search/SearchEmployeesQueryHandler.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.Search",
+        "declaration": "public sealed class SearchEmployeesQueryHandler : IQueryHandler<SearchEmployeesQuery, Result<PagedResult<EmployeeDto>>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<SearchEmployeesQuery, Result<PagedResult<EmployeeDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchEmployeesQueryHandler",
+            "kind": "constructor",
+            "signature": "public SearchEmployeesQueryHandler(IEmployeeRepository employeeRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<EmployeeDto>>> Handle(SearchEmployeesQuery query, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IEmployeeRepository",
+            "target_component": "COMP-EMPLOYEE-016",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<SearchEmployeesQuery, Result<PagedResult<EmployeeDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Employees/Queries/Search/SearchEmployeesQueryHandler.cs",
+              "line": 23,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQueryHandler.cs#SearchEmployeesQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-EMPLOYEE-026",
+      "name": "SearchEmployeesQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs",
+      "module": "EMPLOYEE",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Employees.Queries.Search",
+        "declaration": "public sealed class SearchEmployeesQueryValidator : AbstractValidator<SearchEmployeesQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchEmployeesQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchEmployeesQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchEmployeesQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchEmployeesQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Employee Management backend (Phase 2, module 3 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#SearchEmployeesQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-EMPLOYEE-027",
+      "name": "Employee",
+      "kind": "entity",
+      "path": "src/Domain/Employees/Employee.cs",
+      "module": "EMPLOYEE",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#75-employees",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Employees",
+        "declaration": "public sealed class Employee : AuditableEntity",
+        "line": 18,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "public string EmployeeCode",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "public string FullName",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "public string? JobTitle",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "public string PhoneNumber",
+            "line": 32,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "public string? Email",
+            "line": 34,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "public DateOnly JoiningDate",
+            "line": 37,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "public EmploymentType EmploymentType",
+            "line": 39,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastWorkingDate",
+            "kind": "property",
+            "signature": "public DateOnly? LastWorkingDate",
+            "line": 48,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UserId",
+            "kind": "property",
+            "signature": "public Guid? UserId",
+            "line": 50,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsActiveOn",
+            "kind": "method",
+            "signature": "public bool IsActiveOn(DateOnly today) => LastWorkingDate is not { } last || today <= last",
+            "line": 57,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Employee",
+            "kind": "constructor",
+            "signature": "private Employee()",
+            "line": 59,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Employee",
+            "kind": "constructor",
+            "signature": "private Employee(Guid id)",
+            "line": 64,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static Employee Create(",
+            "line": 69,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateDetails",
+            "kind": "method",
+            "signature": "public void UpdateDetails(",
+            "line": 83,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Retire",
+            "kind": "method",
+            "signature": "public void Retire(DateOnly lastWorkingDate)",
+            "line": 97,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReturnToWork",
+            "kind": "method",
+            "signature": "public void ReturnToWork() => LastWorkingDate = null",
+            "line": 110,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetDetails",
+            "kind": "method",
+            "signature": "private void SetDetails(",
+            "line": 112,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Employees/Employee.cs",
+              "line": 123,
+              "expression": "Guard.AgainstNullOrWhiteSpace(…)"
+            }
+          },
+          {
+            "target": "IndianPhoneNumber",
+            "target_component": "COMP-PLATFORM-152",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Employees/Employee.cs",
+              "line": 128,
+              "expression": "IndianPhoneNumber.Normalize(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.6",
+            "line": 8
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.6",
+            "line": 12
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.2",
+            "line": 28
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Store one phone number per person, and warn before a second record is made",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 143,
+          "member_count": 17,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Employees/Employee.cs#Employee",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-EMPLOYEE-028",
+      "name": "EmploymentType",
+      "kind": "enum",
+      "path": "src/Domain/Employees/EmploymentType.cs",
+      "module": "EMPLOYEE",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#75-employees",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Employees",
+        "declaration": "public enum EmploymentType",
+        "line": 8,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "FullTime",
+            "kind": "enum-member",
+            "signature": "FullTime",
+            "line": 10,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Contract",
+            "kind": "enum-member",
+            "signature": "Contract",
+            "line": 11,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Employees/EmploymentType.cs#EmploymentType",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-029",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/dashboard/employee/[id]/page.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/employee/[id]",
+        "declaration": "export default function Page() {",
+        "line": 17,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 13,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 17,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/employee/[id]/PageClient",
+            "target_component": "COMP-EMPLOYEE-030",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employee/[id]/page.tsx#Page",
+            "line": 17
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/employee/[id]",
+            "detail": "web/src/app/dashboard/employee/[id]/page.tsx",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-030",
+      "name": "EmployeeViewPage",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/employee/[id]/PageClient.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function EmployeeViewPage() {",
+        "line": 59,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeViewPage",
+            "kind": "export",
+            "signature": "export default function EmployeeViewPage() {",
+            "line": 59,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-permissions",
+            "target_component": "COMP-WEB-059",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/users",
+            "target_component": "COMP-WEB-047",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/app/dashboard/employees/EmployeeForm",
+            "target_component": "COMP-EMPLOYEE-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 325,
+          "member_count": 1,
+          "dependency_count": 12
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employee/[id]/PageClient.tsx#EmployeeViewPage",
+            "line": 59
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-031",
+      "name": "EmployeeForm",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/employees/EmployeeForm.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function EmployeeForm({ initialValues = emptyValues, onSubmit, onCancel }: EmployeeFormProps) {",
+        "line": 51,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeForm",
+            "kind": "export",
+            "signature": "export function EmployeeForm({ initialValues = emptyValues, onSubmit, onCancel }: EmployeeFormProps) {",
+            "line": 51,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/PhoneNumberInput",
+            "target_component": "COMP-WEB-020",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 196,
+          "member_count": 1,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employees/EmployeeForm.tsx#EmployeeForm",
+            "line": 51
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-032",
+      "name": "NewEmployeePage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/employees/new/page.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/employees/new",
+        "declaration": "export default function NewEmployeePage() {",
+        "line": 10,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "NewEmployeePage",
+            "kind": "export",
+            "signature": "export default function NewEmployeePage() {",
+            "line": 10,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/employees/EmployeeForm",
+            "target_component": "COMP-EMPLOYEE-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/employees",
+            "target_component": "COMP-WEB-032",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "a482fd4eaaa422b3aa8f1b146f8f6453a6534da8",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Add and edit from a dialog that fits, with Submit and Cancel where expected",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 34,
+          "member_count": 1,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employees/new/page.tsx#NewEmployeePage",
+            "line": 10
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/employees/new",
+            "detail": "web/src/app/dashboard/employees/new/page.tsx",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "a482fd4eaaa422b3aa8f1b146f8f6453a6534da8",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-033",
+      "name": "EmployeesPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/employees/page.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/employees",
+        "declaration": "export default function EmployeesPage() {",
+        "line": 34,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeesPage",
+            "kind": "export",
+            "signature": "export default function EmployeesPage() {",
+            "line": 34,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Input",
+            "target_component": "COMP-WEB-017",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ImportExportButtons",
+            "target_component": "COMP-WEB-016",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/Modal",
+            "target_component": "COMP-WEB-018",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/app/dashboard/employees/EmployeeForm",
+            "target_component": "COMP-EMPLOYEE-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-debounced-value",
+            "target_component": "COMP-WEB-057",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "MODIFIED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 11
+        },
+        "metrics": {
+          "lines": 326,
+          "member_count": 1,
+          "dependency_count": 12
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employees/page.tsx#EmployeesPage",
+            "line": 34
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/employees",
+            "detail": "web/src/app/dashboard/employees/page.tsx",
+            "line": 34
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-034",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/dashboard/employees/[id]/page.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/employees/[id]",
+        "declaration": "export default function Page() {",
+        "line": 12,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/employees/[id]/PageClient",
+            "target_component": "COMP-EMPLOYEE-035",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employees/[id]/page.tsx#Page",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/employees/[id]",
+            "detail": "web/src/app/dashboard/employees/[id]/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-EMPLOYEE-035",
+      "name": "EditEmployeePage",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/employees/[id]/PageClient.tsx",
+      "module": "EMPLOYEE",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function EditEmployeePage() {",
+        "line": 13,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EditEmployeePage",
+            "kind": "export",
+            "signature": "export default function EditEmployeePage() {",
+            "line": 13,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/employees/EmployeeForm",
+            "target_component": "COMP-EMPLOYEE-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/employees",
+            "target_component": "COMP-WEB-032",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "a482fd4eaaa422b3aa8f1b146f8f6453a6534da8",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Add and edit from a dialog that fits, with Submit and Cancel where expected",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 82,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/employees/[id]/PageClient.tsx#EditEmployeePage",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "a482fd4eaaa422b3aa8f1b146f8f6453a6534da8",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-028",
+      "name": "CreateEmployeeRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Employees/CreateEmployeeRequest.cs",
+      "module": "EMPLOYEE",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Employees",
+        "declaration": "public sealed record CreateEmployeeRequest( string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email, DateOnly JoiningDate, EmploymentType EmploymentType);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "DateOnly JoiningDate",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "EmploymentType EmploymentType",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 7,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Employees/CreateEmployeeRequest.cs#CreateEmployeeRequest",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-029",
+      "name": "RetireEmployeeRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Employees/RetireEmployeeRequest.cs",
+      "module": "EMPLOYEE",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Employees",
+        "declaration": "public sealed record RetireEmployeeRequest(DateOnly? LastWorkingDate);",
+        "line": 4,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "LastWorkingDate",
+            "kind": "property",
+            "signature": "DateOnly? LastWorkingDate",
+            "line": 4,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 5,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Employees/RetireEmployeeRequest.cs#RetireEmployeeRequest",
+            "line": 4
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-030",
+      "name": "UpdateEmployeeRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Employees/UpdateEmployeeRequest.cs",
+      "module": "EMPLOYEE",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Employees",
+        "declaration": "public sealed record UpdateEmployeeRequest( string EmployeeCode, string FullName, string? JobTitle, string PhoneNumber, string? Email, DateOnly JoiningDate, EmploymentType EmploymentType);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "EmployeeCode",
+            "kind": "property",
+            "signature": "string EmployeeCode",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JobTitle",
+            "kind": "property",
+            "signature": "string? JobTitle",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "JoiningDate",
+            "kind": "property",
+            "signature": "DateOnly JoiningDate",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "EmploymentType",
+            "kind": "property",
+            "signature": "EmploymentType EmploymentType",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "EmploymentType",
+            "target_component": "COMP-EMPLOYEE-028",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 7,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Employees/UpdateEmployeeRequest.cs#UpdateEmployeeRequest",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-061",
+      "name": "EmployeesController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/EmployeesController.cs",
+      "module": "EMPLOYEE",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class EmployeesController : ApiControllerBase",
+        "line": 29,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/employees\")",
+          "Authorize(Policy = Permissions.EmployeesView)"
+        ],
+        "members": [
+          {
+            "name": "EmployeesController",
+            "kind": "constructor",
+            "signature": "public EmployeesController(ISender sender)",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Export",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Export([FromQuery] ExportFormat format = ExportFormat.Xlsx, CancellationToken cancellationToken = default)",
+            "line": 41,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"export\")",
+              "ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "export",
+              "resolved_route": "/api/v1/employees/export",
+              "policy": "Permissions.EmployeesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Import",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Import(IFormFile file, CancellationToken cancellationToken)",
+            "line": 75,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"import\")",
+              "Authorize(Policy = Permissions.EmployeesImport)",
+              "RequestSizeLimit(ImportLimits.MaxFileBytes)",
+              "ProducesResponseType(typeof(ApiResponse<ImportResultDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "import",
+              "resolved_route": "/api/v1/employees/import",
+              "policy": "Permissions.EmployeesImport",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Create([FromBody] CreateEmployeeRequest request, CancellationToken cancellationToken)",
+            "line": 114,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost",
+              "Authorize(Policy = Permissions.EmployeesCreate)",
+              "ProducesResponseType(typeof(ApiResponse<EmployeeDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": null,
+              "resolved_route": "/api/v1/employees",
+              "policy": "Permissions.EmployeesCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetById",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)",
+            "line": 127,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}\")",
+              "ProducesResponseType(typeof(ApiResponse<EmployeeDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/employees/{id:guid}",
+              "policy": "Permissions.EmployeesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 137,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<EmployeeDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/employees",
+              "policy": "Permissions.EmployeesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Update",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Update(Guid id, [FromBody] UpdateEmployeeRequest request, CancellationToken cancellationToken)",
+            "line": 153,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"{id:guid}\")",
+              "Authorize(Policy = Permissions.EmployeesEdit)",
+              "ProducesResponseType(typeof(ApiResponse<EmployeeDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/employees/{id:guid}",
+              "policy": "Permissions.EmployeesEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Retire",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Retire(Guid id, [FromBody] RetireEmployeeRequest request, CancellationToken cancellationToken)",
+            "line": 176,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"{id:guid}/retire\")",
+              "Authorize(Policy = Permissions.EmployeesRetire)",
+              "ProducesResponseType(typeof(ApiResponse<EmployeeDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "{id:guid}/retire",
+              "resolved_route": "/api/v1/employees/{id:guid}/retire",
+              "policy": "Permissions.EmployeesRetire",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "OrderHistory",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> OrderHistory(",
+            "line": 186,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}/orders\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<EmployeeOrderDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}/orders",
+              "resolved_route": "/api/v1/employees/{id:guid}/orders",
+              "policy": "Permissions.EmployeesView",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ExportFormat",
+            "target_component": "COMP-PLATFORM-011",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 41,
+              "expression": "ExportFormat format = "
+            }
+          },
+          {
+            "target": "ListAllEmployeesQuery",
+            "target_component": "COMP-EMPLOYEE-019",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 43,
+              "expression": "new ListAllEmployeesQuery("
+            }
+          },
+          {
+            "target": "ExportResultFactory",
+            "target_component": "COMP-PLATFORM-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 52,
+              "expression": "ExportResultFactory.Create(…)"
+            }
+          },
+          {
+            "target": "ImportEmployeesCommand",
+            "target_component": "COMP-EMPLOYEE-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 94,
+              "expression": "new ImportEmployeesCommand("
+            }
+          },
+          {
+            "target": "EmployeeImportRow",
+            "target_component": "COMP-EMPLOYEE-005",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 95,
+              "expression": "new EmployeeImportRow("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 79,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 80,
+              "expression": "Error.Validation(…)"
+            }
+          },
+          {
+            "target": "ExcelSheet",
+            "target_component": "COMP-PLATFORM-005",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 87,
+              "expression": "ExcelSheet.Read(…)"
+            }
+          },
+          {
+            "target": "CreateEmployeeCommand",
+            "target_component": "COMP-EMPLOYEE-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 116,
+              "expression": "new CreateEmployeeCommand("
+            }
+          },
+          {
+            "target": "GetEmployeeByIdQuery",
+            "target_component": "COMP-EMPLOYEE-017",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 129,
+              "expression": "new GetEmployeeByIdQuery("
+            }
+          },
+          {
+            "target": "SearchEmployeesQuery",
+            "target_component": "COMP-EMPLOYEE-024",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 143,
+              "expression": "new SearchEmployeesQuery("
+            }
+          },
+          {
+            "target": "UpdateEmployeeCommand",
+            "target_component": "COMP-EMPLOYEE-010",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 155,
+              "expression": "new UpdateEmployeeCommand("
+            }
+          },
+          {
+            "target": "RetireEmployeeCommand",
+            "target_component": "COMP-EMPLOYEE-008",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 178,
+              "expression": "new RetireEmployeeCommand("
+            }
+          },
+          {
+            "target": "GetEmployeeOrderHistoryQuery",
+            "target_component": "COMP-EMPLOYEE-021",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/EmployeesController.cs",
+              "line": 192,
+              "expression": "new GetEmployeeOrderHistoryQuery("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 25
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.6",
+            "line": 25
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 133
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 182
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 196,
+          "member_count": 9,
+          "dependency_count": 16
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/EmployeesController.cs#EmployeesController",
+            "line": 29
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/EmployeesController.cs#ApiController",
+            "line": 29
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

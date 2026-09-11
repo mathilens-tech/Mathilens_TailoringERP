@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rule.schema.json",
+  "title": "Business rule registry (one file per module)",
+  "description": "A rule the product enforces. Rules sit between a feature and the code: a change-impact report needs to name the RULE that moved — \"an order cannot be emptied\" — not merely the feature that contains it.\n\nTWO SOURCES, AND THEY ARE NOT EQUAL.\n\n- A rule stated in the specification is SPECIFIED, and its confidence can be CONFIRMED because a document says so.\n- A rule read out of the code — a guard clause, a thrown invariant, a validator, a state table — is INFERRED. The code demonstrably behaves this way; whether anyone INTENDED it is a different question, and that difference is exactly what requirement-mismatch detection later depends on.\n\nNothing here is invented. Every rule carries the file and line that produced it.",
+  "type": "object",
+  "required": ["module", "schema_version", "generated_at", "rules"],
+  "properties": {
+    "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+    "schema_version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "harvester_version": { "type": "string" },
+    "rules": { "type": "array", "items": { "$ref": "rule.schema.json#/$defs/rule" } }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "required": ["id", "statement", "module", "category", "origin", "status", "data_classification", "provenance"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/businessRuleId" },
+        "entity_version": { "type": "integer", "minimum": 1 },
+
+        "statement": {
+          "description": "The rule in one sentence, in the product's own words. Derived from the evidence verbatim wherever the evidence is a sentence (a thrown message, a specification clause); never composed from a class name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+
+        "category": {
+          "type": "string",
+          "enum": [
+            "validation", "state-transition", "authorization", "calculation",
+            "time-boundary", "data-integrity", "workflow", "policy", "NEEDS_REVIEW"
+          ]
+        },
+        "category_evidence": { "type": ["string", "null"] },
+
+        "origin": {
+          "description": "SPECIFIED = a document states it. IMPLEMENTED = only the code states it. BOTH = the code enforces something a document also asks for. The distinction is what makes drift detectable.",
+          "type": "string",
+          "enum": ["SPECIFIED", "IMPLEMENTED", "BOTH", "NEEDS_REVIEW"]
+        },
+
+        "enforced_by": {
+          "description": "Where the rule actually lives in the code. Empty means the rule was found in a document and no enforcement was located — a DOCUMENTED_ONLY rule, and a gap worth surfacing.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["component", "file", "line", "mechanism"],
+            "properties": {
+              "component": { "type": ["string", "null"] },
+              "file": { "type": "string" },
+              "line": { "type": "integer" },
+              "mechanism": {
+                "type": "string",
+                "enum": ["domain-invariant", "guard-clause", "fluent-validation", "state-table", "constant", "authorization-policy", "database-constraint", "specification"]
+              },
+              "expression": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        },
+
+        "requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+        "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+
+        "coverage": {
+          "type": ["object", "null"],
+          "required": ["specified", "implemented", "tested"],
+          "properties": {
+            "specified": { "type": "string", "enum": ["YES", "NO", "NEEDS_REVIEW"] },
+            "implemented": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+            "tested": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+            "test_count": { "type": "integer" },
+            "computed_at": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+
+        "machine": {
+          "type": "object",
+          "properties": {
+            "detector": { "type": ["string", "null"] },
+            "raw": { "type": ["string", "null"] },
+            "symbol": { "type": ["string", "null"] },
+            "git": {
+              "type": "object",
+              "properties": {
+                "state": { "$ref": "common.schema.json#/$defs/gitState" },
+                "last_commit": { "type": ["string", "null"] },
+                "last_commit_date": { "type": ["string", "null"] }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "last_verified_commit": { "type": ["string", "null"] },
+        "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

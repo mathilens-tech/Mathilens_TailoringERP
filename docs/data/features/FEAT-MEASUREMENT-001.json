@@ -1,0 +1,179 @@
+{
+  "id": "FEAT-MEASUREMENT-001",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Measurement Management",
+  "module": "MEASUREMENT",
+  "simple_explanation": "Measurement Management — derived from the Create, GetById use cases in src/Application/Measurement. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Measurements/Commands/Create",
+      "src/Application/Measurements/Queries/GetById"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommand.cs",
+        "contains": "CreateMeasurementCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs",
+        "contains": "CreateMeasurementCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs",
+        "contains": "CreateMeasurementCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "6 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 5,
+    "test_count": 12,
+    "requirement_count": 2,
+    "rule_count": 9,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "GetById"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/customers/{customerId:guid}/measurements",
+        "policy": "Permissions.MeasurementsCreate",
+        "controller": "MeasurementsController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/measurements/{id:guid}",
+        "policy": "Permissions.MeasurementsView",
+        "controller": "MeasurementsController",
+        "action": "GetById"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/measurements/[id]/history"
+    ],
+    "permissions": [
+      "Permissions.MeasurementsCreate",
+      "Permissions.MeasurementsView"
+    ],
+    "derived_components": [
+      "COMP-MEASUREMENT-001",
+      "COMP-MEASUREMENT-002",
+      "COMP-MEASUREMENT-003",
+      "COMP-MEASUREMENT-014",
+      "COMP-MEASUREMENT-015",
+      "COMP-MEASUREMENT-032"
+    ],
+    "derived_test_cases": [
+      "TC-MEASUREMENT-001",
+      "TC-MEASUREMENT-002",
+      "TC-MEASUREMENT-003",
+      "TC-MEASUREMENT-004",
+      "TC-MEASUREMENT-005",
+      "TC-MEASUREMENT-006",
+      "TC-MEASUREMENT-007",
+      "TC-MEASUREMENT-008",
+      "TC-MEASUREMENT-009",
+      "TC-MEASUREMENT-010",
+      "TC-MEASUREMENT-011",
+      "TC-MEASUREMENT-016",
+      "TC-MEASUREMENT-017",
+      "TC-MEASUREMENT-018",
+      "TC-MEASUREMENT-019",
+      "TC-MEASUREMENT-036",
+      "TC-MEASUREMENT-037",
+      "TC-MEASUREMENT-038",
+      "TC-MEASUREMENT-039",
+      "TC-MEASUREMENT-040",
+      "TC-MEASUREMENT-041",
+      "TC-MEASUREMENT-042",
+      "TC-MEASUREMENT-043"
+    ],
+    "derived_rules": [
+      "BR-MEASUREMENT-001",
+      "BR-MEASUREMENT-002",
+      "BR-MEASUREMENT-003",
+      "BR-MEASUREMENT-013",
+      "BR-MEASUREMENT-014",
+      "BR-MEASUREMENT-015",
+      "BR-MEASUREMENT-016",
+      "BR-MEASUREMENT-017",
+      "BR-MEASUREMENT-018"
+    ],
+    "derived_requirements": [
+      "FR-MEASUREMENT-001",
+      "FR-MEASUREMENT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "last_commit_date": "2026-08-20"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/measurements/{id:guid}",
+    "POST /api/v1/customers/{customerId:guid}/measurements"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Measurements/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Measurements/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/customers/{customerId:guid}/measurements",
+        "detail": "src/Api/Controllers/V1/MeasurementsController.cs",
+        "line": 42
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/measurements/{id:guid}",
+        "detail": "src/Api/Controllers/V1/MeasurementsController.cs",
+        "line": 62
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+  "change_history": []
+}

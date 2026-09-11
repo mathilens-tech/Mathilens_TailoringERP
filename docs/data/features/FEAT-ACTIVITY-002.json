@@ -1,0 +1,124 @@
+{
+  "id": "FEAT-ACTIVITY-002",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Activity Log Management",
+  "module": "ACTIVITY",
+  "simple_explanation": "Activity Log Management — derived from the Search use case in src/Application/Activity. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Activity/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQuery.cs",
+        "contains": "SearchActivityLogsQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryHandler.cs",
+        "contains": "SearchActivityLogsQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs",
+        "contains": "SearchActivityLogsQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 3,
+    "test_count": 0,
+    "requirement_count": 2,
+    "rule_count": 3,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Search"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/activity-logs",
+        "policy": "Permissions.ActivityView",
+        "controller": "ActivityLogsController",
+        "action": "Search"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/activity"
+    ],
+    "permissions": [
+      "Permissions.ActivityView"
+    ],
+    "derived_components": [
+      "COMP-ACTIVITY-013",
+      "COMP-ACTIVITY-014",
+      "COMP-ACTIVITY-015"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [
+      "BR-ACTIVITY-001",
+      "BR-ACTIVITY-002",
+      "BR-ACTIVITY-003"
+    ],
+    "derived_requirements": [
+      "FR-ACTIVITY-001",
+      "FR-ACTIVITY-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "last_commit_date": "2026-08-14"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/activity-logs"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Activity/Queries/Search",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/activity-logs",
+        "detail": "src/Api/Controllers/V1/ActivityLogsController.cs",
+        "line": 31
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+  "change_history": []
+}

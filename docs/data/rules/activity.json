@@ -1,0 +1,386 @@
+{
+  "module": "ACTIVITY",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-ACTIVITY-001",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-015",
+          "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-015"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchActivityLogsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#SearchActivityLogsQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": []
+    },
+    {
+      "id": "BR-ACTIVITY-002",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-015",
+          "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-015"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchActivityLogsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#SearchActivityLogsQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": []
+    },
+    {
+      "id": "BR-ACTIVITY-003",
+      "entity_version": 1,
+      "statement": "'ToUtc' must be on or after 'FromUtc'.",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-015",
+          "file": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-015"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.ToUtc).GreaterThanOrEqualTo()",
+        "symbol": "SearchActivityLogsQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Activity/Queries/Search/SearchActivityLogsQueryValidator.cs#SearchActivityLogsQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "change_history": []
+    },
+    {
+      "id": "BR-ACTIVITY-004",
+      "entity_version": 1,
+      "statement": "Screen must not be null or white space",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-016",
+          "file": "src/Domain/Activity/ActivityLog.cs",
+          "line": 69,
+          "mechanism": "guard-clause",
+          "expression": "Screen = Guard.AgainstNullOrWhiteSpace(screen, nameof(screen)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-016"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-068",
+        "TC-PLATFORM-069",
+        "TC-PLATFORM-070",
+        "TC-PLATFORM-071",
+        "TC-PLATFORM-072",
+        "TC-PLATFORM-073",
+        "TC-PLATFORM-074"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Screen = Guard.AgainstNullOrWhiteSpace(screen, nameof(screen)),",
+        "symbol": "ActivityLog",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Activity/ActivityLog.cs#ActivityLog",
+            "line": 69
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": []
+    },
+    {
+      "id": "BR-ACTIVITY-005",
+      "entity_version": 1,
+      "statement": "Action must not be null or white space",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-016",
+          "file": "src/Domain/Activity/ActivityLog.cs",
+          "line": 70,
+          "mechanism": "guard-clause",
+          "expression": "Action = Guard.AgainstNullOrWhiteSpace(action, nameof(action)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-016"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-068",
+        "TC-PLATFORM-069",
+        "TC-PLATFORM-070",
+        "TC-PLATFORM-071",
+        "TC-PLATFORM-072",
+        "TC-PLATFORM-073",
+        "TC-PLATFORM-074"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Action = Guard.AgainstNullOrWhiteSpace(action, nameof(action)),",
+        "symbol": "ActivityLog",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Activity/ActivityLog.cs#ActivityLog",
+            "line": 70
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": []
+    },
+    {
+      "id": "BR-ACTIVITY-006",
+      "entity_version": 1,
+      "statement": "Request Name must not be null or white space",
+      "module": "ACTIVITY",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ACTIVITY-016",
+          "file": "src/Domain/Activity/ActivityLog.cs",
+          "line": 71,
+          "mechanism": "guard-clause",
+          "expression": "RequestName = Guard.AgainstNullOrWhiteSpace(requestName, nameof(requestName)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ACTIVITY-016"
+      ],
+      "test_cases": [
+        "TC-PLATFORM-068",
+        "TC-PLATFORM-069",
+        "TC-PLATFORM-070",
+        "TC-PLATFORM-071",
+        "TC-PLATFORM-072",
+        "TC-PLATFORM-073",
+        "TC-PLATFORM-074"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "RequestName = Guard.AgainstNullOrWhiteSpace(requestName, nameof(requestName)),",
+        "symbol": "ActivityLog",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+          "last_commit_date": "2026-08-14"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Activity/ActivityLog.cs#ActivityLog",
+            "line": 71
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ad6320be4d53133b926612e8892bc6824501e1a3",
+      "change_history": []
+    }
+  ]
+}

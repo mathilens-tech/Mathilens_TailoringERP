@@ -1,0 +1,1291 @@
+{
+  "module": "CUSTOMER",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-CUSTOMER-001",
+      "entity_version": 1,
+      "statement": "Full Name must satisfy not empty, maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-003",
+          "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-003"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-005",
+        "TC-CUSTOMER-006",
+        "TC-CUSTOMER-007",
+        "TC-CUSTOMER-008",
+        "TC-CUSTOMER-009",
+        "TC-CUSTOMER-010",
+        "TC-CUSTOMER-011",
+        "TC-CUSTOMER-012",
+        "TC-CUSTOMER-013",
+        "TC-CUSTOMER-014",
+        "TC-CUSTOMER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()",
+        "symbol": "CreateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-002",
+      "entity_version": 1,
+      "statement": "Phone Number must satisfy cascade, must be an indian mobile number",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-003",
+          "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-003"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-005",
+        "TC-CUSTOMER-006",
+        "TC-CUSTOMER-007",
+        "TC-CUSTOMER-008",
+        "TC-CUSTOMER-009",
+        "TC-CUSTOMER-010",
+        "TC-CUSTOMER-011",
+        "TC-CUSTOMER-012",
+        "TC-CUSTOMER-013",
+        "TC-CUSTOMER-014",
+        "TC-CUSTOMER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()",
+        "symbol": "CreateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-003",
+      "entity_version": 1,
+      "statement": "Email must satisfy must be an email address when given",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-003",
+          "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-003"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-005",
+        "TC-CUSTOMER-006",
+        "TC-CUSTOMER-007",
+        "TC-CUSTOMER-008",
+        "TC-CUSTOMER-009",
+        "TC-CUSTOMER-010",
+        "TC-CUSTOMER-011",
+        "TC-CUSTOMER-012",
+        "TC-CUSTOMER-013",
+        "TC-CUSTOMER-014",
+        "TC-CUSTOMER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()",
+        "symbol": "CreateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-004",
+      "entity_version": 1,
+      "statement": "Address must satisfy maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-003",
+          "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+          "line": 23,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Address).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-003"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-005",
+        "TC-CUSTOMER-006",
+        "TC-CUSTOMER-007",
+        "TC-CUSTOMER-008",
+        "TC-CUSTOMER-009",
+        "TC-CUSTOMER-010",
+        "TC-CUSTOMER-011",
+        "TC-CUSTOMER-012",
+        "TC-CUSTOMER-013",
+        "TC-CUSTOMER-014",
+        "TC-CUSTOMER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Address).MaximumLength()",
+        "symbol": "CreateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator",
+            "line": 23
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-005",
+      "entity_version": 1,
+      "statement": "Notes must satisfy maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-003",
+          "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+          "line": 26,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Notes).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-003"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-005",
+        "TC-CUSTOMER-006",
+        "TC-CUSTOMER-007",
+        "TC-CUSTOMER-008",
+        "TC-CUSTOMER-009",
+        "TC-CUSTOMER-010",
+        "TC-CUSTOMER-011",
+        "TC-CUSTOMER-012",
+        "TC-CUSTOMER-013",
+        "TC-CUSTOMER-014",
+        "TC-CUSTOMER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 11,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Notes).MaximumLength()",
+        "symbol": "CreateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs#CreateCustomerCommandValidator",
+            "line": 26
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-006",
+      "entity_version": 1,
+      "statement": "The spreadsheet contains no data rows.",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-014",
+          "file": "src/Application/Customers/Commands/Import/ImportCustomersCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Rows).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-014"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Rows).NotEmpty()",
+        "symbol": "ImportCustomersCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Import/ImportCustomersCommandValidator.cs#ImportCustomersCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-007",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-008",
+      "entity_version": 1,
+      "statement": "Full Name must satisfy not empty, maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-009",
+      "entity_version": 1,
+      "statement": "Phone Number must satisfy cascade, must be an indian mobile number",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 19,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 19
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-010",
+      "entity_version": 1,
+      "statement": "Email must satisfy must be an email address when given",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 23,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 23
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-011",
+      "entity_version": 1,
+      "statement": "Address must satisfy maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 26,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Address).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Address).MaximumLength()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 26
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-012",
+      "entity_version": 1,
+      "statement": "Notes must satisfy maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-019",
+          "file": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs",
+          "line": 29,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Notes).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-019"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-023",
+        "TC-CUSTOMER-024",
+        "TC-CUSTOMER-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Notes).MaximumLength()",
+        "symbol": "UpdateCustomerCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Commands/Update/UpdateCustomerCommandValidator.cs#UpdateCustomerCommandValidator",
+            "line": 29
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-013",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-033",
+          "file": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-033"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-030",
+        "TC-CUSTOMER-031",
+        "TC-CUSTOMER-032"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchCustomersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#SearchCustomersQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-014",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-033",
+          "file": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-033"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-030",
+        "TC-CUSTOMER-031",
+        "TC-CUSTOMER-032"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchCustomersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#SearchCustomersQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-015",
+      "entity_version": 1,
+      "statement": "Search Term must satisfy maximum length",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-033",
+          "file": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SearchTerm).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-033"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-030",
+        "TC-CUSTOMER-031",
+        "TC-CUSTOMER-032"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SearchTerm).MaximumLength()",
+        "symbol": "SearchCustomersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Customers/Queries/Search/SearchCustomersQueryValidator.cs#SearchCustomersQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "fae6559aa72258e23a8b51f4a0facc370c546419",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-016",
+      "entity_version": 1,
+      "statement": "Full Name must not be null or white space",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-035",
+          "file": "src/Domain/Customers/Customer.cs",
+          "line": 85,
+          "mechanism": "guard-clause",
+          "expression": "FullName = Guard.AgainstNullOrWhiteSpace(fullName, nameof(fullName));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-035"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-002",
+        "TC-CUSTOMER-003",
+        "TC-CUSTOMER-004",
+        "TC-CUSTOMER-016",
+        "TC-CUSTOMER-018",
+        "TC-CUSTOMER-019",
+        "TC-CUSTOMER-021",
+        "TC-CUSTOMER-022",
+        "TC-CUSTOMER-026",
+        "TC-CUSTOMER-028",
+        "TC-CUSTOMER-029",
+        "TC-CUSTOMER-041",
+        "TC-CUSTOMER-042",
+        "TC-CUSTOMER-043",
+        "TC-CUSTOMER-044",
+        "TC-CUSTOMER-045",
+        "TC-CUSTOMER-046",
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-003",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-010",
+        "TC-ORDER-033",
+        "TC-WHATSAPP-001",
+        "TC-WHATSAPP-002",
+        "TC-WHATSAPP-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 26,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "FullName = Guard.AgainstNullOrWhiteSpace(fullName, nameof(fullName));",
+        "symbol": "Customer",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Customers/Customer.cs#Customer",
+            "line": 85
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-017",
+      "entity_version": 1,
+      "statement": "Phone Number must not be null or white space",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-035",
+          "file": "src/Domain/Customers/Customer.cs",
+          "line": 95,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNullOrWhiteSpace(phoneNumber, nameof(phoneNumber)));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-035"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-002",
+        "TC-CUSTOMER-003",
+        "TC-CUSTOMER-004",
+        "TC-CUSTOMER-016",
+        "TC-CUSTOMER-018",
+        "TC-CUSTOMER-019",
+        "TC-CUSTOMER-021",
+        "TC-CUSTOMER-022",
+        "TC-CUSTOMER-026",
+        "TC-CUSTOMER-028",
+        "TC-CUSTOMER-029",
+        "TC-CUSTOMER-041",
+        "TC-CUSTOMER-042",
+        "TC-CUSTOMER-043",
+        "TC-CUSTOMER-044",
+        "TC-CUSTOMER-045",
+        "TC-CUSTOMER-046",
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-003",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-010",
+        "TC-ORDER-033",
+        "TC-WHATSAPP-001",
+        "TC-WHATSAPP-002",
+        "TC-WHATSAPP-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 26,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNullOrWhiteSpace(phoneNumber, nameof(phoneNumber)));",
+        "symbol": "Customer",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Customers/Customer.cs#Customer",
+            "line": 95
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-018",
+      "entity_version": 1,
+      "statement": "Customer Id must not be empty",
+      "module": "CUSTOMER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-038",
+          "file": "src/Domain/Customers/OccasionContact.cs",
+          "line": 49,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstEmpty(customerId, nameof(customerId));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-038"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-047",
+        "TC-CUSTOMER-048",
+        "TC-CUSTOMER-049",
+        "TC-CUSTOMER-050",
+        "TC-CUSTOMER-051"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstEmpty(customerId, nameof(customerId));",
+        "symbol": "OccasionContact",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Customers/OccasionContact.cs#OccasionContact",
+            "line": 49
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": []
+    },
+    {
+      "id": "BR-CUSTOMER-019",
+      "entity_version": 1,
+      "statement": "Occasion Year must not be out of range",
+      "module": "CUSTOMER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-CUSTOMER-038",
+          "file": "src/Domain/Customers/OccasionContact.cs",
+          "line": 53,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstOutOfRange(occasionYear, 2000, 2200, nameof(occasionYear));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-CUSTOMER-038"
+      ],
+      "test_cases": [
+        "TC-CUSTOMER-047",
+        "TC-CUSTOMER-048",
+        "TC-CUSTOMER-049",
+        "TC-CUSTOMER-050",
+        "TC-CUSTOMER-051"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstOutOfRange(occasionYear, 2000, 2200, nameof(occasionYear));",
+        "symbol": "OccasionContact",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Customers/OccasionContact.cs#OccasionContact",
+            "line": 53
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": []
+    }
+  ]
+}

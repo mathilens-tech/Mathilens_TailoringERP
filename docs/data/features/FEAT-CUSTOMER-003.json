@@ -1,0 +1,281 @@
+{
+  "id": "FEAT-CUSTOMER-003",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Customer Management",
+  "module": "CUSTOMER",
+  "simple_explanation": "Customer Management — derived from the Create, Delete, GetById, ListAll, Search, Update use cases in src/Application/Customer. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Customers/Commands/Create",
+      "src/Application/Customers/Commands/Delete",
+      "src/Application/Customers/Commands/Update",
+      "src/Application/Customers/Queries/GetById",
+      "src/Application/Customers/Queries/ListAll",
+      "src/Application/Customers/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Create/CreateCustomerCommand.cs",
+        "contains": "CreateCustomerCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandHandler.cs",
+        "contains": "CreateCustomerCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Customers/Commands/Create/CreateCustomerCommandValidator.cs",
+        "contains": "CreateCustomerCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "16 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 15,
+    "test_count": 42,
+    "requirement_count": 1,
+    "rule_count": 16,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "Delete",
+      "GetById",
+      "ListAll",
+      "Search",
+      "Update"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/customers",
+        "policy": "Permissions.CustomersCreate",
+        "controller": "CustomersController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/customers",
+        "policy": "Permissions.CustomersView",
+        "controller": "CustomersController",
+        "action": "Search"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/customers/{id:guid}",
+        "policy": "Permissions.CustomersView",
+        "controller": "CustomersController",
+        "action": "GetById"
+      },
+      {
+        "method": "PUT",
+        "route": "/api/v1/customers/{id:guid}",
+        "policy": "Permissions.CustomersEdit",
+        "controller": "CustomersController",
+        "action": "Update"
+      },
+      {
+        "method": "DELETE",
+        "route": "/api/v1/customers/{id:guid}",
+        "policy": "Permissions.CustomersDelete",
+        "controller": "CustomersController",
+        "action": "Delete"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/customers",
+      "/dashboard/customers/[id]",
+      "/dashboard/customers/new"
+    ],
+    "permissions": [
+      "Permissions.CustomersCreate",
+      "Permissions.CustomersDelete",
+      "Permissions.CustomersEdit",
+      "Permissions.CustomersView"
+    ],
+    "derived_components": [
+      "COMP-CUSTOMER-001",
+      "COMP-CUSTOMER-002",
+      "COMP-CUSTOMER-003",
+      "COMP-CUSTOMER-004",
+      "COMP-CUSTOMER-005",
+      "COMP-CUSTOMER-017",
+      "COMP-CUSTOMER-018",
+      "COMP-CUSTOMER-019",
+      "COMP-CUSTOMER-027",
+      "COMP-CUSTOMER-028",
+      "COMP-CUSTOMER-029",
+      "COMP-CUSTOMER-030",
+      "COMP-CUSTOMER-031",
+      "COMP-CUSTOMER-032",
+      "COMP-CUSTOMER-033",
+      "COMP-CUSTOMER-035"
+    ],
+    "derived_test_cases": [
+      "TC-ACTIVITY-001",
+      "TC-ACTIVITY-002",
+      "TC-ACTIVITY-003",
+      "TC-ACTIVITY-006",
+      "TC-ACTIVITY-008",
+      "TC-CUSTOMER-001",
+      "TC-CUSTOMER-002",
+      "TC-CUSTOMER-003",
+      "TC-CUSTOMER-004",
+      "TC-CUSTOMER-005",
+      "TC-CUSTOMER-006",
+      "TC-CUSTOMER-007",
+      "TC-CUSTOMER-008",
+      "TC-CUSTOMER-009",
+      "TC-CUSTOMER-010",
+      "TC-CUSTOMER-011",
+      "TC-CUSTOMER-012",
+      "TC-CUSTOMER-013",
+      "TC-CUSTOMER-014",
+      "TC-CUSTOMER-015",
+      "TC-CUSTOMER-016",
+      "TC-CUSTOMER-017",
+      "TC-CUSTOMER-018",
+      "TC-CUSTOMER-019",
+      "TC-CUSTOMER-020",
+      "TC-CUSTOMER-021",
+      "TC-CUSTOMER-022",
+      "TC-CUSTOMER-023",
+      "TC-CUSTOMER-024",
+      "TC-CUSTOMER-025",
+      "TC-CUSTOMER-026",
+      "TC-CUSTOMER-027",
+      "TC-CUSTOMER-028",
+      "TC-CUSTOMER-029",
+      "TC-CUSTOMER-030",
+      "TC-CUSTOMER-031",
+      "TC-CUSTOMER-032",
+      "TC-CUSTOMER-041",
+      "TC-CUSTOMER-042",
+      "TC-CUSTOMER-043",
+      "TC-CUSTOMER-044",
+      "TC-CUSTOMER-045",
+      "TC-CUSTOMER-046",
+      "TC-MEASUREMENT-001",
+      "TC-MEASUREMENT-003",
+      "TC-ORDER-006",
+      "TC-ORDER-008",
+      "TC-ORDER-010",
+      "TC-ORDER-033",
+      "TC-PLATFORM-068",
+      "TC-PLATFORM-069",
+      "TC-PLATFORM-070",
+      "TC-PLATFORM-073",
+      "TC-PLATFORM-074",
+      "TC-WHATSAPP-001",
+      "TC-WHATSAPP-002",
+      "TC-WHATSAPP-004"
+    ],
+    "derived_rules": [
+      "BR-CUSTOMER-001",
+      "BR-CUSTOMER-002",
+      "BR-CUSTOMER-003",
+      "BR-CUSTOMER-004",
+      "BR-CUSTOMER-005",
+      "BR-CUSTOMER-007",
+      "BR-CUSTOMER-008",
+      "BR-CUSTOMER-009",
+      "BR-CUSTOMER-010",
+      "BR-CUSTOMER-011",
+      "BR-CUSTOMER-012",
+      "BR-CUSTOMER-013",
+      "BR-CUSTOMER-014",
+      "BR-CUSTOMER-015",
+      "BR-CUSTOMER-016",
+      "BR-CUSTOMER-017"
+    ],
+    "derived_requirements": [
+      "FR-CUSTOMER-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "last_commit_date": "2026-08-19"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "DELETE /api/v1/customers/{id:guid}",
+    "GET /api/v1/customers",
+    "GET /api/v1/customers/{id:guid}",
+    "POST /api/v1/customers",
+    "PUT /api/v1/customers/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Customers/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Customers/Commands/Delete",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Customers/Commands/Update",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Customers/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/customers",
+        "detail": "src/Api/Controllers/V1/CustomersController.cs",
+        "line": 44
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/customers",
+        "detail": "src/Api/Controllers/V1/CustomersController.cs",
+        "line": 74
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/customers/{id:guid}",
+        "detail": "src/Api/Controllers/V1/CustomersController.cs",
+        "line": 64
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+  "change_history": []
+}

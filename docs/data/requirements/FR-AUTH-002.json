@@ -1,0 +1,75 @@
+{
+  "id": "FR-AUTH-002",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Passwords are hashed with ASP.NET Core Identity's default hasher — never reversible…",
+  "module": "AUTH",
+  "description": "Passwords are hashed with ASP.NET Core Identity's default hasher — never reversible encryption.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "security",
+  "requirement_type_evidence": "clause uses \"Passwords\"",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 10.4",
+    "section_title": "Password Policy",
+    "parent_section": "§ 10",
+    "parent_section_title": "Security",
+    "quote": "Passwords are hashed with ASP.NET Core Identity's default hasher — never reversible encryption.",
+    "line": 488,
+    "line_start": 488,
+    "line_end": 489,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-PLATFORM-108",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 10.4 at line 78"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 1,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 10.4",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 488
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

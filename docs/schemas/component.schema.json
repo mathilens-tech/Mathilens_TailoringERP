@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "component.schema.json",
+  "title": "Source-code component registry (one file per module)",
+  "description": "HOW IS IT IMPLEMENTED. One entry per declared type (class/interface/enum/record/struct) in C#, and per exported component/hook/module in TypeScript.\n\nTHIS FILE IS BOTH HARVESTED AND HAND-ENRICHED. harvest-source.mjs owns the `machine` block and rewrites it on every run. Everything outside `machine` is human/Claude-authored and is preserved across runs. A harvester that overwrote `purpose` would destroy the only part of this file a person wrote.",
+  "type": "object",
+  "required": ["module", "schema_version", "generated_at", "components"],
+  "properties": {
+    "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+    "schema_version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "harvester_version": { "type": "string" },
+    "components": {
+      "type": "array",
+      "items": { "$ref": "component.schema.json#/$defs/component" }
+    }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "component": {
+      "type": "object",
+      "required": ["id", "name", "kind", "path", "module", "machine", "status", "data_classification", "provenance"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/componentId" },
+        "name": { "type": "string", "minLength": 1 },
+        "kind": {
+          "description": "What the declaration is. `route` and `screen` are frontend-only; `migration` is handled separately in _migrations.json.",
+          "type": "string",
+          "enum": [
+            "class", "interface", "enum", "record", "struct",
+            "controller", "command", "query", "handler", "validator",
+            "entity", "value-object", "repository", "service", "port",
+            "dto", "configuration", "behavior", "interceptor", "constant",
+            "react-component", "hook", "api-client", "route", "module", "unknown"
+          ]
+        },
+        "path": { "type": "string", "minLength": 1 },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+        "layer": {
+          "type": "string",
+          "enum": ["Domain", "Application", "Infrastructure", "Api", "Shared", "Web", "Tests", "Tools", "Unknown"]
+        },
+
+        "purpose": {
+          "description": "HUMAN FIELD. One line: what this exists to do. Null until someone says. Never guessed by the harvester.",
+          "type": ["string", "null"]
+        },
+        "simple_explanation": {
+          "description": "HUMAN FIELD. For a non-technical reader.",
+          "type": ["string", "null"]
+        },
+        "technical_explanation": {
+          "description": "HUMAN FIELD. For a developer.",
+          "type": ["string", "null"]
+        },
+        "knowledge_ref": {
+          "description": "HUMAN FIELD. Anchor into knowledge.md, so prose lives in one place rather than being duplicated here.",
+          "type": ["string", "null"]
+        },
+
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+        "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+
+        "machine": {
+          "description": "MACHINE FIELD. Owned by harvest-source.mjs and rewritten wholesale on every run. Never hand-edit — an edit here is lost on the next harvest, silently.",
+          "type": "object",
+          "required": ["namespace", "members", "depends_on", "git"],
+          "properties": {
+            "namespace": { "type": ["string", "null"] },
+            "declaration": { "type": ["string", "null"] },
+            "line": { "type": ["integer", "null"] },
+            "modifiers": { "type": "array", "items": { "type": "string" } },
+            "base_types": { "type": "array", "items": { "type": "string" } },
+            "attributes": { "type": "array", "items": { "type": "string" } },
+            "members": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "kind"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "kind": { "type": "string", "enum": ["method", "constructor", "property", "field", "enum-member", "export"] },
+                  "signature": { "type": ["string", "null"] },
+                  "line": { "type": ["integer", "null"] },
+                  "modifiers": { "type": "array", "items": { "type": "string" } },
+                  "attributes": { "type": "array", "items": { "type": "string" } },
+                  "http": {
+                    "description": "Present only on controller actions. The route is resolved against the controller's [Route] prefix.",
+                    "type": ["object", "null"],
+                    "properties": {
+                      "method": { "type": "string" },
+                      "template": { "type": ["string", "null"] },
+                      "resolved_route": { "type": ["string", "null"] },
+                      "policy": { "type": ["string", "null"] },
+                      "allow_anonymous": { "type": "boolean" }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "depends_on": {
+              "description": "Outgoing structural edges. `via` records HOW the edge was established, which is what makes it auditable and what lets a later phase weight it.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["target", "via", "confidence"],
+                "properties": {
+                  "target": { "type": "string" },
+                  "target_component": { "type": ["string", "null"] },
+                  "via": {
+                    "description": "How the edge was established. The first group is structural wiring (Phase 2); the second is method-body analysis (Phase 4), which is what connects a handler to the aggregate it builds inside Handle().",
+                    "type": "string",
+                    "enum": [
+                      "constructor-injection", "base-type", "di-registration", "using", "import",
+                      "generic-argument", "http-call", "ef-dbset", "ef-configuration", "attribute",
+                      "static-call", "instantiation", "declared-type", "method-call"
+                    ]
+                  },
+                  "confidence": { "$ref": "common.schema.json#/$defs/confidence" },
+                  "evidence": {
+                    "description": "Where the reference is, and what it looks like. Present on method-body edges so a claim can be checked by opening the file at the line.",
+                    "type": ["object", "null"],
+                    "required": ["file", "line"],
+                    "properties": {
+                      "file": { "type": "string" },
+                      "line": { "type": "integer" },
+                      "expression": { "type": ["string", "null"] }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "doc_citations": {
+              "description": "Spec references found in comments, e.g. `00_MASTER_SPEC.md § 8.3`. This repository already maintains these by hand in 123 files; they are the strongest existing requirement-to-code signal and are harvested, not invented.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["document", "section", "line"],
+                "properties": {
+                  "document": { "type": "string" },
+                  "section": { "type": "string" },
+                  "line": { "type": "integer" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "incident_comments": {
+              "description": "Comment passages that narrate a past failure. Harvested for Phase 8, where they become the only reliable defect corpus this repository has.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["line", "text"],
+                "properties": {
+                  "line": { "type": "integer" },
+                  "text": { "type": "string" },
+                  "matched": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "git": {
+              "type": "object",
+              "required": ["state"],
+              "properties": {
+                "state": { "$ref": "common.schema.json#/$defs/gitState" },
+                "last_commit": { "type": ["string", "null"] },
+                "last_commit_date": { "type": ["string", "null"] },
+                "last_commit_subject": { "type": ["string", "null"] },
+                "commit_count": { "type": ["integer", "null"] }
+              },
+              "additionalProperties": false
+            },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "lines": { "type": "integer" },
+                "member_count": { "type": "integer" },
+                "dependency_count": { "type": "integer" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "entity_version": { "type": "integer", "minimum": 1 },
+        "last_verified_commit": {
+          "description": "The commit whose content this entity was last checked against. Null for an untracked file, which has no commit to verify against.",
+          "type": ["string", "null"]
+        },
+        "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

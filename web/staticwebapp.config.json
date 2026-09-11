@@ -1,0 +1,20 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/_next/*", "/*.{css,js,ico,png,jpg,jpeg,gif,svg,webp,woff,woff2,json,txt}"]
+  },
+  "routes": [
+    { "route": "/dashboard/customers/new" },
+    { "route": "/dashboard/customers/*", "rewrite": "/dashboard/customers/_.html" },
+    { "route": "/dashboard/employees/new" },
+    { "route": "/dashboard/employees/*", "rewrite": "/dashboard/employees/_.html" },
+    { "route": "/dashboard/employee/*", "rewrite": "/dashboard/employee/_.html" },
+    { "route": "/dashboard/orders/new" },
+    { "route": "/dashboard/orders/new/*" },
+    { "route": "/dashboard/orders/*", "rewrite": "/dashboard/orders/_.html" },
+    { "route": "/dashboard/invoices/*", "rewrite": "/dashboard/invoices/_.html" },
+    { "route": "/dashboard/whatsapp/new" },
+    { "route": "/dashboard/whatsapp/*", "rewrite": "/dashboard/whatsapp/_.html" },
+    { "route": "/invoice/view/*", "rewrite": "/invoice/view/_.html" }
+  ]
+}

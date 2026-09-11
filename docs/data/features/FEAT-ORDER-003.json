@@ -1,0 +1,330 @@
+{
+  "id": "FEAT-ORDER-003",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Order Management",
+  "module": "ORDER",
+  "simple_explanation": "Order Management — derived from the Create, Delete, GetById, Search, Update use cases in src/Application/Order. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Orders/Commands/Create",
+      "src/Application/Orders/Commands/Delete",
+      "src/Application/Orders/Commands/Update",
+      "src/Application/Orders/Queries/GetById",
+      "src/Application/Orders/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/Create/CreateOrderCommand.cs",
+        "contains": "CreateOrderCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/Create/CreateOrderCommand.cs",
+        "contains": "CreateOrderItemInput",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/Create/CreateOrderCommand.cs",
+        "contains": "CreateOrderItemFabricInput",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "20 component(s) and 3 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 18,
+    "test_count": 18,
+    "requirement_count": 3,
+    "rule_count": 35,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "Delete",
+      "GetById",
+      "Search",
+      "Update"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/orders",
+        "policy": "Permissions.OrdersCreate",
+        "controller": "OrdersController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/orders",
+        "policy": "Permissions.OrdersView",
+        "controller": "OrdersController",
+        "action": "Search"
+      },
+      {
+        "method": "PUT",
+        "route": "/api/v1/orders/{id:guid}",
+        "policy": "Permissions.OrdersEdit",
+        "controller": "OrdersController",
+        "action": "Update"
+      },
+      {
+        "method": "DELETE",
+        "route": "/api/v1/orders/{id:guid}",
+        "policy": "Permissions.OrdersDelete",
+        "controller": "OrdersController",
+        "action": "Delete"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/orders/{id:guid}",
+        "policy": "Permissions.OrdersView",
+        "controller": "OrdersController",
+        "action": "GetById"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/orders",
+      "/dashboard/orders/[id]",
+      "/dashboard/orders/new",
+      "/dashboard/orders/new/fabric",
+      "/dashboard/orders/new/fabric-tailoring",
+      "/dashboard/orders/new/tailoring"
+    ],
+    "permissions": [
+      "Permissions.OrdersCreate",
+      "Permissions.OrdersDelete",
+      "Permissions.OrdersEdit",
+      "Permissions.OrdersView"
+    ],
+    "derived_components": [
+      "COMP-ORDER-007",
+      "COMP-ORDER-008",
+      "COMP-ORDER-009",
+      "COMP-ORDER-010",
+      "COMP-ORDER-011",
+      "COMP-ORDER-012",
+      "COMP-ORDER-013",
+      "COMP-ORDER-014",
+      "COMP-ORDER-015",
+      "COMP-ORDER-016",
+      "COMP-ORDER-026",
+      "COMP-ORDER-027",
+      "COMP-ORDER-028",
+      "COMP-ORDER-040",
+      "COMP-ORDER-041",
+      "COMP-ORDER-044",
+      "COMP-ORDER-045",
+      "COMP-ORDER-046",
+      "COMP-ORDER-048",
+      "COMP-ORDER-049"
+    ],
+    "derived_test_cases": [
+      "TC-BILLING-001",
+      "TC-BILLING-003",
+      "TC-BILLING-004",
+      "TC-ORDER-001",
+      "TC-ORDER-003",
+      "TC-ORDER-004",
+      "TC-ORDER-005",
+      "TC-ORDER-006",
+      "TC-ORDER-007",
+      "TC-ORDER-008",
+      "TC-ORDER-009",
+      "TC-ORDER-010",
+      "TC-ORDER-011",
+      "TC-ORDER-012",
+      "TC-ORDER-013",
+      "TC-ORDER-014",
+      "TC-ORDER-015",
+      "TC-ORDER-016",
+      "TC-ORDER-018",
+      "TC-ORDER-019",
+      "TC-ORDER-020",
+      "TC-ORDER-021",
+      "TC-ORDER-022",
+      "TC-ORDER-023",
+      "TC-ORDER-024",
+      "TC-ORDER-025",
+      "TC-ORDER-030",
+      "TC-ORDER-031",
+      "TC-ORDER-032",
+      "TC-ORDER-033",
+      "TC-ORDER-035",
+      "TC-ORDER-036",
+      "TC-ORDER-037",
+      "TC-ORDER-038",
+      "TC-ORDER-039",
+      "TC-ORDER-040",
+      "TC-ORDER-041",
+      "TC-ORDER-042",
+      "TC-ORDER-043",
+      "TC-ORDER-044",
+      "TC-ORDER-045",
+      "TC-ORDER-046",
+      "TC-ORDER-047",
+      "TC-ORDER-048",
+      "TC-ORDER-049",
+      "TC-ORDER-050",
+      "TC-ORDER-051",
+      "TC-ORDER-052",
+      "TC-ORDER-053",
+      "TC-ORDER-054",
+      "TC-ORDER-055",
+      "TC-ORDER-056",
+      "TC-ORDER-057",
+      "TC-ORDER-058",
+      "TC-ORDER-059",
+      "TC-ORDER-060",
+      "TC-ORDER-061",
+      "TC-ORDER-062",
+      "TC-ORDER-063",
+      "TC-ORDER-064",
+      "TC-ORDER-065",
+      "TC-ORDER-066",
+      "TC-ORDER-067",
+      "TC-ORDER-068",
+      "TC-ORDER-069",
+      "TC-ORDER-070",
+      "TC-ORDER-071",
+      "TC-ORDER-072",
+      "TC-ORDER-073",
+      "TC-ORDER-074",
+      "TC-ORDER-075",
+      "TC-ORDER-076",
+      "TC-ORDER-077",
+      "TC-ORDER-078",
+      "TC-ORDER-079",
+      "TC-ORDER-080",
+      "TC-ORDER-081",
+      "TC-ORDER-082",
+      "TC-ORDER-083",
+      "TC-ORDER-084"
+    ],
+    "derived_rules": [
+      "BR-ORDER-007",
+      "BR-ORDER-008",
+      "BR-ORDER-009",
+      "BR-ORDER-010",
+      "BR-ORDER-011",
+      "BR-ORDER-012",
+      "BR-ORDER-013",
+      "BR-ORDER-014",
+      "BR-ORDER-015",
+      "BR-ORDER-016",
+      "BR-ORDER-017",
+      "BR-ORDER-018",
+      "BR-ORDER-019",
+      "BR-ORDER-020",
+      "BR-ORDER-032",
+      "BR-ORDER-033",
+      "BR-ORDER-034",
+      "BR-ORDER-035",
+      "BR-ORDER-041",
+      "BR-ORDER-042",
+      "BR-ORDER-043",
+      "BR-ORDER-047",
+      "BR-ORDER-048",
+      "BR-ORDER-049",
+      "BR-ORDER-050",
+      "BR-ORDER-051",
+      "BR-ORDER-052",
+      "BR-ORDER-053",
+      "BR-ORDER-054",
+      "BR-ORDER-055",
+      "BR-ORDER-056",
+      "BR-ORDER-057",
+      "BR-ORDER-058",
+      "BR-ORDER-059",
+      "BR-ORDER-060"
+    ],
+    "derived_requirements": [
+      "FR-ORDER-001",
+      "FR-ORDER-002",
+      "FR-ORDER-003"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "last_commit_date": "2026-09-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "DELETE /api/v1/orders/{id:guid}",
+    "GET /api/v1/orders",
+    "GET /api/v1/orders/{id:guid}",
+    "POST /api/v1/orders",
+    "PUT /api/v1/orders/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Commands/Delete",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Commands/Update",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/orders",
+        "detail": "src/Api/Controllers/V1/OrdersController.cs",
+        "line": 89
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/orders",
+        "detail": "src/Api/Controllers/V1/OrdersController.cs",
+        "line": 170
+      },
+      {
+        "kind": "route",
+        "ref": "PUT /api/v1/orders/{id:guid}",
+        "detail": "src/Api/Controllers/V1/OrdersController.cs",
+        "line": 116
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+  "change_history": []
+}

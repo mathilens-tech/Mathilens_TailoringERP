@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-027",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Read-heavy, low-volatility data is cached with an explicit, documented invalidation…",
+  "module": "PLATFORM",
+  "description": "Read-heavy, low-volatility data is cached with an explicit, documented invalidation trigger — never a cache with no invalidation story.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "validation",
+  "requirement_type_evidence": "clause uses \"invalidation\"",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 11.1",
+    "section_title": "Caching",
+    "parent_section": "§ 11",
+    "parent_section_title": "Performance",
+    "quote": "Read-heavy, low-volatility data is cached with an explicit, documented invalidation trigger — never a cache with no invalidation story.",
+    "line": 520,
+    "line_start": 520,
+    "line_end": 521,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 11.1",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 520
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

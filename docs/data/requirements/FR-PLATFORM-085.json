@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-085",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Transactions are used wherever an operation spans more than one persisted change that…",
+  "module": "PLATFORM",
+  "description": "Transactions are used wherever an operation spans more than one persisted change that must succeed or fail together (e.g., creating an Order and its OrderItems in one command) — never assumed implicitly, always a deliberate boundary drawn by the Application handler.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "data",
+  "requirement_type_evidence": "clause uses \"persisted\"",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 8",
+    "section_title": "Transactions",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Transactions are used wherever an operation spans more than one persisted change that must succeed or fail together (e.g., creating an Order and its OrderItems in one command) — never assumed implicitly, always a deliberate boundary drawn by the Application handler.",
+    "line": 163,
+    "line_start": 163,
+    "line_end": 163,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 8",
+        "detail": "docs/02_DATABASE.md",
+        "line": 163
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

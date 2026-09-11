@@ -1,0 +1,111 @@
+{
+  "id": "FEAT-MEASUREMENT-003",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Measurement History",
+  "module": "MEASUREMENT",
+  "simple_explanation": "Measurement History — derived from the History use case in src/Application/Measurement. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Measurements/Queries/History"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQuery.cs",
+        "contains": "GetMeasurementHistoryQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandler.cs",
+        "contains": "GetMeasurementHistoryQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs",
+        "contains": "GetMeasurementHistoryQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 3,
+    "test_count": 4,
+    "requirement_count": 2,
+    "rule_count": 3,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Measurement History",
+    "use_cases": [
+      "History"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/dashboard/measurements/[id]/history"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-MEASUREMENT-016",
+      "COMP-MEASUREMENT-017",
+      "COMP-MEASUREMENT-018"
+    ],
+    "derived_test_cases": [
+      "TC-MEASUREMENT-019",
+      "TC-MEASUREMENT-020",
+      "TC-MEASUREMENT-021",
+      "TC-MEASUREMENT-022"
+    ],
+    "derived_rules": [
+      "BR-MEASUREMENT-006",
+      "BR-MEASUREMENT-007",
+      "BR-MEASUREMENT-008"
+    ],
+    "derived_requirements": [
+      "FR-MEASUREMENT-001",
+      "FR-MEASUREMENT-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "last_commit_date": "2026-08-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Measurements/Queries/History",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+  "change_history": []
+}

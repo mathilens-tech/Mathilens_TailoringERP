@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-028",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Enforced at the API layer by default (8.3) — every new collection endpoint is…",
+  "module": "PLATFORM",
+  "description": "Enforced at the API layer by default (8.3) — every new collection endpoint is performance-safe by construction.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "performance",
+  "requirement_type_evidence": "clause uses \"performance\"",
+  "source": {
+    "document": "docs/00_MASTER_SPEC.md",
+    "section": "§ 11.2",
+    "section_title": "Pagination",
+    "parent_section": "§ 11",
+    "parent_section_title": "Performance",
+    "quote": "Enforced at the API layer by default (8.3) — every new collection endpoint is performance-safe by construction.",
+    "line": 524,
+    "line_start": 524,
+    "line_end": 525,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/00_MASTER_SPEC.md § 11.2",
+        "detail": "docs/00_MASTER_SPEC.md",
+        "line": 524
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

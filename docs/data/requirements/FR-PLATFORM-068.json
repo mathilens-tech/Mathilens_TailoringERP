@@ -1,0 +1,75 @@
+{
+  "id": "FR-PLATFORM-068",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "This decision is revisited only if a real requirement emerges that DbContext's…",
+  "module": "PLATFORM",
+  "description": "This decision is revisited only if a real requirement emerges that DbContext's built-in unit-of-work behavior cannot satisfy (e.g., coordinating a transaction across two distinct DbContext instances).",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 25.7",
+    "section_title": "Unit of Work",
+    "parent_section": "§ 25",
+    "parent_section_title": "Design Patterns Used",
+    "quote": "This decision is revisited only if a real requirement emerges that DbContext's built-in unit-of-work behavior cannot satisfy (e.g., coordinating a transaction across two distinct DbContext instances).",
+    "line": 383,
+    "line_start": 383,
+    "line_end": 384,
+    "form": "sentence"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [
+    {
+      "component": "COMP-CUSTOMER-024",
+      "via": "doc-citation",
+      "confidence": "CONFIRMED",
+      "detail": "source comment cites § 25.7 at line 10"
+    }
+  ],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "YES",
+    "component_count": 1,
+    "test_count": 29,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 25.7",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 383
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

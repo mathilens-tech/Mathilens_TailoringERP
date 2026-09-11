@@ -1,0 +1,4703 @@
+{
+  "module": "ORDER",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-ORDER-001",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-003",
+          "file": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs",
+          "line": 11,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-003"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "AddOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#AddOrderItemCommandValidator",
+            "line": 11
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-002",
+      "entity_version": 1,
+      "statement": "Garment Type must satisfy must be agarment name",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-003",
+          "file": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.GarmentType).MustBeAGarmentName()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-003"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.GarmentType).MustBeAGarmentName()",
+        "symbol": "AddOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#AddOrderItemCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-003",
+      "entity_version": 1,
+      "statement": "Quantity must satisfy greater than, less than or equal to",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-003",
+          "file": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-003"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()",
+        "symbol": "AddOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#AddOrderItemCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-004",
+      "entity_version": 1,
+      "statement": "Unit Price must satisfy greater than",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-003",
+          "file": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs",
+          "line": 21,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.UnitPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-003"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.UnitPrice).GreaterThan()",
+        "symbol": "AddOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AddItem/AddOrderItemCommandValidator.cs#AddOrderItemCommandValidator",
+            "line": 21
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-005",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-006",
+          "file": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-006"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "AssignOrderEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs#AssignOrderEmployeeCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-006",
+      "entity_version": 1,
+      "statement": "Employee Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-006",
+          "file": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-006"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeId).NotEmpty()",
+        "symbol": "AssignOrderEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs#AssignOrderEmployeeCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-007",
+      "entity_version": 1,
+      "statement": "Customer Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-011",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 11,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CustomerId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-011"
+      ],
+      "test_cases": [
+        "TC-ORDER-011",
+        "TC-ORDER-012",
+        "TC-ORDER-013",
+        "TC-ORDER-014",
+        "TC-ORDER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CustomerId).NotEmpty()",
+        "symbol": "CreateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator",
+            "line": 11
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-008",
+      "entity_version": 1,
+      "statement": "Employee Id must satisfy not equal",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-011",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeId).NotEqual()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-011"
+      ],
+      "test_cases": [
+        "TC-ORDER-011",
+        "TC-ORDER-012",
+        "TC-ORDER-013",
+        "TC-ORDER-014",
+        "TC-ORDER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeId).NotEqual()",
+        "symbol": "CreateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-009",
+      "entity_version": 1,
+      "statement": "An order must have at least one item.",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-011",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 18,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Items).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-011"
+      ],
+      "test_cases": [
+        "TC-ORDER-011",
+        "TC-ORDER-012",
+        "TC-ORDER-013",
+        "TC-ORDER-014",
+        "TC-ORDER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Items).NotEmpty()",
+        "symbol": "CreateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator",
+            "line": 18
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-010",
+      "entity_version": 1,
+      "statement": "Notes must satisfy maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-011",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 22,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Notes).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-011"
+      ],
+      "test_cases": [
+        "TC-ORDER-011",
+        "TC-ORDER-012",
+        "TC-ORDER-013",
+        "TC-ORDER-014",
+        "TC-ORDER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Notes).MaximumLength()",
+        "symbol": "CreateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator",
+            "line": 22
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-011",
+      "entity_version": 1,
+      "statement": "A fabric sale has no work to assign, so it cannot have an employee.",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-011",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 28,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeId).Null()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-011"
+      ],
+      "test_cases": [
+        "TC-ORDER-011",
+        "TC-ORDER-012",
+        "TC-ORDER-013",
+        "TC-ORDER-014",
+        "TC-ORDER-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeId).Null()",
+        "symbol": "CreateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderCommandValidator",
+            "line": 28
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-012",
+      "entity_version": 1,
+      "statement": "Garment Type must satisfy must be agarment name",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-012",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 49,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.GarmentType).MustBeAGarmentName()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-012"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.GarmentType).MustBeAGarmentName()",
+        "symbol": "CreateOrderItemInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemInputValidator",
+            "line": 49
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-013",
+      "entity_version": 1,
+      "statement": "Quantity must satisfy greater than, less than or equal to",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-012",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 52,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-012"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()",
+        "symbol": "CreateOrderItemInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemInputValidator",
+            "line": 52
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-014",
+      "entity_version": 1,
+      "statement": "Unit Price must satisfy greater than",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-012",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 56,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.UnitPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-012"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.UnitPrice).GreaterThan()",
+        "symbol": "CreateOrderItemInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemInputValidator",
+            "line": 56
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-015",
+      "entity_version": 1,
+      "statement": "Fabric must satisfy set validator",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-012",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 62,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Fabric).SetValidator()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-012"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Fabric).SetValidator()",
+        "symbol": "CreateOrderItemInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemInputValidator",
+            "line": 62
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-016",
+      "entity_version": 1,
+      "statement": "Fabric Type must satisfy not empty, maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-013",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 72,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FabricType).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-013"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FabricType).NotEmpty().MaximumLength()",
+        "symbol": "CreateOrderItemFabricInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemFabricInputValidator",
+            "line": 72
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-017",
+      "entity_version": 1,
+      "statement": "Source must satisfy is in enum",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-013",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 76,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Source).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-013"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Source).IsInEnum()",
+        "symbol": "CreateOrderItemFabricInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemFabricInputValidator",
+            "line": 76
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-018",
+      "entity_version": 1,
+      "statement": "Color must satisfy maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-013",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 79,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Color).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-013"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Color).MaximumLength()",
+        "symbol": "CreateOrderItemFabricInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemFabricInputValidator",
+            "line": 79
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-019",
+      "entity_version": 1,
+      "statement": "Quantity must satisfy greater than",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-013",
+          "file": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs",
+          "line": 82,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-013"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan()",
+        "symbol": "CreateOrderItemFabricInputValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Create/CreateOrderCommandValidator.cs#CreateOrderItemFabricInputValidator",
+            "line": 82
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-020",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-016",
+          "file": "src/Application/Orders/Commands/Delete/DeleteOrderCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-016"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "DeleteOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Delete/DeleteOrderCommandValidator.cs#DeleteOrderCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-021",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-019",
+          "file": "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-019"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "RemoveOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs#RemoveOrderItemCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-022",
+      "entity_version": 1,
+      "statement": "Order Item Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-019",
+          "file": "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderItemId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-019"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderItemId).NotEmpty()",
+        "symbol": "RemoveOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/RemoveItem/RemoveOrderItemCommandValidator.cs#RemoveOrderItemCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-023",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-024",
+      "entity_version": 1,
+      "statement": "Order Item Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderItemId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderItemId).NotEmpty()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-025",
+      "entity_version": 1,
+      "statement": "Fabric Type must satisfy not empty, maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 15,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FabricType).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FabricType).NotEmpty().MaximumLength()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-026",
+      "entity_version": 1,
+      "statement": "Source must satisfy is in enum",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 19,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Source).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Source).IsInEnum()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 19
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-027",
+      "entity_version": 1,
+      "statement": "Color must satisfy maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 22,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Color).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Color).MaximumLength()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 22
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-028",
+      "entity_version": 1,
+      "statement": "Quantity must satisfy greater than",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-022",
+          "file": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs",
+          "line": 25,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-022"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan()",
+        "symbol": "SetOrderItemFabricCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandValidator.cs#SetOrderItemFabricCommandValidator",
+            "line": 25
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-029",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-025",
+          "file": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-025"
+      ],
+      "test_cases": [
+        "TC-ORDER-026",
+        "TC-ORDER-027",
+        "TC-ORDER-028",
+        "TC-ORDER-029"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "TransitionOrderStatusCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#TransitionOrderStatusCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-030",
+      "entity_version": 1,
+      "statement": "Target Status must satisfy is in enum",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-025",
+          "file": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.TargetStatus).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-025"
+      ],
+      "test_cases": [
+        "TC-ORDER-026",
+        "TC-ORDER-027",
+        "TC-ORDER-028",
+        "TC-ORDER-029"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.TargetStatus).IsInEnum()",
+        "symbol": "TransitionOrderStatusCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#TransitionOrderStatusCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-031",
+      "entity_version": 1,
+      "statement": "A delivery date is required when marking an order as delivered.",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-025",
+          "file": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.DeliveredAtUtc).NotNull()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-025"
+      ],
+      "test_cases": [
+        "TC-ORDER-026",
+        "TC-ORDER-027",
+        "TC-ORDER-028",
+        "TC-ORDER-029"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.DeliveredAtUtc).NotNull()",
+        "symbol": "TransitionOrderStatusCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidator.cs#TransitionOrderStatusCommandValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "21d50ab8886a9295e2b5bbba0133ad2121c2cd1f",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-032",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-028",
+          "file": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs",
+          "line": 9,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "UpdateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#UpdateOrderCommandValidator",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-033",
+      "entity_version": 1,
+      "statement": "Customer Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-028",
+          "file": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs",
+          "line": 12,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CustomerId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CustomerId).NotEmpty()",
+        "symbol": "UpdateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#UpdateOrderCommandValidator",
+            "line": 12
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-034",
+      "entity_version": 1,
+      "statement": "Employee Id must satisfy not equal",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-028",
+          "file": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs",
+          "line": 15,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeId).NotEqual()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeId).NotEqual()",
+        "symbol": "UpdateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#UpdateOrderCommandValidator",
+            "line": 15
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-035",
+      "entity_version": 1,
+      "statement": "Notes must satisfy maximum length",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-028",
+          "file": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs",
+          "line": 19,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Notes).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-028"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Notes).MaximumLength()",
+        "symbol": "UpdateOrderCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/Update/UpdateOrderCommandValidator.cs#UpdateOrderCommandValidator",
+            "line": 19
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-036",
+      "entity_version": 1,
+      "statement": "Order Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-031",
+          "file": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs",
+          "line": 11,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-031"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderId).NotEmpty()",
+        "symbol": "UpdateOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator",
+            "line": 11
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-037",
+      "entity_version": 1,
+      "statement": "Order Item Id must satisfy not empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-031",
+          "file": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.OrderItemId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-031"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.OrderItemId).NotEmpty()",
+        "symbol": "UpdateOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-038",
+      "entity_version": 1,
+      "statement": "Garment Type must satisfy must be agarment name",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-031",
+          "file": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.GarmentType).MustBeAGarmentName()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-031"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.GarmentType).MustBeAGarmentName()",
+        "symbol": "UpdateOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-039",
+      "entity_version": 1,
+      "statement": "Quantity must satisfy greater than, less than or equal to",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-031",
+          "file": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-031"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Quantity).GreaterThan().LessThanOrEqualTo()",
+        "symbol": "UpdateOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-040",
+      "entity_version": 1,
+      "statement": "Unit Price must satisfy greater than",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-031",
+          "file": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs",
+          "line": 24,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.UnitPrice).GreaterThan()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-031"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.UnitPrice).GreaterThan()",
+        "symbol": "UpdateOrderItemCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Commands/UpdateItem/UpdateOrderItemCommandValidator.cs#UpdateOrderItemCommandValidator",
+            "line": 24
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-041",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-046",
+          "file": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-046"
+      ],
+      "test_cases": [
+        "TC-ORDER-039",
+        "TC-ORDER-040",
+        "TC-ORDER-041"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchOrdersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#SearchOrdersQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-042",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-046",
+          "file": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-046"
+      ],
+      "test_cases": [
+        "TC-ORDER-039",
+        "TC-ORDER-040",
+        "TC-ORDER-041"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchOrdersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#SearchOrdersQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-043",
+      "entity_version": 1,
+      "statement": "Status must satisfy is in enum",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-046",
+          "file": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Status).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-046"
+      ],
+      "test_cases": [
+        "TC-ORDER-039",
+        "TC-ORDER-040",
+        "TC-ORDER-041"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Status).IsInEnum()",
+        "symbol": "SearchOrdersQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Orders/Queries/Search/SearchOrdersQueryValidator.cs#SearchOrdersQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "b2b2ddd2e7ceddac3c8f4d0164b2436706501b81",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-044",
+      "entity_version": 1,
+      "statement": "Order Item Id must not be empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-047",
+          "file": "src/Domain/Orders/FabricDetails.cs",
+          "line": 65,
+          "mechanism": "guard-clause",
+          "expression": "OrderItemId = Guard.AgainstEmpty(orderItemId, nameof(orderItemId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-047"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "OrderItemId = Guard.AgainstEmpty(orderItemId, nameof(orderItemId)),",
+        "symbol": "FabricDetails",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/FabricDetails.cs#FabricDetails",
+            "line": 65
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-045",
+      "entity_version": 1,
+      "statement": "Fabric Type must not be null or white space",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-047",
+          "file": "src/Domain/Orders/FabricDetails.cs",
+          "line": 66,
+          "mechanism": "guard-clause",
+          "expression": "FabricType = Guard.AgainstNullOrWhiteSpace(fabricType, nameof(fabricType)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-047"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "FabricType = Guard.AgainstNullOrWhiteSpace(fabricType, nameof(fabricType)),",
+        "symbol": "FabricDetails",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/FabricDetails.cs#FabricDetails",
+            "line": 66
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-046",
+      "entity_version": 1,
+      "statement": "Quantity must not be negative or zero",
+      "module": "ORDER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-047",
+          "file": "src/Domain/Orders/FabricDetails.cs",
+          "line": 69,
+          "mechanism": "guard-clause",
+          "expression": "Quantity = Guard.AgainstNegativeOrZero(quantity, nameof(quantity)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-047"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Quantity = Guard.AgainstNegativeOrZero(quantity, nameof(quantity)),",
+        "symbol": "FabricDetails",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/FabricDetails.cs#FabricDetails",
+            "line": 69
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-047",
+      "entity_version": 1,
+      "statement": "Only a newly created counter sale can be sealed as sold.",
+      "module": "ORDER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 181,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"Only a newly created counter sale can be sealed as sold.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"Only a newly created counter sale can be sealed as sold.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 181
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-048",
+      "entity_version": 1,
+      "statement": "Cannot remove the last item from an order — cancel the order instead.",
+      "module": "ORDER",
+      "category": "workflow",
+      "category_evidence": "statement uses \"cancel\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 234,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"Cannot remove the last item from an order — cancel the order instead.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"Cannot remove the last item from an order — cancel the order instead.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 234
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-049",
+      "entity_version": 1,
+      "statement": "Cannot transition an order from '…' to '…'.",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "statement uses \"transition\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 270,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException($\"Cannot transition an order from '{Status}' to '{target}'.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException($\"Cannot transition an order from '{Status}' to '{target}'.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 270
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-050",
+      "entity_version": 1,
+      "statement": "Cannot start work on an order with no employee assigned.",
+      "module": "ORDER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 278,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException(\"Cannot start work on an order with no employee assigned.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException(\"Cannot start work on an order with no employee assigned.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 278
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-051",
+      "entity_version": 1,
+      "statement": "Order item '…' does not belong to this order.",
+      "module": "ORDER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 304,
+          "mechanism": "domain-invariant",
+          "expression": "?? throw new InvalidOperationException($\"Order item '{orderItemId}' does not belong to this order.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "?? throw new InvalidOperationException($\"Order item '{orderItemId}' does not belong to this order.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 304
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-052",
+      "entity_version": 1,
+      "statement": "Cannot … an order that is '…'.",
+      "module": "ORDER",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 310,
+          "mechanism": "domain-invariant",
+          "expression": "throw new InvalidOperationException($\"Cannot {action} an order that is '{Status}'.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new InvalidOperationException($\"Cannot {action} an order that is '{Status}'.\");",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 310
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-053",
+      "entity_version": 1,
+      "statement": "Customer Id must not be empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 123,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),"
+        },
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 155,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),"
+        },
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 198,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 123
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-054",
+      "entity_version": 1,
+      "statement": "Employee Id must not be empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 256,
+          "mechanism": "guard-clause",
+          "expression": "public void AssignEmployee(Guid employeeId) => EmployeeId = Guard.AgainstEmpty(employeeId, nameof(employeeId));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "public void AssignEmployee(Guid employeeId) => EmployeeId = Guard.AgainstEmpty(employeeId, nameof(employeeId));",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 256
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-055",
+      "entity_version": 1,
+      "statement": "An order in Received may move only to InProgress or Cancelled",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 1,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.Received] = [OrderStatus.InProgress, OrderStatus.Cancelled]"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.Received] = [OrderStatus.InProgress, OrderStatus.Cancelled]",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 1
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-056",
+      "entity_version": 1,
+      "statement": "An order in InProgress may move only to ReadyForDelivery or Cancelled",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 3,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.InProgress] = [OrderStatus.ReadyForDelivery, OrderStatus.Cancelled]"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.InProgress] = [OrderStatus.ReadyForDelivery, OrderStatus.Cancelled]",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 3
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-057",
+      "entity_version": 1,
+      "statement": "An order in ReadyForDelivery may move only to Delivered or Cancelled",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 6,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.ReadyForDelivery] = [OrderStatus.Delivered, OrderStatus.Cancelled]"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.ReadyForDelivery] = [OrderStatus.Delivered, OrderStatus.Cancelled]",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 6
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-058",
+      "entity_version": 1,
+      "statement": "An order in Delivered is terminal and may not move to any other status",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 9,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.Delivered] = []"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.Delivered] = []",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 9
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-059",
+      "entity_version": 1,
+      "statement": "An order in Cancelled is terminal and may not move to any other status",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 10,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.Cancelled] = []"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.Cancelled] = []",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-060",
+      "entity_version": 1,
+      "statement": "An order in Sold is terminal and may not move to any other status",
+      "module": "ORDER",
+      "category": "state-transition",
+      "category_evidence": "read from the transition table",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-049",
+          "file": "src/Domain/Orders/Order.cs",
+          "line": 16,
+          "mechanism": "state-table",
+          "expression": "[OrderStatus.Sold] = []"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-049"
+      ],
+      "test_cases": [
+        "TC-BILLING-001",
+        "TC-BILLING-003",
+        "TC-BILLING-004",
+        "TC-ORDER-001",
+        "TC-ORDER-003",
+        "TC-ORDER-004",
+        "TC-ORDER-005",
+        "TC-ORDER-006",
+        "TC-ORDER-008",
+        "TC-ORDER-016",
+        "TC-ORDER-018",
+        "TC-ORDER-019",
+        "TC-ORDER-020",
+        "TC-ORDER-021",
+        "TC-ORDER-022",
+        "TC-ORDER-023",
+        "TC-ORDER-024",
+        "TC-ORDER-025",
+        "TC-ORDER-030",
+        "TC-ORDER-031",
+        "TC-ORDER-033",
+        "TC-ORDER-035",
+        "TC-ORDER-036",
+        "TC-ORDER-037",
+        "TC-ORDER-038",
+        "TC-ORDER-042",
+        "TC-ORDER-043",
+        "TC-ORDER-044",
+        "TC-ORDER-045",
+        "TC-ORDER-046",
+        "TC-ORDER-047",
+        "TC-ORDER-048",
+        "TC-ORDER-049",
+        "TC-ORDER-050",
+        "TC-ORDER-051",
+        "TC-ORDER-052",
+        "TC-ORDER-053",
+        "TC-ORDER-054",
+        "TC-ORDER-055",
+        "TC-ORDER-056",
+        "TC-ORDER-057",
+        "TC-ORDER-058",
+        "TC-ORDER-059",
+        "TC-ORDER-060",
+        "TC-ORDER-061",
+        "TC-ORDER-062",
+        "TC-ORDER-063",
+        "TC-ORDER-064",
+        "TC-ORDER-065",
+        "TC-ORDER-066",
+        "TC-ORDER-067",
+        "TC-ORDER-068",
+        "TC-ORDER-069",
+        "TC-ORDER-070",
+        "TC-ORDER-071",
+        "TC-ORDER-072",
+        "TC-ORDER-073",
+        "TC-ORDER-074",
+        "TC-ORDER-075",
+        "TC-ORDER-076",
+        "TC-ORDER-077",
+        "TC-ORDER-078",
+        "TC-ORDER-079",
+        "TC-ORDER-080",
+        "TC-ORDER-081",
+        "TC-ORDER-082",
+        "TC-ORDER-083",
+        "TC-ORDER-084"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 68,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "state-table",
+        "raw": "[OrderStatus.Sold] = []",
+        "symbol": "Order",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+          "last_commit_date": "2026-09-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/Order.cs#Order",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-061",
+      "entity_version": 1,
+      "statement": "Order Id must not be empty",
+      "module": "ORDER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-050",
+          "file": "src/Domain/Orders/OrderItem.cs",
+          "line": 40,
+          "mechanism": "guard-clause",
+          "expression": "OrderId = Guard.AgainstEmpty(orderId, nameof(orderId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-050"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "OrderId = Guard.AgainstEmpty(orderId, nameof(orderId)),",
+        "symbol": "OrderItem",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/OrderItem.cs#OrderItem",
+            "line": 40
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": []
+    },
+    {
+      "id": "BR-ORDER-062",
+      "entity_version": 1,
+      "statement": "Unit Price must not be negative or zero",
+      "module": "ORDER",
+      "category": "calculation",
+      "category_evidence": "statement uses \"Price\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-ORDER-050",
+          "file": "src/Domain/Orders/OrderItem.cs",
+          "line": 59,
+          "mechanism": "guard-clause",
+          "expression": "UnitPrice = Guard.AgainstNegativeOrZero(unitPrice, nameof(unitPrice));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-ORDER-050"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "UnitPrice = Guard.AgainstNegativeOrZero(unitPrice, nameof(unitPrice));",
+        "symbol": "OrderItem",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Orders/OrderItem.cs#OrderItem",
+            "line": 59
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": []
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "id": "FEAT-ACTIVITY-001",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "Activity Log Activity Filtering",
+  "module": "ACTIVITY",
+  "simple_explanation": "Activity Log Activity Filtering — derived from the Filters use case in src/Application/Activity. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Activity/Queries/Filters"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQuery.cs",
+        "contains": "GetActivityLogFiltersQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Activity/Queries/Filters/GetActivityLogFiltersQueryHandler.cs",
+        "contains": "GetActivityLogFiltersQueryHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "2 component(s) and 2 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 2,
+    "test_count": 0,
+    "requirement_count": 2,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Activity Filtering",
+    "use_cases": [
+      "Filters"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/activity-logs/filters",
+        "policy": "Permissions.ActivityView",
+        "controller": "ActivityLogsController",
+        "action": "Filters"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/activity"
+    ],
+    "permissions": [
+      "Permissions.ActivityView"
+    ],
+    "derived_components": [
+      "COMP-ACTIVITY-011",
+      "COMP-ACTIVITY-012"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [],
+    "derived_requirements": [
+      "FR-ACTIVITY-001",
+      "FR-ACTIVITY-002"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+      "last_commit_date": "2026-08-10"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/activity-logs/filters"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Activity/Queries/Filters",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/activity-logs/filters",
+        "detail": "src/Api/Controllers/V1/ActivityLogsController.cs",
+        "line": 48
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "0330cd5d380ec6238468cb7874e9a21b2727c960",
+  "change_history": []
+}

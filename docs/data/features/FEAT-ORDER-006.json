@@ -1,0 +1,213 @@
+{
+  "id": "FEAT-ORDER-006",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Order Work Assignment",
+  "module": "ORDER",
+  "simple_explanation": "Order Work Assignment — derived from the AssignEmployee use case in src/Application/Order. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Orders/Commands/AssignEmployee"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommand.cs",
+        "contains": "AssignOrderEmployeeCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandHandler.cs",
+        "contains": "AssignOrderEmployeeCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandValidator.cs",
+        "contains": "AssignOrderEmployeeCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "4 component(s) and 3 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "PARTIAL",
+    "component_count": 3,
+    "test_count": 2,
+    "requirement_count": 3,
+    "rule_count": 16,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Work Assignment",
+    "use_cases": [
+      "AssignEmployee"
+    ],
+    "api_routes": [
+      {
+        "method": "PUT",
+        "route": "/api/v1/orders/{id:guid}/employee",
+        "policy": "Permissions.OrdersAssign",
+        "controller": "OrdersController",
+        "action": "AssignEmployee"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/orders",
+      "/dashboard/orders/[id]",
+      "/dashboard/orders/new",
+      "/dashboard/orders/new/fabric",
+      "/dashboard/orders/new/fabric-tailoring",
+      "/dashboard/orders/new/tailoring"
+    ],
+    "permissions": [
+      "Permissions.OrdersAssign"
+    ],
+    "derived_components": [
+      "COMP-ORDER-004",
+      "COMP-ORDER-005",
+      "COMP-ORDER-006",
+      "COMP-ORDER-049"
+    ],
+    "derived_test_cases": [
+      "TC-BILLING-001",
+      "TC-BILLING-003",
+      "TC-BILLING-004",
+      "TC-ORDER-001",
+      "TC-ORDER-003",
+      "TC-ORDER-004",
+      "TC-ORDER-005",
+      "TC-ORDER-006",
+      "TC-ORDER-008",
+      "TC-ORDER-016",
+      "TC-ORDER-018",
+      "TC-ORDER-019",
+      "TC-ORDER-020",
+      "TC-ORDER-021",
+      "TC-ORDER-022",
+      "TC-ORDER-023",
+      "TC-ORDER-024",
+      "TC-ORDER-025",
+      "TC-ORDER-030",
+      "TC-ORDER-031",
+      "TC-ORDER-033",
+      "TC-ORDER-035",
+      "TC-ORDER-036",
+      "TC-ORDER-037",
+      "TC-ORDER-038",
+      "TC-ORDER-042",
+      "TC-ORDER-043",
+      "TC-ORDER-044",
+      "TC-ORDER-045",
+      "TC-ORDER-046",
+      "TC-ORDER-047",
+      "TC-ORDER-048",
+      "TC-ORDER-049",
+      "TC-ORDER-050",
+      "TC-ORDER-051",
+      "TC-ORDER-052",
+      "TC-ORDER-053",
+      "TC-ORDER-054",
+      "TC-ORDER-055",
+      "TC-ORDER-056",
+      "TC-ORDER-057",
+      "TC-ORDER-058",
+      "TC-ORDER-059",
+      "TC-ORDER-060",
+      "TC-ORDER-061",
+      "TC-ORDER-062",
+      "TC-ORDER-063",
+      "TC-ORDER-064",
+      "TC-ORDER-065",
+      "TC-ORDER-066",
+      "TC-ORDER-067",
+      "TC-ORDER-068",
+      "TC-ORDER-069",
+      "TC-ORDER-070",
+      "TC-ORDER-071",
+      "TC-ORDER-072",
+      "TC-ORDER-073",
+      "TC-ORDER-074",
+      "TC-ORDER-075",
+      "TC-ORDER-076",
+      "TC-ORDER-077",
+      "TC-ORDER-078",
+      "TC-ORDER-079",
+      "TC-ORDER-080",
+      "TC-ORDER-081",
+      "TC-ORDER-082",
+      "TC-ORDER-083",
+      "TC-ORDER-084"
+    ],
+    "derived_rules": [
+      "BR-ORDER-005",
+      "BR-ORDER-006",
+      "BR-ORDER-047",
+      "BR-ORDER-048",
+      "BR-ORDER-049",
+      "BR-ORDER-050",
+      "BR-ORDER-051",
+      "BR-ORDER-052",
+      "BR-ORDER-053",
+      "BR-ORDER-054",
+      "BR-ORDER-055",
+      "BR-ORDER-056",
+      "BR-ORDER-057",
+      "BR-ORDER-058",
+      "BR-ORDER-059",
+      "BR-ORDER-060"
+    ],
+    "derived_requirements": [
+      "FR-ORDER-001",
+      "FR-ORDER-002",
+      "FR-ORDER-003"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+      "last_commit_date": "2026-09-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "PUT /api/v1/orders/{id:guid}/employee"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Commands/AssignEmployee",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "PUT /api/v1/orders/{id:guid}/employee",
+        "detail": "src/Api/Controllers/V1/OrdersController.cs",
+        "line": 259
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "6adbe78689bf9f7426d67cab858bedab1a5d918c",
+  "change_history": []
+}

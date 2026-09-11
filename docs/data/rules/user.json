@@ -1,0 +1,571 @@
+{
+  "module": "USER",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-USER-001",
+      "entity_version": 1,
+      "statement": "User Id must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-006",
+          "file": "src/Domain/Identity/RefreshToken.cs",
+          "line": 50,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstEmpty(userId, nameof(userId));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-006"
+      ],
+      "test_cases": [
+        "TC-USER-014",
+        "TC-USER-015",
+        "TC-USER-016",
+        "TC-USER-017",
+        "TC-USER-018",
+        "TC-USER-019",
+        "TC-USER-020"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstEmpty(userId, nameof(userId));",
+        "symbol": "RefreshToken",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Identity/RefreshToken.cs#RefreshToken",
+            "line": 50
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-002",
+      "entity_version": 1,
+      "statement": "Token Hash must not be null or white space",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-006",
+          "file": "src/Domain/Identity/RefreshToken.cs",
+          "line": 51,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNullOrWhiteSpace(tokenHash, nameof(tokenHash));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-006"
+      ],
+      "test_cases": [
+        "TC-USER-014",
+        "TC-USER-015",
+        "TC-USER-016",
+        "TC-USER-017",
+        "TC-USER-018",
+        "TC-USER-019",
+        "TC-USER-020"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNullOrWhiteSpace(tokenHash, nameof(tokenHash));",
+        "symbol": "RefreshToken",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Identity/RefreshToken.cs#RefreshToken",
+            "line": 51
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-003",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-006",
+          "file": "src/Domain/Identity/RefreshToken.cs",
+          "line": 85,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-006"
+      ],
+      "test_cases": [
+        "TC-USER-014",
+        "TC-USER-015",
+        "TC-USER-016",
+        "TC-USER-017",
+        "TC-USER-018",
+        "TC-USER-019",
+        "TC-USER-020"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "RefreshToken",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Identity/RefreshToken.cs#RefreshToken",
+            "line": 85
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-004",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-006",
+          "file": "src/Domain/Identity/RefreshToken.cs",
+          "line": 91,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-006"
+      ],
+      "test_cases": [
+        "TC-USER-014",
+        "TC-USER-015",
+        "TC-USER-016",
+        "TC-USER-017",
+        "TC-USER-018",
+        "TC-USER-019",
+        "TC-USER-020"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "RefreshToken",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Identity/RefreshToken.cs#RefreshToken",
+            "line": 91
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-005",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-008",
+          "file": "src/Infrastructure/Identity/ApplicationRole.cs",
+          "line": 27,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-008"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "ApplicationRole",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationRole.cs#ApplicationRole",
+            "line": 27
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-006",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-008",
+          "file": "src/Infrastructure/Identity/ApplicationRole.cs",
+          "line": 33,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-008"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "ApplicationRole",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationRole.cs#ApplicationRole",
+            "line": 33
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "3c9511334ebe0d387b955777b8a336a506595cf7",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-007",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-009",
+          "file": "src/Infrastructure/Identity/ApplicationUser.cs",
+          "line": 49,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-009"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "ApplicationUser",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationUser.cs#ApplicationUser",
+            "line": 49
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-008",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-009",
+          "file": "src/Infrastructure/Identity/ApplicationUser.cs",
+          "line": 55,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-009"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "ApplicationUser",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationUser.cs#ApplicationUser",
+            "line": 55
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": []
+    },
+    {
+      "id": "BR-USER-009",
+      "entity_version": 1,
+      "statement": "Deleted By must not be empty",
+      "module": "USER",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-USER-009",
+          "file": "src/Infrastructure/Identity/ApplicationUser.cs",
+          "line": 67,
+          "mechanism": "guard-clause",
+          "expression": "DeletedBy = Guard.AgainstEmpty(deletedBy, nameof(deletedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-USER-009"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "DeletedBy = Guard.AgainstEmpty(deletedBy, nameof(deletedBy));",
+        "symbol": "ApplicationUser",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+          "last_commit_date": "2026-09-02"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Identity/ApplicationUser.cs#ApplicationUser",
+            "line": 67
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f5788487e25c5e1023b3097d61541cb65a5ebb0f",
+      "change_history": []
+    }
+  ]
+}

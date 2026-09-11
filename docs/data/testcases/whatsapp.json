@@ -1,0 +1,2609 @@
+{
+  "module": "WHATSAPP",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:26.240Z",
+  "harvester_version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-PLATFORM-063",
+      "title": "Send without bearer token returns unauthorized",
+      "module": "WHATSAPP",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::WhatsAppMessagesEndpointsTests.Send_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.WhatsApp",
+        "class": "WhatsAppMessagesEndpointsTests",
+        "method": "Send_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Send_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 18,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/whatsapp-messages",
+            "normalized": "/api/v1/whatsapp-messages",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-071"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-071",
+            "name": "WhatsAppMessagesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "Guid",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::Send_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 18
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/whatsapp-messages",
+            "detail": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+            "line": 18
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-064",
+      "title": "Send with blank content returns validation error envelope",
+      "module": "WHATSAPP",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::WhatsAppMessagesEndpointsTests.Send_WithBlankContent_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.WhatsApp",
+        "class": "WhatsAppMessagesEndpointsTests",
+        "method": "Send_WithBlankContent_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Send_WithBlankContent_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 27,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/whatsapp-messages",
+            "normalized": "/api/v1/whatsapp-messages",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-071"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-071",
+            "name": "WhatsAppMessagesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "Guid",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::Send_WithBlankContent_ReturnsValidationErrorEnvelope",
+            "line": 27
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/whatsapp-messages",
+            "detail": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-065",
+      "title": "Send with empty customer ID returns validation error envelope",
+      "module": "WHATSAPP",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::WhatsAppMessagesEndpointsTests.Send_WithEmptyCustomerId_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.WhatsApp",
+        "class": "WhatsAppMessagesEndpointsTests",
+        "method": "Send_WithEmptyCustomerId_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Send_WithEmptyCustomerId_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 40,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/whatsapp-messages",
+            "normalized": "/api/v1/whatsapp-messages",
+            "verb": "POST",
+            "route_component": "COMP-PLATFORM-071"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-071",
+            "name": "WhatsAppMessagesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::Send_WithEmptyCustomerId_ReturnsValidationErrorEnvelope",
+            "line": 40
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/whatsapp-messages",
+            "detail": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-066",
+      "title": "Get by ID without bearer token returns unauthorized",
+      "module": "WHATSAPP",
+      "type": "security",
+      "type_evidence": "asserts an authentication or authorization outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::WhatsAppMessagesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized",
+      "assertions": [
+        "HttpStatusCode.Unauthorized"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.WhatsApp",
+        "class": "WhatsAppMessagesEndpointsTests",
+        "method": "GetById_WithoutBearerToken_ReturnsUnauthorized",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task GetById_WithoutBearerToken_ReturnsUnauthorized()",
+        "is_async": true,
+        "line": 53,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/whatsapp-messages/{Guid.NewGuid()}",
+            "normalized": "/api/v1/whatsapp-messages/{param}",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-071"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-071",
+            "name": "WhatsAppMessagesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::GetById_WithoutBearerToken_ReturnsUnauthorized",
+            "line": 53
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/whatsapp-messages/{Guid.NewGuid()}",
+            "detail": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+            "line": 53
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-PLATFORM-067",
+      "title": "Search with page size above maximum returns validation error envelope",
+      "module": "WHATSAPP",
+      "type": "validation",
+      "type_evidence": "asserts a validation outcome",
+      "category": "Integration",
+      "category_evidence": "IntegrationTests project",
+      "module_evidence": "subject-components",
+      "subject_component": null,
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::WhatsAppMessagesEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+      "assertions": [
+        "HttpStatusCode.BadRequest",
+        "\"VALIDATION_ERROR\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": null,
+      "machine": {
+        "file": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+        "project": "IntegrationTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.IntegrationTests.WhatsApp",
+        "class": "WhatsAppMessagesEndpointsTests",
+        "method": "Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope()",
+        "is_async": true,
+        "line": 61,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [
+          "CustomWebApplicationFactory"
+        ],
+        "usings": [],
+        "http_calls": [
+          {
+            "path": "/api/v1/whatsapp-messages",
+            "normalized": "/api/v1/whatsapp-messages",
+            "verb": "GET",
+            "route_component": "COMP-PLATFORM-071"
+          }
+        ],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-071",
+            "name": "WhatsAppMessagesController",
+            "via": "http-route",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "AuthenticationHeaderValue",
+          "Content",
+          "CustomWebApplicationFactory",
+          "HttpClient",
+          "JsonElement",
+          "TestAuthentication"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs::Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope",
+            "line": 61
+          },
+          {
+            "kind": "route",
+            "ref": "/api/v1/whatsapp-messages",
+            "detail": "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs",
+            "line": 61
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-001",
+      "title": "Handle when send succeeds persists pending then marks sent",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.WhatsApp.Commands.Send)",
+      "subject_component": "COMP-WHATSAPP-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::SendWhatsAppMessageCommandHandlerTests.Handle_WhenSendSucceeds_PersistsPendingThenMarksSent",
+      "assertions": [
+        "WhatsAppMessageStatus.Sent",
+        "\"wamid.123\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandHandlerTests",
+        "method": "Handle_WhenSendSucceeds_PersistsPendingThenMarksSent",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WhenSendSucceeds_PersistsPendingThenMarksSent()",
+        "is_async": true,
+        "line": 29,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Customers",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.Customers",
+          "MathilensERP.Domain.Orders",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-CUSTOMER-024",
+            "name": "ICustomerRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-CUSTOMER-035",
+            "name": "Customer",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-092",
+            "name": "IWhatsAppSender",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-093",
+            "name": "WhatsAppSendResult",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::Handle_WhenSendSucceeds_PersistsPendingThenMarksSent",
+            "line": 29
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-002",
+      "title": "Handle when send fails persists pending then marks failed",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.WhatsApp.Commands.Send)",
+      "subject_component": "COMP-WHATSAPP-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::SendWhatsAppMessageCommandHandlerTests.Handle_WhenSendFails_PersistsPendingThenMarksFailed",
+      "assertions": [
+        "WhatsAppMessageStatus.Failed",
+        "\"WhatsApp integration is not configured.\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandHandlerTests",
+        "method": "Handle_WhenSendFails_PersistsPendingThenMarksFailed",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WhenSendFails_PersistsPendingThenMarksFailed()",
+        "is_async": true,
+        "line": 47,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Customers",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.Customers",
+          "MathilensERP.Domain.Orders",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-CUSTOMER-024",
+            "name": "ICustomerRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-CUSTOMER-035",
+            "name": "Customer",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-092",
+            "name": "IWhatsAppSender",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-093",
+            "name": "WhatsAppSendResult",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::Handle_WhenSendFails_PersistsPendingThenMarksFailed",
+            "line": 47
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-003",
+      "title": "Handle with unknown customer returns not found",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.WhatsApp.Commands.Send)",
+      "subject_component": "COMP-WHATSAPP-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::SendWhatsAppMessageCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound",
+      "assertions": [
+        "\"Customer.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandHandlerTests",
+        "method": "Handle_WithUnknownCustomer_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownCustomer_ReturnsNotFound()",
+        "is_async": true,
+        "line": 65,
+        "body_lines": 13,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Customers",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.Customers",
+          "MathilensERP.Domain.Orders",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-CUSTOMER-024",
+            "name": "ICustomerRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-092",
+            "name": "IWhatsAppSender",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::Handle_WithUnknownCustomer_ReturnsNotFound",
+            "line": 65
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-004",
+      "title": "Handle with unknown order returns not found",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "namespace(MathilensERP.UnitTests.Application.WhatsApp.Commands.Send)",
+      "subject_component": "COMP-WHATSAPP-004",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::SendWhatsAppMessageCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound",
+      "assertions": [
+        "\"Order.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandHandlerTests",
+        "method": "Handle_WithUnknownOrder_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownOrder_ReturnsNotFound()",
+        "is_async": true,
+        "line": 80,
+        "body_lines": 14,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.Common.Interfaces",
+          "MathilensERP.Application.Customers",
+          "MathilensERP.Application.Orders",
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.Customers",
+          "MathilensERP.Domain.Orders",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-CUSTOMER-024",
+            "name": "ICustomerRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-CUSTOMER-035",
+            "name": "Customer",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-ORDER-032",
+            "name": "IOrderRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-PLATFORM-092",
+            "name": "IWhatsAppSender",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-004",
+            "name": "SendWhatsAppMessageCommandHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs::Handle_WithUnknownOrder_ReturnsNotFound",
+            "line": 80
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-005",
+      "title": "Validate with valid command passes",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::SendWhatsAppMessageCommandValidatorTests.Validate_WithValidCommand_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandValidatorTests",
+        "method": "Validate_WithValidCommand_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidCommand_Passes()",
+        "is_async": false,
+        "line": 11,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::Validate_WithValidCommand_Passes",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-006",
+      "title": "Validate with empty customer ID fails",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::SendWhatsAppMessageCommandValidatorTests.Validate_WithEmptyCustomerId_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandValidatorTests",
+        "method": "Validate_WithEmptyCustomerId_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithEmptyCustomerId_Fails()",
+        "is_async": false,
+        "line": 19,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::Validate_WithEmptyCustomerId_Fails",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-007",
+      "title": "Validate with blank content fails",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::SendWhatsAppMessageCommandValidatorTests.Validate_WithBlankContent_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandValidatorTests",
+        "method": "Validate_WithBlankContent_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithBlankContent_Fails()",
+        "is_async": false,
+        "line": 28,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::Validate_WithBlankContent_Fails",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-008",
+      "title": "Validate with undefined message type fails",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-005",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::SendWhatsAppMessageCommandValidatorTests.Validate_WithUndefinedMessageType_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Commands.Send",
+        "class": "SendWhatsAppMessageCommandValidatorTests",
+        "method": "Validate_WithUndefinedMessageType_Fails",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithUndefinedMessageType_Fails()",
+        "is_async": false,
+        "line": 37,
+        "body_lines": 7,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Commands.Send",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-003",
+            "name": "SendWhatsAppMessageCommand",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-005",
+            "name": "SendWhatsAppMessageCommandValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs::Validate_WithUndefinedMessageType_Fails",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-009",
+      "title": "Handle with existing message returns DTO",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-008",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs::GetWhatsAppMessageByIdQueryHandlerTests.Handle_WithExistingMessage_ReturnsDto",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Queries.GetById",
+        "class": "GetWhatsAppMessageByIdQueryHandlerTests",
+        "method": "Handle_WithExistingMessage_ReturnsDto",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithExistingMessage_ReturnsDto()",
+        "is_async": true,
+        "line": 11,
+        "body_lines": 12,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Queries.GetById",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-007",
+            "name": "GetWhatsAppMessageByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-008",
+            "name": "GetWhatsAppMessageByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-008",
+            "name": "GetWhatsAppMessageByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs::Handle_WithExistingMessage_ReturnsDto",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-010",
+      "title": "Handle with unknown message returns not found",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-008",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs::GetWhatsAppMessageByIdQueryHandlerTests.Handle_WithUnknownMessage_ReturnsNotFound",
+      "assertions": [
+        "\"WhatsAppMessage.NotFound\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Queries.GetById",
+        "class": "GetWhatsAppMessageByIdQueryHandlerTests",
+        "method": "Handle_WithUnknownMessage_ReturnsNotFound",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_WithUnknownMessage_ReturnsNotFound()",
+        "is_async": true,
+        "line": 25,
+        "body_lines": 11,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Queries.GetById",
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-007",
+            "name": "GetWhatsAppMessageByIdQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-008",
+            "name": "GetWhatsAppMessageByIdQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-008",
+            "name": "GetWhatsAppMessageByIdQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs::Handle_WithUnknownMessage_ReturnsNotFound",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-011",
+      "title": "Handle maps paged messages to dtos",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-010",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandlerTests.cs::SearchWhatsAppMessagesQueryHandlerTests.Handle_MapsPagedMessagesToDtos",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandlerTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Queries.Search",
+        "class": "SearchWhatsAppMessagesQueryHandlerTests",
+        "method": "Handle_MapsPagedMessagesToDtos",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public async Task Handle_MapsPagedMessagesToDtos()",
+        "is_async": true,
+        "line": 12,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp",
+          "MathilensERP.Application.WhatsApp.Queries.Search",
+          "MathilensERP.Domain.WhatsApp",
+          "MathilensERP.Shared.Pagination"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-PLATFORM-292",
+            "name": "PagedResult",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-006",
+            "name": "IWhatsAppMessageRepository",
+            "via": "generic-argument",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-009",
+            "name": "SearchWhatsAppMessagesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-010",
+            "name": "SearchWhatsAppMessagesQueryHandler",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-010",
+            "name": "SearchWhatsAppMessagesQueryHandler",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Arg",
+          "Assert",
+          "CancellationToken",
+          "Guid",
+          "Substitute"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandlerTests.cs::Handle_MapsPagedMessagesToDtos",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-012",
+      "title": "Validate with valid query passes",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs::SearchWhatsAppMessagesQueryValidatorTests.Validate_WithValidQuery_Passes",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Queries.Search",
+        "class": "SearchWhatsAppMessagesQueryValidatorTests",
+        "method": "Validate_WithValidQuery_Passes",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Validate_WithValidQuery_Passes()",
+        "is_async": false,
+        "line": 10,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-009",
+            "name": "SearchWhatsAppMessagesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-011",
+            "name": "SearchWhatsAppMessagesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-011",
+            "name": "SearchWhatsAppMessagesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs::Validate_WithValidQuery_Passes",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-013",
+      "title": "Validate with page size out of bounds fails",
+      "module": "WHATSAPP",
+      "type": "boundary",
+      "type_evidence": "parameterised with numeric rows",
+      "category": "Application",
+      "category_evidence": "namespace segment Application",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-011",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": "2 [InlineData] row(s) — see machine.inline_data",
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs::SearchWhatsAppMessagesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Application.WhatsApp.Queries.Search",
+        "class": "SearchWhatsAppMessagesQueryValidatorTests",
+        "method": "Validate_WithPageSizeOutOfBounds_Fails",
+        "attribute": "Theory",
+        "attributes": [
+          "Theory",
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "signature": "public void Validate_WithPageSizeOutOfBounds_Fails(int pageSize)",
+        "is_async": false,
+        "line": 20,
+        "body_lines": 7,
+        "inline_data": [
+          "InlineData(0)",
+          "InlineData(101)"
+        ],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Application.WhatsApp.Queries.Search"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-009",
+            "name": "SearchWhatsAppMessagesQuery",
+            "via": "instantiation",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-011",
+            "name": "SearchWhatsAppMessagesQueryValidator",
+            "via": "class-scope",
+            "confidence": "INFERRED"
+          },
+          {
+            "component": "COMP-WHATSAPP-011",
+            "name": "SearchWhatsAppMessagesQueryValidator",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs::Validate_WithPageSizeOutOfBounds_Fails",
+            "line": 20
+          },
+          {
+            "kind": "attribute",
+            "ref": "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs#Theory x2",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "TC-WHATSAPP-014",
+      "title": "Create with valid inputs starts in pending status",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::WhatsAppMessageTests.Create_WithValidInputs_StartsInPendingStatus",
+      "assertions": [
+        "Guid.Empty",
+        "WhatsAppMessageType.OrderStatusUpdate",
+        "\"Your order is ready.\"",
+        "WhatsAppMessageStatus.Pending"
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.WhatsApp",
+        "class": "WhatsAppMessageTests",
+        "method": "Create_WithValidInputs_StartsInPendingStatus",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithValidInputs_StartsInPendingStatus()",
+        "is_async": false,
+        "line": 8,
+        "body_lines": 16,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::Create_WithValidInputs_StartsInPendingStatus",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-015",
+      "title": "Create without order ID leaves order ID null",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::WhatsAppMessageTests.Create_WithoutOrderId_LeavesOrderIdNull",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.WhatsApp",
+        "class": "WhatsAppMessageTests",
+        "method": "Create_WithoutOrderId_LeavesOrderIdNull",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithoutOrderId_LeavesOrderIdNull()",
+        "is_async": false,
+        "line": 26,
+        "body_lines": 6,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::Create_WithoutOrderId_LeavesOrderIdNull",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-016",
+      "title": "Create with blank content throws",
+      "module": "WHATSAPP",
+      "type": "negative",
+      "type_evidence": "expectation names a refusal or failure",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::WhatsAppMessageTests.Create_WithBlankContent_Throws",
+      "assertions": [],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.WhatsApp",
+        "class": "WhatsAppMessageTests",
+        "method": "Create_WithBlankContent_Throws",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void Create_WithBlankContent_Throws()",
+        "is_async": false,
+        "line": 34,
+        "body_lines": 4,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "ArgumentException",
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::Create_WithBlankContent_Throws",
+            "line": 34
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-017",
+      "title": "Mark sent sets status and provider message ID",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::WhatsAppMessageTests.MarkSent_SetsStatusAndProviderMessageId",
+      "assertions": [
+        "WhatsAppMessageStatus.Sent",
+        "\"wamid.abc123\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.WhatsApp",
+        "class": "WhatsAppMessageTests",
+        "method": "MarkSent_SetsStatusAndProviderMessageId",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void MarkSent_SetsStatusAndProviderMessageId()",
+        "is_async": false,
+        "line": 40,
+        "body_lines": 10,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::MarkSent_SetsStatusAndProviderMessageId",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "TC-WHATSAPP-018",
+      "title": "Mark failed sets status and failure reason",
+      "module": "WHATSAPP",
+      "type": "positive",
+      "type_evidence": "no failure expectation in the name; asserts a successful path",
+      "category": "Domain",
+      "category_evidence": "namespace segment Domain",
+      "module_evidence": "subject-components",
+      "subject_component": "COMP-WHATSAPP-014",
+      "obsolete_review": null,
+      "priority": "unset",
+      "preconditions": [],
+      "test_data": null,
+      "steps": [],
+      "expected_result": null,
+      "automation": "AUTOMATED",
+      "automation_ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::WhatsAppMessageTests.MarkFailed_SetsStatusAndFailureReason",
+      "assertions": [
+        "WhatsAppMessageStatus.Failed",
+        "\"Recipient number is not on WhatsApp.\""
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [],
+      "test_plans": [],
+      "last_result": {
+        "outcome": "passed",
+        "run_id": "trx:a13d30e08fcb800d",
+        "recorded_at": "2026-09-06T15:31:59.837Z",
+        "commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+        "duration_ms": 0
+      },
+      "machine": {
+        "file": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs",
+        "project": "UnitTests",
+        "framework": "xunit",
+        "namespace": "MathilensERP.UnitTests.Domain.WhatsApp",
+        "class": "WhatsAppMessageTests",
+        "method": "MarkFailed_SetsStatusAndFailureReason",
+        "attribute": "Fact",
+        "attributes": [
+          "Fact"
+        ],
+        "signature": "public void MarkFailed_SetsStatusAndFailureReason()",
+        "is_async": false,
+        "line": 52,
+        "body_lines": 9,
+        "inline_data": [],
+        "member_data": [],
+        "fixtures": [],
+        "usings": [
+          "MathilensERP.Domain.WhatsApp"
+        ],
+        "http_calls": [],
+        "exercises": [
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "static-call",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "component": "COMP-WHATSAPP-014",
+            "name": "WhatsAppMessage",
+            "via": "class-name-convention",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "unresolved_references": [
+          "Assert",
+          "Guid"
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add WhatsApp backend (Phase 3, module 2 of 4)",
+          "commit_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-tests.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:26.240Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "test-method",
+            "ref": "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs::MarkFailed_SetsStatusAndFailureReason",
+            "line": 52
+          }
+        ]
+      },
+      "last_verified_commit": "84330f500134fc1d28946b7c4dbc5aa847b9f899",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

@@ -1,0 +1,1361 @@
+{
+  "module": "OCCASION",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-OCCASION-001",
+      "name": "RecordOccasionContactCommand",
+      "kind": "command",
+      "path": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommand.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions.Commands.RecordContact",
+        "declaration": "public sealed record RecordOccasionContactCommand( Guid CustomerId, OccasionType Occasion, int OccasionYear, DateOnly ContactedOn, string? Remarks) : ICommand<Result>;",
+        "line": 10,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 10,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Occasion",
+            "kind": "property",
+            "signature": "OccasionType Occasion",
+            "line": 10,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccasionYear",
+            "kind": "property",
+            "signature": "int OccasionYear",
+            "line": 10,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ContactedOn",
+            "kind": "property",
+            "signature": "DateOnly ContactedOn",
+            "line": 10,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Remarks",
+            "kind": "property",
+            "signature": "string? Remarks",
+            "line": 10,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "OccasionType",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 16,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommand.cs#RecordOccasionContactCommand",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-OCCASION-002",
+      "name": "RecordOccasionContactCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions.Commands.RecordContact",
+        "declaration": "public sealed class RecordOccasionContactCommandHandler : ICommandHandler<RecordOccasionContactCommand, Result>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<RecordOccasionContactCommand, Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RecordOccasionContactCommandHandler",
+            "kind": "constructor",
+            "signature": "public RecordOccasionContactCommandHandler(IOccasionRepository occasions)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result> Handle(RecordOccasionContactCommand command, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IOccasionRepository",
+            "target_component": "COMP-OCCASION-003",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<RecordOccasionContactCommand, Result>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "RecordOccasionContactDto",
+            "target_component": "COMP-OCCASION-006",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs",
+              "line": 18,
+              "expression": "new RecordOccasionContactDto("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs",
+              "line": 26,
+              "expression": "Result.Success(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 29,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/Commands/RecordContact/RecordOccasionContactCommandHandler.cs#RecordOccasionContactCommandHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-OCCASION-003",
+      "name": "IOccasionRepository",
+      "kind": "port",
+      "path": "src/Application/Occasions/IOccasionRepository.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions",
+        "declaration": "public interface IOccasionRepository",
+        "line": 14,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<OccasionRowDto>> SearchAsync(",
+            "line": 17,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "UpsertContactAsync",
+            "kind": "method",
+            "signature": "Task UpsertContactAsync(RecordOccasionContactDto contact, CancellationToken cancellationToken)",
+            "line": 26,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 28,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/IOccasionRepository.cs#IOccasionRepository",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-OCCASION-004",
+      "name": "OccasionScope",
+      "kind": "enum",
+      "path": "src/Application/Occasions/OccasionDtos.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions",
+        "declaration": "public enum OccasionScope",
+        "line": 6,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Upcoming",
+            "kind": "enum-member",
+            "signature": "Upcoming = 0",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Contacted",
+            "kind": "enum-member",
+            "signature": "Contacted = 1",
+            "line": 12,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/OccasionDtos.cs#OccasionScope",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-OCCASION-005",
+      "name": "OccasionRowDto",
+      "kind": "dto",
+      "path": "src/Application/Occasions/OccasionDtos.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions",
+        "declaration": "public sealed record OccasionRowDto( Guid CustomerId, string FullName, string PhoneNumber, string? Email, DateOnly OccasionOn, /// <summary>Negative when the occasion has already passed inside the window.</summary> int DaysAway, /// <summary>How old they turn, or which anniversary it is. Null when the stored year is unknown.</summary> int? YearsCompleted, bool IsContacted, DateOnly? ContactedOn, s",
+        "line": 22,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FullName",
+            "kind": "property",
+            "signature": "string FullName",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PhoneNumber",
+            "kind": "property",
+            "signature": "string PhoneNumber",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string? Email",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccasionOn",
+            "kind": "property",
+            "signature": "DateOnly OccasionOn",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DaysAway",
+            "kind": "property",
+            "signature": "int DaysAway",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "YearsCompleted",
+            "kind": "property",
+            "signature": "int? YearsCompleted",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsContacted",
+            "kind": "property",
+            "signature": "bool IsContacted",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ContactedOn",
+            "kind": "property",
+            "signature": "DateOnly? ContactedOn",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Remarks",
+            "kind": "property",
+            "signature": "string? Remarks",
+            "line": 22,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 10,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/OccasionDtos.cs#OccasionRowDto",
+            "line": 22
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-OCCASION-006",
+      "name": "RecordOccasionContactDto",
+      "kind": "dto",
+      "path": "src/Application/Occasions/OccasionDtos.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions",
+        "declaration": "public sealed record RecordOccasionContactDto( Guid CustomerId, OccasionType Occasion, int OccasionYear, DateOnly ContactedOn, string? Remarks);",
+        "line": 37,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Occasion",
+            "kind": "property",
+            "signature": "OccasionType Occasion",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccasionYear",
+            "kind": "property",
+            "signature": "int OccasionYear",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ContactedOn",
+            "kind": "property",
+            "signature": "DateOnly ContactedOn",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Remarks",
+            "kind": "property",
+            "signature": "string? Remarks",
+            "line": 37,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "OccasionType",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/OccasionDtos.cs#RecordOccasionContactDto",
+            "line": 37
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-OCCASION-007",
+      "name": "SearchOccasionsQuery",
+      "kind": "query",
+      "path": "src/Application/Occasions/Queries/Search/SearchOccasionsQuery.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions.Queries.Search",
+        "declaration": "public sealed record SearchOccasionsQuery( OccasionType Occasion, OccasionScope Scope, int WindowDays, int Page, int PageSize) : IQuery<Result<PagedResult<OccasionRowDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<OccasionRowDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Occasion",
+            "kind": "property",
+            "signature": "OccasionType Occasion",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Scope",
+            "kind": "property",
+            "signature": "OccasionScope Scope",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "WindowDays",
+            "kind": "property",
+            "signature": "int WindowDays",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "OccasionType",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "target": "OccasionScope",
+            "target_component": "COMP-OCCASION-004",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<OccasionRowDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 14,
+          "member_count": 5,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/Queries/Search/SearchOccasionsQuery.cs#SearchOccasionsQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-OCCASION-008",
+      "name": "SearchOccasionsQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Occasions/Queries/Search/SearchOccasionsQueryHandler.cs",
+      "module": "OCCASION",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Occasions.Queries.Search",
+        "declaration": "public sealed class SearchOccasionsQueryHandler",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Occasions/Queries/Search/SearchOccasionsQueryHandler.cs#SearchOccasionsQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-035",
+      "name": "RecordOccasionContactRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Occasions/RecordOccasionContactRequest.cs",
+      "module": "OCCASION",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Occasions",
+        "declaration": "public sealed record RecordOccasionContactRequest( Guid CustomerId, OccasionType Occasion, int OccasionYear, DateOnly ContactedOn, string? Remarks);",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Occasion",
+            "kind": "property",
+            "signature": "OccasionType Occasion",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OccasionYear",
+            "kind": "property",
+            "signature": "int OccasionYear",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ContactedOn",
+            "kind": "property",
+            "signature": "DateOnly ContactedOn",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Remarks",
+            "kind": "property",
+            "signature": "string? Remarks",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "OccasionType",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "NEEDS_REVIEW"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateOnly",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Reports become six screens, with Birthday and Wedding follow-ups",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 18,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Occasions/RecordOccasionContactRequest.cs#RecordOccasionContactRequest",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "61db00b17dd2466ddecd7bcb64f246ca43991da2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-065",
+      "name": "OccasionsController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/OccasionsController.cs",
+      "module": "OCCASION",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class OccasionsController : ApiControllerBase",
+        "line": 28,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/occasions\")",
+          "Authorize(Policy = Permissions.ReportsView)"
+        ],
+        "members": [
+          {
+            "name": "OccasionsController",
+            "kind": "constructor",
+            "signature": "public OccasionsController(ISender sender)",
+            "line": 43,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 52,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<OccasionRowDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/occasions",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Export",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Export(",
+            "line": 83,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"export\")",
+              "ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "export",
+              "resolved_route": "/api/v1/occasions/export",
+              "policy": "Permissions.ReportsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "RecordContact",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RecordContact([FromBody] RecordOccasionContactRequest request, CancellationToken cancellationToken)",
+            "line": 133,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"contacts\")",
+              "Authorize(Policy = Permissions.CustomersEdit)",
+              "ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "contacts",
+              "resolved_route": "/api/v1/occasions/contacts",
+              "policy": "Permissions.CustomersEdit",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "OccasionScope",
+            "target_component": "COMP-OCCASION-004",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/OccasionsController.cs",
+              "line": 54,
+              "expression": "OccasionScope scope = "
+            }
+          },
+          {
+            "target": "SearchOccasionsQuery",
+            "target_component": "COMP-OCCASION-007",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/OccasionsController.cs",
+              "line": 62,
+              "expression": "new SearchOccasionsQuery("
+            }
+          },
+          {
+            "target": "ExportFormat",
+            "target_component": "COMP-PLATFORM-011",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/OccasionsController.cs",
+              "line": 87,
+              "expression": "ExportFormat format = "
+            }
+          },
+          {
+            "target": "ExportResultFactory",
+            "target_component": "COMP-PLATFORM-012",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/OccasionsController.cs",
+              "line": 107,
+              "expression": "ExportResultFactory.Create(…)"
+            }
+          },
+          {
+            "target": "RecordOccasionContactCommand",
+            "target_component": "COMP-OCCASION-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/OccasionsController.cs",
+              "line": 136,
+              "expression": "new RecordOccasionContactCommand("
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Hand out rights one action at a time, and let a shop add its own roles",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 147,
+          "member_count": 4,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/OccasionsController.cs#OccasionsController",
+            "line": 28
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/OccasionsController.cs#ApiController",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "b00ebf4d5aa90f68b66e2e1fceb263ea02e06a26",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

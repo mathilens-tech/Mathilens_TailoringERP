@@ -1,0 +1,699 @@
+{
+  "module": "TOOLING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:42:52.595Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-TOOLING-001",
+      "name": "CommandLineOptions",
+      "kind": "class",
+      "path": "tools/ResetPassword/CommandLineOptions.cs",
+      "module": "TOOLING",
+      "layer": "Tools",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Tools.ResetPassword",
+        "declaration": "internal sealed class CommandLineOptions",
+        "line": 3,
+        "modifiers": [
+          "internal",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ConnectionString",
+            "kind": "property",
+            "signature": "public string ConnectionString",
+            "line": 5,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "public string? Email",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Password",
+            "kind": "property",
+            "signature": "public string? Password",
+            "line": 9,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListOnly",
+            "kind": "property",
+            "signature": "public bool ListOnly",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SkipConfirmation",
+            "kind": "property",
+            "signature": "public bool SkipConfirmation",
+            "line": 13,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ShowHelp",
+            "kind": "property",
+            "signature": "public bool ShowHelp",
+            "line": 15,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Parse",
+            "kind": "method",
+            "signature": "public static CommandLineOptions Parse(string[] args)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "NextValue",
+            "kind": "method",
+            "signature": "private static string NextValue(string[] args, ref int index, string optionName)",
+            "line": 77,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "CommandLineException",
+            "target_component": "COMP-TOOLING-002",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/CommandLineOptions.cs",
+              "line": 53,
+              "expression": "new CommandLineException("
+            }
+          },
+          {
+            "target": "Environment",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/CommandLineOptions.cs",
+              "line": 19,
+              "expression": "Environment.GetEnvironmentVariable(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 89,
+          "member_count": 8,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:42:52.595Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "tools/ResetPassword/CommandLineOptions.cs#CommandLineOptions",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-TOOLING-002",
+      "name": "CommandLineException",
+      "kind": "class",
+      "path": "tools/ResetPassword/CommandLineOptions.cs",
+      "module": "TOOLING",
+      "layer": "Tools",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Tools.ResetPassword",
+        "declaration": "internal sealed class CommandLineException(string message) : Exception(message);",
+        "line": 88,
+        "modifiers": [
+          "internal",
+          "sealed"
+        ],
+        "base_types": [
+          "Exception(message)"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "message",
+            "kind": "property",
+            "signature": "string message",
+            "line": 88,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Exception(message)",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 89,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:42:52.595Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "tools/ResetPassword/CommandLineOptions.cs#CommandLineException",
+            "line": 88
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-TOOLING-003",
+      "name": "Program",
+      "kind": "class",
+      "path": "tools/ResetPassword/Program.cs",
+      "module": "TOOLING",
+      "layer": "Tools",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Tools.ResetPassword",
+        "declaration": "internal static class Program",
+        "line": 20,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Main",
+            "kind": "method",
+            "signature": "private static async Task<int> Main(string[] args)",
+            "line": 22,
+            "modifiers": [
+              "private",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListUsersAsync",
+            "kind": "method",
+            "signature": "private static async Task ListUsersAsync(NpgsqlConnection connection)",
+            "line": 59,
+            "modifiers": [
+              "private",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ResetPasswordAsync",
+            "kind": "method",
+            "signature": "private static async Task<int> ResetPasswordAsync(NpgsqlConnection connection, CommandLineOptions options)",
+            "line": 89,
+            "modifiers": [
+              "private",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FindUserAsync",
+            "kind": "method",
+            "signature": "private static async Task<UserRow?> FindUserAsync(NpgsqlConnection connection, string email)",
+            "line": 181,
+            "modifiers": [
+              "private",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DescribePolicyViolation",
+            "kind": "method",
+            "signature": "private static string? DescribePolicyViolation(string password)",
+            "line": 216,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ReadPasswordFromConsole",
+            "kind": "method",
+            "signature": "private static string ReadPasswordFromConsole()",
+            "line": 241,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Confirm",
+            "kind": "method",
+            "signature": "private static bool Confirm()",
+            "line": 275,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PrintUsage",
+            "kind": "method",
+            "signature": "private static void PrintUsage()",
+            "line": 282,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "NpgsqlConnection",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 34,
+              "expression": "new NpgsqlConnection("
+            }
+          },
+          {
+            "target": "CommandLineOptions",
+            "target_component": "COMP-TOOLING-001",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 26,
+              "expression": "CommandLineOptions.Parse(…)"
+            }
+          },
+          {
+            "target": "NpgsqlConnection",
+            "target_component": null,
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 35,
+              "expression": "connection.OpenAsync(…)"
+            }
+          },
+          {
+            "target": "NpgsqlCommand",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 71,
+              "expression": "new NpgsqlCommand("
+            }
+          },
+          {
+            "target": "NpgsqlCommand",
+            "target_component": null,
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 72,
+              "expression": "command.ExecuteReaderAsync(…)"
+            }
+          },
+          {
+            "target": "PasswordHasher",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 120,
+              "expression": "new PasswordHasher<"
+            }
+          },
+          {
+            "target": "HashTarget",
+            "target_component": "COMP-TOOLING-005",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 120,
+              "expression": "new HashTarget("
+            }
+          },
+          {
+            "target": "UserRow",
+            "target_component": "COMP-TOOLING-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 204,
+              "expression": "new UserRow("
+            }
+          },
+          {
+            "target": "System",
+            "target_component": null,
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "tools/ResetPassword/Program.cs",
+              "line": 268,
+              "expression": "password.Append(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 308,
+          "member_count": 8,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:42:52.595Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "tools/ResetPassword/Program.cs#Program",
+            "line": 20
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-TOOLING-004",
+      "name": "UserRow",
+      "kind": "record",
+      "path": "tools/ResetPassword/Program.cs",
+      "module": "TOOLING",
+      "layer": "Tools",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Tools.ResetPassword",
+        "declaration": "private sealed record UserRow(Guid Id, string Email, bool IsDeleted, string Roles);",
+        "line": 303,
+        "modifiers": [
+          "private",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 303,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Email",
+            "kind": "property",
+            "signature": "string Email",
+            "line": 303,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsDeleted",
+            "kind": "property",
+            "signature": "bool IsDeleted",
+            "line": 303,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Roles",
+            "kind": "property",
+            "signature": "string Roles",
+            "line": 303,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 308,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:42:52.595Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "tools/ResetPassword/Program.cs#UserRow",
+            "line": 303
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-TOOLING-005",
+      "name": "HashTarget",
+      "kind": "class",
+      "path": "tools/ResetPassword/Program.cs",
+      "module": "TOOLING",
+      "layer": "Tools",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Tools.ResetPassword",
+        "declaration": "private sealed class HashTarget;",
+        "line": 306,
+        "modifiers": [
+          "private",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add inventory, employee lifecycle, role rights and a grouped navigation",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 308,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:42:52.595Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "tools/ResetPassword/Program.cs#HashTarget",
+            "line": 306
+          }
+        ]
+      },
+      "last_verified_commit": "4d73184b740fe685096b75acd486f6fe4dc97837",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

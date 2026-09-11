@@ -1,0 +1,5587 @@
+{
+  "module": "BILLING",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-BILLING-001",
+      "name": "CreateInvoiceCommand",
+      "kind": "command",
+      "path": "src/Application/Billing/Commands/Create/CreateInvoiceCommand.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Create",
+        "declaration": "public sealed record CreateInvoiceCommand(Guid OrderId, decimal TaxAmount, decimal DiscountAmount) : ICommand<Result<InvoiceDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid OrderId",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TaxAmount",
+            "kind": "property",
+            "signature": "decimal TaxAmount",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountAmount",
+            "kind": "property",
+            "signature": "decimal DiscountAmount",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommand.cs#CreateInvoiceCommand",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-002",
+      "name": "CreateInvoiceCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Create",
+        "declaration": "public sealed class CreateInvoiceCommandHandler : ICommandHandler<CreateInvoiceCommand, Result<InvoiceDto>>",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<CreateInvoiceCommand, Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateInvoiceCommandHandler",
+            "kind": "constructor",
+            "signature": "public CreateInvoiceCommandHandler(",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<InvoiceDto>> Handle(CreateInvoiceCommand command, CancellationToken cancellationToken)",
+            "line": 32,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ICommandHandler<CreateInvoiceCommand, Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs",
+              "line": 37,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs",
+              "line": 37,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Invoice",
+            "target_component": "COMP-BILLING-026",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs",
+              "line": 58,
+              "expression": "Invoice.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 26",
+            "line": 12
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 66,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommandHandler.cs#CreateInvoiceCommandHandler",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-BILLING-003",
+      "name": "CreateInvoiceCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Create",
+        "declaration": "public sealed class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<CreateInvoiceCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateInvoiceCommandValidator",
+            "kind": "constructor",
+            "signature": "public CreateInvoiceCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<CreateInvoiceCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 19,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Create/CreateInvoiceCommandValidator.cs#CreateInvoiceCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-004",
+      "name": "RecordPaymentCommand",
+      "kind": "command",
+      "path": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommand.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.RecordPayment",
+        "declaration": "public sealed record RecordPaymentCommand(Guid InvoiceId, decimal Amount, PaymentMethod Method) : ICommand<Result<InvoiceDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceId",
+            "kind": "property",
+            "signature": "Guid InvoiceId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Amount",
+            "kind": "property",
+            "signature": "decimal Amount",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Method",
+            "kind": "property",
+            "signature": "PaymentMethod Method",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PaymentMethod",
+            "target_component": "COMP-BILLING-029",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommand.cs#RecordPaymentCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-005",
+      "name": "RecordPaymentCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.RecordPayment",
+        "declaration": "public sealed class RecordPaymentCommandHandler : ICommandHandler<RecordPaymentCommand, Result<InvoiceDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<RecordPaymentCommand, Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RecordPaymentCommandHandler",
+            "kind": "constructor",
+            "signature": "public RecordPaymentCommandHandler(IInvoiceRepository invoiceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<InvoiceDto>> Handle(RecordPaymentCommand command, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<RecordPaymentCommand, Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Invoice",
+            "target_component": "COMP-BILLING-026",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs",
+              "line": 24,
+              "expression": "var invoice = _invoiceRepository.GetByIdAsync(…); invoice.CanAcceptPayment(…)  [IInvoiceRepository.GetByIdAsync returns Invoice]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 37,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandler.cs#RecordPaymentCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-BILLING-006",
+      "name": "RecordPaymentCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.RecordPayment",
+        "declaration": "public sealed class RecordPaymentCommandValidator : AbstractValidator<RecordPaymentCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<RecordPaymentCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "RecordPaymentCommandValidator",
+            "kind": "constructor",
+            "signature": "public RecordPaymentCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<RecordPaymentCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 19,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidator.cs#RecordPaymentCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-007",
+      "name": "VoidInvoiceCommand",
+      "kind": "command",
+      "path": "src/Application/Billing/Commands/Void/VoidInvoiceCommand.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Void",
+        "declaration": "public sealed record VoidInvoiceCommand(Guid InvoiceId) : ICommand<Result>;",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceId",
+            "kind": "property",
+            "signature": "Guid InvoiceId",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 7,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Void/VoidInvoiceCommand.cs#VoidInvoiceCommand",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-008",
+      "name": "VoidInvoiceCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Void",
+        "declaration": "public sealed class VoidInvoiceCommandHandler : ICommandHandler<VoidInvoiceCommand, Result>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<VoidInvoiceCommand, Result>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "VoidInvoiceCommandHandler",
+            "kind": "constructor",
+            "signature": "public VoidInvoiceCommandHandler(IInvoiceRepository invoiceRepository)",
+            "line": 10,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result> Handle(VoidInvoiceCommand command, CancellationToken cancellationToken)",
+            "line": 15,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<VoidInvoiceCommand, Result>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs",
+              "line": 20,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs",
+              "line": 20,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Invoice",
+            "target_component": "COMP-BILLING-026",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs",
+              "line": 29,
+              "expression": "var invoice = _invoiceRepository.GetByIdAsync(…); invoice.Void(…)  [IInvoiceRepository.GetByIdAsync returns Invoice]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 35,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Void/VoidInvoiceCommandHandler.cs#VoidInvoiceCommandHandler",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-BILLING-009",
+      "name": "VoidInvoiceCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Commands.Void",
+        "declaration": "public sealed class VoidInvoiceCommandValidator : AbstractValidator<VoidInvoiceCommand>",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<VoidInvoiceCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "VoidInvoiceCommandValidator",
+            "kind": "constructor",
+            "signature": "public VoidInvoiceCommandValidator()",
+            "line": 7,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<VoidInvoiceCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Commands/Void/VoidInvoiceCommandValidator.cs#VoidInvoiceCommandValidator",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-010",
+      "name": "IInvoiceRepository",
+      "kind": "port",
+      "path": "src/Application/Billing/IInvoiceRepository.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "public interface IInvoiceRepository",
+        "line": 7,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<Invoice?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SearchAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<Invoice>> SearchAsync(",
+            "line": 13,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ExistsBillableForOrderAsync",
+            "kind": "method",
+            "signature": "Task<bool> ExistsBillableForOrderAsync(Guid orderId, CancellationToken cancellationToken)",
+            "line": 23,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetOutstandingAmountForOrderAsync",
+            "kind": "method",
+            "signature": "Task<decimal> GetOutstandingAmountForOrderAsync(Guid orderId, CancellationToken cancellationToken)",
+            "line": 30,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetPaidAmountsForOrdersAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyDictionary<Guid, decimal>> GetPaidAmountsForOrdersAsync(IReadOnlyCollection<Guid> orderIds, CancellationToken cancellationToken)",
+            "line": 37,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(Invoice invoice)",
+            "line": 39,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 41,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 6
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 7,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/IInvoiceRepository.cs#IInvoiceRepository",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-011",
+      "name": "InvoiceDto",
+      "kind": "dto",
+      "path": "src/Application/Billing/InvoiceDto.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "public sealed record InvoiceDto( Guid Id, /// <summary>The shop's own reference — \"INV-2026-0001\". Empty only on an invoice raised before numbering existed.</summary> string InvoiceNumber, Guid OrderId, Guid CustomerId, decimal Subtotal, decimal TaxAmount, decimal DiscountAmount, decimal TotalAmount, decimal AmountPaid, decimal RemainingBalance, InvoiceStatus Status, DateTime CreatedAtUtc, IReadOn",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string InvoiceNumber",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid OrderId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Subtotal",
+            "kind": "property",
+            "signature": "decimal Subtotal",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TaxAmount",
+            "kind": "property",
+            "signature": "decimal TaxAmount",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountAmount",
+            "kind": "property",
+            "signature": "decimal DiscountAmount",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalAmount",
+            "kind": "property",
+            "signature": "decimal TotalAmount",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "AmountPaid",
+            "kind": "property",
+            "signature": "decimal AmountPaid",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RemainingBalance",
+            "kind": "property",
+            "signature": "decimal RemainingBalance",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "InvoiceStatus Status",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Payments",
+            "kind": "property",
+            "signature": "IReadOnlyList<PaymentDto> Payments",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "InvoiceStatus",
+            "target_component": "COMP-BILLING-027",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<PaymentDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 13,
+          "dependency_count": 13
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/InvoiceDto.cs#InvoiceDto",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-012",
+      "name": "PaymentDto",
+      "kind": "dto",
+      "path": "src/Application/Billing/InvoiceDto.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "public sealed record PaymentDto(Guid Id, decimal Amount, PaymentMethod Method, DateTime CreatedAtUtc);",
+        "line": 21,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Amount",
+            "kind": "property",
+            "signature": "decimal Amount",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Method",
+            "kind": "property",
+            "signature": "PaymentMethod Method",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 21,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PaymentMethod",
+            "target_component": "COMP-BILLING-029",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 22,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/InvoiceDto.cs#PaymentDto",
+            "line": 21
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-013",
+      "name": "InvoiceMapper",
+      "kind": "class",
+      "path": "src/Application/Billing/InvoiceMapper.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "internal static class InvoiceMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static InvoiceDto ToDto(this Invoice invoice) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "private static PaymentDto ToDto(this Payment payment) =>",
+            "line": 23,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/InvoiceMapper.cs#InvoiceMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-014",
+      "name": "PublicInvoiceDto",
+      "kind": "dto",
+      "path": "src/Application/Billing/PublicInvoiceDto.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "public sealed record PublicInvoiceDto( string ShopName, string? ShopAddress, string? ShopContactNumber, string CustomerName, /// <summary>The ten national digits, as the customer would recite them — never the stored form.</summary> string CustomerPhoneNumber, string InvoiceNumber, DateTime InvoiceDateUtc, string OrderNumber, DateTime CollectionDateUtc, IReadOnlyList<PublicInvoiceItemDto> Items, de",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ShopName",
+            "kind": "property",
+            "signature": "string ShopName",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ShopAddress",
+            "kind": "property",
+            "signature": "string? ShopAddress",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ShopContactNumber",
+            "kind": "property",
+            "signature": "string? ShopContactNumber",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerName",
+            "kind": "property",
+            "signature": "string CustomerName",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerPhoneNumber",
+            "kind": "property",
+            "signature": "string CustomerPhoneNumber",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "string InvoiceNumber",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceDateUtc",
+            "kind": "property",
+            "signature": "DateTime InvoiceDateUtc",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderNumber",
+            "kind": "property",
+            "signature": "string OrderNumber",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CollectionDateUtc",
+            "kind": "property",
+            "signature": "DateTime CollectionDateUtc",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Items",
+            "kind": "property",
+            "signature": "IReadOnlyList<PublicInvoiceItemDto> Items",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Subtotal",
+            "kind": "property",
+            "signature": "decimal Subtotal",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TaxAmount",
+            "kind": "property",
+            "signature": "decimal TaxAmount",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountAmount",
+            "kind": "property",
+            "signature": "decimal DiscountAmount",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalAmount",
+            "kind": "property",
+            "signature": "decimal TotalAmount",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "AmountPaid",
+            "kind": "property",
+            "signature": "decimal AmountPaid",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RemainingBalance",
+            "kind": "property",
+            "signature": "decimal RemainingBalance",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<PublicInvoiceItemDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 45,
+          "member_count": 16,
+          "dependency_count": 16
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/PublicInvoiceDto.cs#PublicInvoiceDto",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-015",
+      "name": "PublicInvoiceItemDto",
+      "kind": "dto",
+      "path": "src/Application/Billing/PublicInvoiceDto.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing",
+        "declaration": "public sealed record PublicInvoiceItemDto( string GarmentType, int Quantity, decimal UnitPrice, decimal LineTotal);",
+        "line": 40,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 40,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Quantity",
+            "kind": "property",
+            "signature": "int Quantity",
+            "line": 40,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UnitPrice",
+            "kind": "property",
+            "signature": "decimal UnitPrice",
+            "line": 40,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LineTotal",
+            "kind": "property",
+            "signature": "decimal LineTotal",
+            "line": 40,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 45,
+          "member_count": 4,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/PublicInvoiceDto.cs#PublicInvoiceItemDto",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-016",
+      "name": "GetInvoiceByIdQuery",
+      "kind": "query",
+      "path": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetById",
+        "declaration": "public sealed record GetInvoiceByIdQuery(Guid Id) : IQuery<Result<InvoiceDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQuery.cs#GetInvoiceByIdQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-017",
+      "name": "GetInvoiceByIdQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetById",
+        "declaration": "public sealed class GetInvoiceByIdQueryHandler : IQueryHandler<GetInvoiceByIdQuery, Result<InvoiceDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetInvoiceByIdQuery, Result<InvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetInvoiceByIdQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetInvoiceByIdQueryHandler(IInvoiceRepository invoiceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<InvoiceDto>> Handle(GetInvoiceByIdQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetInvoiceByIdQuery, Result<InvoiceDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Invoice",
+            "target_component": "COMP-BILLING-026",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs",
+              "line": 22,
+              "expression": "var invoice = _invoiceRepository.GetByIdAsync(…); invoice.ToDto(…)  [IInvoiceRepository.GetByIdAsync returns Invoice]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandler.cs#GetInvoiceByIdQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-BILLING-018",
+      "name": "GetPublicInvoiceQuery",
+      "kind": "query",
+      "path": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetPublicInvoice",
+        "declaration": "public sealed record GetPublicInvoiceQuery(string Token) : IQuery<Result<PublicInvoiceDto>>;",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PublicInvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Token",
+            "kind": "property",
+            "signature": "string Token",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PublicInvoiceDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQuery.cs#GetPublicInvoiceQuery",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-019",
+      "name": "GetPublicInvoiceQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetPublicInvoice",
+        "declaration": "public sealed class GetPublicInvoiceQueryHandler : IQueryHandler<GetPublicInvoiceQuery, Result<PublicInvoiceDto>>",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetPublicInvoiceQuery, Result<PublicInvoiceDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetPublicInvoiceQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetPublicInvoiceQueryHandler(",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PublicInvoiceDto>> Handle(GetPublicInvoiceQuery query, CancellationToken cancellationToken)",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SettingOrDefaultAsync",
+            "kind": "method",
+            "signature": "private async Task<string?> SettingOrDefaultAsync(string key, string? fallback, CancellationToken cancellationToken)",
+            "line": 94,
+            "modifiers": [
+              "private",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IQueryHandler<GetPublicInvoiceQuery, Result<PublicInvoiceDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PublicInvoiceItemDto",
+            "target_component": "COMP-BILLING-015",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+              "line": 67,
+              "expression": "new PublicInvoiceItemDto("
+            }
+          },
+          {
+            "target": "PublicInvoiceDto",
+            "target_component": "COMP-BILLING-014",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+              "line": 74,
+              "expression": "new PublicInvoiceDto("
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+              "line": 46,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+              "line": 50,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "IndianPhoneNumber",
+            "target_component": "COMP-PLATFORM-152",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs",
+              "line": 80,
+              "expression": "IndianPhoneNumber.ToDisplay(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 100,
+          "member_count": 3,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetPublicInvoice/GetPublicInvoiceQueryHandler.cs#GetPublicInvoiceQueryHandler",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-BILLING-020",
+      "name": "GetInvoiceShareTokenQuery",
+      "kind": "query",
+      "path": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetShareToken",
+        "declaration": "public sealed record GetInvoiceShareTokenQuery(Guid InvoiceId) : IQuery<Result<InvoiceShareTokenDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<InvoiceShareTokenDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceId",
+            "kind": "property",
+            "signature": "Guid InvoiceId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<InvoiceShareTokenDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 20,
+              "expression": "IInvoiceRepository _invoiceRepository;"
+            }
+          },
+          {
+            "target": "IInvoiceShareTokenService",
+            "target_component": "COMP-PLATFORM-082",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 21,
+              "expression": "IInvoiceShareTokenService _shareTokens;"
+            }
+          },
+          {
+            "target": "InvoiceShareTokenDto",
+            "target_component": "COMP-BILLING-021",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 41,
+              "expression": "new InvoiceShareTokenDto("
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 37,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 38,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 34,
+              "expression": "_invoiceRepository.GetByIdAsync(…)"
+            }
+          },
+          {
+            "target": "IInvoiceShareTokenService",
+            "target_component": "COMP-PLATFORM-082",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 41,
+              "expression": "_shareTokens.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 44,
+          "member_count": 1,
+          "dependency_count": 9
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#GetInvoiceShareTokenQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-BILLING-021",
+      "name": "InvoiceShareTokenDto",
+      "kind": "dto",
+      "path": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetShareToken",
+        "declaration": "public sealed record InvoiceShareTokenDto(string Token);",
+        "line": 15,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Token",
+            "kind": "property",
+            "signature": "string Token",
+            "line": 15,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 20,
+              "expression": "IInvoiceRepository _invoiceRepository;"
+            }
+          },
+          {
+            "target": "IInvoiceShareTokenService",
+            "target_component": "COMP-PLATFORM-082",
+            "via": "declared-type",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 21,
+              "expression": "IInvoiceShareTokenService _shareTokens;"
+            }
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 37,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 38,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 34,
+              "expression": "_invoiceRepository.GetByIdAsync(…)"
+            }
+          },
+          {
+            "target": "IInvoiceShareTokenService",
+            "target_component": "COMP-PLATFORM-082",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+              "line": 41,
+              "expression": "_shareTokens.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 44,
+          "member_count": 1,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#InvoiceShareTokenDto",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-022",
+      "name": "GetInvoiceShareTokenQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.GetShareToken",
+        "declaration": "public sealed class GetInvoiceShareTokenQueryHandler",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 44,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/GetShareToken/GetInvoiceShareTokenQuery.cs#GetInvoiceShareTokenQueryHandler",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-023",
+      "name": "SearchInvoicesQuery",
+      "kind": "query",
+      "path": "src/Application/Billing/Queries/Search/SearchInvoicesQuery.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.Search",
+        "declaration": "public sealed record SearchInvoicesQuery( Guid? CustomerId, InvoiceStatus? Status, DateTime? FromUtc, DateTime? ToUtc, int Page, int PageSize) : IQuery<Result<PagedResult<InvoiceDto>>>;",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<InvoiceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid? CustomerId",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "InvoiceStatus? Status",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FromUtc",
+            "kind": "property",
+            "signature": "DateTime? FromUtc",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToUtc",
+            "kind": "property",
+            "signature": "DateTime? ToUtc",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 17,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "InvoiceStatus?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<InvoiceDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.4",
+            "line": 9
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.9",
+            "line": 10
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 24,
+          "member_count": 6,
+          "dependency_count": 7
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQuery.cs#SearchInvoicesQuery",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-024",
+      "name": "SearchInvoicesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Billing/Queries/Search/SearchInvoicesQueryHandler.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.Search",
+        "declaration": "public sealed class SearchInvoicesQueryHandler : IQueryHandler<SearchInvoicesQuery, Result<PagedResult<InvoiceDto>>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<SearchInvoicesQuery, Result<PagedResult<InvoiceDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchInvoicesQueryHandler",
+            "kind": "constructor",
+            "signature": "public SearchInvoicesQueryHandler(IInvoiceRepository invoiceRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<InvoiceDto>>> Handle(SearchInvoicesQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IInvoiceRepository",
+            "target_component": "COMP-BILLING-010",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<SearchInvoicesQuery, Result<PagedResult<InvoiceDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Billing/Queries/Search/SearchInvoicesQueryHandler.cs",
+              "line": 23,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryHandler.cs#SearchInvoicesQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-BILLING-025",
+      "name": "SearchInvoicesQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs",
+      "module": "BILLING",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Billing.Queries.Search",
+        "declaration": "public sealed class SearchInvoicesQueryValidator : AbstractValidator<SearchInvoicesQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SearchInvoicesQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SearchInvoicesQueryValidator",
+            "kind": "constructor",
+            "signature": "public SearchInvoicesQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SearchInvoicesQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Billing/Queries/Search/SearchInvoicesQueryValidator.cs#SearchInvoicesQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-026",
+      "name": "Invoice",
+      "kind": "entity",
+      "path": "src/Domain/Billing/Invoice.cs",
+      "module": "BILLING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#96-invoice-share-tokens",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Billing",
+        "declaration": "public sealed class Invoice : AuditableEntity",
+        "line": 15,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceNumber",
+            "kind": "property",
+            "signature": "public string InvoiceNumber",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "public Guid OrderId",
+            "line": 25,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "public Guid CustomerId",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Subtotal",
+            "kind": "property",
+            "signature": "public decimal Subtotal",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TaxAmount",
+            "kind": "property",
+            "signature": "public decimal TaxAmount",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountAmount",
+            "kind": "property",
+            "signature": "public decimal DiscountAmount",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TotalAmount",
+            "kind": "property",
+            "signature": "public decimal TotalAmount",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "AmountPaid",
+            "kind": "property",
+            "signature": "public decimal AmountPaid",
+            "line": 37,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Status",
+            "kind": "property",
+            "signature": "public InvoiceStatus Status",
+            "line": 39,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Payments",
+            "kind": "property",
+            "signature": "public IReadOnlyList<Payment> Payments",
+            "line": 41,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RemainingBalance",
+            "kind": "property",
+            "signature": "public decimal RemainingBalance",
+            "line": 43,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CanVoid",
+            "kind": "property",
+            "signature": "public bool CanVoid",
+            "line": 46,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Invoice",
+            "kind": "constructor",
+            "signature": "private Invoice()",
+            "line": 48,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Invoice",
+            "kind": "constructor",
+            "signature": "private Invoice(Guid id)",
+            "line": 53,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static Invoice Create(",
+            "line": 62,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CanAcceptPayment",
+            "kind": "method",
+            "signature": "public bool CanAcceptPayment(decimal amount) =>",
+            "line": 105,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RecordPayment",
+            "kind": "method",
+            "signature": "public Payment RecordPayment(decimal amount, PaymentMethod method)",
+            "line": 109,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Void",
+            "kind": "method",
+            "signature": "public void Void()",
+            "line": 126,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Billing/Invoice.cs",
+              "line": 94,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          },
+          {
+            "target": "Payment",
+            "target_component": "COMP-BILLING-028",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Billing/Invoice.cs",
+              "line": 117,
+              "expression": "Payment.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.9",
+            "line": 7
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.9",
+            "line": 13
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.10",
+            "line": 108
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+          "last_commit_date": "2026-08-14",
+          "last_commit_subject": "Number invoices INV-2026-0001, counting up and restarting each year",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 136,
+          "member_count": 18,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Invoice.cs#Invoice",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "8e243a60f2c36931ace10685745223b09407dcdd",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-BILLING-027",
+      "name": "InvoiceStatus",
+      "kind": "enum",
+      "path": "src/Domain/Billing/InvoiceStatus.cs",
+      "module": "BILLING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#73-billing",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Billing",
+        "declaration": "public enum InvoiceStatus",
+        "line": 4,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Unpaid",
+            "kind": "enum-member",
+            "signature": "Unpaid",
+            "line": 6,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "PartiallyPaid",
+            "kind": "enum-member",
+            "signature": "PartiallyPaid",
+            "line": 7,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Paid",
+            "kind": "enum-member",
+            "signature": "Paid",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Void",
+            "kind": "enum-member",
+            "signature": "Void",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.9",
+            "line": 3
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 11,
+          "member_count": 4,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/InvoiceStatus.cs#InvoiceStatus",
+            "line": 4
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-028",
+      "name": "Payment",
+      "kind": "entity",
+      "path": "src/Domain/Billing/Payment.cs",
+      "module": "BILLING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Billing",
+        "declaration": "public sealed class Payment : IAuditable",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IAuditable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "public Guid Id",
+            "line": 14,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "InvoiceId",
+            "kind": "property",
+            "signature": "public Guid InvoiceId",
+            "line": 16,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Amount",
+            "kind": "property",
+            "signature": "public decimal Amount",
+            "line": 18,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Method",
+            "kind": "property",
+            "signature": "public PaymentMethod Method",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 22,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 24,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Payment",
+            "kind": "constructor",
+            "signature": "private Payment()",
+            "line": 30,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "internal static Payment Create(Guid invoiceId, decimal amount, PaymentMethod method)",
+            "line": 35,
+            "modifiers": [
+              "internal",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 46,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 53,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Billing/Payment.cs",
+              "line": 40,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.10",
+            "line": 7
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.10",
+            "line": 52
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 59,
+          "member_count": 12,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/Payment.cs#Payment",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-BILLING-029",
+      "name": "PaymentMethod",
+      "kind": "enum",
+      "path": "src/Domain/Billing/PaymentMethod.cs",
+      "module": "BILLING",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#73-billing",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Billing",
+        "declaration": "public enum PaymentMethod",
+        "line": 3,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Cash",
+            "kind": "enum-member",
+            "signature": "Cash",
+            "line": 5,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Card",
+            "kind": "enum-member",
+            "signature": "Card",
+            "line": 6,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Upi",
+            "kind": "enum-member",
+            "signature": "Upi",
+            "line": 7,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "BankTransfer",
+            "kind": "enum-member",
+            "signature": "BankTransfer",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Other",
+            "kind": "enum-member",
+            "signature": "Other",
+            "line": 9,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 11,
+          "member_count": 5,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Billing/PaymentMethod.cs#PaymentMethod",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-030",
+      "name": "InvoiceShareTokenService",
+      "kind": "service",
+      "path": "src/Infrastructure/Billing/InvoiceShareTokenService.cs",
+      "module": "BILLING",
+      "layer": "Infrastructure",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#96-invoice-share-tokens",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Infrastructure.Billing",
+        "declaration": "public sealed class InvoiceShareTokenService : IInvoiceShareTokenService",
+        "line": 19,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IInvoiceShareTokenService"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceShareTokenService",
+            "kind": "constructor",
+            "signature": "public InvoiceShareTokenService(IConfiguration configuration)",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public string Create(Guid invoiceId)",
+            "line": 45,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TryRead",
+            "kind": "method",
+            "signature": "public bool TryRead(string token, out Guid invoiceId)",
+            "line": 65,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Base64UrlEncode",
+            "kind": "method",
+            "signature": "private static string Base64UrlEncode(byte[] bytes) =>",
+            "line": 110,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Base64UrlDecode",
+            "kind": "method",
+            "signature": "private static byte[] Base64UrlDecode(string value)",
+            "line": 113,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IConfiguration",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IInvoiceShareTokenService",
+            "target_component": "COMP-PLATFORM-082",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 119,
+          "member_count": 5,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Infrastructure/Billing/InvoiceShareTokenService.cs#InvoiceShareTokenService",
+            "line": 19
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-BILLING-031",
+      "name": "InvoicesPage",
+      "kind": "route",
+      "path": "web/src/app/dashboard/invoices/page.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/invoices",
+        "declaration": "export default function InvoicesPage() {",
+        "line": 76,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoicesPage",
+            "kind": "export",
+            "signature": "export default function InvoicesPage() {",
+            "line": 76,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/StatusBadge",
+            "target_component": "COMP-WEB-023",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/billing",
+            "target_component": "COMP-WEB-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/invoice-settings",
+            "target_component": "COMP-WEB-036",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/DateInput",
+            "target_component": "COMP-WEB-013",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 8
+        },
+        "metrics": {
+          "lines": 313,
+          "member_count": 1,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/invoices/page.tsx#InvoicesPage",
+            "line": 76
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/invoices",
+            "detail": "web/src/app/dashboard/invoices/page.tsx",
+            "line": 76
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-032",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/dashboard/invoices/[id]/page.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/invoices/[id]",
+        "declaration": "export default function Page() {",
+        "line": 12,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/invoices/[id]/PageClient",
+            "target_component": "COMP-BILLING-033",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/invoices/[id]/page.tsx#Page",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/invoices/[id]",
+            "detail": "web/src/app/dashboard/invoices/[id]/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-033",
+      "name": "InvoiceDetailPage",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/invoices/[id]/PageClient.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function InvoiceDetailPage() {",
+        "line": 40,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceDetailPage",
+            "kind": "export",
+            "signature": "export default function InvoiceDetailPage() {",
+            "line": 40,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ConfirmDialog",
+            "target_component": "COMP-WEB-012",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/StatusBadge",
+            "target_component": "COMP-WEB-023",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/ui/ToastProvider",
+            "target_component": "COMP-WEB-024",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/orders",
+            "target_component": "COMP-WEB-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/whatsapp/ShareViaWhatsAppButton",
+            "target_component": "COMP-WHATSAPP-026",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-branding",
+            "target_component": "COMP-WEB-056",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "78a1496a2a99bdeb9f869a2c25a12d7a727373a9",
+          "last_commit_date": "2026-08-29",
+          "last_commit_subject": "Open WhatsApp Business, on a phone that has both apps",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 346,
+          "member_count": 1,
+          "dependency_count": 11
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/invoices/[id]/PageClient.tsx#InvoiceDetailPage",
+            "line": 40
+          }
+        ]
+      },
+      "last_verified_commit": "78a1496a2a99bdeb9f869a2c25a12d7a727373a9",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-034",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/invoice/view/[token]/page.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/invoice/view/[token]",
+        "declaration": "export default function Page() {",
+        "line": 12,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/invoice/view/[token]/PageClient",
+            "target_component": "COMP-BILLING-035",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/invoice/view/[token]/page.tsx#Page",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/invoice/view/[token]",
+            "detail": "web/src/app/invoice/view/[token]/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-035",
+      "name": "PublicInvoicePageClient",
+      "kind": "react-component",
+      "path": "web/src/app/invoice/view/[token]/PageClient.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function PublicInvoicePageClient() {",
+        "line": 32,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "PublicInvoicePageClient",
+            "kind": "export",
+            "signature": "export default function PublicInvoicePageClient() {",
+            "line": 32,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/public-invoice",
+            "target_component": "COMP-WEB-041",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 189,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/invoice/view/[token]/PageClient.tsx#PublicInvoicePageClient",
+            "line": 32
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-036",
+      "name": "PaymentMethodPicker",
+      "kind": "react-component",
+      "path": "web/src/components/billing/PaymentMethodPicker.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function PaymentMethodPicker({",
+        "line": 25,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OFFERED_PAYMENT_METHODS",
+            "kind": "export",
+            "signature": "export const OFFERED_PAYMENT_METHODS: readonly PaymentMethod[] = [\"Cash\", \"Upi\", \"Card\", \"Other\"];",
+            "line": 13,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "PaymentMethodPicker",
+            "kind": "export",
+            "signature": "export function PaymentMethodPicker({",
+            "line": 25,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/api/billing",
+            "target_component": "COMP-WEB-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 124,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/billing/PaymentMethodPicker.tsx#PaymentMethodPicker",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-037",
+      "name": "InvoicePreview",
+      "kind": "dto",
+      "path": "web/src/components/orders/invoice-preview-sample.ts",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export type InvoicePreview = { invoice: Invoice; order: Order; customer: Customer };",
+        "line": 25,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoicePreview",
+            "kind": "export",
+            "signature": "export type InvoicePreview = { invoice: Invoice; order: Order; customer: Customer };",
+            "line": 25,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "buildInvoicePreview",
+            "kind": "export",
+            "signature": "export function buildInvoicePreview(nowIso: string, taxRatePercent: number, numberPrefix: string): InvoicePreview {",
+            "line": 31,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/api/invoice-settings",
+            "target_component": "COMP-WEB-036",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/billing",
+            "target_component": "COMP-WEB-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/orders",
+            "target_component": "COMP-WEB-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e71ad864fcd20501d3282ad29387ca3797ad3868",
+          "last_commit_date": "2026-08-29",
+          "last_commit_subject": "Use menswear garments and a local name in the invoice preview sample",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 93,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/orders/invoice-preview-sample.ts#InvoicePreview",
+            "line": 25
+          }
+        ]
+      },
+      "last_verified_commit": "e71ad864fcd20501d3282ad29387ca3797ad3868",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-038",
+      "name": "InvoiceDocument",
+      "kind": "react-component",
+      "path": "web/src/components/orders/InvoiceDocument.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function InvoiceDocument({",
+        "line": 33,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoiceDocument",
+            "kind": "export",
+            "signature": "export function InvoiceDocument({",
+            "line": 33,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/billing",
+            "target_component": "COMP-WEB-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/orders",
+            "target_component": "COMP-WEB-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/contact",
+            "target_component": "COMP-WEB-051",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+          "last_commit_date": "2026-08-19",
+          "last_commit_subject": "Give every screen the same colours, and the shop its own mark",
+          "commit_count": 8
+        },
+        "metrics": {
+          "lines": 192,
+          "member_count": 1,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/orders/InvoiceDocument.tsx#InvoiceDocument",
+            "line": 33
+          }
+        ]
+      },
+      "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-BILLING-039",
+      "name": "InvoicePrintModal",
+      "kind": "react-component",
+      "path": "web/src/components/orders/InvoicePrintModal.tsx",
+      "module": "BILLING",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function InvoicePrintModal({ invoice, order, customer, onClose, autoPrint = false }: InvoicePrintModalProps) {",
+        "line": 22,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "InvoicePrintModal",
+            "kind": "export",
+            "signature": "export function InvoicePrintModal({ invoice, order, customer, onClose, autoPrint = false }: InvoicePrintModalProps) {",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/orders/InvoiceDocument",
+            "target_component": "COMP-BILLING-038",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/billing",
+            "target_component": "COMP-WEB-027",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/orders",
+            "target_component": "COMP-WEB-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/customers",
+            "target_component": "COMP-WEB-031",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "2e18ebf0ca9ef88c7034a5b79c1850fdcd566fa3",
+          "last_commit_date": "2026-08-15",
+          "last_commit_subject": "Make every screen readable on a phone without scrolling sideways",
+          "commit_count": 4
+        },
+        "metrics": {
+          "lines": 58,
+          "member_count": 1,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/orders/InvoicePrintModal.tsx#InvoicePrintModal",
+            "line": 22
+          }
+        ]
+      },
+      "last_verified_commit": "2e18ebf0ca9ef88c7034a5b79c1850fdcd566fa3",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-019",
+      "name": "CreateInvoiceRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Billing/CreateInvoiceRequest.cs",
+      "module": "BILLING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Billing",
+        "declaration": "public sealed record CreateInvoiceRequest(Guid OrderId, decimal TaxAmount, decimal DiscountAmount);",
+        "line": 3,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "OrderId",
+            "kind": "property",
+            "signature": "Guid OrderId",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "TaxAmount",
+            "kind": "property",
+            "signature": "decimal TaxAmount",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "DiscountAmount",
+            "kind": "property",
+            "signature": "decimal DiscountAmount",
+            "line": 3,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 4,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Billing/CreateInvoiceRequest.cs#CreateInvoiceRequest",
+            "line": 3
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-020",
+      "name": "RecordPaymentRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Billing/RecordPaymentRequest.cs",
+      "module": "BILLING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Billing",
+        "declaration": "public sealed record RecordPaymentRequest(decimal Amount, PaymentMethod Method);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Amount",
+            "kind": "property",
+            "signature": "decimal Amount",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Method",
+            "kind": "property",
+            "signature": "PaymentMethod Method",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PaymentMethod",
+            "target_component": "COMP-BILLING-029",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Billing backend (Phase 3, module 1 of 4)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 6,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Billing/RecordPaymentRequest.cs#RecordPaymentRequest",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "e1ff2dfb999bc760e8e846626e7b01e9dd438e70",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-063",
+      "name": "InvoicesController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/InvoicesController.cs",
+      "module": "BILLING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class InvoicesController : ApiControllerBase",
+        "line": 24,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/invoices\")",
+          "Authorize(Policy = Permissions.InvoicesView)"
+        ],
+        "members": [
+          {
+            "name": "InvoicesController",
+            "kind": "constructor",
+            "signature": "public InvoicesController(ISender sender)",
+            "line": 28,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Create([FromBody] CreateInvoiceRequest request, CancellationToken cancellationToken)",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost",
+              "Authorize(Policy = Permissions.InvoicesCreate)",
+              "ProducesResponseType(typeof(ApiResponse<InvoiceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": null,
+              "resolved_route": "/api/v1/invoices",
+              "policy": "Permissions.InvoicesCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetById",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)",
+            "line": 50,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}\")",
+              "ProducesResponseType(typeof(ApiResponse<InvoiceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}",
+              "resolved_route": "/api/v1/invoices/{id:guid}",
+              "policy": "Permissions.InvoicesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Search",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Search(",
+            "line": 64,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<InvoiceDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": null,
+              "resolved_route": "/api/v1/invoices",
+              "policy": "Permissions.InvoicesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ToUtc",
+            "kind": "method",
+            "signature": "private static DateTime? ToUtc(DateTime? value) => value switch",
+            "line": 82,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "RecordPayment",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> RecordPayment(Guid id, [FromBody] RecordPaymentRequest request, CancellationToken cancellationToken)",
+            "line": 97,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"{id:guid}/payments\")",
+              "Authorize(Policy = Permissions.InvoicesPayment)",
+              "ProducesResponseType(typeof(ApiResponse<InvoiceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "{id:guid}/payments",
+              "resolved_route": "/api/v1/invoices/{id:guid}/payments",
+              "policy": "Permissions.InvoicesPayment",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetShareToken",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetShareToken(Guid id, CancellationToken cancellationToken)",
+            "line": 112,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{id:guid}/share-token\")",
+              "ProducesResponseType(typeof(ApiResponse<InvoiceShareTokenDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{id:guid}/share-token",
+              "resolved_route": "/api/v1/invoices/{id:guid}/share-token",
+              "policy": "Permissions.InvoicesView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "Void",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Void(Guid id, CancellationToken cancellationToken)",
+            "line": 124,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"{id:guid}/void\")",
+              "Authorize(Policy = Permissions.InvoicesVoid)",
+              "ProducesResponseType(StatusCodes.Status204NoContent)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "{id:guid}/void",
+              "resolved_route": "/api/v1/invoices/{id:guid}/void",
+              "policy": "Permissions.InvoicesVoid",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "CreateInvoiceCommand",
+            "target_component": "COMP-BILLING-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 42,
+              "expression": "new CreateInvoiceCommand("
+            }
+          },
+          {
+            "target": "GetInvoiceByIdQuery",
+            "target_component": "COMP-BILLING-016",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 52,
+              "expression": "new GetInvoiceByIdQuery("
+            }
+          },
+          {
+            "target": "SearchInvoicesQuery",
+            "target_component": "COMP-BILLING-023",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 77,
+              "expression": "new SearchInvoicesQuery("
+            }
+          },
+          {
+            "target": "RecordPaymentCommand",
+            "target_component": "COMP-BILLING-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 99,
+              "expression": "new RecordPaymentCommand("
+            }
+          },
+          {
+            "target": "GetInvoiceShareTokenQuery",
+            "target_component": "COMP-BILLING-020",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 114,
+              "expression": "new GetInvoiceShareTokenQuery("
+            }
+          },
+          {
+            "target": "VoidInvoiceCommand",
+            "target_component": "COMP-BILLING-007",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/InvoicesController.cs",
+              "line": 126,
+              "expression": "new VoidInvoiceCommand("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 20
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.9-10.10",
+            "line": 20
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 58
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 5
+        },
+        "metrics": {
+          "lines": 130,
+          "member_count": 8,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/InvoicesController.cs#InvoicesController",
+            "line": 24
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/InvoicesController.cs#ApiController",
+            "line": 24
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-067",
+      "name": "PublicInvoicesController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/PublicInvoicesController.cs",
+      "module": "BILLING",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class PublicInvoicesController : ApiControllerBase",
+        "line": 27,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1/public/invoices\")",
+          "AllowAnonymous"
+        ],
+        "members": [
+          {
+            "name": "PublicInvoicesController",
+            "kind": "constructor",
+            "signature": "public PublicInvoicesController(ISender sender)",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GetByToken",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetByToken(string token, CancellationToken cancellationToken) =>",
+            "line": 40,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"{token}\")",
+              "ProducesResponseType(typeof(ApiResponse<PublicInvoiceDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "{token}",
+              "resolved_route": "/api/v1/public/invoices/{token}",
+              "policy": null,
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "GetPublicInvoiceQuery",
+            "target_component": "COMP-BILLING-018",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/PublicInvoicesController.cs",
+              "line": 41,
+              "expression": "new GetPublicInvoiceQuery("
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/PublicInvoicesController.cs#PublicInvoicesController",
+            "line": 27
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/PublicInvoicesController.cs#ApiController",
+            "line": 27
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

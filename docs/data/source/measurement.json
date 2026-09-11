@@ -1,0 +1,5200 @@
+{
+  "module": "MEASUREMENT",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:24.387Z",
+  "harvester_version": "1.0.0",
+  "components": [
+    {
+      "id": "COMP-MEASUREMENT-001",
+      "name": "CreateMeasurementCommand",
+      "kind": "command",
+      "path": "src/Application/Measurements/Commands/Create/CreateMeasurementCommand.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.Create",
+        "declaration": "public sealed record CreateMeasurementCommand( Guid CustomerId, string GarmentType, IReadOnlyDictionary<string, MeasurementValue> Values, string? Notes = null) : ICommand<Result<MeasurementDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "null",
+            "kind": "property",
+            "signature": "string? Notes = null",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 4,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommand.cs#CreateMeasurementCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-002",
+      "name": "CreateMeasurementCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.Create",
+        "declaration": "public sealed class CreateMeasurementCommandHandler : ICommandHandler<CreateMeasurementCommand, Result<MeasurementDto>>",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<CreateMeasurementCommand, Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateMeasurementCommandHandler",
+            "kind": "constructor",
+            "signature": "public CreateMeasurementCommandHandler(IMeasurementRepository measurementRepository, ICustomerRepository customerRepository)",
+            "line": 14,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<MeasurementDto>> Handle(CreateMeasurementCommand command, CancellationToken cancellationToken)",
+            "line": 20,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IMeasurementRepository",
+            "target_component": "COMP-MEASUREMENT-008",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICustomerRepository",
+            "target_component": "COMP-CUSTOMER-024",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<CreateMeasurementCommand, Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs",
+              "line": 25,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs",
+              "line": 26,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Measurement",
+            "target_component": "COMP-MEASUREMENT-032",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs",
+              "line": 37,
+              "expression": "Measurement.Create(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 45,
+          "member_count": 2,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandHandler.cs#CreateMeasurementCommandHandler",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-MEASUREMENT-003",
+      "name": "CreateMeasurementCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.Create",
+        "declaration": "public sealed class CreateMeasurementCommandValidator : AbstractValidator<CreateMeasurementCommand>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<CreateMeasurementCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CreateMeasurementCommandValidator",
+            "kind": "constructor",
+            "signature": "public CreateMeasurementCommandValidator()",
+            "line": 9,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<CreateMeasurementCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 30,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#CreateMeasurementCommandValidator",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-004",
+      "name": "UpdateMeasurementValuesCommand",
+      "kind": "command",
+      "path": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommand.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.UpdateValues",
+        "declaration": "public sealed record UpdateMeasurementValuesCommand( Guid Id, IReadOnlyDictionary<string, MeasurementValue> Values, string? Notes = null) : ICommand<Result<MeasurementDto>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "null",
+            "kind": "property",
+            "signature": "string? Notes = null",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 12,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommand.cs#UpdateMeasurementValuesCommand",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-005",
+      "name": "UpdateMeasurementValuesCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.UpdateValues",
+        "declaration": "public sealed class UpdateMeasurementValuesCommandHandler : ICommandHandler<UpdateMeasurementValuesCommand, Result<MeasurementDto>>",
+        "line": 13,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommandHandler<UpdateMeasurementValuesCommand, Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateMeasurementValuesCommandHandler",
+            "kind": "constructor",
+            "signature": "public UpdateMeasurementValuesCommandHandler(IMeasurementRepository measurementRepository)",
+            "line": 17,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<MeasurementDto>> Handle(UpdateMeasurementValuesCommand command, CancellationToken cancellationToken)",
+            "line": 22,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IMeasurementRepository",
+            "target_component": "COMP-MEASUREMENT-008",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommandHandler<UpdateMeasurementValuesCommand, Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-288",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+              "line": 27,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+              "line": 28,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "MeasurementHistory",
+            "target_component": "COMP-MEASUREMENT-033",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+              "line": 31,
+              "expression": "MeasurementHistory.CaptureSnapshot(…)"
+            }
+          },
+          {
+            "target": "Measurement",
+            "target_component": "COMP-MEASUREMENT-032",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs",
+              "line": 34,
+              "expression": "var measurement = _measurementRepository.GetByIdAsync(…); measurement.UpdateValues(…)  [IMeasurementRepository.GetByIdAsync returns Measurement]"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.4",
+            "line": 11
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 42,
+          "member_count": 2,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandler.cs#UpdateMeasurementValuesCommandHandler",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-MEASUREMENT-006",
+      "name": "UpdateMeasurementValuesCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Commands.UpdateValues",
+        "declaration": "public sealed class UpdateMeasurementValuesCommandValidator : AbstractValidator<UpdateMeasurementValuesCommand>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<UpdateMeasurementValuesCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "UpdateMeasurementValuesCommandValidator",
+            "kind": "constructor",
+            "signature": "public UpdateMeasurementValuesCommandValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<UpdateMeasurementValuesCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#UpdateMeasurementValuesCommandValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-007",
+      "name": "GarmentCatalogKeys",
+      "kind": "class",
+      "path": "src/Application/Measurements/GarmentCatalogKeys.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements",
+        "declaration": "public static class GarmentCatalogKeys",
+        "line": 21,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "For",
+            "kind": "method",
+            "signature": "public static string For(string garmentType) => $\"{Prefix}{GarmentTypes.Normalise(garmentType)}\"",
+            "line": 25,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ListAsync",
+            "kind": "method",
+            "signature": "public static async Task<IReadOnlyList<string>> ListAsync(",
+            "line": 34,
+            "modifiers": [
+              "public",
+              "static",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 50,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/GarmentCatalogKeys.cs#GarmentCatalogKeys",
+            "line": 21
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-008",
+      "name": "IMeasurementRepository",
+      "kind": "port",
+      "path": "src/Application/Measurements/IMeasurementRepository.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#83-ports-commoninterfaces-and-per-module",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements",
+        "declaration": "public interface IMeasurementRepository",
+        "line": 10,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetByIdAsync",
+            "kind": "method",
+            "signature": "Task<Measurement?> GetByIdAsync(Guid id, CancellationToken cancellationToken)",
+            "line": 12,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "ExistsForCustomerAndGarmentTypeAsync",
+            "kind": "method",
+            "signature": "Task<bool> ExistsForCustomerAndGarmentTypeAsync(Guid customerId, string garmentType, CancellationToken cancellationToken)",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetByCustomerAsync",
+            "kind": "method",
+            "signature": "Task<IReadOnlyList<Measurement>> GetByCustomerAsync(Guid customerId, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "GetHistoryAsync",
+            "kind": "method",
+            "signature": "Task<PagedResult<MeasurementHistory>> GetHistoryAsync(Guid measurementId, int page, int pageSize, CancellationToken cancellationToken)",
+            "line": 18,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Add",
+            "kind": "method",
+            "signature": "void Add(Measurement measurement)",
+            "line": 20,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "AddHistory",
+            "kind": "method",
+            "signature": "void AddHistory(MeasurementHistory history)",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "SaveChangesAsync",
+            "kind": "method",
+            "signature": "Task SaveChangesAsync(CancellationToken cancellationToken)",
+            "line": 24,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "01_ARCHITECTURE.md",
+            "section": "§ 25.1",
+            "line": 8
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 7,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/IMeasurementRepository.cs#IMeasurementRepository",
+            "line": 10
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-009",
+      "name": "MeasurementDto",
+      "kind": "dto",
+      "path": "src/Application/Measurements/MeasurementDto.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements",
+        "declaration": "public sealed record MeasurementDto( Guid Id, Guid CustomerId, string GarmentType, IReadOnlyDictionary<string, MeasurementValue> Values, /// <summary>What the numbers do not say, or null when the tailor had nothing to add.</summary> string? Notes, DateTime CreatedAtUtc);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "string? Notes",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 6,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/MeasurementDto.cs#MeasurementDto",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-010",
+      "name": "MeasurementHistoryDto",
+      "kind": "dto",
+      "path": "src/Application/Measurements/MeasurementDto.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements",
+        "declaration": "public sealed record MeasurementHistoryDto( Guid Id, Guid MeasurementId, string GarmentType, IReadOnlyDictionary<string, MeasurementValue> Values, DateTime CreatedAtUtc);",
+        "line": 14,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MeasurementId",
+            "kind": "property",
+            "signature": "Guid MeasurementId",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "DateTime CreatedAtUtc",
+            "line": 14,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "DateTime",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 5,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/MeasurementDto.cs#MeasurementHistoryDto",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-011",
+      "name": "MeasurementMapper",
+      "kind": "class",
+      "path": "src/Application/Measurements/MeasurementMapper.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements",
+        "declaration": "internal static class MeasurementMapper",
+        "line": 5,
+        "modifiers": [
+          "internal",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static MeasurementDto ToDto(this Measurement measurement) =>",
+            "line": 7,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToDto",
+            "kind": "method",
+            "signature": "public static MeasurementHistoryDto ToDto(this MeasurementHistory history) =>",
+            "line": 10,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/MeasurementMapper.cs#MeasurementMapper",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-012",
+      "name": "GetMeasurementsByCustomerQuery",
+      "kind": "query",
+      "path": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQuery.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.ByCustomer",
+        "declaration": "public sealed record GetMeasurementsByCustomerQuery(Guid CustomerId) : IQuery<Result<IReadOnlyList<MeasurementDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<IReadOnlyList<MeasurementDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "Guid CustomerId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<IReadOnlyList<MeasurementDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQuery.cs#GetMeasurementsByCustomerQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-013",
+      "name": "GetMeasurementsByCustomerQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.ByCustomer",
+        "declaration": "public sealed class GetMeasurementsByCustomerQueryHandler : IQueryHandler<GetMeasurementsByCustomerQuery, Result<IReadOnlyList<MeasurementDto>>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetMeasurementsByCustomerQuery, Result<IReadOnlyList<MeasurementDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetMeasurementsByCustomerQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetMeasurementsByCustomerQueryHandler(IMeasurementRepository measurementRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<IReadOnlyList<MeasurementDto>>> Handle(GetMeasurementsByCustomerQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IMeasurementRepository",
+            "target_component": "COMP-MEASUREMENT-008",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetMeasurementsByCustomerQuery, Result<IReadOnlyList<MeasurementDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandler.cs",
+              "line": 22,
+              "expression": "Result.Success(…)"
+            }
+          },
+          {
+            "target": "Measurement",
+            "target_component": "COMP-MEASUREMENT-032",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandler.cs",
+              "line": 20,
+              "expression": "var measurements = _measurementRepository.GetByCustomerAsync(…); measurements.Select(…)  [IMeasurementRepository.GetByCustomerAsync returns Measurement]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandler.cs#GetMeasurementsByCustomerQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-MEASUREMENT-014",
+      "name": "GetMeasurementByIdQuery",
+      "kind": "query",
+      "path": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQuery.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.GetById",
+        "declaration": "public sealed record GetMeasurementByIdQuery(Guid Id) : IQuery<Result<MeasurementDto>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "Guid Id",
+            "line": 7,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQuery.cs#GetMeasurementByIdQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-015",
+      "name": "GetMeasurementByIdQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.GetById",
+        "declaration": "public sealed class GetMeasurementByIdQueryHandler : IQueryHandler<GetMeasurementByIdQuery, Result<MeasurementDto>>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetMeasurementByIdQuery, Result<MeasurementDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetMeasurementByIdQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetMeasurementByIdQueryHandler(IMeasurementRepository measurementRepository)",
+            "line": 11,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<MeasurementDto>> Handle(GetMeasurementByIdQuery query, CancellationToken cancellationToken)",
+            "line": 16,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IMeasurementRepository",
+            "target_component": "COMP-MEASUREMENT-008",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetMeasurementByIdQuery, Result<MeasurementDto>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Result",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "NEEDS_REVIEW",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Result.Failure(…)"
+            }
+          },
+          {
+            "target": "Error",
+            "target_component": "COMP-PLATFORM-156",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs",
+              "line": 21,
+              "expression": "Error.NotFound(…)"
+            }
+          },
+          {
+            "target": "Measurement",
+            "target_component": "COMP-MEASUREMENT-032",
+            "via": "method-call",
+            "confidence": "INFERRED",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs",
+              "line": 22,
+              "expression": "var measurement = _measurementRepository.GetByIdAsync(…); measurement.ToDto(…)  [IMeasurementRepository.GetByIdAsync returns Measurement]"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 25,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandler.cs#GetMeasurementByIdQueryHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 5
+    },
+    {
+      "id": "COMP-MEASUREMENT-016",
+      "name": "GetMeasurementHistoryQuery",
+      "kind": "query",
+      "path": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQuery.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.History",
+        "declaration": "public sealed record GetMeasurementHistoryQuery(Guid MeasurementId, int Page, int PageSize) : IQuery<Result<PagedResult<MeasurementHistoryDto>>>;",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<PagedResult<MeasurementHistoryDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementId",
+            "kind": "property",
+            "signature": "Guid MeasurementId",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "property",
+            "signature": "int Page",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "PageSize",
+            "kind": "property",
+            "signature": "int PageSize",
+            "line": 8,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "int",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQuery<Result<PagedResult<MeasurementHistoryDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 9,
+          "member_count": 3,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQuery.cs#GetMeasurementHistoryQuery",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-017",
+      "name": "GetMeasurementHistoryQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.History",
+        "declaration": "public sealed class GetMeasurementHistoryQueryHandler : IQueryHandler<GetMeasurementHistoryQuery, Result<PagedResult<MeasurementHistoryDto>>>",
+        "line": 8,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQueryHandler<GetMeasurementHistoryQuery, Result<PagedResult<MeasurementHistoryDto>>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetMeasurementHistoryQueryHandler",
+            "kind": "constructor",
+            "signature": "public GetMeasurementHistoryQueryHandler(IMeasurementRepository measurementRepository)",
+            "line": 12,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Handle",
+            "kind": "method",
+            "signature": "public async Task<Result<PagedResult<MeasurementHistoryDto>>> Handle(GetMeasurementHistoryQuery query, CancellationToken cancellationToken)",
+            "line": 17,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IMeasurementRepository",
+            "target_component": "COMP-MEASUREMENT-008",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IQueryHandler<GetMeasurementHistoryQuery, Result<PagedResult<MeasurementHistoryDto>>>",
+            "target_component": "COMP-PLATFORM-291",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "PagedResult",
+            "target_component": "COMP-PLATFORM-292",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandler.cs",
+              "line": 23,
+              "expression": "new PagedResult<"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandler.cs#GetMeasurementHistoryQueryHandler",
+            "line": 8
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 4
+    },
+    {
+      "id": "COMP-MEASUREMENT-018",
+      "name": "GetMeasurementHistoryQueryValidator",
+      "kind": "validator",
+      "path": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Queries.History",
+        "declaration": "public sealed class GetMeasurementHistoryQueryValidator : AbstractValidator<GetMeasurementHistoryQuery>",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<GetMeasurementHistoryQuery>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GetMeasurementHistoryQueryValidator",
+            "kind": "constructor",
+            "signature": "public GetMeasurementHistoryQueryValidator()",
+            "line": 8,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<GetMeasurementHistoryQuery>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05",
+          "last_commit_subject": "Add Measurement Management backend (Phase 2, module 2 of 5)",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 20,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#GetMeasurementHistoryQueryValidator",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-019",
+      "name": "ResetMeasurementTemplateCommand",
+      "kind": "command",
+      "path": "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommand.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Commands",
+        "declaration": "public sealed record ResetMeasurementTemplateCommand(string GarmentType) : ICommand<Result<MeasurementTemplateDto>>;",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ICommand<Result<MeasurementTemplateDto>>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ICommand<Result<MeasurementTemplateDto>>",
+            "target_component": "COMP-PLATFORM-287",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 1,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommand.cs#ResetMeasurementTemplateCommand",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-020",
+      "name": "ResetMeasurementTemplateCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommandHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Commands",
+        "declaration": "public sealed class ResetMeasurementTemplateCommandHandler",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 36,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/ResetMeasurementTemplateCommandHandler.cs#ResetMeasurementTemplateCommandHandler",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-021",
+      "name": "SetMeasurementTemplateCommand",
+      "kind": "command",
+      "path": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommand.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Commands",
+        "declaration": "public sealed record SetMeasurementTemplateCommand(string GarmentType, IReadOnlyList<MeasurementPointDto> Points)",
+        "line": 11,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Points",
+            "kind": "property",
+            "signature": "IReadOnlyList<MeasurementPointDto> Points",
+            "line": 11,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<MeasurementPointDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommand.cs#SetMeasurementTemplateCommand",
+            "line": 11
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-022",
+      "name": "SetMeasurementTemplateCommandHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Commands",
+        "declaration": "public sealed class SetMeasurementTemplateCommandHandler",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 43,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandHandler.cs#SetMeasurementTemplateCommandHandler",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-023",
+      "name": "SetMeasurementTemplateCommandValidator",
+      "kind": "validator",
+      "path": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Commands",
+        "declaration": "public sealed class SetMeasurementTemplateCommandValidator : AbstractValidator<SetMeasurementTemplateCommand>",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AbstractValidator<SetMeasurementTemplateCommand>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "SetMeasurementTemplateCommandValidator",
+            "kind": "constructor",
+            "signature": "public SetMeasurementTemplateCommandValidator()",
+            "line": 15,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "AbstractValidator<SetMeasurementTemplateCommand>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 45,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#SetMeasurementTemplateCommandValidator",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-024",
+      "name": "MeasurementPointDto",
+      "kind": "dto",
+      "path": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates",
+        "declaration": "public sealed record MeasurementPointDto(string Name, MeasurementPointType Type)",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [
+          "JsonConverter(typeof(MeasurementPointDtoJsonConverter))"
+        ],
+        "members": [
+          {
+            "name": "Name",
+            "kind": "property",
+            "signature": "string Name",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Type",
+            "kind": "property",
+            "signature": "MeasurementPointType Type",
+            "line": 16,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Number",
+            "kind": "method",
+            "signature": "public static MeasurementPointDto Number(string name) => new(name, MeasurementPointType.Number)",
+            "line": 19,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "MeasurementPointType",
+            "target_component": "COMP-MEASUREMENT-034",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [
+          {
+            "line": 10,
+            "text": "/ <para>A point used to be a bare string, and the stored templates still hold arrays of strings.",
+            "matched": "used to (?:fail|be|report|throw|crash|return)/i"
+          }
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 82,
+          "member_count": 3,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementPointDto.cs#MeasurementPointDto",
+            "line": 16
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Application/Measurements/Templates/MeasurementPointDto.cs#JsonConverter(typeof(MeasurementPointDtoJsonConverter))",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-025",
+      "name": "MeasurementPointDtoJsonConverter",
+      "kind": "class",
+      "path": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates",
+        "declaration": "public sealed class MeasurementPointDtoJsonConverter : JsonConverter<MeasurementPointDto>",
+        "line": 26,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "JsonConverter<MeasurementPointDto>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Read",
+            "kind": "method",
+            "signature": "public override MeasurementPointDto Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)",
+            "line": 28,
+            "modifiers": [
+              "public",
+              "override"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Write",
+            "kind": "method",
+            "signature": "public override void Write(Utf8JsonWriter writer, MeasurementPointDto value, JsonSerializerOptions options)",
+            "line": 74,
+            "modifiers": [
+              "public",
+              "override"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "JsonConverter<MeasurementPointDto>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "JsonException",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+              "line": 37,
+              "expression": "new JsonException("
+            }
+          },
+          {
+            "target": "MeasurementPointDto",
+            "target_component": "COMP-MEASUREMENT-024",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+              "line": 71,
+              "expression": "new MeasurementPointDto("
+            }
+          },
+          {
+            "target": "MeasurementPointDto",
+            "target_component": "COMP-MEASUREMENT-024",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+              "line": 32,
+              "expression": "MeasurementPointDto.Number(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [
+          {
+            "line": 10,
+            "text": "/ <para>A point used to be a bare string, and the stored templates still hold arrays of strings.",
+            "matched": "used to (?:fail|be|report|throw|crash|return)/i"
+          }
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 82,
+          "member_count": 2,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementPointDto.cs#MeasurementPointDtoJsonConverter",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-026",
+      "name": "MeasurementTemplateDefaults",
+      "kind": "class",
+      "path": "src/Application/Measurements/Templates/MeasurementTemplateDefaults.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates",
+        "declaration": "public static class MeasurementTemplateDefaults",
+        "line": 15,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "N",
+            "kind": "method",
+            "signature": "private static MeasurementPointDto N(string name) => new(name, MeasurementPointType.Number)",
+            "line": 19,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "C",
+            "kind": "method",
+            "signature": "private static MeasurementPointDto C(string name) => new(name, MeasurementPointType.Checkbox)",
+            "line": 21,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "T",
+            "kind": "method",
+            "signature": "private static MeasurementPointDto T(string name) => new(name, MeasurementPointType.Text)",
+            "line": 23,
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "For",
+            "kind": "method",
+            "signature": "public static IReadOnlyList<MeasurementPointDto> For(string garmentType) =>",
+            "line": 102,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ByGarmentType",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Templates/MeasurementTemplateDefaults.cs",
+              "line": 103,
+              "expression": "ByGarmentType.TryGetValue(…)"
+            }
+          },
+          {
+            "target": "GarmentTypes",
+            "target_component": "COMP-MEASUREMENT-031",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Application/Measurements/Templates/MeasurementTemplateDefaults.cs",
+              "line": 103,
+              "expression": "GarmentTypes.Normalise(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 105,
+          "member_count": 4,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementTemplateDefaults.cs#MeasurementTemplateDefaults",
+            "line": 15
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-027",
+      "name": "MeasurementTemplateDto",
+      "kind": "dto",
+      "path": "src/Application/Measurements/Templates/MeasurementTemplateDto.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates",
+        "declaration": "public sealed record MeasurementTemplateDto(string GarmentType, IReadOnlyList<MeasurementPointDto> Points, bool IsCustomised);",
+        "line": 12,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Points",
+            "kind": "property",
+            "signature": "IReadOnlyList<MeasurementPointDto> Points",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "IsCustomised",
+            "kind": "property",
+            "signature": "bool IsCustomised",
+            "line": 12,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyList<MeasurementPointDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 13,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementTemplateDto.cs#MeasurementTemplateDto",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-028",
+      "name": "MeasurementTemplateKeys",
+      "kind": "class",
+      "path": "src/Application/Measurements/Templates/MeasurementTemplateKeys.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates",
+        "declaration": "public static class MeasurementTemplateKeys",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "For",
+            "kind": "method",
+            "signature": "public static string For(string garmentType) => $\"{Prefix}{GarmentTypes.Normalise(garmentType)}\"",
+            "line": 24,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.12",
+            "line": 9
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 26,
+          "member_count": 1,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementTemplateKeys.cs#MeasurementTemplateKeys",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-029",
+      "name": "GetMeasurementTemplatesQuery",
+      "kind": "query",
+      "path": "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQuery.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#84-complete-use-case-inventory",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Queries",
+        "declaration": "public sealed record GetMeasurementTemplatesQuery : IQuery<Result<IReadOnlyList<MeasurementTemplateDto>>>;",
+        "line": 7,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IQuery<Result<IReadOnlyList<MeasurementTemplateDto>>>"
+        ],
+        "attributes": [],
+        "members": [],
+        "depends_on": [
+          {
+            "target": "IQuery<Result<IReadOnlyList<MeasurementTemplateDto>>>",
+            "target_component": "COMP-PLATFORM-290",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+          "last_commit_date": "2026-08-13",
+          "last_commit_subject": "Add contact uniqueness, employee codes, measurement templates and invoice date filters",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 0,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQuery.cs#GetMeasurementTemplatesQuery",
+            "line": 7
+          }
+        ]
+      },
+      "last_verified_commit": "e6b48c8a0af5459f3368e0fb1f1b2804ce41efec",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-030",
+      "name": "GetMeasurementTemplatesQueryHandler",
+      "kind": "handler",
+      "path": "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQueryHandler.cs",
+      "module": "MEASUREMENT",
+      "layer": "Application",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Application.Measurements.Templates.Queries",
+        "declaration": "public sealed class GetMeasurementTemplatesQueryHandler",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 65,
+          "member_count": 0,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Queries/GetMeasurementTemplatesQueryHandler.cs#GetMeasurementTemplatesQueryHandler",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-031",
+      "name": "GarmentTypes",
+      "kind": "class",
+      "path": "src/Domain/Measurements/GarmentTypes.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#76-measurements",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public static class GarmentTypes",
+        "line": 23,
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Normalise",
+            "kind": "method",
+            "signature": "public static string Normalise(string? name) =>",
+            "line": 49,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": [
+              "Shirt, Trousers, Suit, Blazer, Kurta, Blouse, Dress, Other];"
+            ]
+          },
+          {
+            "name": "IsWellFormed",
+            "kind": "method",
+            "signature": "public static bool IsWellFormed(string? name)",
+            "line": 56,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.4",
+            "line": 9
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+          "last_commit_date": "2026-08-16",
+          "last_commit_subject": "Let the shop name the garments it stitches, and the people who sign in",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 64,
+          "member_count": 2,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/GarmentTypes.cs#GarmentTypes",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "08d191b0ace42d6158784b048d72cb2d80280353",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-032",
+      "name": "Measurement",
+      "kind": "entity",
+      "path": "src/Domain/Measurements/Measurement.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public sealed class Measurement : AuditableEntity",
+        "line": 17,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "AuditableEntity"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "CustomerId",
+            "kind": "property",
+            "signature": "public Guid CustomerId",
+            "line": 19,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "public string GarmentType",
+            "line": 23,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ValuesJson",
+            "kind": "property",
+            "signature": "public string ValuesJson",
+            "line": 27,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Notes",
+            "kind": "property",
+            "signature": "public string? Notes",
+            "line": 40,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Measurement",
+            "kind": "constructor",
+            "signature": "private Measurement()",
+            "line": 42,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Measurement",
+            "kind": "constructor",
+            "signature": "private Measurement(Guid id)",
+            "line": 47,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public static Measurement Create(",
+            "line": 52,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateValues",
+            "kind": "method",
+            "signature": "public void UpdateValues(IReadOnlyDictionary<string, MeasurementValue> values) => SetValues(values)",
+            "line": 72,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "UpdateNotes",
+            "kind": "method",
+            "signature": "public void UpdateNotes(string? notes) => SetNotes(notes)",
+            "line": 79,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetNotes",
+            "kind": "method",
+            "signature": "private void SetNotes(string? notes) =>",
+            "line": 81,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetValues",
+            "kind": "method",
+            "signature": "private void SetValues(IReadOnlyDictionary<string, MeasurementValue> values)",
+            "line": 86,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "Guid",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "AuditableEntity",
+            "target_component": "COMP-PLATFORM-105",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/Measurement.cs",
+              "line": 60,
+              "expression": "Guard.AgainstEmpty(…)"
+            }
+          },
+          {
+            "target": "GarmentTypes",
+            "target_component": "COMP-MEASUREMENT-031",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/Measurement.cs",
+              "line": 63,
+              "expression": "GarmentTypes.Normalise(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.4",
+            "line": 9
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.4",
+            "line": 12
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 4.5",
+            "line": 14
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 116,
+          "member_count": 11,
+          "dependency_count": 4
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 17
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-MEASUREMENT-033",
+      "name": "MeasurementHistory",
+      "kind": "entity",
+      "path": "src/Domain/Measurements/MeasurementHistory.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public sealed class MeasurementHistory : IAuditable",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "IAuditable"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Id",
+            "kind": "property",
+            "signature": "public Guid Id",
+            "line": 18,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MeasurementId",
+            "kind": "property",
+            "signature": "public Guid MeasurementId",
+            "line": 20,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "public string GarmentType",
+            "line": 24,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ValuesJson",
+            "kind": "property",
+            "signature": "public string ValuesJson",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime CreatedAtUtc",
+            "line": 31,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CreatedBy",
+            "kind": "property",
+            "signature": "public Guid CreatedBy",
+            "line": 33,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedAtUtc",
+            "kind": "property",
+            "signature": "public DateTime? LastModifiedAtUtc",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "LastModifiedBy",
+            "kind": "property",
+            "signature": "public Guid? LastModifiedBy",
+            "line": 37,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "MeasurementHistory",
+            "kind": "constructor",
+            "signature": "private MeasurementHistory()",
+            "line": 39,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "CaptureSnapshot",
+            "kind": "method",
+            "signature": "public static MeasurementHistory CaptureSnapshot(Measurement measurement)",
+            "line": 45,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetCreationAudit",
+            "kind": "method",
+            "signature": "public void SetCreationAudit(Guid createdBy, DateTime createdAtUtc)",
+            "line": 58,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "SetModificationAudit",
+            "kind": "method",
+            "signature": "public void SetModificationAudit(Guid modifiedBy, DateTime modifiedAtUtc)",
+            "line": 65,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IAuditable",
+            "target_component": "COMP-PLATFORM-106",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Guard",
+            "target_component": "COMP-PLATFORM-153",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/MeasurementHistory.cs",
+              "line": 47,
+              "expression": "Guard.AgainstNull(…)"
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.5",
+            "line": 9
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.5",
+            "line": 64
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 71,
+          "member_count": 12,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementHistory.cs#MeasurementHistory",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-MEASUREMENT-034",
+      "name": "MeasurementPointType",
+      "kind": "enum",
+      "path": "src/Domain/Measurements/MeasurementPointType.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#76-measurements",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public enum MeasurementPointType",
+        "line": 13,
+        "modifiers": [
+          "public"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Number",
+            "kind": "enum-member",
+            "signature": "Number",
+            "line": 16,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Checkbox",
+            "kind": "enum-member",
+            "signature": "Checkbox",
+            "line": 19,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Text",
+            "kind": "enum-member",
+            "signature": "Text",
+            "line": 22,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 24,
+          "member_count": 3,
+          "dependency_count": 0
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementPointType.cs#MeasurementPointType",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-035",
+      "name": "MeasurementValue",
+      "kind": "value-object",
+      "path": "src/Domain/Measurements/MeasurementValue.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public readonly record struct MeasurementValue",
+        "line": 16,
+        "modifiers": [
+          "public",
+          "readonly"
+        ],
+        "base_types": [],
+        "attributes": [
+          "JsonConverter(typeof(MeasurementValueJsonConverter))"
+        ],
+        "members": [
+          {
+            "name": "MeasurementValue",
+            "kind": "constructor",
+            "signature": "private MeasurementValue(MeasurementPointType kind, decimal number, bool flag, string? text)",
+            "line": 18,
+            "modifiers": [
+              "private"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Kind",
+            "kind": "property",
+            "signature": "public MeasurementPointType Kind",
+            "line": 26,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Number",
+            "kind": "property",
+            "signature": "public decimal Number",
+            "line": 29,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Flag",
+            "kind": "property",
+            "signature": "public bool Flag",
+            "line": 32,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Text",
+            "kind": "property",
+            "signature": "public string? Text",
+            "line": 35,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FromNumber",
+            "kind": "method",
+            "signature": "public static MeasurementValue FromNumber(decimal value) => new(MeasurementPointType.Number, value, false, null)",
+            "line": 37,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FromFlag",
+            "kind": "method",
+            "signature": "public static MeasurementValue FromFlag(bool value) => new(MeasurementPointType.Checkbox, 0m, value, null)",
+            "line": 39,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "FromText",
+            "kind": "method",
+            "signature": "public static MeasurementValue FromText(string value) => new(MeasurementPointType.Text, 0m, false, value)",
+            "line": 41,
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "ToString",
+            "kind": "method",
+            "signature": "public override string ToString() => Kind switch",
+            "line": 44,
+            "modifiers": [
+              "public",
+              "override"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "MeasurementPointType",
+            "target_component": "COMP-MEASUREMENT-034",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "decimal",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "bool",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "Number",
+            "target_component": null,
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/MeasurementValue.cs",
+              "line": 48,
+              "expression": "Number.ToString(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [
+          {
+            "line": 11,
+            "text": "/ shape is the reason nothing had to be migrated when points stopped being numbers-only: every",
+            "matched": "stopped being/i"
+          },
+          {
+            "line": 55,
+            "text": "/ <para>Writing <c>{\"kind\":\"Number\",\"number\":40}</c> would have been easier and wrong: it would",
+            "matched": "would (?:otherwise )?(?:have )?(?:been|left|produce[d]?) .{"
+          }
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 87,
+          "member_count": 9,
+          "dependency_count": 5
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementValue.cs#MeasurementValue",
+            "line": 16
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Domain/Measurements/MeasurementValue.cs#JsonConverter(typeof(MeasurementValueJsonConverter))",
+            "line": 16
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 3
+    },
+    {
+      "id": "COMP-MEASUREMENT-036",
+      "name": "MeasurementValueJsonConverter",
+      "kind": "class",
+      "path": "src/Domain/Measurements/MeasurementValue.cs",
+      "module": "MEASUREMENT",
+      "layer": "Domain",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#76-measurements",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Domain.Measurements",
+        "declaration": "public sealed class MeasurementValueJsonConverter : JsonConverter<MeasurementValue>",
+        "line": 59,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "JsonConverter<MeasurementValue>"
+        ],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Read",
+            "kind": "method",
+            "signature": "public override MeasurementValue Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>",
+            "line": 61,
+            "modifiers": [
+              "public",
+              "override"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Write",
+            "kind": "method",
+            "signature": "public override void Write(Utf8JsonWriter writer, MeasurementValue value, JsonSerializerOptions options)",
+            "line": 71,
+            "modifiers": [
+              "public",
+              "override"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "JsonConverter<MeasurementValue>",
+            "target_component": null,
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "JsonException",
+            "target_component": null,
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/MeasurementValue.cs",
+              "line": 68,
+              "expression": "new JsonException("
+            }
+          },
+          {
+            "target": "MeasurementValue",
+            "target_component": "COMP-MEASUREMENT-035",
+            "via": "static-call",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Domain/Measurements/MeasurementValue.cs",
+              "line": 64,
+              "expression": "MeasurementValue.FromNumber(…)"
+            }
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [
+          {
+            "line": 11,
+            "text": "/ shape is the reason nothing had to be migrated when points stopped being numbers-only: every",
+            "matched": "stopped being/i"
+          },
+          {
+            "line": 55,
+            "text": "/ <para>Writing <c>{\"kind\":\"Number\",\"number\":40}</c> would have been easier and wrong: it would",
+            "matched": "would (?:otherwise )?(?:have )?(?:been|left|produce[d]?) .{"
+          }
+        ],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 87,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementValue.cs#MeasurementValueJsonConverter",
+            "line": 59
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 2
+    },
+    {
+      "id": "COMP-MEASUREMENT-037",
+      "name": "Page",
+      "kind": "route",
+      "path": "web/src/app/dashboard/measurements/[id]/history/page.tsx",
+      "module": "MEASUREMENT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#pagination",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "/dashboard/measurements/[id]/history",
+        "declaration": "export default function Page() {",
+        "line": 12,
+        "modifiers": [],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "generateStaticParams",
+            "kind": "export",
+            "signature": "export function generateStaticParams() {",
+            "line": 8,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "Page",
+            "kind": "export",
+            "signature": "export default function Page() {",
+            "line": 12,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/app/dashboard/measurements/[id]/history/PageClient",
+            "target_component": "COMP-MEASUREMENT-038",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10",
+          "last_commit_subject": "Fix broken detail pages and add order editing plus Excel import/export",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 15,
+          "member_count": 2,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/measurements/[id]/history/page.tsx#Page",
+            "line": 12
+          },
+          {
+            "kind": "route",
+            "ref": "/dashboard/measurements/[id]/history",
+            "detail": "web/src/app/dashboard/measurements/[id]/history/page.tsx",
+            "line": 12
+          }
+        ]
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-038",
+      "name": "MeasurementHistoryPage",
+      "kind": "react-component",
+      "path": "web/src/app/dashboard/measurements/[id]/history/PageClient.tsx",
+      "module": "MEASUREMENT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export default function MeasurementHistoryPage() {",
+        "line": 13,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementHistoryPage",
+            "kind": "export",
+            "signature": "export default function MeasurementHistoryPage() {",
+            "line": 13,
+            "modifiers": [
+              "default"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Pagination",
+            "target_component": "COMP-WEB-019",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-route-id",
+            "target_component": "COMP-WEB-060",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 98,
+          "member_count": 1,
+          "dependency_count": 6
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/app/dashboard/measurements/[id]/history/PageClient.tsx#MeasurementHistoryPage",
+            "line": 13
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-039",
+      "name": "MeasurementForm",
+      "kind": "react-component",
+      "path": "web/src/components/measurements/MeasurementForm.tsx",
+      "module": "MEASUREMENT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function MeasurementForm({",
+        "line": 23,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementForm",
+            "kind": "export",
+            "signature": "export function MeasurementForm({",
+            "line": 23,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/components/ui/Button",
+            "target_component": "COMP-WEB-011",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api-client",
+            "target_component": "COMP-WEB-049",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/garments",
+            "target_component": "COMP-WEB-033",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/auth",
+            "target_component": "COMP-WEB-050",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/measurements/MeasurementValuesEditor",
+            "target_component": "COMP-MEASUREMENT-041",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/measurements/MeasurementPointInput",
+            "target_component": "COMP-MEASUREMENT-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+          "last_commit_date": "2026-09-02",
+          "last_commit_subject": "Show dates as DD-MM-YYYY, and open the calendar wherever you tap",
+          "commit_count": 7
+        },
+        "metrics": {
+          "lines": 154,
+          "member_count": 1,
+          "dependency_count": 8
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/measurements/MeasurementForm.tsx#MeasurementForm",
+            "line": 23
+          }
+        ]
+      },
+      "last_verified_commit": "4a0c9035a1a2099709b06cb86f086deddc6ff540",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-040",
+      "name": "MeasurementPointInput",
+      "kind": "react-component",
+      "path": "web/src/components/measurements/MeasurementPointInput.tsx",
+      "module": "MEASUREMENT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function MeasurementPointInput({",
+        "line": 14,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "MeasurementPointInput",
+            "kind": "export",
+            "signature": "export function MeasurementPointInput({",
+            "line": 14,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toMeasurementValue",
+            "kind": "export",
+            "signature": "export function toMeasurementValue(point: MeasurementPoint, raw: string): MeasurementValue | null {",
+            "line": 77,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "toFieldText",
+            "kind": "export",
+            "signature": "export function toFieldText(value: MeasurementValue | undefined): string {",
+            "line": 96,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 1
+        },
+        "metrics": {
+          "lines": 99,
+          "member_count": 3,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/measurements/MeasurementPointInput.tsx#MeasurementPointInput",
+            "line": 14
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-MEASUREMENT-041",
+      "name": "MeasurementValuesEditor",
+      "kind": "react-component",
+      "path": "web/src/components/measurements/MeasurementValuesEditor.tsx",
+      "module": "MEASUREMENT",
+      "layer": "Web",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#156-shared-components-components",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": null,
+        "declaration": "export function MeasurementValuesEditor({ garmentType, initialValues = {}, onChange }: MeasurementValuesEditorProps) {",
+        "line": 28,
+        "modifiers": [
+          "use client"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "ValueRowInput",
+            "kind": "export",
+            "signature": "export type ValueRowInput = { point: MeasurementPoint; value: string };",
+            "line": 10,
+            "modifiers": [],
+            "attributes": []
+          },
+          {
+            "name": "MeasurementValuesEditor",
+            "kind": "export",
+            "signature": "export function MeasurementValuesEditor({ garmentType, initialValues = {}, onChange }: MeasurementValuesEditorProps) {",
+            "line": 28,
+            "modifiers": [],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "web/src/lib/api/measurements",
+            "target_component": "COMP-WEB-037",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/lib/use-measurement-templates",
+            "target_component": "COMP-WEB-058",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "web/src/components/measurements/MeasurementPointInput",
+            "target_component": "COMP-MEASUREMENT-040",
+            "via": "import",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 75,
+          "member_count": 2,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "web/src/components/measurements/MeasurementValuesEditor.tsx#MeasurementValuesEditor",
+            "line": 28
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-032",
+      "name": "CreateMeasurementRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Measurements/CreateMeasurementRequest.cs",
+      "module": "MEASUREMENT",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Measurements",
+        "declaration": "public sealed record CreateMeasurementRequest( string GarmentType, IReadOnlyDictionary<string, MeasurementValue> Values, string? Notes = null);",
+        "line": 6,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "GarmentType",
+            "kind": "property",
+            "signature": "string GarmentType",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "null",
+            "kind": "property",
+            "signature": "string? Notes = null",
+            "line": 6,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "string",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 3
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 3,
+          "dependency_count": 3
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Measurements/CreateMeasurementRequest.cs#CreateMeasurementRequest",
+            "line": 6
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-033",
+      "name": "SetMeasurementTemplateRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Measurements/SetMeasurementTemplateRequest.cs",
+      "module": "MEASUREMENT",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Measurements",
+        "declaration": "public sealed record SetMeasurementTemplateRequest(IReadOnlyList<MeasurementPointDto> Points);",
+        "line": 9,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Points",
+            "kind": "property",
+            "signature": "IReadOnlyList<MeasurementPointDto> Points",
+            "line": 9,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyList<MeasurementPointDto>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 10,
+          "member_count": 1,
+          "dependency_count": 1
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Measurements/SetMeasurementTemplateRequest.cs#SetMeasurementTemplateRequest",
+            "line": 9
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-034",
+      "name": "UpdateMeasurementValuesRequest",
+      "kind": "dto",
+      "path": "src/Api/Contracts/Measurements/UpdateMeasurementValuesRequest.cs",
+      "module": "MEASUREMENT",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": null,
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Contracts.Measurements",
+        "declaration": "public sealed record UpdateMeasurementValuesRequest( IReadOnlyDictionary<string, MeasurementValue> Values, string? Notes = null);",
+        "line": 5,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [],
+        "attributes": [],
+        "members": [
+          {
+            "name": "Values",
+            "kind": "property",
+            "signature": "MeasurementValue> Values",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "null",
+            "kind": "property",
+            "signature": "string? Notes = null",
+            "line": 5,
+            "modifiers": [
+              "positional"
+            ],
+            "attributes": []
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "IReadOnlyDictionary<string, MeasurementValue>",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "string?",
+            "target_component": null,
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          }
+        ],
+        "doc_citations": [],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 2
+        },
+        "metrics": {
+          "lines": 8,
+          "member_count": 2,
+          "dependency_count": 2
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Contracts/Measurements/UpdateMeasurementValuesRequest.cs#UpdateMeasurementValuesRequest",
+            "line": 5
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    },
+    {
+      "id": "COMP-PLATFORM-064",
+      "name": "MeasurementsController",
+      "kind": "controller",
+      "path": "src/Api/Controllers/V1/MeasurementsController.cs",
+      "module": "MEASUREMENT",
+      "layer": "Api",
+      "purpose": null,
+      "simple_explanation": null,
+      "technical_explanation": null,
+      "knowledge_ref": "knowledge.html#103-every-endpoint",
+      "features": [],
+      "requirements": [],
+      "test_cases": [],
+      "machine": {
+        "namespace": "MathilensERP.Api.Controllers.V1",
+        "declaration": "public sealed class MeasurementsController : ApiControllerBase",
+        "line": 26,
+        "modifiers": [
+          "public",
+          "sealed"
+        ],
+        "base_types": [
+          "ApiControllerBase"
+        ],
+        "attributes": [
+          "ApiController",
+          "Route(\"api/v1\")",
+          "Authorize(Policy = Permissions.MeasurementsView)"
+        ],
+        "members": [
+          {
+            "name": "MeasurementsController",
+            "kind": "constructor",
+            "signature": "public MeasurementsController(ISender sender)",
+            "line": 30,
+            "modifiers": [
+              "public"
+            ],
+            "attributes": []
+          },
+          {
+            "name": "Create",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> Create(Guid customerId, [FromBody] CreateMeasurementRequest request, CancellationToken cancellationToken)",
+            "line": 42,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPost(\"customers/{customerId:guid}/measurements\")",
+              "Authorize(Policy = Permissions.MeasurementsCreate)",
+              "ProducesResponseType(typeof(ApiResponse<MeasurementDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)"
+            ],
+            "http": {
+              "method": "POST",
+              "template": "customers/{customerId:guid}/measurements",
+              "resolved_route": "/api/v1/customers/{customerId:guid}/measurements",
+              "policy": "Permissions.MeasurementsCreate",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ListByCustomer",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ListByCustomer(Guid customerId, CancellationToken cancellationToken)",
+            "line": 52,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"customers/{customerId:guid}/measurements\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<MeasurementDto>>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "customers/{customerId:guid}/measurements",
+              "resolved_route": "/api/v1/customers/{customerId:guid}/measurements",
+              "policy": "Permissions.MeasurementsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetById",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)",
+            "line": 62,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"measurements/{id:guid}\")",
+              "ProducesResponseType(typeof(ApiResponse<MeasurementDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "measurements/{id:guid}",
+              "resolved_route": "/api/v1/measurements/{id:guid}",
+              "policy": "Permissions.MeasurementsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "UpdateValues",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> UpdateValues(Guid id, [FromBody] UpdateMeasurementValuesRequest request, CancellationToken cancellationToken)",
+            "line": 74,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"measurements/{id:guid}\")",
+              "Authorize(Policy = Permissions.MeasurementsEdit)",
+              "ProducesResponseType(typeof(ApiResponse<MeasurementDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "measurements/{id:guid}",
+              "resolved_route": "/api/v1/measurements/{id:guid}",
+              "policy": "Permissions.MeasurementsEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetHistory",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetHistory(",
+            "line": 84,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"measurements/{id:guid}/history\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<MeasurementHistoryDto>>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "measurements/{id:guid}/history",
+              "resolved_route": "/api/v1/measurements/{id:guid}/history",
+              "policy": "Permissions.MeasurementsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "GetTemplates",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> GetTemplates(CancellationToken cancellationToken)",
+            "line": 101,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpGet(\"measurements/templates\")",
+              "ProducesResponseType(typeof(ApiResponse<IReadOnlyList<MeasurementTemplateDto>>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "GET",
+              "template": "measurements/templates",
+              "resolved_route": "/api/v1/measurements/templates",
+              "policy": "Permissions.MeasurementsView",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "SetTemplate",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> SetTemplate(",
+            "line": 112,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpPut(\"measurements/templates/{garmentType}\")",
+              "Authorize(Policy = Permissions.SettingsEdit)",
+              "ProducesResponseType(typeof(ApiResponse<MeasurementTemplateDto>), StatusCodes.Status200OK)",
+              "ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)"
+            ],
+            "http": {
+              "method": "PUT",
+              "template": "measurements/templates/{garmentType}",
+              "resolved_route": "/api/v1/measurements/templates/{garmentType}",
+              "policy": "Permissions.SettingsEdit",
+              "allow_anonymous": false
+            }
+          },
+          {
+            "name": "ResetTemplate",
+            "kind": "method",
+            "signature": "public async Task<IActionResult> ResetTemplate(string garmentType, CancellationToken cancellationToken)",
+            "line": 125,
+            "modifiers": [
+              "public",
+              "async"
+            ],
+            "attributes": [
+              "HttpDelete(\"measurements/templates/{garmentType}\")",
+              "Authorize(Policy = Permissions.SettingsEdit)",
+              "ProducesResponseType(typeof(ApiResponse<MeasurementTemplateDto>), StatusCodes.Status200OK)"
+            ],
+            "http": {
+              "method": "DELETE",
+              "template": "measurements/templates/{garmentType}",
+              "resolved_route": "/api/v1/measurements/templates/{garmentType}",
+              "policy": "Permissions.SettingsEdit",
+              "allow_anonymous": false
+            }
+          }
+        ],
+        "depends_on": [
+          {
+            "target": "ISender",
+            "target_component": "COMP-PLATFORM-099",
+            "via": "constructor-injection",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "ApiControllerBase",
+            "target_component": "COMP-PLATFORM-001",
+            "via": "base-type",
+            "confidence": "CONFIRMED"
+          },
+          {
+            "target": "CreateMeasurementCommand",
+            "target_component": "COMP-MEASUREMENT-001",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 44,
+              "expression": "new CreateMeasurementCommand("
+            }
+          },
+          {
+            "target": "GetMeasurementsByCustomerQuery",
+            "target_component": "COMP-MEASUREMENT-012",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 54,
+              "expression": "new GetMeasurementsByCustomerQuery("
+            }
+          },
+          {
+            "target": "GetMeasurementByIdQuery",
+            "target_component": "COMP-MEASUREMENT-014",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 64,
+              "expression": "new GetMeasurementByIdQuery("
+            }
+          },
+          {
+            "target": "UpdateMeasurementValuesCommand",
+            "target_component": "COMP-MEASUREMENT-004",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 76,
+              "expression": "new UpdateMeasurementValuesCommand("
+            }
+          },
+          {
+            "target": "GetMeasurementHistoryQuery",
+            "target_component": "COMP-MEASUREMENT-016",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 90,
+              "expression": "new GetMeasurementHistoryQuery("
+            }
+          },
+          {
+            "target": "GetMeasurementTemplatesQuery",
+            "target_component": "COMP-MEASUREMENT-029",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 103,
+              "expression": "new GetMeasurementTemplatesQuery("
+            }
+          },
+          {
+            "target": "SetMeasurementTemplateCommand",
+            "target_component": "COMP-MEASUREMENT-021",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 117,
+              "expression": "new SetMeasurementTemplateCommand("
+            }
+          },
+          {
+            "target": "ResetMeasurementTemplateCommand",
+            "target_component": "COMP-MEASUREMENT-019",
+            "via": "instantiation",
+            "confidence": "CONFIRMED",
+            "evidence": {
+              "file": "src/Api/Controllers/V1/MeasurementsController.cs",
+              "line": 127,
+              "expression": "new ResetMeasurementTemplateCommand("
+            }
+          }
+        ],
+        "doc_citations": [
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 3",
+            "line": 22
+          },
+          {
+            "document": "02_DATABASE.md",
+            "section": "§ 10.4-10.5",
+            "line": 22
+          },
+          {
+            "document": "00_MASTER_SPEC.md",
+            "section": "§ 8.3",
+            "line": 80
+          }
+        ],
+        "incident_comments": [],
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20",
+          "last_commit_subject": "Hand a customer their order over WhatsApp, and record the fit in words as well as figures",
+          "commit_count": 6
+        },
+        "metrics": {
+          "lines": 131,
+          "member_count": 9,
+          "dependency_count": 10
+        }
+      },
+      "status": "active",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-source.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:24.387Z",
+        "confidence": "CONFIRMED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Api/Controllers/V1/MeasurementsController.cs#MeasurementsController",
+            "line": 26
+          },
+          {
+            "kind": "attribute",
+            "ref": "src/Api/Controllers/V1/MeasurementsController.cs#ApiController",
+            "line": 26
+          }
+        ]
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": [],
+      "entity_version": 1
+    }
+  ]
+}

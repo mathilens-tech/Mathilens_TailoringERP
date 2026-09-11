@@ -1,0 +1,214 @@
+{
+  "id": "FEAT-PRICING-002",
+  "schema_version": "1.0.0",
+  "entity_version": 6,
+  "name": "Cloth Pricing Management",
+  "module": "PRICING",
+  "simple_explanation": "Cloth Pricing Management — derived from the Create, Delete, GetById, ListAll, Search, Update use cases in src/Application/Pricing. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Pricing/Commands/Create",
+      "src/Application/Pricing/Commands/Delete",
+      "src/Application/Pricing/Commands/Update",
+      "src/Application/Pricing/Queries/GetById",
+      "src/Application/Pricing/Queries/ListAll",
+      "src/Application/Pricing/Queries/Search"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommand.cs",
+        "contains": "CreateClothPriceCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandHandler.cs",
+        "contains": "CreateClothPriceCommandHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Pricing/Commands/Create/CreateClothPriceCommandValidator.cs",
+        "contains": "CreateClothPriceCommandValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "15 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 15,
+    "test_count": 0,
+    "requirement_count": 0,
+    "rule_count": 12,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "machine": {
+    "capability": "Management",
+    "use_cases": [
+      "Create",
+      "Delete",
+      "GetById",
+      "ListAll",
+      "Search",
+      "Update"
+    ],
+    "api_routes": [
+      {
+        "method": "POST",
+        "route": "/api/v1/cloth-prices",
+        "policy": "Permissions.PricingCreate",
+        "controller": "ClothPricesController",
+        "action": "Create"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/cloth-prices",
+        "policy": "Permissions.PricingView",
+        "controller": "ClothPricesController",
+        "action": "Search"
+      },
+      {
+        "method": "GET",
+        "route": "/api/v1/cloth-prices/{id:guid}",
+        "policy": "Permissions.PricingView",
+        "controller": "ClothPricesController",
+        "action": "GetById"
+      },
+      {
+        "method": "PUT",
+        "route": "/api/v1/cloth-prices/{id:guid}",
+        "policy": "Permissions.PricingEdit",
+        "controller": "ClothPricesController",
+        "action": "Update"
+      },
+      {
+        "method": "DELETE",
+        "route": "/api/v1/cloth-prices/{id:guid}",
+        "policy": "Permissions.PricingDelete",
+        "controller": "ClothPricesController",
+        "action": "Delete"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/price-detail"
+    ],
+    "permissions": [
+      "Permissions.PricingCreate",
+      "Permissions.PricingDelete",
+      "Permissions.PricingEdit",
+      "Permissions.PricingView"
+    ],
+    "derived_components": [
+      "COMP-PRICING-003",
+      "COMP-PRICING-004",
+      "COMP-PRICING-005",
+      "COMP-PRICING-006",
+      "COMP-PRICING-007",
+      "COMP-PRICING-012",
+      "COMP-PRICING-013",
+      "COMP-PRICING-014",
+      "COMP-PRICING-016",
+      "COMP-PRICING-017",
+      "COMP-PRICING-018",
+      "COMP-PRICING-019",
+      "COMP-PRICING-020",
+      "COMP-PRICING-021",
+      "COMP-PRICING-022"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [
+      "BR-PRICING-001",
+      "BR-PRICING-002",
+      "BR-PRICING-003",
+      "BR-PRICING-004",
+      "BR-PRICING-006",
+      "BR-PRICING-007",
+      "BR-PRICING-008",
+      "BR-PRICING-009",
+      "BR-PRICING-010",
+      "BR-PRICING-011",
+      "BR-PRICING-012",
+      "BR-PRICING-013"
+    ],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "last_commit_date": "2026-08-19"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "DELETE /api/v1/cloth-prices/{id:guid}",
+    "GET /api/v1/cloth-prices",
+    "GET /api/v1/cloth-prices/{id:guid}",
+    "POST /api/v1/cloth-prices",
+    "PUT /api/v1/cloth-prices/{id:guid}"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:17.841Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Pricing/Commands/Create",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Pricing/Commands/Delete",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Pricing/Commands/Update",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "file",
+        "ref": "src/Application/Pricing/Queries/GetById",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/cloth-prices",
+        "detail": "src/Api/Controllers/V1/ClothPricesController.cs",
+        "line": 111
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/cloth-prices",
+        "detail": "src/Api/Controllers/V1/ClothPricesController.cs",
+        "line": 132
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/cloth-prices/{id:guid}",
+        "detail": "src/Api/Controllers/V1/ClothPricesController.cs",
+        "line": 122
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+  "change_history": []
+}

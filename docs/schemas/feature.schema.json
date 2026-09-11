@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "feature.schema.json",
+  "title": "Product feature",
+  "description": "WHAT DOES THE PRODUCT DO. One file per feature, written so a non-technical reader can understand it.\n\nBRANCH AVAILABILITY IS DELIBERATELY ABSENT FROM THIS SCHEMA. It is computed at generation time by reading other refs (git cat-file / ls-tree / grep), never stored. A stored availability map would be a claim about branches this file cannot see, and merging it would carry that claim into branches where it is false. What IS stored is `implementation.evidence` — the symbols whose presence at a ref PROVES the feature is there.",
+  "type": "object",
+  "required": ["id", "name", "module", "simple_explanation", "status", "data_classification", "provenance", "schema_version"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/featureId" },
+    "schema_version": { "type": "string" },
+    "entity_version": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+
+    "simple_explanation": {
+      "description": "One or two sentences a shop owner would understand. No jargon, no class names.",
+      "type": "string",
+      "minLength": 1
+    },
+    "business_purpose": { "type": ["string", "null"] },
+    "users": { "type": "array", "items": { "type": "string" } },
+    "user_journey": { "type": "array", "items": { "type": "string" } },
+    "workflow": { "type": "array", "items": { "type": "string" } },
+
+    "business_rules": {
+      "description": "Each rule is its own addressable thing, because a change impact report needs to name the rule that moved, not the feature that contains it.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "rule"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/businessRuleId" },
+          "rule": { "type": "string", "minLength": 1 },
+          "enforced_by": { "type": "array", "items": { "type": "string" } },
+          "requirement": { "type": ["string", "null"] },
+          "confidence": { "$ref": "common.schema.json#/$defs/confidence" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title"],
+        "properties": {
+          "title": { "type": "string" },
+          "given": { "type": ["string", "null"] },
+          "when": { "type": ["string", "null"] },
+          "then": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "feature_flag": {
+      "description": "A runtime switch that gates this feature, distinct from branch availability. Shop.BusinessMode is the only real one today.",
+      "type": ["object", "null"],
+      "properties": {
+        "setting_key": { "type": "string" },
+        "enabled_when": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "implementation": {
+      "description": "What must exist for this feature to be considered present at a given git ref. `paths` answers 'is the code there'; `evidence` answers 'does it actually do this' — a path can exist in a branch with the behaviour absent, which is exactly the DOCUMENTED_ONLY state the branch matrix reports.",
+      "type": "object",
+      "required": ["paths"],
+      "properties": {
+        "paths": { "type": "array", "items": { "type": "string" } },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "file"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["symbol", "regex", "route", "setting"] },
+              "file": { "type": "string" },
+              "contains": { "type": ["string", "null"] },
+              "pattern": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "implementation_status": {
+      "description": "IMPLEMENTED requires code evidence, not a word in a document. DOCUMENTED_ONLY means the specification describes it and no code was found — a gap worth seeing. UNDOCUMENTED_CODE is the reverse and is the more interesting finding: the product does something nothing asked for.",
+      "type": "string",
+      "enum": ["IMPLEMENTED", "DOCUMENTED_ONLY", "UNDOCUMENTED_CODE", "ABSENT", "NEEDS_REVIEW"]
+    },
+    "implementation_status_evidence": { "type": ["string", "null"] },
+
+    "coverage": {
+      "type": ["object", "null"],
+      "required": ["specified", "implemented", "tested"],
+      "properties": {
+        "specified": { "type": "string", "enum": ["YES", "NO", "NEEDS_REVIEW"] },
+        "implemented": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+        "tested": { "type": "string", "enum": ["YES", "NO", "PARTIAL", "NOT_FOUND", "NOT_APPLICABLE", "NEEDS_REVIEW"] },
+        "component_count": { "type": "integer" },
+        "test_count": { "type": "integer" },
+        "requirement_count": { "type": "integer" },
+        "rule_count": { "type": "integer" },
+        "computed_at": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+
+    "machine": {
+      "description": "MACHINE FIELD, rewritten by harvest-features.mjs. Everything outside it is human-authored and preserved.",
+      "type": "object",
+      "properties": {
+        "capability": { "type": ["string", "null"] },
+        "use_cases": { "type": "array", "items": { "type": "string" } },
+        "api_routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["method", "route"],
+            "properties": {
+              "method": { "type": "string" },
+              "route": { "type": "string" },
+              "policy": { "type": ["string", "null"] },
+              "controller": { "type": ["string", "null"] },
+              "action": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "frontend_routes": { "type": "array", "items": { "type": "string" } },
+        "permissions": { "type": "array", "items": { "type": "string" } },
+        "derived_components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+        "derived_test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+        "derived_rules": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/businessRuleId" } },
+        "derived_requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+        "git": {
+          "type": "object",
+          "properties": {
+            "state": { "$ref": "common.schema.json#/$defs/gitState" },
+            "last_commit": { "type": ["string", "null"] },
+            "last_commit_date": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+    "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+    "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+    "test_plans": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testPlanId" } },
+
+    "routes": {
+      "description": "User-visible entry points: frontend routes and API routes. Harvested, then confirmed by a human.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+    "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+    "last_verified_commit": { "type": ["string", "null"] },
+    "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+  },
+  "additionalProperties": false
+}

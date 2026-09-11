@@ -1,0 +1,171 @@
+{
+  "id": "FEAT-EMPLOYEE-003",
+  "schema_version": "1.0.0",
+  "entity_version": 7,
+  "name": "Employee Import & Export",
+  "module": "EMPLOYEE",
+  "simple_explanation": "Employee Import & Export — derived from the Import use case in src/Application/Employee. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Employees/Commands/Import"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs",
+        "contains": "ImportEmployeesCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommand.cs",
+        "contains": "EmployeeImportRow",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandHandler.cs",
+        "contains": "ImportEmployeesCommandHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "6 component(s) and 1 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 4,
+    "test_count": 0,
+    "requirement_count": 1,
+    "rule_count": 4,
+    "computed_at": "2026-09-06T15:59:32.885Z"
+  },
+  "machine": {
+    "capability": "Import & Export",
+    "use_cases": [
+      "Import"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/employees/export",
+        "policy": "Permissions.EmployeesView",
+        "controller": "EmployeesController",
+        "action": "Export"
+      },
+      {
+        "method": "POST",
+        "route": "/api/v1/employees/import",
+        "policy": "Permissions.EmployeesImport",
+        "controller": "EmployeesController",
+        "action": "Import"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/employee/[id]",
+      "/dashboard/employees",
+      "/dashboard/employees/[id]",
+      "/dashboard/employees/new"
+    ],
+    "permissions": [
+      "Permissions.EmployeesImport",
+      "Permissions.EmployeesView"
+    ],
+    "derived_components": [
+      "COMP-EMPLOYEE-004",
+      "COMP-EMPLOYEE-005",
+      "COMP-EMPLOYEE-006",
+      "COMP-EMPLOYEE-007",
+      "COMP-EMPLOYEE-027",
+      "COMP-EMPLOYEE-028"
+    ],
+    "derived_test_cases": [
+      "TC-EMPLOYEE-001",
+      "TC-EMPLOYEE-002",
+      "TC-EMPLOYEE-003",
+      "TC-EMPLOYEE-005",
+      "TC-EMPLOYEE-013",
+      "TC-EMPLOYEE-015",
+      "TC-EMPLOYEE-016",
+      "TC-EMPLOYEE-020",
+      "TC-EMPLOYEE-022",
+      "TC-EMPLOYEE-026",
+      "TC-EMPLOYEE-027",
+      "TC-EMPLOYEE-028",
+      "TC-EMPLOYEE-029",
+      "TC-EMPLOYEE-030",
+      "TC-EMPLOYEE-031",
+      "TC-EMPLOYEE-032",
+      "TC-EMPLOYEE-033",
+      "TC-EMPLOYEE-034",
+      "TC-EMPLOYEE-035",
+      "TC-EMPLOYEE-036",
+      "TC-EMPLOYEE-037",
+      "TC-EMPLOYEE-038",
+      "TC-EMPLOYEE-039",
+      "TC-EMPLOYEE-040",
+      "TC-ORDER-004"
+    ],
+    "derived_rules": [
+      "BR-EMPLOYEE-008",
+      "BR-EMPLOYEE-020",
+      "BR-EMPLOYEE-021",
+      "BR-EMPLOYEE-022"
+    ],
+    "derived_requirements": [
+      "FR-EMPLOYEE-001"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+      "last_commit_date": "2026-08-19"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/employees/export",
+    "POST /api/v1/employees/import"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:59:32.495Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Employees/Commands/Import",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/employees/export",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 41
+      },
+      {
+        "kind": "route",
+        "ref": "POST /api/v1/employees/import",
+        "detail": "src/Api/Controllers/V1/EmployeesController.cs",
+        "line": 75
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "c553d88cbfc503ddf594baa7a7dac904b9b9c091",
+  "change_history": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-089",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Disaster recovery covers total loss of the primary hosting environment, not just data…",
+  "module": "PLATFORM",
+  "description": "Disaster recovery covers total loss of the primary hosting environment, not just data corruption — the restore target is a newly provisioned PostgreSQL instance (potentially in a different region or on a different host), never assumed to be the same physical instance that failed.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "functional",
+  "requirement_type_evidence": "prescriptive clause with no more specific vocabulary",
+  "source": {
+    "document": "docs/02_DATABASE.md",
+    "section": "§ 12.2",
+    "section_title": "Disaster Recovery",
+    "parent_section": "§ 12",
+    "parent_section_title": "Restore Strategy",
+    "quote": "Disaster recovery covers total loss of the primary hosting environment, not just data corruption — the restore target is a newly provisioned PostgreSQL instance (potentially in a different region or on a different host), never assumed to be the same physical instance that failed.",
+    "line": 418,
+    "line_start": 418,
+    "line_end": 418,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/02_DATABASE.md § 12.2",
+        "detail": "docs/02_DATABASE.md",
+        "line": 418
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

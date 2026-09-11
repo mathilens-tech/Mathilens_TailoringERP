@@ -1,0 +1,3444 @@
+{
+  "schema_version": "1.0.0",
+  "prefix": "TC",
+  "next": {
+    "ACTIVITY": 11,
+    "AUTH": 10,
+    "BILLING": 43,
+    "CUSTOMER": 51,
+    "EMPLOYEE": 40,
+    "INVENTORY": 14,
+    "MEASUREMENT": 43,
+    "ORDER": 84,
+    "PLATFORM": 126,
+    "REPORT": 14,
+    "SETTING": 15,
+    "USER": 20,
+    "WHATSAPP": 18
+  },
+  "entries": {
+    "tests/IntegrationTests/Auth/AuthEndpointsTests.cs#AuthEndpointsTests.Login_WithBlankCredentials_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Auth/AuthEndpointsTests.cs#AuthEndpointsTests.Login_WithTooShortUserName_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Auth/AuthEndpointsTests.cs#AuthEndpointsTests.Refresh_WithBlankToken_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.FrontDesk_CannotManageUsers": {
+      "id": "TC-PLATFORM-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.FrontDesk_CannotReadTheEmployeeList": {
+      "id": "TC-PLATFORM-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.Manager_CanReachOperationalScreens": {
+      "id": "TC-PLATFORM-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.Tailor_CannotCreateACustomer": {
+      "id": "TC-PLATFORM-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.Tailor_CannotReachTheActivityLog": {
+      "id": "TC-PLATFORM-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PermissionEnforcementTests.cs#PermissionEnforcementTests.UnknownRole_GrantsNothing": {
+      "id": "TC-PLATFORM-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PolicyRegistrationTests.cs#PolicyRegistrationTests.EveryEndpointPolicy_IsRegisteredAtStartup": {
+      "id": "TC-PLATFORM-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Authorization/PolicyRegistrationTests.cs#PolicyRegistrationTests.NoEndpointDemandsAManageUmbrella": {
+      "id": "TC-PLATFORM-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.Create_WithEmptyOrderId_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.Create_WithNegativeTax_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.RecordPayment_WithNonPositiveAmount_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Billing/InvoicesEndpointsTests.cs#InvoicesEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Create_WithBlankFullName_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Create_WithBlankPhoneNumber_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Create_WithMalformedEmail_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Search_WithPageBelowOne_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Customers/CustomersEndpointsTests.cs#CustomersEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests.Create_WithBlankFullName_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests.Create_WithMalformedEmail_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Employees/EmployeesEndpointsTests.cs#EmployeesEndpointsTests.Search_WithPageBelowOne_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_EmbedsTheFont_SoTheFileRendersOnAMachineThatLacksIt": {
+      "id": "TC-PLATFORM-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_ProducesAPdf": {
+      "id": "TC-PLATFORM-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_PutsTheTableOnALandscapePage": {
+      "id": "TC-PLATFORM-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_WithBoldHeadings_ResolvesTheBoldFaceRatherThanThrowing": {
+      "id": "TC-PLATFORM-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_WithMoreCellsThanHeaders_IgnoresTheExtras": {
+      "id": "TC-PLATFORM-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Export/PdfTableTests.cs#PdfTableTests.Write_WithNoRows_StillProducesAPdf": {
+      "id": "TC-PLATFORM-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.Create_WithNoValues_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.Create_WithNonPositiveValue_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.Create_WithValidStringGarmentTypeAndValues_PassesValidationAndReachesTheHandler": {
+      "id": "TC-PLATFORM-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Measurements/MeasurementsEndpointsTests.cs#MeasurementsEndpointsTests.GetHistory_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.Create_WithEmptyCustomerId_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.Create_WithNoItems_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.Create_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Orders/OrdersEndpointsTests.cs#OrdersEndpointsTests.TransitionStatus_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OrderCollections_WithToBeforeFrom_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OrderCollections_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OrderStatusSummary_WithToBeforeFrom_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OrderStatusSummary_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OutstandingInvoices_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.OutstandingInvoices_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.Revenue_WithToBeforeFrom_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Reports/ReportsEndpointsTests.cs#ReportsEndpointsTests.Revenue_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests.Delete_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests.GetByKey_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests.List_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests.Upsert_WithNullValue_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Settings/SettingsEndpointsTests.cs#SettingsEndpointsTests.Upsert_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Users/UsersEndpointsTests.cs#UsersEndpointsTests.Me_WithMalformedBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/Users/UsersEndpointsTests.cs#UsersEndpointsTests.Me_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests.GetById_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-066",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests.Search_WithPageSizeAboveMaximum_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-067",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests.Send_WithBlankContent_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-064",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests.Send_WithEmptyCustomerId_ReturnsValidationErrorEnvelope": {
+      "id": "TC-PLATFORM-065",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/IntegrationTests/WhatsApp/WhatsAppMessagesEndpointsTests.cs#WhatsAppMessagesEndpointsTests.Send_WithoutBearerToken_ReturnsUnauthorized": {
+      "id": "TC-PLATFORM-063",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_ForADelete_SaysNothingRatherThanQuotingAGuid": {
+      "id": "TC-ACTIVITY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_NamesEachFieldAndItsValue": {
+      "id": "TC-ACTIVITY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_NeverRepeatsAPassword": {
+      "id": "TC-ACTIVITY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_OmitsFieldsThatWereNotSet": {
+      "id": "TC-ACTIVITY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_RedactsRefreshTokensToo": {
+      "id": "TC-ACTIVITY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_RendersEnumsAndDatesReadably": {
+      "id": "TC-ACTIVITY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_TruncatesRatherThanOverflowingTheColumn": {
+      "id": "TC-ACTIVITY-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptionBuilderTests.cs#ActivityDescriptionBuilderTests.Describe_WithNoRequest_ReturnsNull": {
+      "id": "TC-ACTIVITY-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs#ActivityDescriptorTests.ActionFor_ReadsAsWords": {
+      "id": "TC-ACTIVITY-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs#ActivityDescriptorTests.ScreenFor_TakesTheModuleSegmentOfTheNamespace": {
+      "id": "TC-ACTIVITY-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Activity/ActivityDescriptorTests.cs#ActivityDescriptorTests.ScreenFor_WithATypeOutsideTheApplicationAssembly_FallsBackRatherThanThrowing": {
+      "id": "TC-ACTIVITY-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandHandlerTests.cs#LoginCommandHandlerTests.Handle_DelegatesToIdentityServiceWithCommandCredentials": {
+      "id": "TC-AUTH-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandHandlerTests.cs#LoginCommandHandlerTests.Handle_WhenIdentityServiceFails_PropagatesFailure": {
+      "id": "TC-AUTH-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandValidatorTests.cs#LoginCommandValidatorTests.Validate_WithAShortUserName_SaysHowShort": {
+      "id": "TC-AUTH-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandValidatorTests.cs#LoginCommandValidatorTests.Validate_WithAnEmailAsTheUserName_Passes": {
+      "id": "TC-AUTH-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandValidatorTests.cs#LoginCommandValidatorTests.Validate_WithInvalidInput_Fails": {
+      "id": "TC-AUTH-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/Login/LoginCommandValidatorTests.cs#LoginCommandValidatorTests.Validate_WithValidUserNameAndPassword_Passes": {
+      "id": "TC-AUTH-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandHandlerTests.cs#RefreshAccessTokenCommandHandlerTests.Handle_DelegatesToIdentityServiceWithPresentedToken": {
+      "id": "TC-AUTH-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandHandlerTests.cs#RefreshAccessTokenCommandHandlerTests.Handle_WhenTokenReuseDetected_PropagatesFailure": {
+      "id": "TC-AUTH-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidatorTests.cs#RefreshAccessTokenCommandValidatorTests.Validate_WithEmptyToken_Fails": {
+      "id": "TC-AUTH-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Auth/Commands/RefreshAccessToken/RefreshAccessTokenCommandValidatorTests.cs#RefreshAccessTokenCommandValidatorTests.Validate_WithNonEmptyToken_Passes": {
+      "id": "TC-AUTH-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.GetMatrix_DerivesScreensFromTheCatalogue": {
+      "id": "TC-USER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.GetMatrix_MarksOwnerAsNotEditableAndEveryOtherRoleAsEditable": {
+      "id": "TC-USER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.GetMatrix_ReportsOnlyIndividualActions_SoUntickingIsExpressible": {
+      "id": "TC-USER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.PermissionsFor_Owner_IsAlwaysEverythingEvenIfARowSaysOtherwise": {
+      "id": "TC-USER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.PermissionsFor_WithAnOverride_UsesItInsteadOfTheDefault": {
+      "id": "TC-USER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.PermissionsFor_WithAnUnparsableRow_FallsBackToTheDefault": {
+      "id": "TC-USER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.PermissionsFor_WithNothingConfigured_UsesTheBuiltInSet": {
+      "id": "TC-USER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.ResetPermissions_ForOwner_IsRefused": {
+      "id": "TC-USER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.ResetPermissions_RemovesTheOverrideAndReturnsTheBuiltInSet": {
+      "id": "TC-USER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.SetPermissions_ForOwner_IsRefused": {
+      "id": "TC-USER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.SetPermissions_StoresTheSetAndTakesEffectImmediately": {
+      "id": "TC-USER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.SetPermissions_WithAnUnknownPermission_IsRefused": {
+      "id": "TC-USER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Authorization/RolePermissionServiceTests.cs#RolePermissionServiceTests.SetPermissions_WithAnUnknownRole_IsRefused": {
+      "id": "TC-USER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs#CreateInvoiceCommandHandlerTests.Handle_WithDiscountExceedingTotal_ReturnsConflict": {
+      "id": "TC-BILLING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs#CreateInvoiceCommandHandlerTests.Handle_WithExistingOrderWithItems_CreatesInvoiceFromOrderTotal": {
+      "id": "TC-BILLING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs#CreateInvoiceCommandHandlerTests.Handle_WithOrderWithNoItems_ReturnsConflict": {
+      "id": "TC-BILLING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandHandlerTests.cs#CreateInvoiceCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-BILLING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs#CreateInvoiceCommandValidatorTests.Validate_WithEmptyOrderId_Fails": {
+      "id": "TC-BILLING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs#CreateInvoiceCommandValidatorTests.Validate_WithNegativeDiscount_Fails": {
+      "id": "TC-BILLING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs#CreateInvoiceCommandValidatorTests.Validate_WithNegativeTax_Fails": {
+      "id": "TC-BILLING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Create/CreateInvoiceCommandValidatorTests.cs#CreateInvoiceCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-BILLING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs#RecordPaymentCommandHandlerTests.Handle_WithAcceptableAmount_RecordsPaymentAndSaves": {
+      "id": "TC-BILLING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs#RecordPaymentCommandHandlerTests.Handle_WithAmountExceedingBalance_ReturnsConflict": {
+      "id": "TC-BILLING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandHandlerTests.cs#RecordPaymentCommandHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound": {
+      "id": "TC-BILLING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs#RecordPaymentCommandValidatorTests.Validate_WithNonPositiveAmount_Fails": {
+      "id": "TC-BILLING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/RecordPayment/RecordPaymentCommandValidatorTests.cs#RecordPaymentCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-BILLING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs#VoidInvoiceCommandHandlerTests.Handle_WithPaidInvoice_ReturnsConflict": {
+      "id": "TC-BILLING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs#VoidInvoiceCommandHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound": {
+      "id": "TC-BILLING-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Commands/Void/VoidInvoiceCommandHandlerTests.cs#VoidInvoiceCommandHandlerTests.Handle_WithUnpaidInvoice_VoidsAndSaves": {
+      "id": "TC-BILLING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs#GetInvoiceByIdQueryHandlerTests.Handle_WithExistingInvoice_ReturnsDto": {
+      "id": "TC-BILLING-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/GetById/GetInvoiceByIdQueryHandlerTests.cs#GetInvoiceByIdQueryHandlerTests.Handle_WithUnknownInvoice_ReturnsNotFound": {
+      "id": "TC-BILLING-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs#SearchInvoicesQueryHandlerTests.Handle_MapsPagedInvoicesToDtos": {
+      "id": "TC-BILLING-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryHandlerTests.cs#SearchInvoicesQueryHandlerTests.Handle_PassesDateRangeThroughToTheRepository": {
+      "id": "TC-BILLING-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests.Validate_WithDateRange_Passes": {
+      "id": "TC-BILLING-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests.Validate_WithFromAfterTo_Fails": {
+      "id": "TC-BILLING-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests.Validate_WithOnlyOneEndOfTheRange_Passes": {
+      "id": "TC-BILLING-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-BILLING-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Billing/Queries/Search/SearchInvoicesQueryValidatorTests.cs#SearchInvoicesQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-BILLING-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WhenRecordingFails_StillReturnsTheCommandsResult": {
+      "id": "TC-PLATFORM-073",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithAFailedCommand_RecordsNothing": {
+      "id": "TC-PLATFORM-069",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithAFailedCommand_StillDrainsTheChanges": {
+      "id": "TC-CUSTOMER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithAQuery_RecordsNothing": {
+      "id": "TC-PLATFORM-070",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithASuccessfulCommand_RecordsWhoDidWhat": {
+      "id": "TC-PLATFORM-068",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithAnUnloggedCommand_RecordsNothing": {
+      "id": "TC-PLATFORM-071",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithFieldChanges_RecordsWhatTheyChangedFromAndTo": {
+      "id": "TC-PLATFORM-074",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ActivityLogBehaviorTests.cs#ActivityLogBehaviorTests.Handle_WithNobodySignedIn_RecordsNothing": {
+      "id": "TC-PLATFORM-072",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#ValidationBehaviorTests.Handle_WithFailingValidation_ForGenericResult_ShortCircuitsWithValidationError": {
+      "id": "TC-PLATFORM-077",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#ValidationBehaviorTests.Handle_WithFailingValidation_ForPlainResult_ShortCircuitsWithValidationError": {
+      "id": "TC-PLATFORM-078",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#ValidationBehaviorTests.Handle_WithNoValidators_CallsNext": {
+      "id": "TC-PLATFORM-075",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Behaviors/ValidationBehaviorTests.cs#ValidationBehaviorTests.Handle_WithPassingValidation_CallsNext": {
+      "id": "TC-PLATFORM-076",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#SenderTests.Send_Command_DispatchesToRegisteredHandler": {
+      "id": "TC-PLATFORM-079",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#SenderTests.Send_Query_DispatchesToRegisteredHandler": {
+      "id": "TC-PLATFORM-080",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Common/Mediator/SenderTests.cs#SenderTests.Send_WithRegisteredPipelineBehavior_RunsBehaviorAroundHandler": {
+      "id": "TC-PLATFORM-081",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandHandlerTests.cs#CreateCustomerCommandHandlerTests.Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate": {
+      "id": "TC-CUSTOMER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandHandlerTests.cs#CreateCustomerCommandHandlerTests.Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing": {
+      "id": "TC-CUSTOMER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandHandlerTests.cs#CreateCustomerCommandHandlerTests.Handle_WithValidCommand_AddsCustomerAndSavesChanges": {
+      "id": "TC-CUSTOMER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithACommaInTheEmail_Fails": {
+      "id": "TC-CUSTOMER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithANineDigitPhoneNumber_FailsSayingTenDigits": {
+      "id": "TC-CUSTOMER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithANumberOutsideTheMobileSeries_FailsSayingSoExplicitly": {
+      "id": "TC-CUSTOMER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithAnyShapeOfAValidNumber_Passes": {
+      "id": "TC-CUSTOMER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithBlankFullName_Fails": {
+      "id": "TC-CUSTOMER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithBlankPhoneNumber_Fails": {
+      "id": "TC-CUSTOMER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithBlankPhoneNumber_ReportsOnlyThatItIsRequired": {
+      "id": "TC-CUSTOMER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithMalformedEmail_Fails": {
+      "id": "TC-CUSTOMER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithMalformedPhoneNumber_Fails": {
+      "id": "TC-CUSTOMER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithNullEmail_Passes": {
+      "id": "TC-CUSTOMER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Create/CreateCustomerCommandValidatorTests.cs#CreateCustomerCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-CUSTOMER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Delete/DeleteCustomerCommandHandlerTests.cs#DeleteCustomerCommandHandlerTests.Handle_WithAnOrderHistory_RefusesAndLeavesTheCustomerIntact": {
+      "id": "TC-CUSTOMER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Delete/DeleteCustomerCommandHandlerTests.cs#DeleteCustomerCommandHandlerTests.Handle_WithExistingCustomer_SoftDeletesAndSavesChanges": {
+      "id": "TC-CUSTOMER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Delete/DeleteCustomerCommandHandlerTests.cs#DeleteCustomerCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-CUSTOMER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandHandlerTests.cs#UpdateCustomerCommandHandlerTests.Handle_KeepingItsOwnPhoneNumber_IsNotTreatedAsADuplicate": {
+      "id": "TC-CUSTOMER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandHandlerTests.cs#UpdateCustomerCommandHandlerTests.Handle_WithExistingCustomer_UpdatesAndSavesChanges": {
+      "id": "TC-CUSTOMER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandHandlerTests.cs#UpdateCustomerCommandHandlerTests.Handle_WithPhoneNumberBelongingToAnotherCustomer_ReturnsConflict": {
+      "id": "TC-CUSTOMER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandHandlerTests.cs#UpdateCustomerCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-CUSTOMER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandValidatorTests.cs#UpdateCustomerCommandValidatorTests.Validate_WithBlankFullName_Fails": {
+      "id": "TC-CUSTOMER-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandValidatorTests.cs#UpdateCustomerCommandValidatorTests.Validate_WithEmptyId_Fails": {
+      "id": "TC-CUSTOMER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Commands/Update/UpdateCustomerCommandValidatorTests.cs#UpdateCustomerCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-CUSTOMER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/GetById/GetCustomerByIdQueryHandlerTests.cs#GetCustomerByIdQueryHandlerTests.Handle_WithExistingCustomer_ReturnsDto": {
+      "id": "TC-CUSTOMER-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/GetById/GetCustomerByIdQueryHandlerTests.cs#GetCustomerByIdQueryHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-CUSTOMER-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryHandlerTests.cs#SearchCustomersQueryHandlerTests.Handle_MapsPagedCustomersToDtos": {
+      "id": "TC-CUSTOMER-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryHandlerTests.cs#SearchCustomersQueryHandlerTests.Handle_PassesTheReligionFilterThrough": {
+      "id": "TC-CUSTOMER-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryValidatorTests.cs#SearchCustomersQueryValidatorTests.Validate_WithPageBelowOne_Fails": {
+      "id": "TC-CUSTOMER-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryValidatorTests.cs#SearchCustomersQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-CUSTOMER-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Customers/Queries/Search/SearchCustomersQueryValidatorTests.cs#SearchCustomersQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-CUSTOMER-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests.Handle_WithACodeAndPhoneNobodyElseHolds_Succeeds": {
+      "id": "TC-EMPLOYEE-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests.Handle_WithAnExistingNumberTypedInAnotherShape_StillDetectsTheDuplicate": {
+      "id": "TC-EMPLOYEE-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests.Handle_WithEmployeeCodeAlreadyUsed_ReturnsConflictAndSavesNothing": {
+      "id": "TC-EMPLOYEE-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests.Handle_WithPhoneNumberAlreadyUsed_ReturnsConflictAndSavesNothing": {
+      "id": "TC-EMPLOYEE-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandHandlerTests.cs#CreateEmployeeCommandHandlerTests.Handle_WithValidCommand_AddsEmployeeAndSavesChanges": {
+      "id": "TC-EMPLOYEE-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithBlankEmployeeCode_Fails": {
+      "id": "TC-EMPLOYEE-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithBlankFullName_Fails": {
+      "id": "TC-EMPLOYEE-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithMalformedEmail_Fails": {
+      "id": "TC-EMPLOYEE-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithMalformedPhoneNumber_Fails": {
+      "id": "TC-EMPLOYEE-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithMissingPhoneNumber_Fails": {
+      "id": "TC-EMPLOYEE-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithOnlyTheMandatoryFields_Passes": {
+      "id": "TC-EMPLOYEE-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Create/CreateEmployeeCommandValidatorTests.cs#CreateEmployeeCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-EMPLOYEE-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs#UpdateEmployeeCommandHandlerTests.Handle_KeepingItsOwnCodeAndPhoneNumber_IsNotTreatedAsADuplicate": {
+      "id": "TC-EMPLOYEE-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs#UpdateEmployeeCommandHandlerTests.Handle_WithCodeBelongingToAnotherEmployee_ReturnsConflict": {
+      "id": "TC-EMPLOYEE-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs#UpdateEmployeeCommandHandlerTests.Handle_WithExistingEmployee_UpdatesAndSavesChanges": {
+      "id": "TC-EMPLOYEE-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandHandlerTests.cs#UpdateEmployeeCommandHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound": {
+      "id": "TC-EMPLOYEE-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs#UpdateEmployeeCommandValidatorTests.Validate_WithBlankFullName_Fails": {
+      "id": "TC-EMPLOYEE-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs#UpdateEmployeeCommandValidatorTests.Validate_WithEmptyId_Fails": {
+      "id": "TC-EMPLOYEE-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Commands/Update/UpdateEmployeeCommandValidatorTests.cs#UpdateEmployeeCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-EMPLOYEE-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs#GetEmployeeByIdQueryHandlerTests.Handle_WithExistingEmployee_ReturnsDto": {
+      "id": "TC-EMPLOYEE-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/GetById/GetEmployeeByIdQueryHandlerTests.cs#GetEmployeeByIdQueryHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound": {
+      "id": "TC-EMPLOYEE-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryHandlerTests.cs#SearchEmployeesQueryHandlerTests.Handle_MapsPagedEmployeesToDtos": {
+      "id": "TC-EMPLOYEE-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs#SearchEmployeesQueryValidatorTests.Validate_WithPageBelowOne_Fails": {
+      "id": "TC-EMPLOYEE-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs#SearchEmployeesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-EMPLOYEE-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Employees/Queries/Search/SearchEmployeesQueryValidatorTests.cs#SearchEmployeesQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-EMPLOYEE-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandHandlerTests.Handle_ComputesTheTotalFromQuantityAndRate": {
+      "id": "TC-INVENTORY-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandHandlerTests.Handle_RecordsTheReceiptAgainstThePriceListEntry": {
+      "id": "TC-INVENTORY-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandHandlerTests.Handle_WithAnUnknownCloth_ReturnsNotFoundAndSavesNothing": {
+      "id": "TC-INVENTORY-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandHandlerTests.Handle_WithNoRate_LeavesTheTotalUnknownRatherThanZero": {
+      "id": "TC-INVENTORY-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithANegativeRate_Fails": {
+      "id": "TC-INVENTORY-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithANonPositiveQuantity_Fails": {
+      "id": "TC-INVENTORY-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithAZeroRate_Passes": {
+      "id": "TC-INVENTORY-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithNoCloth_Fails": {
+      "id": "TC-INVENTORY-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithNoReceivedDate_Fails": {
+      "id": "TC-INVENTORY-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/ReceiveClothCommandTests.cs#ReceiveClothCommandValidatorTests.Validate_WithTheMandatoryFields_Passes": {
+      "id": "TC-INVENTORY-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/StockSummaryTests.cs#GetStockSummaryQueryHandlerTests.Handle_KeepsUnitsApartRatherThanAddingThem": {
+      "id": "TC-INVENTORY-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/StockSummaryTests.cs#GetStockSummaryQueryHandlerTests.Handle_OrdersTheLinesByClothCode": {
+      "id": "TC-INVENTORY-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/StockSummaryTests.cs#GetStockSummaryQueryHandlerTests.Handle_ShowsAShortfallAsNegativeRatherThanHidingIt": {
+      "id": "TC-INVENTORY-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Inventory/StockSummaryTests.cs#GetStockSummaryQueryHandlerTests.Handle_SubtractsWhatOrdersUsedFromWhatWasReceived": {
+      "id": "TC-INVENTORY-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandHandlerTests.cs#CreateMeasurementCommandHandlerTests.Handle_WhenMeasurementAlreadyExistsForGarmentType_ReturnsConflict": {
+      "id": "TC-MEASUREMENT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandHandlerTests.cs#CreateMeasurementCommandHandlerTests.Handle_WithExistingCustomerAndNoExistingMeasurement_CreatesMeasurement": {
+      "id": "TC-MEASUREMENT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandHandlerTests.cs#CreateMeasurementCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-MEASUREMENT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithAGarmentNameLongerThanTheColumn_Fails": {
+      "id": "TC-MEASUREMENT-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithAGarmentTheShopAdded_Passes": {
+      "id": "TC-MEASUREMENT-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithAnUnusableGarmentName_Fails": {
+      "id": "TC-MEASUREMENT-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithEmptyCustomerId_Fails": {
+      "id": "TC-MEASUREMENT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithNoValues_Fails": {
+      "id": "TC-MEASUREMENT-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithNonPositiveValue_Fails": {
+      "id": "TC-MEASUREMENT-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/Create/CreateMeasurementCommandValidatorTests.cs#CreateMeasurementCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-MEASUREMENT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandlerTests.cs#UpdateMeasurementValuesCommandHandlerTests.Handle_WithExistingMeasurement_SnapshotsHistoryThenUpdates": {
+      "id": "TC-MEASUREMENT-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandHandlerTests.cs#UpdateMeasurementValuesCommandHandlerTests.Handle_WithUnknownMeasurement_ReturnsNotFound": {
+      "id": "TC-MEASUREMENT-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidatorTests.cs#UpdateMeasurementValuesCommandValidatorTests.Validate_WithEmptyId_Fails": {
+      "id": "TC-MEASUREMENT-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidatorTests.cs#UpdateMeasurementValuesCommandValidatorTests.Validate_WithNoValues_Fails": {
+      "id": "TC-MEASUREMENT-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidatorTests.cs#UpdateMeasurementValuesCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-MEASUREMENT-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/ByCustomer/GetMeasurementsByCustomerQueryHandlerTests.cs#GetMeasurementsByCustomerQueryHandlerTests.Handle_ReturnsAllMeasurementsForCustomer": {
+      "id": "TC-MEASUREMENT-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandlerTests.cs#GetMeasurementByIdQueryHandlerTests.Handle_WithExistingMeasurement_ReturnsDto": {
+      "id": "TC-MEASUREMENT-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/GetById/GetMeasurementByIdQueryHandlerTests.cs#GetMeasurementByIdQueryHandlerTests.Handle_WithUnknownMeasurement_ReturnsNotFound": {
+      "id": "TC-MEASUREMENT-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryHandlerTests.cs#GetMeasurementHistoryQueryHandlerTests.Handle_MapsPagedHistoryToDtos": {
+      "id": "TC-MEASUREMENT-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidatorTests.cs#GetMeasurementHistoryQueryValidatorTests.Validate_WithEmptyMeasurementId_Fails": {
+      "id": "TC-MEASUREMENT-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidatorTests.cs#GetMeasurementHistoryQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-MEASUREMENT-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidatorTests.cs#GetMeasurementHistoryQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-MEASUREMENT-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/GetMeasurementTemplatesQueryHandlerTests.cs#GetMeasurementTemplatesQueryHandlerTests.Handle_WithAShopChosenGarmentList_ReturnsOnePerGarmentOnThatList": {
+      "id": "TC-MEASUREMENT-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/GetMeasurementTemplatesQueryHandlerTests.cs#GetMeasurementTemplatesQueryHandlerTests.Handle_WithAStoredTemplate_PrefersItAndKeepsItsOrder": {
+      "id": "TC-MEASUREMENT-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/GetMeasurementTemplatesQueryHandlerTests.cs#GetMeasurementTemplatesQueryHandlerTests.Handle_WithAnUnusableStoredTemplate_FallsBackToTheDefault": {
+      "id": "TC-MEASUREMENT-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/GetMeasurementTemplatesQueryHandlerTests.cs#GetMeasurementTemplatesQueryHandlerTests.Handle_WithNothingConfigured_ReturnsADefaultForEveryGarmentType": {
+      "id": "TC-MEASUREMENT-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#ResetMeasurementTemplateCommandHandlerTests.Handle_RemovesTheStoredTemplateAndReturnsTheDefault": {
+      "id": "TC-MEASUREMENT-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#ResetMeasurementTemplateCommandHandlerTests.Handle_WhenAlreadyOnTheDefault_SucceedsWithoutSaving": {
+      "id": "TC-MEASUREMENT-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandHandlerTests.Handle_TrimsPointNames": {
+      "id": "TC-MEASUREMENT-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandHandlerTests.Handle_WithAStoredTemplate_ReplacesItRatherThanAddingASecond": {
+      "id": "TC-MEASUREMENT-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandHandlerTests.Handle_WithNoStoredTemplate_AddsOneHoldingThePointsInOrder": {
+      "id": "TC-MEASUREMENT-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandValidatorTests.Validate_WithABlankPointName_Fails": {
+      "id": "TC-MEASUREMENT-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandValidatorTests.Validate_WithDuplicatePointNames_Fails": {
+      "id": "TC-MEASUREMENT-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandValidatorTests.Validate_WithNoPoints_Fails": {
+      "id": "TC-MEASUREMENT-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Measurements/Templates/SetMeasurementTemplateCommandTests.cs#SetMeasurementTemplateCommandValidatorTests.Validate_WithPoints_Passes": {
+      "id": "TC-MEASUREMENT-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AddItem/AddOrderItemCommandHandlerTests.cs#AddOrderItemCommandHandlerTests.Handle_WithDeliveredOrder_ReturnsConflict": {
+      "id": "TC-ORDER-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AddItem/AddOrderItemCommandHandlerTests.cs#AddOrderItemCommandHandlerTests.Handle_WithExistingModifiableOrder_AddsItem": {
+      "id": "TC-ORDER-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AddItem/AddOrderItemCommandHandlerTests.cs#AddOrderItemCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-ORDER-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandHandlerTests.cs#AssignOrderEmployeeCommandHandlerTests.Handle_WithExistingOrderAndEmployee_AssignsEmployee": {
+      "id": "TC-ORDER-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/AssignEmployee/AssignOrderEmployeeCommandHandlerTests.cs#AssignOrderEmployeeCommandHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound": {
+      "id": "TC-ORDER-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests.Handle_PutsTheIssuedNumberOnTheOrder": {
+      "id": "TC-ORDER-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests.Handle_WithExistingCustomer_CreatesOrderWithItemsAndFabric": {
+      "id": "TC-ORDER-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests.Handle_WithMissingCustomer_DoesNotSpendANumber": {
+      "id": "TC-ORDER-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-ORDER-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandHandlerTests.cs#CreateOrderCommandHandlerTests.Handle_WithUnknownEmployee_ReturnsNotFound": {
+      "id": "TC-ORDER-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests.Validate_WithEmptyCustomerId_Fails": {
+      "id": "TC-ORDER-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests.Validate_WithFabricMissingType_Fails": {
+      "id": "TC-ORDER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests.Validate_WithNoItems_Fails": {
+      "id": "TC-ORDER-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests.Validate_WithNonPositiveItemQuantity_Fails": {
+      "id": "TC-ORDER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/Create/CreateOrderCommandValidatorTests.cs#CreateOrderCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-ORDER-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandHandlerTests.cs#SetOrderItemFabricCommandHandlerTests.Handle_WithExistingItem_SetsFabric": {
+      "id": "TC-ORDER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandHandlerTests.cs#SetOrderItemFabricCommandHandlerTests.Handle_WithUnknownItem_ReturnsNotFound": {
+      "id": "TC-ORDER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/SetItemFabric/SetOrderItemFabricCommandHandlerTests.cs#SetOrderItemFabricCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-ORDER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_DeliveringWithAnOutstandingAmount_ReturnsConflict": {
+      "id": "TC-ORDER-023",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_DeliveringWithNothingOutstanding_RecordsTheDeliveryDate": {
+      "id": "TC-ORDER-024",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_StartingWorkWithNoEmployeeAssigned_ReturnsConflict": {
+      "id": "TC-ORDER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_WithANonDeliveryTransition_DoesNotCheckTheBalance": {
+      "id": "TC-ORDER-025",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_WithInvalidTransition_ReturnsConflict": {
+      "id": "TC-ORDER-021",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-ORDER-022",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandHandlerTests.cs#TransitionOrderStatusCommandHandlerTests.Handle_WithValidTransition_UpdatesStatus": {
+      "id": "TC-ORDER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidatorTests.cs#TransitionOrderStatusCommandValidatorTests.Validate_DeliveringWithADeliveryDate_Passes": {
+      "id": "TC-ORDER-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidatorTests.cs#TransitionOrderStatusCommandValidatorTests.Validate_DeliveringWithoutADeliveryDate_Fails": {
+      "id": "TC-ORDER-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidatorTests.cs#TransitionOrderStatusCommandValidatorTests.Validate_WithEmptyOrderId_Fails": {
+      "id": "TC-ORDER-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Commands/TransitionStatus/TransitionOrderStatusCommandValidatorTests.cs#TransitionOrderStatusCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-ORDER-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Export/ExportOrdersQueryHandlerTests.cs#ExportOrdersQueryHandlerTests.Handle_ReturnsTheFilteredOrdersWithTheirCollectedAmounts": {
+      "id": "TC-ORDER-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/GetById/GetOrderByIdQueryHandlerTests.cs#GetOrderByIdQueryHandlerTests.Handle_WithExistingOrder_ReturnsDto": {
+      "id": "TC-ORDER-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/GetById/GetOrderByIdQueryHandlerTests.cs#GetOrderByIdQueryHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-ORDER-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQueryHandlerTests.cs#GetPreviousOrdersQueryHandlerTests.Handle_LooksUpHistoryByThePhoneNumberNotTheCustomerId": {
+      "id": "TC-ORDER-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQueryHandlerTests.cs#GetPreviousOrdersQueryHandlerTests.Handle_WithAMissingCustomerRecord_ReturnsEmptyRatherThanFailing": {
+      "id": "TC-ORDER-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/PreviousForCustomer/GetPreviousOrdersQueryHandlerTests.cs#GetPreviousOrdersQueryHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-ORDER-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryHandlerTests.cs#SearchOrdersQueryHandlerTests.Handle_LooksUpTheWholePageInOneBillingQuery": {
+      "id": "TC-ORDER-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryHandlerTests.cs#SearchOrdersQueryHandlerTests.Handle_MapsPagedOrdersToDtos": {
+      "id": "TC-ORDER-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryHandlerTests.cs#SearchOrdersQueryHandlerTests.Handle_WithAnUninvoicedOrder_ReportsNothingCollectedRatherThanUnknown": {
+      "id": "TC-ORDER-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryValidatorTests.cs#SearchOrdersQueryValidatorTests.Validate_WithNoFilters_Passes": {
+      "id": "TC-ORDER-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryValidatorTests.cs#SearchOrdersQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-ORDER-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Orders/Queries/Search/SearchOrdersQueryValidatorTests.cs#SearchOrdersQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-ORDER-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryHandlerTests.cs#GetOrderCollectionsReportQueryHandlerTests.Handle_ReturnsReportFromRepository": {
+      "id": "TC-REPORT-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs#GetOrderCollectionsReportQueryValidatorTests.Validate_WithSameFromAndTo_Passes": {
+      "id": "TC-REPORT-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs#GetOrderCollectionsReportQueryValidatorTests.Validate_WithToAfterFrom_Passes": {
+      "id": "TC-REPORT-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderCollections/GetOrderCollectionsReportQueryValidatorTests.cs#GetOrderCollectionsReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails": {
+      "id": "TC-REPORT-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryHandlerTests.cs#GetOrderStatusSummaryReportQueryHandlerTests.Handle_WrapsRepositoryCountsWithTheRequestedRange": {
+      "id": "TC-REPORT-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs#GetOrderStatusSummaryReportQueryValidatorTests.Validate_WithToAfterFrom_Passes": {
+      "id": "TC-REPORT-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OrderStatusSummary/GetOrderStatusSummaryReportQueryValidatorTests.cs#GetOrderStatusSummaryReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails": {
+      "id": "TC-REPORT-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryHandlerTests.cs#GetOutstandingInvoicesReportQueryHandlerTests.Handle_ReturnsPagedResultFromRepository": {
+      "id": "TC-REPORT-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs#GetOutstandingInvoicesReportQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-REPORT-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/OutstandingInvoices/GetOutstandingInvoicesReportQueryValidatorTests.cs#GetOutstandingInvoicesReportQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-REPORT-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryHandlerTests.cs#GetRevenueReportQueryHandlerTests.Handle_ReturnsReportFromRepository": {
+      "id": "TC-REPORT-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs#GetRevenueReportQueryValidatorTests.Validate_WithSameFromAndTo_Passes": {
+      "id": "TC-REPORT-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs#GetRevenueReportQueryValidatorTests.Validate_WithToAfterFrom_Passes": {
+      "id": "TC-REPORT-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Reports/Queries/Revenue/GetRevenueReportQueryValidatorTests.cs#GetRevenueReportQueryValidatorTests.Validate_WithToBeforeFrom_Fails": {
+      "id": "TC-REPORT-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs#DeleteSettingCommandHandlerTests.Handle_WithExistingSetting_RemovesAndSaves": {
+      "id": "TC-SETTING-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Delete/DeleteSettingCommandHandlerTests.cs#DeleteSettingCommandHandlerTests.Handle_WithUnknownKey_ReturnsNotFound": {
+      "id": "TC-SETTING-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs#UpsertSettingCommandHandlerTests.Handle_WithExistingKey_UpdatesValueWithoutAdding": {
+      "id": "TC-SETTING-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandHandlerTests.cs#UpsertSettingCommandHandlerTests.Handle_WithNewKey_CreatesSetting": {
+      "id": "TC-SETTING-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs#UpsertSettingCommandValidatorTests.Validate_WithBlankKey_Fails": {
+      "id": "TC-SETTING-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs#UpsertSettingCommandValidatorTests.Validate_WithNullValue_Fails": {
+      "id": "TC-SETTING-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Commands/Upsert/UpsertSettingCommandValidatorTests.cs#UpsertSettingCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-SETTING-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs#GetSettingByKeyQueryHandlerTests.Handle_WithExistingSetting_ReturnsDto": {
+      "id": "TC-SETTING-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/GetByKey/GetSettingByKeyQueryHandlerTests.cs#GetSettingByKeyQueryHandlerTests.Handle_WithUnknownKey_ReturnsNotFound": {
+      "id": "TC-SETTING-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryHandlerTests.cs#ListSettingsQueryHandlerTests.Handle_MapsPagedSettingsToDtos": {
+      "id": "TC-SETTING-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs#ListSettingsQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-SETTING-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/Settings/Queries/List/ListSettingsQueryValidatorTests.cs#ListSettingsQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-SETTING-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs#SendWhatsAppMessageCommandHandlerTests.Handle_WhenSendFails_PersistsPendingThenMarksFailed": {
+      "id": "TC-WHATSAPP-002",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs#SendWhatsAppMessageCommandHandlerTests.Handle_WhenSendSucceeds_PersistsPendingThenMarksSent": {
+      "id": "TC-WHATSAPP-001",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs#SendWhatsAppMessageCommandHandlerTests.Handle_WithUnknownCustomer_ReturnsNotFound": {
+      "id": "TC-WHATSAPP-003",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandHandlerTests.cs#SendWhatsAppMessageCommandHandlerTests.Handle_WithUnknownOrder_ReturnsNotFound": {
+      "id": "TC-WHATSAPP-004",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs#SendWhatsAppMessageCommandValidatorTests.Validate_WithBlankContent_Fails": {
+      "id": "TC-WHATSAPP-007",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs#SendWhatsAppMessageCommandValidatorTests.Validate_WithEmptyCustomerId_Fails": {
+      "id": "TC-WHATSAPP-006",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs#SendWhatsAppMessageCommandValidatorTests.Validate_WithUndefinedMessageType_Fails": {
+      "id": "TC-WHATSAPP-008",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Commands/Send/SendWhatsAppMessageCommandValidatorTests.cs#SendWhatsAppMessageCommandValidatorTests.Validate_WithValidCommand_Passes": {
+      "id": "TC-WHATSAPP-005",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs#GetWhatsAppMessageByIdQueryHandlerTests.Handle_WithExistingMessage_ReturnsDto": {
+      "id": "TC-WHATSAPP-009",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/GetById/GetWhatsAppMessageByIdQueryHandlerTests.cs#GetWhatsAppMessageByIdQueryHandlerTests.Handle_WithUnknownMessage_ReturnsNotFound": {
+      "id": "TC-WHATSAPP-010",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryHandlerTests.cs#SearchWhatsAppMessagesQueryHandlerTests.Handle_MapsPagedMessagesToDtos": {
+      "id": "TC-WHATSAPP-011",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs#SearchWhatsAppMessagesQueryValidatorTests.Validate_WithPageSizeOutOfBounds_Fails": {
+      "id": "TC-WHATSAPP-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Application/WhatsApp/Queries/Search/SearchWhatsAppMessagesQueryValidatorTests.cs#SearchWhatsAppMessagesQueryValidatorTests.Validate_WithValidQuery_Passes": {
+      "id": "TC-WHATSAPP-012",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.CanAcceptPayment_OnVoidInvoice_ReturnsFalse": {
+      "id": "TC-BILLING-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Create_WithDiscountExceedingSubtotalPlusTax_Throws": {
+      "id": "TC-BILLING-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Create_WithNegativeTax_Throws": {
+      "id": "TC-BILLING-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Create_WithValidInputs_ComputesTotalAndStartsUnpaid": {
+      "id": "TC-BILLING-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Create_WithZeroSubtotal_Throws": {
+      "id": "TC-BILLING-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.RecordPayment_CoveringFullBalance_SetsPaid": {
+      "id": "TC-BILLING-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.RecordPayment_ExceedingRemainingBalance_Throws": {
+      "id": "TC-BILLING-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.RecordPayment_WithNonPositiveAmount_Throws": {
+      "id": "TC-BILLING-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.RecordPayment_WithPartialAmount_SetsPartiallyPaid": {
+      "id": "TC-BILLING-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Void_AlreadyVoided_Throws": {
+      "id": "TC-BILLING-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Void_OnInvoiceWithPayments_Throws": {
+      "id": "TC-BILLING-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Billing/InvoiceTests.cs#InvoiceTests.Void_OnUnpaidInvoice_SetsVoidStatus": {
+      "id": "TC-BILLING-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.Constructor_WithEmptyId_Throws": {
+      "id": "TC-PLATFORM-083",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.Constructor_WithValidId_SetsId": {
+      "id": "TC-PLATFORM-082",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.Restore_ClearsSoftDeleteState": {
+      "id": "TC-PLATFORM-088",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.SetCreationAudit_StampsCreatedByAndCreatedAtUtc": {
+      "id": "TC-PLATFORM-084",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.SetModificationAudit_StampsLastModifiedByAndAtUtc": {
+      "id": "TC-PLATFORM-085",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.SoftDelete_MarksEntityDeletedWithAuditDetails": {
+      "id": "TC-PLATFORM-086",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Common/AuditableEntityTests.cs#AuditableEntityTests.SoftDelete_WhenAlreadyDeleted_DoesNotOverwriteAuditDetails": {
+      "id": "TC-PLATFORM-087",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.Next_InLateDecember_RollsIntoTheFollowingJanuary": {
+      "id": "TC-CUSTOMER-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.Next_WhenTheDayHasPassed_RollsToNextYear": {
+      "id": "TC-CUSTOMER-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.Next_WhenTheDayIsStillAhead_ReturnsThisYear": {
+      "id": "TC-CUSTOMER-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.Next_WhenTheDayIsToday_ReturnsToday": {
+      "id": "TC-CUSTOMER-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.OnYear_ForALeapDay_FoldsOntoTheTwentyEighthInACommonYear": {
+      "id": "TC-CUSTOMER-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.OnYear_ForALeapDay_KeepsTheTwentyNinthInALeapYear": {
+      "id": "TC-CUSTOMER-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.YearsCompleted_ReturnsTheAgeReached": {
+      "id": "TC-CUSTOMER-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/AnnualOccurrenceTests.cs#AnnualOccurrenceTests.YearsCompleted_WhenTheStoredYearIsAPlaceholder_ReturnsNull": {
+      "id": "TC-CUSTOMER-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.Create_WithBlankFullName_Throws": {
+      "id": "TC-CUSTOMER-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.Create_WithBlankPhoneNumber_Throws": {
+      "id": "TC-CUSTOMER-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull": {
+      "id": "TC-CUSTOMER-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.Create_WithValidInputs_SetsAllFields": {
+      "id": "TC-CUSTOMER-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.UpdateDetails_ReplacesAllFields": {
+      "id": "TC-CUSTOMER-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/CustomerTests.cs#CustomerTests.UpdateDetails_WithBlankFullName_Throws": {
+      "id": "TC-CUSTOMER-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests.Record_WithAnImplausibleYear_Throws": {
+      "id": "TC-CUSTOMER-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests.Record_WithBlankRemarks_StoresNull": {
+      "id": "TC-CUSTOMER-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests.Record_WithValidInputs_SetsAllFields": {
+      "id": "TC-CUSTOMER-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests.Record_WithoutACustomer_Throws": {
+      "id": "TC-CUSTOMER-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Customers/OccasionContactTests.cs#OccasionContactTests.Update_ReplacesTheRemarksAndTheDate": {
+      "id": "TC-CUSTOMER-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_TrimsTheFieldsComparedForUniqueness": {
+      "id": "TC-EMPLOYEE-031",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_WithBlankEmployeeCode_Throws": {
+      "id": "TC-EMPLOYEE-029",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_WithBlankFullName_Throws": {
+      "id": "TC-EMPLOYEE-028",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_WithBlankPhoneNumber_Throws": {
+      "id": "TC-EMPLOYEE-030",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_WithOnlyRequiredFields_LeavesOptionalFieldsNull": {
+      "id": "TC-EMPLOYEE-027",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Create_WithValidInputs_SetsAllFields": {
+      "id": "TC-EMPLOYEE-026",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.IsActiveOn_IsTrueForeverWhileNobodyHasRetiredThem": {
+      "id": "TC-EMPLOYEE-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.IsActiveOn_IsTrueUpToAndIncludingTheLastWorkingDay": {
+      "id": "TC-EMPLOYEE-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Retire_BeforeTheJoiningDate_Throws": {
+      "id": "TC-EMPLOYEE-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.Retire_RecordsTheLastWorkingDateWithoutDeletingThem": {
+      "id": "TC-EMPLOYEE-035",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.ReturnToWork_ClearsTheRetirement": {
+      "id": "TC-EMPLOYEE-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.UpdateDetails_ReplacesAllFields": {
+      "id": "TC-EMPLOYEE-032",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.UpdateDetails_WithAJoiningDateAfterTheLastWorkingDate_Throws": {
+      "id": "TC-EMPLOYEE-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.UpdateDetails_WithBlankFullName_Throws": {
+      "id": "TC-EMPLOYEE-033",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Employees/EmployeeTests.cs#EmployeeTests.UpdateDetails_WithBlankPhoneNumber_Throws": {
+      "id": "TC-EMPLOYEE-034",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.IsExpired_AfterExpiryTime_ReturnsTrue": {
+      "id": "TC-USER-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Issue_WithBlankTokenHash_Throws": {
+      "id": "TC-USER-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Issue_WithEmptyUserId_Throws": {
+      "id": "TC-USER-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Issue_WithExpiryBeforeIssuedAt_Throws": {
+      "id": "TC-USER-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Issue_WithValidInputs_CreatesActiveToken": {
+      "id": "TC-USER-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Revoke_MarksTokenRevokedAndRecordsReplacement": {
+      "id": "TC-USER-019",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Identity/RefreshTokenTests.cs#RefreshTokenTests.Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails": {
+      "id": "TC-USER-020",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementHistoryTests.cs#MeasurementHistoryTests.CaptureSnapshot_CopiesCurrentValuesFromMeasurement": {
+      "id": "TC-MEASUREMENT-036",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementHistoryTests.cs#MeasurementHistoryTests.CaptureSnapshot_ReflectsValuesAtCaptureTime_NotLaterUpdates": {
+      "id": "TC-MEASUREMENT-037",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.Create_WithEmptyCustomerId_Throws": {
+      "id": "TC-MEASUREMENT-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.Create_WithNegativeValue_Throws": {
+      "id": "TC-MEASUREMENT-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.Create_WithNoValues_Throws": {
+      "id": "TC-MEASUREMENT-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.Create_WithNonPositiveValue_Throws": {
+      "id": "TC-MEASUREMENT-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.Create_WithValidInputs_SetsAllFields": {
+      "id": "TC-MEASUREMENT-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Measurements/MeasurementTests.cs#MeasurementTests.UpdateValues_ReplacesValues": {
+      "id": "TC-MEASUREMENT-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.ATailoringOrderCanNeverReachSold": {
+      "id": "TC-ORDER-050",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.CreateFabricSale_OpensReceivedSoItsLinesCanBeAdded": {
+      "id": "TC-ORDER-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.CreateFabricSale_TakesTheSaleMomentAsTheDueDate": {
+      "id": "TC-ORDER-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.SealAsSale_ClosesTheSaleAndStampsItAsHandedOver": {
+      "id": "TC-ORDER-044",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.SealAsSale_LeavesTheSaleClosedToFurtherChanges": {
+      "id": "TC-ORDER-045",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.SealAsSale_RefusesAnOrderAlreadyBeingWorked": {
+      "id": "TC-ORDER-049",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.SealAsSale_RefusesAnOrderThatIsAlreadySold": {
+      "id": "TC-ORDER-047",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.SealAsSale_RefusesAnOrderWithATailorOnIt": {
+      "id": "TC-ORDER-048",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderFabricSaleTests.cs#OrderFabricSaleTests.Sold_IsTerminalAndLeadsNowhere": {
+      "id": "TC-ORDER-046",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.AddItem_OnDeliveredOrder_Throws": {
+      "id": "TC-ORDER-069",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.AddItem_WithNonPositiveQuantity_Throws": {
+      "id": "TC-ORDER-054",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.AddItem_WithNonPositiveUnitPrice_Throws": {
+      "id": "TC-ORDER-055",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.AddItem_WithValidInputs_AddsItemToOrder": {
+      "id": "TC-ORDER-053",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.AssignEmployee_SetsEmployeeId": {
+      "id": "TC-ORDER-058",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.CanTransitionTo_ReflectsTheEnforcedLifecycle": {
+      "id": "TC-ORDER-059",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.Create_WithEmptyCustomerId_Throws": {
+      "id": "TC-ORDER-052",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.Create_WithValidInputs_StartsInReceivedStatusWithNoItems": {
+      "id": "TC-ORDER-051",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.IsOpen_IsFalseOnceDelivered": {
+      "id": "TC-ORDER-068",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.RemoveItem_OnDeliveredOrder_Throws": {
+      "id": "TC-ORDER-079",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.RemoveItem_TwiceForTheSameItem_Throws": {
+      "id": "TC-ORDER-078",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.RemoveItem_WithMoreThanOneItem_SoftDeletesItAndDropsItFromItems": {
+      "id": "TC-ORDER-076",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.RemoveItem_WithOnlyOneItem_Throws": {
+      "id": "TC-ORDER-077",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.SetItemFabric_WithExistingItem_SetsFabric": {
+      "id": "TC-ORDER-056",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.SetItemFabric_WithUnknownItemId_Throws": {
+      "id": "TC-ORDER-057",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_CancelledWithNoEmployeeAssigned_IsAllowed": {
+      "id": "TC-ORDER-063",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_DeliveredWithoutADate_Throws": {
+      "id": "TC-ORDER-066",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_Delivered_RecordsTheDeliveryDate": {
+      "id": "TC-ORDER-065",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_InProgressAfterAssigningAnEmployee_Starts": {
+      "id": "TC-ORDER-062",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_InProgressWithNoEmployeeAssigned_Throws": {
+      "id": "TC-ORDER-061",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_NonDelivered_LeavesTheDeliveryDateUnset": {
+      "id": "TC-ORDER-067",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_WithInvalidTransition_Throws": {
+      "id": "TC-ORDER-064",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.TransitionTo_WithValidTransition_UpdatesStatus": {
+      "id": "TC-ORDER-060",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateDetails_OnDeliveredOrder_Throws": {
+      "id": "TC-ORDER-072",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateDetails_OnOpenOrder_ReplacesHeaderFields": {
+      "id": "TC-ORDER-070",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateDetails_WithEmptyCustomerId_Throws": {
+      "id": "TC-ORDER-071",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateItem_WithNonPositiveQuantity_Throws": {
+      "id": "TC-ORDER-074",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateItem_WithUnknownItemId_Throws": {
+      "id": "TC-ORDER-075",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderTests.cs#OrderTests.UpdateItem_WithValidInputs_ReplacesItemFieldsAndKeepsFabric": {
+      "id": "TC-ORDER-073",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests.Cancelling_LeavesTheWorkTimestampsAsTheyWere": {
+      "id": "TC-ORDER-084",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests.Delivering_LeavesTheWorkTimestampsAloneAndRecordsTheHandover": {
+      "id": "TC-ORDER-083",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests.MovingToInProgress_StampsWhenWorkStarted": {
+      "id": "TC-ORDER-081",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests.MovingToReadyForDelivery_StampsWhenWorkFinished_AndKeepsTheStart": {
+      "id": "TC-ORDER-082",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Orders/OrderWorkTimestampTests.cs#OrderWorkTimestampTests.NewOrder_HasNeitherTimestamp": {
+      "id": "TC-ORDER-080",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Settings/SettingTests.cs#SettingTests.Create_WithBlankKey_Throws": {
+      "id": "TC-SETTING-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Settings/SettingTests.cs#SettingTests.Create_WithValidInputs_SetsKeyAndValue": {
+      "id": "TC-SETTING-013",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/Settings/SettingTests.cs#SettingTests.UpdateValue_ReplacesValue": {
+      "id": "TC-SETTING-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests.Create_WithBlankContent_Throws": {
+      "id": "TC-WHATSAPP-016",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests.Create_WithValidInputs_StartsInPendingStatus": {
+      "id": "TC-WHATSAPP-014",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests.Create_WithoutOrderId_LeavesOrderIdNull": {
+      "id": "TC-WHATSAPP-015",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests.MarkFailed_SetsStatusAndFailureReason": {
+      "id": "TC-WHATSAPP-018",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Domain/WhatsApp/WhatsAppMessageTests.cs#WhatsAppMessageTests.MarkSent_SetsStatusAndProviderMessageId": {
+      "id": "TC-WHATSAPP-017",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Does_not_carry_the_invoice_id_in_the_clear": {
+      "id": "TC-BILLING-040",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Does_not_repeat_itself_for_the_same_invoice": {
+      "id": "TC-BILLING-039",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Reads_back_the_invoice_it_was_created_for": {
+      "id": "TC-BILLING-038",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Refuses_a_token_issued_under_a_different_key": {
+      "id": "TC-BILLING-043",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Refuses_a_token_that_has_been_edited": {
+      "id": "TC-BILLING-042",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Infrastructure/Billing/InvoiceShareTokenServiceTests.cs#InvoiceShareTokenServiceTests.Refuses_anything_it_did_not_issue": {
+      "id": "TC-BILLING-041",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/EmailAddressTests.cs#EmailAddressTests.IsValid_WithACommaInPlaceOfTheDot_IsFalse": {
+      "id": "TC-PLATFORM-089",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/EmailAddressTests.cs#EmailAddressTests.IsValid_WithAPlausibleAddress_IsTrue": {
+      "id": "TC-PLATFORM-090",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/EmailAddressTests.cs#EmailAddressTests.IsValid_WithNothingGiven_IsTrue": {
+      "id": "TC-PLATFORM-092",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/EmailAddressTests.cs#EmailAddressTests.IsValid_WithSomethingThatIsNotAnAddress_IsFalse": {
+      "id": "TC-PLATFORM-091",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.IsValid_WithAMobileSeriesNumber_IsTrue": {
+      "id": "TC-PLATFORM-097",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.IsValid_WithANumberOutsideTheMobileSeries_IsFalse": {
+      "id": "TC-PLATFORM-098",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.IsValid_WithNineDigits_IsFalse": {
+      "id": "TC-PLATFORM-099",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.Normalize_WithUnrecognizedInput_KeepsItRatherThanMangleIt": {
+      "id": "TC-PLATFORM-096",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.TryNormalize_IsIdempotent": {
+      "id": "TC-PLATFORM-094",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.TryNormalize_WithEveryShapeOfOneNumber_YieldsTheSameValue": {
+      "id": "TC-PLATFORM-093",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Contact/IndianPhoneNumberTests.cs#IndianPhoneNumberTests.TryNormalize_WithSomethingThatIsNotAnIndianMobileNumber_Fails": {
+      "id": "TC-PLATFORM-095",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstEmpty_WithEmptyGuid_Throws": {
+      "id": "TC-PLATFORM-104",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstEmpty_WithNonEmptyGuid_ReturnsValue": {
+      "id": "TC-PLATFORM-105",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNegativeOrZero_WithNonPositiveValue_Throws": {
+      "id": "TC-PLATFORM-108",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNegative_WithNegativeValue_Throws": {
+      "id": "TC-PLATFORM-106",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNegative_WithZeroOrPositiveValue_ReturnsValue": {
+      "id": "TC-PLATFORM-107",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNullOrWhiteSpace_WithBlankValue_Throws": {
+      "id": "TC-PLATFORM-102",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNullOrWhiteSpace_WithValidValue_ReturnsValue": {
+      "id": "TC-PLATFORM-103",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNull_WithNonNullValue_ReturnsValue": {
+      "id": "TC-PLATFORM-100",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstNull_WithNullValue_Throws": {
+      "id": "TC-PLATFORM-101",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstOutOfRange_WithValueOutsideBounds_Throws": {
+      "id": "TC-PLATFORM-109",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/GuardTests.cs#GuardTests.AgainstOutOfRange_WithValueWithinBounds_ReturnsValue": {
+      "id": "TC-PLATFORM-110",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_AcrossSeveralLetters_KeepsTheCountFourDigits": {
+      "id": "TC-PLATFORM-114",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_BelowOne_IsRefused": {
+      "id": "TC-PLATFORM-120",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_BeyondZ_WidensRatherThanRepeating": {
+      "id": "TC-PLATFORM-115",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_EveryNumberInARunIsDistinct": {
+      "id": "TC-PLATFORM-119",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_StaysWithinFourDigitsForEveryValueInARun": {
+      "id": "TC-PLATFORM-118",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_TheVeryFirstOrder_DoesNotAnnounceItselfAsTheFirst": {
+      "id": "TC-PLATFORM-112",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_UsesWhateverCodeTheShopSet": {
+      "id": "TC-PLATFORM-117",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_WhenARunIsUsedUp_MovesToTheNextLetterAndStartsAtElevenEleven": {
+      "id": "TC-PLATFORM-113",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.Format_WithinTheFirstLetter_CountsFromEleventyOne": {
+      "id": "TC-PLATFORM-111",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/Numbering/OrderNumberFormatTests.cs#OrderNumberFormatTests.LetterFor_CountsLikeSpreadsheetColumns": {
+      "id": "TC-PLATFORM-116",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.Error_ValidationWithDetails_CarriesFieldErrors": {
+      "id": "TC-PLATFORM-126",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.Failure_WithError_IsFailureAndCarriesError": {
+      "id": "TC-PLATFORM-122",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.Failure_WithValue_ThrowsWhenValueAccessed": {
+      "id": "TC-PLATFORM-124",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.ImplicitConversion_FromValue_ProducesSuccessResult": {
+      "id": "TC-PLATFORM-125",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.Success_WithNoValue_IsSuccessAndHasNoError": {
+      "id": "TC-PLATFORM-121",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    },
+    "tests/UnitTests/Shared/ResultTests.cs#ResultTests.Success_WithValue_ExposesValue": {
+      "id": "TC-PLATFORM-123",
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-06",
+      "retired": false,
+      "aliases": []
+    }
+  }
+}

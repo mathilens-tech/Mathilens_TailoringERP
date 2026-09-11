@@ -1,0 +1,94 @@
+{
+  "id": "FEAT-WHATSAPP-003",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "WhatsApp Share Tracking",
+  "module": "WHATSAPP",
+  "simple_explanation": "WhatsApp Share Tracking — derived from the RecordShare use case in src/Application/Whatsapp. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/WhatsApp/Commands/RecordShare"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+        "contains": "RecordWhatsAppShareCommand",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/WhatsApp/Commands/RecordShare/RecordWhatsAppShareCommand.cs",
+        "contains": "RecordWhatsAppShareCommandHandler",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "UNDOCUMENTED_CODE",
+  "implementation_status_evidence": "2 component(s) exist; no module-specific requirement was found in the FRS",
+  "coverage": {
+    "specified": "NO",
+    "implemented": "YES",
+    "tested": "NOT_FOUND",
+    "component_count": 2,
+    "test_count": 0,
+    "requirement_count": 0,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Share Tracking",
+    "use_cases": [
+      "RecordShare"
+    ],
+    "api_routes": [],
+    "frontend_routes": [
+      "/dashboard/whatsapp",
+      "/dashboard/whatsapp/[id]",
+      "/dashboard/whatsapp/new"
+    ],
+    "permissions": [],
+    "derived_components": [
+      "COMP-WHATSAPP-001",
+      "COMP-WHATSAPP-002"
+    ],
+    "derived_test_cases": [],
+    "derived_rules": [],
+    "derived_requirements": [],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "last_commit_date": "2026-08-20"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/WhatsApp/Commands/RecordShare",
+        "detail": "use-case folder"
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+  "change_history": []
+}

@@ -1,0 +1,11 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Files the test server executes. A CRLF line ending on a shebang script makes Linux report
+# "bad interpreter: /usr/bin/env bash^M", and nginx and systemd both reject stray carriage
+# returns in their config. text=auto normalises in the repository, but these are checked out
+# onto a Linux box and must be LF there too, whatever the committer's core.autocrlf says.
+*.sh text eol=lf
+*.service text eol=lf
+deploy/test-server/nginx-site.conf text eol=lf
+deploy/test-server/generate-nginx-routes.mjs text eol=lf

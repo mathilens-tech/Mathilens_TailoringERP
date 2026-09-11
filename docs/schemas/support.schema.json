@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "support.schema.json",
+  "title": "Supporting entities — test plan, issue, change, risk, traceability link, id ledger, schema history",
+  "description": "Entities whose data arrives in later phases. Defined now so the phases that populate them cannot invent their own shapes, and so validation is meaningful from the first file written.\n\nEach $def is validated by pointing the validator at the matching directory; the top-level object here is only a container so the file is a legal schema document.",
+  "type": "object",
+
+  "$defs": {
+    "testPlan": {
+      "$comment": "Phase 11. A plan is a named scope of testing, not a list of every test that exists.",
+      "type": "object",
+      "required": ["id", "name", "kind", "module", "status", "data_classification", "provenance", "schema_version"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/testPlanId" },
+        "schema_version": { "type": "string" },
+        "name": { "type": "string" },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+        "kind": {
+          "type": "string",
+          "enum": ["smoke", "sanity", "regression", "integration", "api", "ui", "database", "security", "performance", "e2e", "release"]
+        },
+        "purpose": { "type": ["string", "null"] },
+        "scope": { "type": "array", "items": { "type": "string" } },
+        "out_of_scope": { "type": "array", "items": { "type": "string" } },
+        "environments": { "type": "array", "items": { "type": "string" } },
+        "entry_criteria": { "type": "array", "items": { "type": "string" } },
+        "exit_criteria": { "type": "array", "items": { "type": "string" } },
+        "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+      },
+      "additionalProperties": false
+    },
+
+    "issue": {
+      "$comment": "Phase 8. Historical defect. This repository has no GitHub issues, no PRs, no reverts and no tags, and its commit language makes keyword classification unreliable — so the primary evidence is post-mortem narrative embedded in code comments, dated via git blame. `source` records which channel produced it, because their reliability differs sharply.",
+      "type": "object",
+      "required": ["id", "title", "module", "source", "status", "data_classification", "provenance", "schema_version"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/issueId" },
+        "schema_version": { "type": "string" },
+        "title": { "type": "string" },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+        "narrative": { "type": ["string", "null"] },
+        "symptom": { "type": ["string", "null"] },
+        "root_cause": { "type": ["string", "null"] },
+        "resolution": { "type": ["string", "null"] },
+        "source": {
+          "type": "string",
+          "enum": ["code-comment", "changelog", "handover-doc", "github-issue", "pull-request", "commit", "human"]
+        },
+        "detected_at": { "type": ["string", "null"] },
+        "fixed_in_commit": { "type": ["string", "null"] },
+        "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "requirements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/requirementId" } },
+        "test_cases": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/testCaseId" } },
+        "recurrence_signals": { "type": "array", "items": { "type": "string" } },
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "change_history": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" } }
+      },
+      "additionalProperties": false
+    },
+
+    "change": {
+      "$comment": "Phase 7. One analysed change — a working-tree diff, a branch range, or a commit. `basis` and `git_state` together are what stop an uncommitted observation being read later as branch history.",
+      "type": "object",
+      "required": ["id", "basis", "git_state", "analyzed_at", "status", "data_classification", "provenance", "schema_version"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/changeId" },
+        "schema_version": { "type": "string" },
+        "title": { "type": ["string", "null"] },
+        "basis": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": { "type": "string", "enum": ["working-tree", "branch-range", "commit", "staged"] },
+            "base": { "type": ["string", "null"] },
+            "head": { "type": ["string", "null"] },
+            "branch": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "git_state": { "$ref": "common.schema.json#/$defs/gitState" },
+        "analyzed_at": { "type": "string" },
+        "changed_files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "status"],
+            "properties": {
+              "path": { "type": "string" },
+              "status": { "type": "string" },
+              "added_lines": { "type": ["integer", "null"] },
+              "removed_lines": { "type": ["integer", "null"] },
+              "classification": { "type": "string", "enum": ["source", "test", "schema", "config", "doc", "generated", "asset", "workflow", "unknown"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "changed_symbols": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["file", "symbol"],
+            "properties": {
+              "file": { "type": "string" },
+              "symbol": { "type": "string" },
+              "member": { "type": ["string", "null"] },
+              "kind": { "type": ["string", "null"] },
+              "lines": { "type": "array", "items": { "type": "integer" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "impact": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["entity", "entity_type", "classification", "why"],
+            "properties": {
+              "entity": { "type": "string" },
+              "entity_type": { "type": "string" },
+              "classification": { "type": "string", "enum": ["DIRECT", "INDIRECT", "POTENTIAL", "NOT_AFFECTED"] },
+              "hops": { "type": ["integer", "null"] },
+              "path": { "type": "array", "items": { "type": "string" } },
+              "why": { "type": "string" },
+              "confidence": { "$ref": "common.schema.json#/$defs/confidence" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "documentation_impact": { "type": "string", "enum": ["none", "required", "applied", "deferred"] },
+        "documentation_reason": { "type": ["string", "null"] },
+        "risks": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/riskId" } },
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+
+    "risk": {
+      "$comment": "Phase 9. A prediction, never a defect. Every field here exists to stop a prediction being read as a fact: `why` and `evidence` justify it, `failure_signal` says what would prove it real, and confidence is always PREDICTED.",
+      "type": "object",
+      "required": ["id", "title", "why", "confidence", "severity", "what_to_test", "failure_signal", "status", "data_classification", "provenance", "schema_version"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/riskId" },
+        "schema_version": { "type": "string" },
+        "title": { "type": "string" },
+        "module": { "$ref": "common.schema.json#/$defs/moduleId" },
+        "rule": { "type": ["string", "null"] },
+        "why": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/evidenceItem" } },
+        "confidence": { "$ref": "common.schema.json#/$defs/confidence" },
+        "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "what_to_test": { "type": "array", "items": { "type": "string" } },
+        "failure_signal": { "type": "string" },
+        "components": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/componentId" } },
+        "features": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/featureId" } },
+        "change": { "type": ["string", "null"] },
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+
+    "traceabilityLink": {
+      "$comment": "Phase 6. An explicit relationship that cannot be derived from code. Derived edges live in the generated graph registry and are NOT written here — this file is only for links a person asserts.",
+      "type": "object",
+      "required": ["from", "to", "type", "confidence", "provenance"],
+      "properties": {
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "specified_by", "implemented_by", "verified_by", "covered_by", "governs",
+            "depends_on", "exposes", "persists_to", "integrates_with",
+            "introduced_by", "affected_by", "caused", "mitigated_by", "released_in"
+          ]
+        },
+        "confidence": { "$ref": "common.schema.json#/$defs/confidence" },
+        "evidence": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/evidenceItem" } },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "notes": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+
+    "idLedger": {
+      "$comment": "Stable identity. IDs must survive re-harvesting, renames and deletions, so the ledger maps a natural key (path#symbol) to an assigned ID and NEVER reuses a retired number. Without this, every harvest would renumber the registry and every stored cross-reference would rot.",
+      "type": "object",
+      "required": ["schema_version", "prefix", "entries", "next"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "prefix": { "type": "string" },
+        "next": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "entries": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["id", "first_seen"],
+            "properties": {
+              "id": { "type": "string" },
+              "first_seen": { "type": "string" },
+              "last_seen": { "type": ["string", "null"] },
+              "retired": { "type": "boolean" },
+              "aliases": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "migrationHistory": {
+      "$comment": "Schema history. EF migrations are 34,409 lines — 65% of all C# in this repository — and almost all of it is generated designer code. Indexing that line-by-line would bury every real finding, so migrations are modelled as schema operations instead of as components.",
+      "type": "object",
+      "required": ["schema_version", "generated_at", "migrations"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "generated_at": { "type": "string" },
+        "harvester_version": { "type": "string" },
+        "migrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "path", "operations"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "timestamp": { "type": ["string", "null"] },
+              "path": { "type": "string" },
+              "operations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["op", "direction"],
+                  "properties": {
+                    "op": { "type": "string" },
+                    "direction": { "type": "string", "enum": ["up", "down"] },
+                    "table": { "type": ["string", "null"] },
+                    "column": { "type": ["string", "null"] },
+                    "name": { "type": ["string", "null"] },
+                    "detail": { "type": ["string", "null"] },
+                    "line": { "type": ["integer", "null"] }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "tables_touched": { "type": "array", "items": { "type": "string" } },
+              "raw_sql": { "type": "boolean" },
+              "git": {
+                "type": "object",
+                "properties": {
+                  "state": { "$ref": "common.schema.json#/$defs/gitState" },
+                  "last_commit": { "type": ["string", "null"] },
+                  "last_commit_date": { "type": ["string", "null"] },
+                  "last_commit_subject": { "type": ["string", "null"] },
+                  "commit_count": { "type": ["integer", "null"] }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared vocabulary for every documentation entity",
+  "description": "Definitions referenced by every other schema. Nothing here is an entity in its own right. The three models that matter are CONFIDENCE (how much a claim is trusted), EVIDENCE (why it is trusted) and GIT STATE (whether the evidence is committed truth or an uncommitted working-tree observation). No entity may assert a fact without carrying all three.",
+
+  "$defs": {
+    "confidence": {
+      "description": "How this claim was arrived at. CONFIRMED means directly verified against a file, symbol, command output or git object that exists. INFERRED means reasoned from evidence that does not state it outright. PREDICTED means a forward-looking judgement that has not happened and may never. NEEDS_REVIEW means a human has to decide. A prediction must never be recorded as CONFIRMED, and an absence of evidence is never CONFIRMED.",
+      "type": "string",
+      "enum": ["CONFIRMED", "INFERRED", "PREDICTED", "NEEDS_REVIEW"]
+    },
+
+    "entityStatus": {
+      "description": "The lifecycle of the documentation entity itself, not of the thing it documents.",
+      "type": "string",
+      "enum": ["draft", "active", "needs-review", "deprecated", "retired"]
+    },
+
+    "dataClassification": {
+      "description": "Whether this entity is safe to publish. The repository is public, so PUBLIC_SAFE is the only classification that may be committed here; anything else must reference a value without copying it (see redact.mjs).",
+      "type": "string",
+      "enum": ["PUBLIC_SAFE", "INTERNAL", "SENSITIVE"]
+    },
+
+    "gitState": {
+      "description": "Whether the evidence behind this entity is committed history or an uncommitted working-tree observation. UNCOMMITTED and MODIFIED findings are PROVISIONAL: they describe a tree that only exists on one machine, and must never be presented as branch truth.",
+      "type": "string",
+      "enum": ["COMMITTED", "UNCOMMITTED", "MODIFIED", "UNKNOWN"]
+    },
+
+    "evidenceKind": {
+      "description": "What sort of artefact backs a claim. Each kind implies how it can be re-verified.",
+      "type": "string",
+      "enum": [
+        "file",
+        "symbol",
+        "attribute",
+        "route",
+        "di-registration",
+        "ef-model",
+        "migration",
+        "test-method",
+        "comment",
+        "doc-citation",
+        "git-log",
+        "git-blame",
+        "git-tree",
+        "changelog",
+        "config-key",
+        "workflow",
+        "command-output",
+        "human"
+      ]
+    },
+
+    "evidenceItem": {
+      "description": "One re-verifiable reason for a claim. `ref` must be enough to find the evidence again without guessing: a repo-relative path, a path#symbol, a commit sha, or a command.",
+      "type": "object",
+      "required": ["kind", "ref"],
+      "properties": {
+        "kind": { "$ref": "common.schema.json#/$defs/evidenceKind" },
+        "ref": { "type": "string", "minLength": 1 },
+        "detail": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "observed_at_commit": { "type": ["string", "null"], "pattern": "^[0-9a-f]{7,40}$" }
+      },
+      "additionalProperties": false
+    },
+
+    "provenance": {
+      "description": "Who produced this entity and on what basis. `generator` is the script and version for machine-produced entities, or `human` when authored by hand. An entity claiming CONFIRMED with an empty evidence array is invalid by construction.",
+      "type": "object",
+      "required": ["generator", "generated_at", "confidence", "evidence"],
+      "properties": {
+        "generator": { "type": "string", "minLength": 1 },
+        "generator_version": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "confidence": { "$ref": "common.schema.json#/$defs/confidence" },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/evidenceItem" }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "confidence": { "const": "CONFIRMED" } }, "required": ["confidence"] },
+          "then": { "properties": { "evidence": { "minItems": 1 } } }
+        }
+      ]
+    },
+
+    "changeHistoryEntry": {
+      "type": "object",
+      "required": ["date", "what"],
+      "properties": {
+        "date": { "type": "string" },
+        "what": { "type": "string", "minLength": 1 },
+        "commit": { "type": ["string", "null"] },
+        "branch": { "type": ["string", "null"] },
+        "by": { "type": ["string", "null"] },
+        "change_id": { "type": ["string", "null"], "pattern": "^CHANGE-[0-9]{4}-[0-9]{4}$" }
+      },
+      "additionalProperties": false
+    },
+
+    "moduleId": {
+      "description": "The business module an entity belongs to. Closed set, derived from Shared/Authorization/Permissions.cs Modules plus the layers that carry no permission of their own. PLATFORM is cross-cutting infrastructure; WEB is the frontend shell; TOOLING is build/dev-time code that is not the product.",
+      "type": "string",
+      "enum": [
+        "ORDER",
+        "CUSTOMER",
+        "MEASUREMENT",
+        "EMPLOYEE",
+        "BILLING",
+        "PRICING",
+        "INVENTORY",
+        "REPORT",
+        "WHATSAPP",
+        "SETTING",
+        "USER",
+        "ACTIVITY",
+        "AUTH",
+        "OCCASION",
+        "PLATFORM",
+        "WEB",
+        "TOOLING"
+      ]
+    },
+
+    "requirementId": { "type": "string", "pattern": "^FR-[A-Z]+-[0-9]{3}$" },
+    "featureId": { "type": "string", "pattern": "^FEAT-[A-Z]+-[0-9]{3}$" },
+    "businessRuleId": { "type": "string", "pattern": "^BR-[A-Z]+-[0-9]{3}$" },
+    "componentId": { "type": "string", "pattern": "^COMP-[A-Z]+-[0-9]{3}$" },
+    "testCaseId": { "type": "string", "pattern": "^TC-[A-Z]+-[0-9]{3}$" },
+    "testPlanId": { "type": "string", "pattern": "^TP-[A-Z]+-[0-9]{3}$" },
+    "issueId": { "type": "string", "pattern": "^BUG-[A-Z]+-[0-9]{3}$" },
+    "changeId": { "type": "string", "pattern": "^CHANGE-[0-9]{4}-[0-9]{4}$" },
+    "riskId": { "type": "string", "pattern": "^RISK-[A-Z]+-[0-9]{3}$" },
+
+    "entityEnvelope": {
+      "description": "Fields every persisted entity carries. Included by reference rather than repeated, so a change to the envelope cannot be applied to six schemas and forgotten in the seventh.",
+      "type": "object",
+      "required": ["schema_version", "status", "data_classification", "provenance"],
+      "properties": {
+        "schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "entity_version": { "type": "integer", "minimum": 1 },
+        "status": { "$ref": "common.schema.json#/$defs/entityStatus" },
+        "data_classification": { "$ref": "common.schema.json#/$defs/dataClassification" },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+        "last_verified_commit": { "type": ["string", "null"] },
+        "change_history": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/changeHistoryEntry" }
+        }
+      }
+    }
+  }
+}

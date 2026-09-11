@@ -1,0 +1,1484 @@
+{
+  "module": "EMPLOYEE",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-EMPLOYEE-001",
+      "entity_version": 1,
+      "statement": "Employee Code must satisfy not empty, maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeCode).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeCode).NotEmpty().MaximumLength()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-002",
+      "entity_version": 1,
+      "statement": "Full Name must satisfy not empty, maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-003",
+      "entity_version": 1,
+      "statement": "Job Title must satisfy maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 18,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.JobTitle).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.JobTitle).MaximumLength()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 18
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-004",
+      "entity_version": 1,
+      "statement": "Phone Number must satisfy cascade, must be an indian mobile number",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 23,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 23
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-005",
+      "entity_version": 1,
+      "statement": "Email must satisfy must be an email address when given",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 27,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 27
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-006",
+      "entity_version": 1,
+      "statement": "Enter the joining date.",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 30,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.JoiningDate).NotEqual()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.JoiningDate).NotEqual()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 30
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-007",
+      "entity_version": 1,
+      "statement": "Employment Type must satisfy is in enum",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-003",
+          "file": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs",
+          "line": 34,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmploymentType).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-003"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-006",
+        "TC-EMPLOYEE-007",
+        "TC-EMPLOYEE-008",
+        "TC-EMPLOYEE-009",
+        "TC-EMPLOYEE-010",
+        "TC-EMPLOYEE-011",
+        "TC-EMPLOYEE-012"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmploymentType).IsInEnum()",
+        "symbol": "CreateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Create/CreateEmployeeCommandValidator.cs#CreateEmployeeCommandValidator",
+            "line": 34
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-008",
+      "entity_version": 1,
+      "statement": "The spreadsheet contains no data rows.",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-007",
+          "file": "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Rows).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-007"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Rows).NotEmpty()",
+        "symbol": "ImportEmployeesCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+          "last_commit_date": "2026-08-10"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Import/ImportEmployeesCommandValidator.cs#ImportEmployeesCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "aaa86c537d4c0b0958d612a4994b830ba0c4be5b",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-009",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-010",
+      "entity_version": 1,
+      "statement": "Employee Code must satisfy not empty, maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmployeeCode).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmployeeCode).NotEmpty().MaximumLength()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-011",
+      "entity_version": 1,
+      "statement": "Full Name must satisfy not empty, maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.FullName).NotEmpty().MaximumLength()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-012",
+      "entity_version": 1,
+      "statement": "Job Title must satisfy maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 21,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.JobTitle).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.JobTitle).MaximumLength()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 21
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-013",
+      "entity_version": 1,
+      "statement": "Phone Number must satisfy cascade, must be an indian mobile number",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 25,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PhoneNumber).Cascade().MustBeAnIndianMobileNumber()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 25
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-014",
+      "entity_version": 1,
+      "statement": "Email must satisfy must be an email address when given",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 29,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Email).MustBeAnEmailAddressWhenGiven()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 29
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-015",
+      "entity_version": 1,
+      "statement": "Enter the joining date.",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 32,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.JoiningDate).NotEqual()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.JoiningDate).NotEqual()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 32
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-016",
+      "entity_version": 1,
+      "statement": "Employment Type must satisfy is in enum",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-012",
+          "file": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs",
+          "line": 36,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.EmploymentType).IsInEnum()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-012"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-017",
+        "TC-EMPLOYEE-018",
+        "TC-EMPLOYEE-019"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.EmploymentType).IsInEnum()",
+        "symbol": "UpdateEmployeeCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Commands/Update/UpdateEmployeeCommandValidator.cs#UpdateEmployeeCommandValidator",
+            "line": 36
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-017",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-026",
+          "file": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-026"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-023",
+        "TC-EMPLOYEE-024",
+        "TC-EMPLOYEE-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "SearchEmployeesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#SearchEmployeesQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-018",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-026",
+          "file": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-026"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-023",
+        "TC-EMPLOYEE-024",
+        "TC-EMPLOYEE-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "SearchEmployeesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#SearchEmployeesQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-019",
+      "entity_version": 1,
+      "statement": "Search Term must satisfy maximum length",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-026",
+          "file": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.SearchTerm).MaximumLength()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-026"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-023",
+        "TC-EMPLOYEE-024",
+        "TC-EMPLOYEE-025"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.SearchTerm).MaximumLength()",
+        "symbol": "SearchEmployeesQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Employees/Queries/Search/SearchEmployeesQueryValidator.cs#SearchEmployeesQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "f4aad6d2d326491e46f62098f4c27175b19e59a5",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-020",
+      "entity_version": 1,
+      "statement": "Employee Code must not be null or white space",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-027",
+          "file": "src/Domain/Employees/Employee.cs",
+          "line": 123,
+          "mechanism": "guard-clause",
+          "expression": "EmployeeCode = Guard.AgainstNullOrWhiteSpace(employeeCode, nameof(employeeCode)).Trim();"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-027"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-001",
+        "TC-EMPLOYEE-002",
+        "TC-EMPLOYEE-003",
+        "TC-EMPLOYEE-005",
+        "TC-EMPLOYEE-013",
+        "TC-EMPLOYEE-015",
+        "TC-EMPLOYEE-016",
+        "TC-EMPLOYEE-020",
+        "TC-EMPLOYEE-022",
+        "TC-EMPLOYEE-026",
+        "TC-EMPLOYEE-027",
+        "TC-EMPLOYEE-028",
+        "TC-EMPLOYEE-029",
+        "TC-EMPLOYEE-030",
+        "TC-EMPLOYEE-031",
+        "TC-EMPLOYEE-032",
+        "TC-EMPLOYEE-033",
+        "TC-EMPLOYEE-034",
+        "TC-EMPLOYEE-035",
+        "TC-EMPLOYEE-036",
+        "TC-EMPLOYEE-037",
+        "TC-EMPLOYEE-038",
+        "TC-EMPLOYEE-039",
+        "TC-EMPLOYEE-040",
+        "TC-ORDER-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 25,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "EmployeeCode = Guard.AgainstNullOrWhiteSpace(employeeCode, nameof(employeeCode)).Trim();",
+        "symbol": "Employee",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Employees/Employee.cs#Employee",
+            "line": 123
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-021",
+      "entity_version": 1,
+      "statement": "Full Name must not be null or white space",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-027",
+          "file": "src/Domain/Employees/Employee.cs",
+          "line": 124,
+          "mechanism": "guard-clause",
+          "expression": "FullName = Guard.AgainstNullOrWhiteSpace(fullName, nameof(fullName));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-027"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-001",
+        "TC-EMPLOYEE-002",
+        "TC-EMPLOYEE-003",
+        "TC-EMPLOYEE-005",
+        "TC-EMPLOYEE-013",
+        "TC-EMPLOYEE-015",
+        "TC-EMPLOYEE-016",
+        "TC-EMPLOYEE-020",
+        "TC-EMPLOYEE-022",
+        "TC-EMPLOYEE-026",
+        "TC-EMPLOYEE-027",
+        "TC-EMPLOYEE-028",
+        "TC-EMPLOYEE-029",
+        "TC-EMPLOYEE-030",
+        "TC-EMPLOYEE-031",
+        "TC-EMPLOYEE-032",
+        "TC-EMPLOYEE-033",
+        "TC-EMPLOYEE-034",
+        "TC-EMPLOYEE-035",
+        "TC-EMPLOYEE-036",
+        "TC-EMPLOYEE-037",
+        "TC-EMPLOYEE-038",
+        "TC-EMPLOYEE-039",
+        "TC-EMPLOYEE-040",
+        "TC-ORDER-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 25,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "FullName = Guard.AgainstNullOrWhiteSpace(fullName, nameof(fullName));",
+        "symbol": "Employee",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Employees/Employee.cs#Employee",
+            "line": 124
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    },
+    {
+      "id": "BR-EMPLOYEE-022",
+      "entity_version": 1,
+      "statement": "Phone Number must not be null or white space",
+      "module": "EMPLOYEE",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-EMPLOYEE-027",
+          "file": "src/Domain/Employees/Employee.cs",
+          "line": 129,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNullOrWhiteSpace(phoneNumber, nameof(phoneNumber)));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-EMPLOYEE-027"
+      ],
+      "test_cases": [
+        "TC-EMPLOYEE-001",
+        "TC-EMPLOYEE-002",
+        "TC-EMPLOYEE-003",
+        "TC-EMPLOYEE-005",
+        "TC-EMPLOYEE-013",
+        "TC-EMPLOYEE-015",
+        "TC-EMPLOYEE-016",
+        "TC-EMPLOYEE-020",
+        "TC-EMPLOYEE-022",
+        "TC-EMPLOYEE-026",
+        "TC-EMPLOYEE-027",
+        "TC-EMPLOYEE-028",
+        "TC-EMPLOYEE-029",
+        "TC-EMPLOYEE-030",
+        "TC-EMPLOYEE-031",
+        "TC-EMPLOYEE-032",
+        "TC-EMPLOYEE-033",
+        "TC-EMPLOYEE-034",
+        "TC-EMPLOYEE-035",
+        "TC-EMPLOYEE-036",
+        "TC-EMPLOYEE-037",
+        "TC-EMPLOYEE-038",
+        "TC-EMPLOYEE-039",
+        "TC-EMPLOYEE-040",
+        "TC-ORDER-004"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 25,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNullOrWhiteSpace(phoneNumber, nameof(phoneNumber)));",
+        "symbol": "Employee",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+          "last_commit_date": "2026-08-15"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Employees/Employee.cs#Employee",
+            "line": 129
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "85c0ea83b137c3ef002d38d996fc33a5321506da",
+      "change_history": []
+    }
+  ]
+}

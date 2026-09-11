@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-043",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "MVP must be operable on minimal infrastructure: a single container running the API, a…",
+  "module": "PLATFORM",
+  "description": "The MVP must be operable on minimal infrastructure: a single container running the API, a single container running the frontend, and a single PostgreSQL instance (containerized locally, managed in production — see 02DATABASE.md § 2.3 Hosting Strategy) — no other mandatory external services (message broker, distributed cache) at MVP scope.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "notification",
+  "requirement_type_evidence": "clause uses \"message\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 4",
+    "section_title": "Architecture Constraints",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "The MVP must be operable on minimal infrastructure: a single container running the API, a single container running the frontend, and a single PostgreSQL instance (containerized locally, managed in production — see 02DATABASE.md § 2.3 Hosting Strategy) — no other mandatory external services (message broker, distributed cache) at MVP scope.",
+    "line": 78,
+    "line_start": 78,
+    "line_end": 78,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 4",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 78
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

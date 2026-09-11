@@ -1,0 +1,1467 @@
+{
+  "module": "MEASUREMENT",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-06T15:56:37.352Z",
+  "harvester_version": "1.0.0",
+  "rules": [
+    {
+      "id": "BR-MEASUREMENT-001",
+      "entity_version": 1,
+      "statement": "Customer Id must satisfy not empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-003",
+          "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs",
+          "line": 11,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.CustomerId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-003"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-004",
+        "TC-MEASUREMENT-005",
+        "TC-MEASUREMENT-006",
+        "TC-MEASUREMENT-007",
+        "TC-MEASUREMENT-008",
+        "TC-MEASUREMENT-009",
+        "TC-MEASUREMENT-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.CustomerId).NotEmpty()",
+        "symbol": "CreateMeasurementCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#CreateMeasurementCommandValidator",
+            "line": 11
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-002",
+      "entity_version": 1,
+      "statement": "Garment Type must satisfy must be agarment name",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-003",
+          "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs",
+          "line": 14,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.GarmentType).MustBeAGarmentName()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-003"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-004",
+        "TC-MEASUREMENT-005",
+        "TC-MEASUREMENT-006",
+        "TC-MEASUREMENT-007",
+        "TC-MEASUREMENT-008",
+        "TC-MEASUREMENT-009",
+        "TC-MEASUREMENT-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.GarmentType).MustBeAGarmentName()",
+        "symbol": "CreateMeasurementCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#CreateMeasurementCommandValidator",
+            "line": 14
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-003",
+      "entity_version": 1,
+      "statement": "At least one measurement value is required.",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-003",
+          "file": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Values).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-003"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-004",
+        "TC-MEASUREMENT-005",
+        "TC-MEASUREMENT-006",
+        "TC-MEASUREMENT-007",
+        "TC-MEASUREMENT-008",
+        "TC-MEASUREMENT-009",
+        "TC-MEASUREMENT-010"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 7,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Values).NotEmpty()",
+        "symbol": "CreateMeasurementCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/Create/CreateMeasurementCommandValidator.cs#CreateMeasurementCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-004",
+      "entity_version": 1,
+      "statement": "Id must satisfy not empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-006",
+          "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Id).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-006"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-013",
+        "TC-MEASUREMENT-014",
+        "TC-MEASUREMENT-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Id).NotEmpty()",
+        "symbol": "UpdateMeasurementValuesCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#UpdateMeasurementValuesCommandValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-005",
+      "entity_version": 1,
+      "statement": "At least one measurement value is required.",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-006",
+          "file": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Values).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-006"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-013",
+        "TC-MEASUREMENT-014",
+        "TC-MEASUREMENT-015"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Values).NotEmpty()",
+        "symbol": "UpdateMeasurementValuesCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Commands/UpdateValues/UpdateMeasurementValuesCommandValidator.cs#UpdateMeasurementValuesCommandValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-006",
+      "entity_version": 1,
+      "statement": "Measurement Id must satisfy not empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-018",
+          "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs",
+          "line": 10,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.MeasurementId).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-018"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-020",
+        "TC-MEASUREMENT-021",
+        "TC-MEASUREMENT-022"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.MeasurementId).NotEmpty()",
+        "symbol": "GetMeasurementHistoryQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#GetMeasurementHistoryQueryValidator",
+            "line": 10
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-007",
+      "entity_version": 1,
+      "statement": "Page must satisfy greater than or equal to",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-018",
+          "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs",
+          "line": 13,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Page).GreaterThanOrEqualTo()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-018"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-020",
+        "TC-MEASUREMENT-021",
+        "TC-MEASUREMENT-022"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Page).GreaterThanOrEqualTo()",
+        "symbol": "GetMeasurementHistoryQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#GetMeasurementHistoryQueryValidator",
+            "line": 13
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-008",
+      "entity_version": 1,
+      "statement": "Page Size must satisfy inclusive between",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-018",
+          "file": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs",
+          "line": 16,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.PageSize).InclusiveBetween()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-018"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-020",
+        "TC-MEASUREMENT-021",
+        "TC-MEASUREMENT-022"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 3,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.PageSize).InclusiveBetween()",
+        "symbol": "GetMeasurementHistoryQueryValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+          "last_commit_date": "2026-08-05"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Queries/History/GetMeasurementHistoryQueryValidator.cs#GetMeasurementHistoryQueryValidator",
+            "line": 16
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "511e035c9aadefe59c0ac77060977e70e700ef73",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-009",
+      "entity_version": 1,
+      "statement": "Garment Type must satisfy must be agarment name",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-023",
+          "file": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs",
+          "line": 17,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.GarmentType).MustBeAGarmentName()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-023"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-032",
+        "TC-MEASUREMENT-033",
+        "TC-MEASUREMENT-034",
+        "TC-MEASUREMENT-035"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.GarmentType).MustBeAGarmentName()",
+        "symbol": "SetMeasurementTemplateCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#SetMeasurementTemplateCommandValidator",
+            "line": 17
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-010",
+      "entity_version": 1,
+      "statement": "A garment type needs at least one measurement point.",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-023",
+          "file": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs",
+          "line": 20,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Points).NotEmpty()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-023"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-032",
+        "TC-MEASUREMENT-033",
+        "TC-MEASUREMENT-034",
+        "TC-MEASUREMENT-035"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Points).NotEmpty()",
+        "symbol": "SetMeasurementTemplateCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#SetMeasurementTemplateCommandValidator",
+            "line": 20
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-011",
+      "entity_version": 1,
+      "statement": "Each measurement point must have a distinct name.",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "FluentValidation rule",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-023",
+          "file": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs",
+          "line": 36,
+          "mechanism": "fluent-validation",
+          "expression": "RuleFor(x => x.Points).Select().Trim().Distinct().Count()"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-023"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-032",
+        "TC-MEASUREMENT-033",
+        "TC-MEASUREMENT-034",
+        "TC-MEASUREMENT-035"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 4,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "fluent-validation",
+        "raw": "RuleFor(x => x.Points).Select().Trim().Distinct().Count()",
+        "symbol": "SetMeasurementTemplateCommandValidator",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/Commands/SetMeasurementTemplateCommandValidator.cs#SetMeasurementTemplateCommandValidator",
+            "line": 36
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-012",
+      "entity_version": 1,
+      "statement": "A measurement point must be a string or an object, not ….",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"must be\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-025",
+          "file": "src/Application/Measurements/Templates/MeasurementPointDto.cs",
+          "line": 37,
+          "mechanism": "domain-invariant",
+          "expression": "throw new JsonException($\"A measurement point must be a string or an object, not {reader.TokenType}.\");"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-025"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new JsonException($\"A measurement point must be a string or an object, not {reader.TokenType}.\");",
+        "symbol": "MeasurementPointDtoJsonConverter",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Application/Measurements/Templates/MeasurementPointDto.cs#MeasurementPointDtoJsonConverter",
+            "line": 37
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-013",
+      "entity_version": 1,
+      "statement": "At least one measurement value is required.",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"required\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 92,
+          "mechanism": "domain-invariant",
+          "expression": "throw new ArgumentException(\"At least one measurement value is required.\", nameof(values));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "throw new ArgumentException(\"At least one measurement value is required.\", nameof(values));",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 92
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-014",
+      "entity_version": 1,
+      "statement": "Customer Id must not be empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 60,
+          "mechanism": "guard-clause",
+          "expression": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CustomerId = Guard.AgainstEmpty(customerId, nameof(customerId)),",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 60
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-015",
+      "entity_version": 1,
+      "statement": "Values must not be null",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 88,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNull(values, nameof(values));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNull(values, nameof(values));",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 88
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-016",
+      "entity_version": 1,
+      "statement": "Point must not be null or white space",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 97,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNullOrWhiteSpace(point, nameof(values));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNullOrWhiteSpace(point, nameof(values));",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 97
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-017",
+      "entity_version": 1,
+      "statement": "Value.Number must not be negative or zero",
+      "module": "MEASUREMENT",
+      "category": "NEEDS_REVIEW",
+      "category_evidence": "no category vocabulary in the statement",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 105,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNegativeOrZero(value.Number, nameof(values));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNegativeOrZero(value.Number, nameof(values));",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 105
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-018",
+      "entity_version": 1,
+      "statement": "Value.Text must not be null",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-032",
+          "file": "src/Domain/Measurements/Measurement.cs",
+          "line": 108,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNull(value.Text, nameof(values));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-032"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-001",
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-016",
+        "TC-MEASUREMENT-017",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037",
+        "TC-MEASUREMENT-038",
+        "TC-MEASUREMENT-039",
+        "TC-MEASUREMENT-040",
+        "TC-MEASUREMENT-041",
+        "TC-MEASUREMENT-042",
+        "TC-MEASUREMENT-043"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 13,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNull(value.Text, nameof(values));",
+        "symbol": "Measurement",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/Measurement.cs#Measurement",
+            "line": 108
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-019",
+      "entity_version": 1,
+      "statement": "Measurement must not be null",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"null\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-033",
+          "file": "src/Domain/Measurements/MeasurementHistory.cs",
+          "line": 47,
+          "mechanism": "guard-clause",
+          "expression": "Guard.AgainstNull(measurement, nameof(measurement));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-033"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-012",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "Guard.AgainstNull(measurement, nameof(measurement));",
+        "symbol": "MeasurementHistory",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementHistory.cs#MeasurementHistory",
+            "line": 47
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-020",
+      "entity_version": 1,
+      "statement": "Created By must not be empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-033",
+          "file": "src/Domain/Measurements/MeasurementHistory.cs",
+          "line": 60,
+          "mechanism": "guard-clause",
+          "expression": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-033"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-012",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "CreatedBy = Guard.AgainstEmpty(createdBy, nameof(createdBy));",
+        "symbol": "MeasurementHistory",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementHistory.cs#MeasurementHistory",
+            "line": 60
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-021",
+      "entity_version": 1,
+      "statement": "Modified By must not be empty",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"empty\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-033",
+          "file": "src/Domain/Measurements/MeasurementHistory.cs",
+          "line": 67,
+          "mechanism": "guard-clause",
+          "expression": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-033"
+      ],
+      "test_cases": [
+        "TC-MEASUREMENT-011",
+        "TC-MEASUREMENT-012",
+        "TC-MEASUREMENT-019",
+        "TC-MEASUREMENT-036",
+        "TC-MEASUREMENT-037"
+      ],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "PARTIAL",
+        "test_count": 5,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "guard-clause",
+        "raw": "LastModifiedBy = Guard.AgainstEmpty(modifiedBy, nameof(modifiedBy));",
+        "symbol": "MeasurementHistory",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementHistory.cs#MeasurementHistory",
+            "line": 67
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    },
+    {
+      "id": "BR-MEASUREMENT-022",
+      "entity_version": 1,
+      "statement": "A measurement value must be a number, a boolean or a string, not ….",
+      "module": "MEASUREMENT",
+      "category": "validation",
+      "category_evidence": "statement uses \"must be\"",
+      "origin": "IMPLEMENTED",
+      "enforced_by": [
+        {
+          "component": "COMP-MEASUREMENT-036",
+          "file": "src/Domain/Measurements/MeasurementValue.cs",
+          "line": 68,
+          "mechanism": "domain-invariant",
+          "expression": "_ => throw new JsonException($\"A measurement value must be a number, a boolean or a string, not {reader.TokenType}.\"),"
+        }
+      ],
+      "requirements": [],
+      "features": [],
+      "components": [
+        "COMP-MEASUREMENT-036"
+      ],
+      "test_cases": [],
+      "coverage": {
+        "specified": "NO",
+        "implemented": "YES",
+        "tested": "NOT_FOUND",
+        "test_count": 0,
+        "computed_at": "2026-09-06T15:56:37.352Z"
+      },
+      "machine": {
+        "detector": "domain-invariant",
+        "raw": "_ => throw new JsonException($\"A measurement value must be a number, a boolean or a string, not {reader.TokenType}.\"),",
+        "symbol": "MeasurementValueJsonConverter",
+        "git": {
+          "state": "COMMITTED",
+          "last_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+          "last_commit_date": "2026-08-20"
+        }
+      },
+      "status": "draft",
+      "data_classification": "PUBLIC_SAFE",
+      "provenance": {
+        "generator": "harvest-rules.mjs",
+        "generator_version": "1.0.0",
+        "generated_at": "2026-09-06T15:56:37.352Z",
+        "confidence": "INFERRED",
+        "evidence": [
+          {
+            "kind": "symbol",
+            "ref": "src/Domain/Measurements/MeasurementValue.cs#MeasurementValueJsonConverter",
+            "line": 68
+          }
+        ],
+        "notes": "Read out of the enforcement in code. The behaviour is certain; whether it was intended as a business rule is a human judgement."
+      },
+      "last_verified_commit": "ae261733672cc9331dbadba1aa5d7d897e8890d2",
+      "change_history": []
+    }
+  ]
+}

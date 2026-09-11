@@ -1,0 +1,68 @@
+{
+  "id": "FR-PLATFORM-060",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "title": "Because PostgreSQL is the sole database engine from day one and all persistence goes…",
+  "module": "PLATFORM",
+  "description": "Because PostgreSQL is the sole database engine from day one and all persistence goes through EF Core's provider-agnostic APIs (AD-003), this scaling path requires only infrastructure and configuration changes — never a Domain/Application rewrite, and never a database migration.",
+  "business_purpose": null,
+  "actors": [],
+  "preconditions": [],
+  "main_flow": [],
+  "alternate_flow": [],
+  "business_rules": [],
+  "validation": [],
+  "expected_result": null,
+  "requirement_type": "data",
+  "requirement_type_evidence": "clause uses \"database\"",
+  "source": {
+    "document": "docs/01_ARCHITECTURE.md",
+    "section": "§ 22",
+    "section_title": "Scalability Strategy",
+    "parent_section": null,
+    "parent_section_title": null,
+    "quote": "Because PostgreSQL is the sole database engine from day one and all persistence goes through EF Core's provider-agnostic APIs (AD-003), this scaling path requires only infrastructure and configuration changes — never a Domain/Application rewrite, and never a database migration.",
+    "line": 335,
+    "line_start": 335,
+    "line_end": 335,
+    "form": "bullet"
+  },
+  "approval": {
+    "approved": false,
+    "by": null,
+    "on": null,
+    "content_hash": null
+  },
+  "assertions": [],
+  "implementation_evidence": [],
+  "coverage": {
+    "specified": "YES",
+    "implemented": "NOT_FOUND",
+    "tested": "NOT_FOUND",
+    "component_count": 0,
+    "test_count": 0,
+    "computed_at": "2026-09-06T15:57:20.110Z"
+  },
+  "features": [],
+  "components": [],
+  "test_cases": [],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-requirements.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:57:16.938Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "doc-citation",
+        "ref": "docs/01_ARCHITECTURE.md § 22",
+        "detail": "docs/01_ARCHITECTURE.md",
+        "line": 335
+      }
+    ],
+    "notes": "Quoted verbatim from the specification; interpretation into flows and rules is not attempted here."
+  },
+  "last_verified_commit": "fec30963d8a38e6c8de7488471c891dfa1454152",
+  "change_history": []
+}

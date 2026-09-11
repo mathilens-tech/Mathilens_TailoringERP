@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="NSubstitute" Version="6.0.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Domain\MathilensERP.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Application\MathilensERP.Application.csproj" />
+    <ProjectReference Include="..\..\src\Shared\MathilensERP.Shared.csproj" />
+    <!-- For the few Infrastructure classes that are pure logic and deserve a unit test rather than
+         a database: the invoice share token, which is the whole of the authorisation on the API's
+         one anonymous endpoint. -->
+    <ProjectReference Include="..\..\src\Infrastructure\MathilensERP.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

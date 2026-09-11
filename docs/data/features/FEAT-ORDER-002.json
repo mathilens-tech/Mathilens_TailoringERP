@@ -1,0 +1,128 @@
+{
+  "id": "FEAT-ORDER-002",
+  "schema_version": "1.0.0",
+  "entity_version": 1,
+  "name": "Order Import & Export",
+  "module": "ORDER",
+  "simple_explanation": "Order Import & Export — derived from the Export use case in src/Application/Order. A plain-language description has not been written yet.",
+  "business_purpose": null,
+  "users": [],
+  "user_journey": [],
+  "workflow": [],
+  "business_rules": [],
+  "scenarios": [],
+  "feature_flag": null,
+  "implementation": {
+    "paths": [
+      "src/Application/Orders/Queries/Export"
+    ],
+    "evidence": [
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Queries/Export/ExportOrdersQuery.cs",
+        "contains": "ExportOrdersQuery",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Queries/Export/ExportOrdersQueryHandler.cs",
+        "contains": "ExportOrdersQueryHandler",
+        "pattern": null
+      },
+      {
+        "kind": "symbol",
+        "file": "src/Application/Orders/Queries/Export/ExportOrdersQueryValidator.cs",
+        "contains": "ExportOrdersQueryValidator",
+        "pattern": null
+      }
+    ]
+  },
+  "implementation_status": "IMPLEMENTED",
+  "implementation_status_evidence": "3 component(s) and 3 module requirement(s)",
+  "coverage": {
+    "specified": "YES",
+    "implemented": "YES",
+    "tested": "PARTIAL",
+    "component_count": 3,
+    "test_count": 1,
+    "requirement_count": 3,
+    "rule_count": 0,
+    "computed_at": "2026-09-06T15:56:38.776Z"
+  },
+  "machine": {
+    "capability": "Import & Export",
+    "use_cases": [
+      "Export"
+    ],
+    "api_routes": [
+      {
+        "method": "GET",
+        "route": "/api/v1/orders/export",
+        "policy": "Permissions.OrdersView",
+        "controller": "OrdersController",
+        "action": "Export"
+      }
+    ],
+    "frontend_routes": [
+      "/dashboard/orders",
+      "/dashboard/orders/[id]",
+      "/dashboard/orders/new",
+      "/dashboard/orders/new/fabric",
+      "/dashboard/orders/new/fabric-tailoring",
+      "/dashboard/orders/new/tailoring"
+    ],
+    "permissions": [
+      "Permissions.OrdersView"
+    ],
+    "derived_components": [
+      "COMP-ORDER-037",
+      "COMP-ORDER-038",
+      "COMP-ORDER-039"
+    ],
+    "derived_test_cases": [
+      "TC-ORDER-030"
+    ],
+    "derived_rules": [],
+    "derived_requirements": [
+      "FR-ORDER-001",
+      "FR-ORDER-002",
+      "FR-ORDER-003"
+    ],
+    "git": {
+      "state": "COMMITTED",
+      "last_commit": "492d90588a412f5f8af4ba9d0a35cc9f9449125d",
+      "last_commit_date": "2026-09-05"
+    }
+  },
+  "requirements": [],
+  "components": [],
+  "test_cases": [],
+  "test_plans": [],
+  "routes": [
+    "GET /api/v1/orders/export"
+  ],
+  "status": "draft",
+  "data_classification": "PUBLIC_SAFE",
+  "provenance": {
+    "generator": "harvest-features.mjs",
+    "generator_version": "1.0.0",
+    "generated_at": "2026-09-06T15:56:36.506Z",
+    "confidence": "CONFIRMED",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "src/Application/Orders/Queries/Export",
+        "detail": "use-case folder"
+      },
+      {
+        "kind": "route",
+        "ref": "GET /api/v1/orders/export",
+        "detail": "src/Api/Controllers/V1/OrdersController.cs",
+        "line": 50
+      }
+    ],
+    "notes": "Capability derived by grouping this codebase's own use-case folders; naming and plain-language description await a human."
+  },
+  "last_verified_commit": "492d90588a412f5f8af4ba9d0a35cc9f9449125d",
+  "change_history": []
+}
