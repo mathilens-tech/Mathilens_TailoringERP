@@ -28,6 +28,9 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: api-mathilens-erp
+          # The App Service that actually exists. This said api-mathilens-erp, a resource that is
+          # not in the subscription — so every run of this workflow failed to find its target and
+          # main deployed nowhere. Verified against `az resource list` in rg-mathilens-prod.
+          app-name: mathilens-api-mrkwv
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish

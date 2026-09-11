@@ -3,13 +3,11 @@ name: Deploy API to Azure (test)
 # The test stack's half of deploy-api.yml. Same build, different branch and different Web App:
 # api-radhafabric-test, which holds its own database connection, its own JWT signing key and its
 # own CORS origins, so nothing it does can reach production.
+# Manual only. api-radhafabric-test is not in the subscription — `az resource list` shows no such
+# Web App — so every push to dev queued a deploy that could only fail to find its target. The test
+# stack now lives on mathilens-test-vm (see deploy-test.yml); this is kept, but disarmed, until
+# that move is finished and one of the two is deleted.
 on:
-  push:
-    branches: [dev]
-    paths:
-      - "src/**"
-      - "MathilensERP.slnx"
-      - ".github/workflows/deploy-api-test.yml"
   workflow_dispatch:
 
 jobs:

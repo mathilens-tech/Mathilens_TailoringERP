@@ -3,9 +3,10 @@ name: Azure Static Web Apps - swa-radhafabric-test
 # The test stack's frontend. Deliberately narrower than the production workflow: no pull_request
 # trigger and no close job, because preview environments belong to the production app where they
 # are reviewed. This one exists to put the dev branch on www.test-radhafabric.mathilens.com.
+# Manual only, for the same reason as deploy-api-test.yml: swa-radhafabric-test does not exist in
+# the subscription, so this deployed nowhere on every push to dev. The dev branch's home is now
+# mathilens-test-vm — see deploy-test.yml.
 on:
-  push:
-    branches: [dev]
   workflow_dispatch:
 
 jobs:
