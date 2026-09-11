@@ -131,3 +131,8 @@ docs/generated/
 docs/registry/
 docs/traceability/
 docs/history/
+
+# Credentials kept beside the checkout. cred.txt holds a Coolify API token; this repository is
+# public, so an un-ignored file here is one `git add -A` away from being published.
+cred.txt
+cred*.txt
