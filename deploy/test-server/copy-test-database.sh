@@ -2,8 +2,13 @@
 #
 # One-time copy of the test database off Azure and onto this box.
 #
-# Source: the test database on pg-mathilens-55e31706, in the iammurali.mng@gmail.com account.
+# Source: a database on mathilens-pg-mrkwv, in the iammurali.mng@gmail.com account.
 # Target: the local Postgres this server now runs, in the admin@mathilens.com account.
+#
+# pg-mathilens-55e31706 does not exist. `az resource list` shows exactly one Postgres server in the
+# subscription — mathilens-pg-mrkwv — holding azure_maintenance, postgres, azure_sys, mathilens_db
+# and radha_fabric_prod. There is no test database left to copy, which is why SRC_DB no longer has
+# a default: see the note on it below.
 #
 # The two accounts share no network, so this runs over the public internet and needs a temporary
 # firewall rule on the Azure server. BEFORE running:
@@ -29,11 +34,24 @@
 #   az webapp config appsettings list -g rg-mathilens-prod -n api-radhafabric-test -o table
 set -euo pipefail
 
-SRC_HOST="${SRC_HOST:-pg-mathilens-55e31706.postgres.database.azure.com}"
-SRC_DB="${SRC_DB:-mathilens_radhafabric_test}"
-SRC_USER="${SRC_USER:-mathilens_ecommerce_app}"
+SRC_HOST="${SRC_HOST:-mathilens-pg-mrkwv.postgres.database.azure.com}"
 
-DEST_DB="${DEST_DB:-mathilens_radhafabric_test}"
+# Deliberately no default, and the script refuses to run without it.
+#
+# The old test database is gone, so the only databases left to copy from are mathilens_db and
+# radha_fabric_prod — both production. Defaulting to either would mean a stray run of this script
+# quietly seeds a test box with live customer records: names, phone numbers, addresses, dates of
+# birth. That has to be somebody's decision, typed out, not a default nobody read.
+SRC_DB="${SRC_DB:-}"
+if [ -z "$SRC_DB" ]; then
+  echo "SRC_DB is not set. Name the source database explicitly, e.g. SRC_DB=radha_fabric_prod." >&2
+  echo "Both candidates hold production data — copying either one puts real customers on this box." >&2
+  exit 1
+fi
+
+SRC_USER="${SRC_USER:-mathilens}"
+
+DEST_DB="${DEST_DB:-radha_fabric_test}"
 DEST_ROLE="${DEST_ROLE:-mathilens_test_app}"
 
 DUMP_FILE="${DUMP_FILE:-/tmp/mathilens-test-$(date +%Y%m%d-%H%M%S).dump}"

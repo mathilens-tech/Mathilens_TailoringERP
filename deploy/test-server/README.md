@@ -34,22 +34,27 @@ Order matters. Each step assumes the one before it worked.
 **1. Provision**
 
 ```bash
-git clone https://github.com/code-with-murali/Mathilens_TailoringERP.git
+git clone https://github.com/mathilens-tech/Mathilens_TailoringERP.git
 cd Mathilens_TailoringERP/deploy/test-server
-sudo PG_MAJOR=16 ./setup.sh
+sudo PG_MAJOR=16 DB_NAME=radha_fabric_test ./setup.sh
 ```
 
-Set `PG_MAJOR` to production's major version, not the default — check it with:
+The box is `mathilens-test-vm`, `4.224.126.104`, Ubuntu on `Standard_B2as_v2`. Its NSG already
+allows 22, 80, 443 and 8000.
+
+`PG_MAJOR` must match production's major version — 16, confirmed against the live server:
 
 ```bash
-az postgres flexible-server show -n pg-mathilens-55e31706 -g rg-mathilens-prod --query version
+az postgres flexible-server show -n mathilens-pg-mrkwv -g rg-mathilens-prod --query version
 ```
 
 **2. DNS**
 
-Point `www.test-radhafabric.mathilens.com` at this server's public IP. It currently resolves to
-`swa-radhafabric-test`, so this is the cutover. Wait for it to resolve before the next step —
-certbot validates over HTTP and will fail otherwise.
+Point `www.test-radhafabric.mathilens.com` at `4.224.126.104`. The record is NOT currently served
+by `swa-radhafabric-test`, whatever this file used to say — that Static Web App is not in the
+subscription. The only one there is `mathilens-web-mrkwv`, which serves production on
+`www.mathilens.com`, so this is a new record rather than a cutover. Wait for it to resolve before
+the next step — certbot validates over HTTP and will fail otherwise.
 
 **3. Certificate**
 
@@ -62,15 +67,21 @@ block, and re-running `setup.sh` would overwrite that work.
 
 **4. Database**
 
-Confirm the source database name first — the repo names two candidates and only the deployed app
-knows which is real:
+`setup.sh` has already created `radha_fabric_test`, owned by `mathilens_test_app`. A test box with
+an empty database is a working test box — the API applies its migrations on boot — so this step is
+only needed if test must carry real data.
+
+If it must: there is no old test database left to copy. `mathilens-pg-mrkwv` holds only
+`mathilens_db` and `radha_fabric_prod`, both production, so `copy-test-database.sh` now refuses to
+run unless `SRC_DB` is named explicitly:
 
 ```bash
-az webapp config appsettings list -g rg-mathilens-prod -n api-radhafabric-test -o table
+SRC_DB=radha_fabric_prod ./copy-test-database.sh
 ```
 
-Then follow the header of `copy-test-database.sh`: open a firewall rule on the Azure server for
-this box's IP, run the script, **and close the rule again**.
+Understand what that copies before you type it — live customer names, phone numbers, addresses and
+dates of birth onto a box with a different security boundary. Then follow the header of the script:
+open a firewall rule on `mathilens-pg-mrkwv` for this box's IP, run it, **and close the rule again**.
 
 **5. GitHub runner**
 
@@ -90,21 +101,23 @@ the new group take effect.
 Push to `dev`, or run the workflow by hand. It builds both halves, regenerates the nginx rewrites,
 restarts the API, and smoke-tests the site and `/api/v1/auth/login` before reporting success.
 
-## Only then: decommission Azure
+## Decommission Azure — already done, by someone else
 
-Once test is verified working on the VM:
+There is nothing left to delete. `api-radhafabric-test`, `swa-radhafabric-test` and
+`pg-mathilens-55e31706` are all absent from the subscription; `az resource list` returns four
+resources in `rg-mathilens-prod` (`mathilens-web-mrkwv`, `mathilens-api-mrkwv`,
+`mathilens-plan-mrkwv`, `mathilens-pg-mrkwv`) and the test VM's networking in `rg-mathilens-test`.
 
-```bash
-az webapp delete            -g rg-mathilens-prod -n api-radhafabric-test
-az staticwebapp delete      -g rg-mathilens-prod -n swa-radhafabric-test --yes
-az postgres flexible-server execute -n pg-mathilens-55e31706 -u mathilensadmin -p '<pw>' \
-  -d postgres --querytext "DROP DATABASE mathilens_radhafabric_test;"
-```
+So the rollback this section used to promise no longer exists: the old test stack is gone whether
+or not the VM works. Bring the VM up before relying on a test environment at all.
 
-Retire the now-unused GitHub secrets `AZURE_WEBAPP_PUBLISH_PROFILE_TEST` and
-`AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_RADHAFABRIC_TEST`, and delete
-`scripts/database/grant-app-role-ownership-radhafabric-test.sql` — it repairs an ownership problem
-that cannot occur here.
+What does remain, in the repository rather than in Azure:
+
+- The workflows `deploy-api-test.yml` and `azure-static-web-apps-test.yml`, which targeted those
+  deleted resources. Both are now `workflow_dispatch`-only — they used to run on every push to
+  `dev` and fail. Delete them once this VM deploy is proven.
+- `scripts/database/grant-app-role-ownership-radhafabric-test.sql`, which repairs an ownership
+  problem that cannot occur here — see "Database ownership" below.
 
 **Do this last.** While those resources exist, rolling back is a DNS change; once the publish
 profile is gone it cannot be regenerated.

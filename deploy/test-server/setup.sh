@@ -17,13 +17,19 @@ set -euo pipefail
 
 # ---------------------------------------------------------------------------------------------
 # Settings. PG_MAJOR must match the production server's major version — check it with:
-#   az postgres flexible-server show -n pg-mathilens-55e31706 -g rg-mathilens-prod --query version
+#   az postgres flexible-server show -n mathilens-pg-mrkwv -g rg-mathilens-prod --query version
 # A test box on a different major version is a test box that can disagree with production about
 # collation, planner behaviour and the exact wording of constraint violations.
+#
+# The server named here is mathilens-pg-mrkwv, not pg-mathilens-55e31706: the latter is not in the
+# subscription and the command above returned nothing for it. 16 is the real answer, confirmed
+# against the live server, so the default below was already right for the wrong reason.
 # ---------------------------------------------------------------------------------------------
 PG_MAJOR="${PG_MAJOR:-16}"
 SITE_HOST="${SITE_HOST:-www.test-radhafabric.mathilens.com}"
-DB_NAME="${DB_NAME:-mathilens_radhafabric_test}"
+# radha_fabric_test, to match radha_fabric_prod on Azure. The pair is named for the shop rather
+# than for the product, which is what the databases either side of this deployment are called.
+DB_NAME="${DB_NAME:-radha_fabric_test}"
 DB_ROLE="${DB_ROLE:-mathilens_test_app}"
 SERVICE_USER="${SERVICE_USER:-mathilens}"
 WEB_ROOT="/var/www/mathilens-test"
