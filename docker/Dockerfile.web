@@ -34,7 +34,13 @@ RUN node /tmp/generate-nginx-routes.mjs staticwebapp.config.json > /tmp/mathilen
 
 FROM nginx:alpine
 COPY --from=build /app/out /usr/share/nginx/html
-COPY --from=build /tmp/mathilens-routes.conf /etc/nginx/conf.d/mathilens-routes.conf
+# Outside conf.d on purpose — see the note in nginx.conf. Everything in conf.d is loaded into the
+# http block independently, and this file is bare location blocks, which nginx refuses there.
+COPY --from=build /tmp/mathilens-routes.conf /etc/nginx/mathilens-routes.conf
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Fail the build rather than the container: without this, a malformed route file only shows up as a
+# restart loop in Coolify with the reason buried in docker logs.
+RUN nginx -t
 
 EXPOSE 80
