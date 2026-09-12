@@ -28,9 +28,14 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          # The App Service that actually exists. This said api-mathilens-erp, a resource that is
-          # not in the subscription — so every run of this workflow failed to find its target and
-          # main deployed nowhere. Verified against `az resource list` in rg-mathilens-prod.
-          app-name: mathilens-api-mrkwv
+          # This product's own App Service, in rg-radhafabric-prod.
+          #
+          # It has pointed at two wrong things. api-mathilens-erp was never in the subscription at
+          # all, so main deployed nowhere. mathilens-api-mrkwv does exist, but it belongs to another
+          # product: its settings name a Vite frontend (localhost:4173/5173) and ALLOWED_ORIGINS,
+          # which this codebase never reads — it reads Cors:FrontendOrigin — and its wwwroot still
+          # holds an older Mathilens.Api.dll. Deploying here stops the two products overwriting
+          # each other.
+          app-name: radhafabric-api
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
