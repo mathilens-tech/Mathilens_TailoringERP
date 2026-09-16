@@ -9,6 +9,14 @@ on:
       - ".github/workflows/deploy-api.yml"
   workflow_dispatch:
 
+permissions:
+  # Lets the job ask GitHub for a short-lived OIDC token to present to Azure. Without it the
+  # azure/login step below fails with "unable to get ACTIONS_ID_TOKEN_REQUEST_URL" — the token is
+  # not issued unless a workflow asks for it. "contents: read" has to be restated: naming any
+  # permission replaces the default set rather than adding to it, and checkout needs this one.
+  id-token: write
+  contents: read
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -25,6 +33,23 @@ jobs:
       - name: Publish
         run: dotnet publish src/Api/MathilensERP.Api.csproj --configuration Release --no-restore --output ./publish
 
+      # Federated sign-in: GitHub mints a short-lived token for this repository and branch, and
+      # Azure trusts it because of a federated credential naming exactly that subject. Nothing
+      # long-lived is stored — the three values below identify which app to sign in as, and are
+      # not secrets in the sense a password is.
+      #
+      # This replaces a publish profile, which did not merely expire: publish profiles authenticate
+      # with basic auth against the SCM endpoint, and this app has
+      # basicPublishingCredentialsPolicies/scm set to allow=false. Every profile is rejected while
+      # that is off, so reissuing the secret would have produced the same
+      # "Publish profile is invalid for app-name and slot-name provided" it produced twice.
+      - name: Sign in to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
@@ -37,5 +62,26 @@ jobs:
           # holds an older Mathilens.Api.dll. Deploying here stops the two products overwriting
           # each other.
           app-name: radhafabric-api
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
+
+      # The app is on a B1 plan with one worker, and applies migrations on boot. A recycle there has
+      # taken five and a half minutes to answer, which is longer than the deploy step is willing to
+      # wait — the deployment succeeds and the step reports the worker failed to start. This asks
+      # the question the deploy step stopped waiting for, so a green run means the API is actually
+      # serving rather than merely that the files arrived.
+      - name: Wait for the API to come back
+        run: |
+          for i in $(seq 1 40); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
+              "https://radhafabric-api.azurewebsites.net/api/v1/order-drafts" || true)
+            # 401 is the healthy answer: the route exists and is refusing an unauthenticated caller.
+            # A 404 means an older build is still serving, and 5xx means it is not up yet.
+            if [ "$code" = "401" ]; then
+              echo "API is serving (HTTP $code)."
+              exit 0
+            fi
+            echo "attempt $i: HTTP $code"
+            sleep 15
+          done
+          echo "API did not come back within ten minutes."
+          exit 1
