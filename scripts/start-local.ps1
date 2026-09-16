@@ -52,7 +52,11 @@ if (Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyCont
 }
 
 ""
-"  http://localhost:3000        sign in: admin@mathilens.local / Admin@12345"
+# The password is not printed. It was, and it was wrong — the line claimed Admin@12345, which this
+# database's admin account has never used, so a failing sign-in read as a broken build rather than
+# as a stale comment. A credential written beside a username is documentation nothing enforces: it
+# is right until somebody changes the password, and silently misleading from then on.
+"  http://localhost:3000        sign in as admin@mathilens.local"
 "  http://192.168.1.5:3000      same machine, from a phone on this wifi"
 ""
 "To stop everything:"
