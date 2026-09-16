@@ -52,6 +52,31 @@ export type Order = {
   items: OrderItem[];
 };
 
+/**
+ * What is still owed on an order, as a figure fit to show somebody.
+ *
+ * <p><b>Why this exists.</b> `balanceAmount` is `totalAmount − amountPaid`, and those two are
+ * measured differently: the order's total is its own pre-tax value, while payments are taken
+ * against an <em>invoice</em>, which has tax added on top. Settle an invoice in full and the order
+ * reports a negative balance — the tax, paid but not counted in the total it is subtracted from.
+ * A counter sale pays its invoice in full the moment it is rung up, so it hits this every time.</p>
+ *
+ * <p>Clamped at zero rather than shown, because a negative here does not mean what it reads as.
+ * "Balance −50.00" says the shop owes the customer money; what happened is that tax was paid on
+ * top of the order's own value. Nothing is owed either way, and zero says so.</p>
+ *
+ * <p>This is a display plaster over a modelling mismatch. The real fix is for the server to
+ * measure the balance against the invoice it was paid on. Until then, every screen showing a
+ * balance should read it through here so they all tell the same story.</p>
+ */
+export function outstandingBalance(order: Pick<Order, "balanceAmount">): number | null {
+  if (order.balanceAmount === null) {
+    return null;
+  }
+
+  return Math.max(0, order.balanceAmount);
+}
+
 /** `clothCode` is resolved against the price list server-side: a match links this fabric to that
  * cloth so stock falls by `quantity`; anything else is kept as the free text it has always been. */
 export type CreateOrderItemFabricInput = {

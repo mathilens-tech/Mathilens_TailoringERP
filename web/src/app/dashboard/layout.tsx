@@ -150,8 +150,17 @@ const NAV_ITEMS: NavEntry[] = [
       // Beside Measurement, since both are per-garment settings the New Order screen reads.
       { href: "/dashboard/settings/tailoring-cost", label: "Tailoring Cost", icon: ScissorsIcon, permission: PERMISSIONS.settingsView },
       { href: "/dashboard/settings/order-number", label: "Order Number", icon: HashIcon, permission: PERMISSIONS.settingsView },
+      // What the New Order screen's quantity and metres pads offer — a shop selling curtain fabric
+      // and one selling blouse pieces do not want the same numbers.
+      { href: "/dashboard/settings/order-entry", label: "Order Entry", icon: RulerIcon, permission: PERMISSIONS.settingsView },
       { href: "/dashboard/settings/invoice", label: "Invoice Settings", icon: InvoicesIcon, permission: PERMISSIONS.settingsView },
       { href: "/dashboard/settings/measurement-templates", label: "Measurement", icon: RulerIcon, permission: PERMISSIONS.settingsView },
+      // The two drafts the WhatsApp icon opens with. Not the invoice or status messages — those go
+      // out on a fixed occasion and quote figures, so they stay in code.
+      { href: "/dashboard/settings/whatsapp-messages", label: "WhatsApp Messages", icon: WhatsAppIcon, permission: PERMISSIONS.settingsView },
+      // Settings.Edit, not Settings.View like its neighbours: one press hands over every customer's
+      // personal details in a single file, and the endpoint is gated the same way.
+      { href: "/dashboard/settings/backup", label: "Backup", icon: DownloadIcon, permission: PERMISSIONS.settingsEdit },
       // No permission at all: Front Desk and Tailor hold no Settings.View, and the theme toggle no
       // longer sits in the header, so gating this would leave them unable to change it anywhere.
       { href: "/dashboard/settings/appearance", label: "Appearance", icon: ThemeIcon, permission: null },
@@ -490,7 +499,22 @@ export default function DashboardLayout({ children }: LayoutProps<"/dashboard">)
           Small screens only: on a desktop the rail is always on-screen and carries its own collapse
           toggle, so this would be an empty strip of padding above the page heading.
         */}
-        <div className="flex shrink-0 items-center px-4 pt-4 print:hidden sm:px-6 lg:hidden">{drawerToggle}</div>
+        {/*
+          Sticky, not static. As a plain row at the top of the column this scrolled away with the
+          page, so on a phone the only way back to the navigation was to scroll to the top of
+          whatever you were reading first — on a long order or a full customer list, a long way.
+
+          bg-background rather than transparent: a sticky strip with no background lets the content
+          slide visibly underneath it. z-20 sits above the page and below the drawer's own backdrop
+          at z-30, so opening the nav still dims this button along with everything else rather than
+          leaving it floating over the overlay.
+
+          pb-2 as well as pt-4, because the strip now has content passing beneath it and needs to
+          end somewhere rather than having its background stop flush against the icon.
+        */}
+        <div className="sticky top-0 z-20 flex shrink-0 items-center bg-background px-4 pb-2 pt-4 print:hidden sm:px-6 lg:hidden">
+          {drawerToggle}
+        </div>
         {/* min-w-0 so a wide child inside can shrink rather than stretching the flex row and
             handing the page a sideways scrollbar. Narrower gutters on a phone, where six wasted
             rems is most of a column. */}
@@ -807,6 +831,26 @@ function ShopIcon({ className }: IconProps) {
       <path d="M3 9h18l-1.5-5h-15L3 9Z" />
       <path d="M4.5 9v11h15V9" />
       <path d="M10 20v-6h4v6" />
+    </svg>
+  );
+}
+
+/** An arrow into a tray — the file coming down, which is all this screen does. */
+function DownloadIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M12 15V3" />
+    </svg>
+  );
+}
+
+/** WhatsApp's own mark, filled rather than stroked — it is a logo, not one of the line icons. */
+function WhatsAppIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z" />
     </svg>
   );
 }

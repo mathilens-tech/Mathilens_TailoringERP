@@ -273,6 +273,10 @@ export function DeliveryDialog({
                         type="number"
                         min="0"
                         step="0.01"
+                        // Money taken at the counter, so a keypad rather than whatever the tablet
+                        // would otherwise open. A raw input, so it does not get the shared Input
+                        // component's default.
+                        inputMode="decimal"
                         value={received}
                         onChange={(e) => setReceived(e.target.value)}
                         disabled={isConfirming}

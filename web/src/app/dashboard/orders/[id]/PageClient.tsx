@@ -10,6 +10,10 @@ import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useToast } from "@/components/ui/ToastProvider";
 import { InvoiceDocument } from "@/components/orders/InvoiceDocument";
 import { InvoicePrintModal } from "@/components/orders/InvoicePrintModal";
+import { OrderMeasurements } from "@/components/orders/OrderMeasurements";
+import { createManualWhatsAppProvider, toWhatsAppApp, WhatsAppOpenError } from "@/lib/whatsapp/provider";
+import { toWhatsAppNumber } from "@/lib/whatsapp/whatsapp-service";
+import { getOrderMessageTemplate, renderTemplate } from "@/lib/whatsapp/templates";
 import { ShareViaWhatsAppButton } from "@/components/whatsapp/ShareViaWhatsAppButton";
 import type { ShareKind } from "@/lib/whatsapp/whatsapp-service";
 import { useBranding } from "@/lib/use-branding";
@@ -30,6 +34,7 @@ import {
   updateOrder,
   transitionOrderStatus,
   assignOrderEmployee,
+  outstandingBalance,
   type Order,
   type OrderStatus,
 } from "@/lib/api/orders";
@@ -60,6 +65,13 @@ export default function OrderDetailPage() {
   const branding = useBranding();
   const [order, setOrder] = useState<Order | null>(null);
   const [customer, setCustomer] = useState<Customer | null>(null);
+  /**
+   * The shop's order-message draft, loaded with the page rather than on the press.
+   *
+   * Opening WhatsApp has to happen inside the click that asked for it or the pop-up blocker stops
+   * it, and awaiting a settings request first is precisely what breaks that.
+   */
+  const [orderTemplate, setOrderTemplate] = useState<string | null>(null);
   const [assignedEmployee, setAssignedEmployee] = useState<Employee | null>(null);
   const [previousOrders, setPreviousOrders] = useState<Order[]>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -126,6 +138,20 @@ export default function OrderDetailPage() {
     load();
   }, [load]);
 
+  useEffect(() => {
+    // Never rejects — an unconfigured shop gets the built-in draft, so the icon always has
+    // something to open with.
+    let cancelled = false;
+    getOrderMessageTemplate(getAccessToken()).then((value) => {
+      if (!cancelled) {
+        setOrderTemplate(value);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   async function handleTransition(target: OrderStatus, deliveredAtUtc: string | null = null) {
     setIsTransitioning(true);
     try {
@@ -184,6 +210,51 @@ export default function OrderDetailPage() {
       setDeliveryError(error instanceof ApiError ? error.message : "Unable to complete this delivery.");
     } finally {
       setIsTransitioning(false);
+    }
+  }
+
+  /**
+   * The configured order draft, addressed to this customer about this order.
+   *
+   * Money is formatted the same way the invoice message formats it — Indian digit grouping, two
+   * decimals — so the two messages a customer receives about one order do not quote the same
+   * figure in two different shapes.
+   */
+  async function messageCustomerAboutOrder() {
+    if (!order || !customer || orderTemplate === null) {
+      return;
+    }
+
+    const number = toWhatsAppNumber(customer.phoneNumber);
+    if (number === null) {
+      showToast("This customer's number is not a valid WhatsApp number.", "error");
+      return;
+    }
+
+    const money = (amount: number) =>
+      `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const collectionDate = new Date(order.dueAtUtc);
+
+    const message = renderTemplate(orderTemplate, {
+      "{customerName}": customer.fullName,
+      "{shopName}": branding.shopName || "Mathilens",
+      "{orderNumber}": order.orderNumber?.trim() || `#${order.id.slice(0, 8).toUpperCase()}`,
+      "{orderTotal}": money(order.totalAmount),
+      // Null only on a response produced by a write, which this screen never renders — it reloads
+      // through getOrder after every change. Guarded anyway rather than printing "₹NaN".
+      "{balanceDue}": outstandingBalance(order) === null ? "—" : money(outstandingBalance(order)!),
+      "{collectionDate}": Number.isNaN(collectionDate.getTime())
+        ? ""
+        : collectionDate.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }),
+    });
+
+    try {
+      await createManualWhatsAppProvider(toWhatsAppApp(branding.whatsAppApp)).deliver(number, message);
+    } catch (error) {
+      showToast(
+        error instanceof WhatsAppOpenError ? error.message : "Unable to open WhatsApp.",
+        "error",
+      );
     }
   }
 
@@ -323,6 +394,9 @@ export default function OrderDetailPage() {
   }
 
   const nextStatuses = NEXT_STATUSES[order.status];
+  // Cloth sold over the counter. Nothing about a tailoring order's life applies to it — no tailor
+  // holds it, no stage follows, and it was finished before this screen was ever opened.
+  const isSale = order.status === "Sold";
   // A delivered or cancelled order is finished with, so its details stop being editable.
   const canEditOrder = order.status !== "Delivered" && order.status !== "Cancelled";
   // Work cannot start on an order nobody holds — the server refuses it, so the screen offers the
@@ -352,19 +426,45 @@ export default function OrderDetailPage() {
       </div>
 
       {/* Above the details, because "where is this order" is the question someone opens this screen
-          holding — the particulars are what they read once they know. */}
-      <div className="overflow-x-auto rounded-lg border border-border bg-surface px-6 py-4">
-        <OrderWorkflow status={order.status} hasEmployee={Boolean(order.employeeId)} />
-      </div>
+          holding — the particulars are what they read once they know.
+
+          Withheld on a sale. The strip charts a tailoring order's life — Assign Employee, In
+          Progress, Ready For Delivery — and a sale travels none of it, so it drew the five steps
+          with "Assign Employee" marked as the step the order was waiting on. Cloth already handed
+          over, displayed as a job waiting for a tailor. A sale has no "where is it" to answer. */}
+      {!isSale && (
+        <div className="overflow-x-auto rounded-lg border border-border bg-surface px-6 py-4">
+          <OrderWorkflow status={order.status} hasEmployee={Boolean(order.employeeId)} />
+        </div>
+      )}
 
       <div className="rounded-lg border border-border bg-surface p-6">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-semibold">Order Details</h2>
-          {canEditOrder && !isEditingDetails && (
-            <Button type="button" variant="secondary" onClick={openDetailsForm}>
-              Edit Details
-            </Button>
-          )}
+          <div className="flex items-center gap-3">
+            {/* The order's own WhatsApp draft, as configured in Settings › WhatsApp Messages.
+                Separate from the status shares further down: those are sent at a fixed moment and
+                say a fixed thing, where this is "message this customer about this order" with
+                whatever the shop has decided that should say. */}
+            {customer && orderTemplate !== null && !isEditingDetails && (
+              <button
+                type="button"
+                onClick={messageCustomerAboutOrder}
+                aria-label={`Message ${customer.fullName} on WhatsApp`}
+                title="Message customer on WhatsApp"
+                className="text-success hover:text-success/80"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+              </button>
+            )}
+            {canEditOrder && !isEditingDetails && (
+              <Button type="button" variant="secondary" onClick={openDetailsForm}>
+                Edit Details
+              </Button>
+            )}
+          </div>
         </div>
 
         {isEditingDetails ? (
@@ -447,7 +547,9 @@ export default function OrderDetailPage() {
               <div>
                 {/* The order's collected-so-far. Null only on a response produced by a write, which
                     this screen never renders — it reloads through getOrder after every change. */}
-                <dt className="text-foreground/70">Advance</dt>
+                {/* "Advance" means money held against work still to come. On a sale there is no
+                    work to come and the figure is the whole bill, already settled. */}
+                <dt className="text-foreground/70">{isSale ? "Paid" : "Advance"}</dt>
                 <dd className="font-medium tabular-nums">{order.amountPaid?.toFixed(2) ?? "—"}</dd>
               </div>
               <div>
@@ -456,12 +558,12 @@ export default function OrderDetailPage() {
                     so it carries colour where the others do not. Matches the Orders list. */}
                 <dd
                   className={
-                    order.balanceAmount !== null && order.balanceAmount > 0
+                    (outstandingBalance(order) ?? 0) > 0
                       ? "font-medium tabular-nums text-danger"
                       : "font-medium tabular-nums"
                   }
                 >
-                  {order.balanceAmount?.toFixed(2) ?? "—"}
+                  {outstandingBalance(order)?.toFixed(2) ?? "—"}
                 </dd>
               </div>
             </div>
@@ -475,14 +577,18 @@ export default function OrderDetailPage() {
                 <dt className="text-foreground/70">Mobile Number</dt>
                 <dd className="font-medium">{customer?.phoneNumber ?? "—"}</dd>
               </div>
-              <div>
-                <dt className="text-foreground/70">Assigned Employee</dt>
-                {/* Distinguishes "nobody holds this yet" from "somebody does, but their record
-                    would not load" — the first is a job to do, the second is a fault to report. */}
-                <dd className="font-medium">
-                  {assignedEmployee?.fullName ?? (order.employeeId ? "Assigned — record unavailable" : "—")}
-                </dd>
-              </div>
+              {/* Nobody is ever assigned to a sale — the server refuses an employee on one — so the
+                  row could only ever read "—", which invites the question of who ought to be on it. */}
+              {!isSale && (
+                <div>
+                  <dt className="text-foreground/70">Assigned Employee</dt>
+                  {/* Distinguishes "nobody holds this yet" from "somebody does, but their record
+                      would not load" — the first is a job to do, the second is a fault to report. */}
+                  <dd className="font-medium">
+                    {assignedEmployee?.fullName ?? (order.employeeId ? "Assigned — record unavailable" : "—")}
+                  </dd>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-4">
@@ -539,6 +645,12 @@ export default function OrderDetailPage() {
           </div>
         )}
       </div>
+
+      {/* Between the order's facts and its money: the figures belong to the work, and the tailor
+          reading them has no interest in the invoice below. Full width rather than in the two-column
+          grid — a garment with a dozen points needs the room, and wrapping them into half a screen
+          is what sent people back to the customer record to read them comfortably. */}
+      <OrderMeasurements customerId={order.customerId} items={order.items} />
 
       <div className="grid items-start gap-4 lg:grid-cols-2">
         <div className="rounded-lg border border-border bg-surface p-6">
@@ -666,12 +778,12 @@ export default function OrderDetailPage() {
                       <td data-label="Amount" className="px-3 py-2 text-right tabular-nums">{previous.totalAmount.toFixed(2)}</td>
                       <td data-label="Balance"
                         className={
-                          previous.balanceAmount !== null && previous.balanceAmount > 0
+                          (outstandingBalance(previous) ?? 0) > 0
                             ? "px-3 py-2 text-right font-medium tabular-nums text-danger"
                             : "px-3 py-2 text-right tabular-nums"
                         }
                       >
-                        {previous.balanceAmount?.toFixed(2) ?? "—"}
+                        {outstandingBalance(previous)?.toFixed(2) ?? "—"}
                       </td>
                     </tr>
                   ))}

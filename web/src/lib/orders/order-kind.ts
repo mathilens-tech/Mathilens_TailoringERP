@@ -91,3 +91,23 @@ export function effectiveBusinessMode(kind: OrderKind): BusinessMode {
 export function isFabricOnly(kind: OrderKind): boolean {
   return kind === "fabric";
 }
+
+/** Whose cloth the garment is cut from — the shop's own roll, or one the customer walked in with. */
+export type FabricSourceMode = "internal" | "external";
+
+/**
+ * Whose cloth a new item row assumes, before anybody touches the toggle.
+ *
+ * The shop's own, on every kind of order. The customer's used to be the default on the grounds that
+ * it needs nothing else filled in, so a row started complete — but that optimised for the form
+ * rather than for the counter, where the shop supplying the cloth is the ordinary case and the
+ * customer walking in with their own is the exception. Defaulting to the exception meant the toggle
+ * was flipped on almost every row of almost every order.
+ *
+ * A constant rather than a function of the kind. It did vary by kind for a moment, and saying so in
+ * a signature that now ignores its argument would only invite the reader to hunt for a distinction
+ * that is no longer drawn. Where the choice is not offered at all — the Tailoring screen, which
+ * prices as tailoring-only — this value is never read: `sellsFabric` is false there, so the item is
+ * submitted with no fabric at all and nothing untrue is stored.
+ */
+export const DEFAULT_FABRIC_SOURCE: FabricSourceMode = "internal";
