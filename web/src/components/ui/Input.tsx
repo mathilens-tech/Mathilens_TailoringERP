@@ -76,6 +76,21 @@ export function Input({ label, error, id, className = "", autoCapitalize, onChan
         id={id}
         aria-invalid={Boolean(error)}
         autoCapitalize={autoCapitalize ?? (transform ? "words" : undefined)}
+        // What keyboard a phone or tablet should open for a number field.
+        //
+        // type="number" alone does not settle this. It tells the browser what the value must be,
+        // not what to open — and a tablet will happily present a full text keyboard, leaving
+        // somebody at a counter hunting for a digit. Every number field in this app wants a keypad,
+        // so the default belongs here rather than being remembered at each of the dozen call sites
+        // that had already forgotten it.
+        //
+        // step="1" means whole numbers, so that gets the keypad without a decimal point — there is
+        // nothing useful to type with it. Anything else may take a fraction. An explicit inputMode
+        // from the caller always wins.
+        inputMode={
+          props.inputMode ??
+          (props.type === "number" ? (props.step === "1" ? "numeric" : "decimal") : undefined)
+        }
         onChange={
           transform
             ? (event) => {

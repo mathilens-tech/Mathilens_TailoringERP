@@ -304,6 +304,9 @@ export default function InvoiceDetailPage() {
                 type="number"
                 min="0"
                 step="0.01"
+                // A raw input rather than the shared Input component, so it needs the keypad hint
+                // of its own. Money, so decimal.
+                inputMode="decimal"
                 value={paymentAmount}
                 onChange={(e) => setPaymentAmount(e.target.value)}
                 placeholder={`Amount (balance: ${invoice.remainingBalance.toFixed(2)})`}

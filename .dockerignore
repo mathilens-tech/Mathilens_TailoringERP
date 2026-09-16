@@ -1,0 +1,44 @@
+# What never belongs in a build context.
+#
+# node_modules is the one that matters rather than merely costing time: Dockerfile.web runs
+# `npm ci` and then copies web/ over the top, so a host node_modules would overwrite the one just
+# installed — with packages built for the host's platform, inside an Alpine image. The failure that
+# follows points at a native module and not at this file.
+
+# Dependencies and build output — every one of these is produced inside the image.
+**/node_modules
+**/bin
+**/obj
+web/.next
+web/out
+publish
+
+# Version control and CI. .git alone is tens of megabytes of context that no build step reads.
+.git
+.gitignore
+.github
+
+# Credentials. cred.txt holds a Coolify API token; a build context is copied wholesale into the
+# daemon and can surface in image layers.
+cred.txt
+cred*.txt
+**/.env
+**/.env.*
+!**/.env.example
+
+# Documentation platform and specs — not read by any build stage.
+docs
+knowledge.md
+knowledge.html
+*.md
+!web/README.md
+
+# Local tooling and editor state.
+.vs
+.vscode
+.idea
+.claude
+scratchpad
+*.user
+*.suo
+TestResults

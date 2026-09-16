@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { OrderDraftsPanel } from "@/components/orders/OrderDraftsPanel";
 import { Input } from "@/components/ui/Input";
 import { Modal } from "@/components/ui/Modal";
 import { RowMenu } from "@/components/ui/RowMenu";
@@ -20,6 +21,7 @@ import {
   deleteOrder,
   assignOrderEmployee,
   transitionOrderStatus,
+  outstandingBalance,
   ORDER_STATUSES,
   type Order,
   type OrderStatus,
@@ -43,12 +45,20 @@ const EMPLOYEE_PAGE_LIMIT = 5;
 
 /** Nobody holds it yet, and it hasn't finished — a delivered order needs no one assigned to it. */
 function canAssign(order: Order): boolean {
-  return !order.employeeId && order.status !== "Delivered" && order.status !== "Cancelled";
+  // Sold is excluded alongside the other terminal states. Cloth across the counter has no work to
+  // hand to anybody, and the server refuses an employee on a sale — so the row was offering an
+  // action that could only ever come back as an error.
+  return (
+    !order.employeeId &&
+    order.status !== "Delivered" &&
+    order.status !== "Cancelled" &&
+    order.status !== "Sold"
+  );
 }
 
 /** There is money outstanding on an order still being worked. */
 function canReceiveBalance(order: Order): boolean {
-  return (order.balanceAmount ?? 0) > 0 && order.status !== "Cancelled";
+  return (outstandingBalance(order) ?? 0) > 0 && order.status !== "Cancelled";
 }
 
 /**
@@ -520,6 +530,10 @@ export default function OrdersPage() {
         </div>
       </div>
 
+      {/* Above the filters and the list: an unfinished order is the most pressing thing on this
+          screen, and the panel renders nothing at all when there are none. */}
+      <OrderDraftsPanel />
+
       <div className="flex flex-wrap items-end gap-4">
         {/* One box for all three, because whoever is at the counter has been handed one of them —
             a number off a receipt, a name, or a phone — and should not have to know which. */}
@@ -617,12 +631,12 @@ export default function OrdersPage() {
                     <td
                       data-label="Balance"
                       className={
-                        order.balanceAmount !== null && order.balanceAmount > 0
+                        (outstandingBalance(order) ?? 0) > 0
                           ? "whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums text-danger"
                           : "whitespace-nowrap px-4 py-3 text-right tabular-nums"
                       }
                     >
-                      {order.balanceAmount?.toFixed(2) ?? "—"}
+                      {outstandingBalance(order)?.toFixed(2) ?? "—"}
                     </td>
                     <td data-label="Status" className="whitespace-nowrap px-4 py-3">
                       <StatusBadge {...ORDER_STATUS_BADGE[order.status]} />

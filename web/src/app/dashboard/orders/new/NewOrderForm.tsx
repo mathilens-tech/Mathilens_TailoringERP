@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 // what is typed into the search box is still tidied to the same rule before seeding the dialog.
 import { cleanPhoneNumberInput } from "@/components/ui/PhoneNumberInput";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+import { useOrderEntrySettings } from "@/lib/use-order-entry-settings";
 import {
   OrderItemsEditor,
   clothAmount,
@@ -16,18 +17,21 @@ import {
   type ItemRow,
 } from "@/components/orders/OrderItemsEditor";
 import {
+  DEFAULT_FABRIC_SOURCE,
   effectiveBusinessMode,
   isFabricOnly,
   orderKindMeta,
   type OrderKind,
 } from "@/lib/orders/order-kind";
+import { isWorthSaving, parseDraft, summarize, type OrderDraftState } from "@/lib/orders/order-draft-state";
+import { saveOrderDraft, deleteOrderDraft, getOrderDraft } from "@/lib/api/order-drafts";
 import { InvoicePrintModal } from "@/components/orders/InvoicePrintModal";
 import { useMeasurementFields } from "@/lib/use-measurement-templates";
 import { useToast } from "@/components/ui/ToastProvider";
 import { useDebouncedValue } from "@/lib/use-debounced-value";
 import { getAccessToken } from "@/lib/auth";
 import { ApiError } from "@/lib/api-client";
-import { searchCustomers, createCustomer, type Customer, type CustomerInput } from "@/lib/api/customers";
+import { searchCustomers, createCustomer, getCustomer, type Customer, type CustomerInput } from "@/lib/api/customers";
 import { CustomerForm } from "@/app/dashboard/customers/CustomerForm";
 import { Modal } from "@/components/ui/Modal";
 import { searchEmployees, type Employee } from "@/lib/api/employees";
@@ -36,6 +40,7 @@ import {
   listMeasurementsForCustomer,
   createMeasurement,
   updateMeasurementValues,
+  hasSecondValue,
   type Measurement,
   type MeasurementValue,
 } from "@/lib/api/measurements";
@@ -113,6 +118,16 @@ function weekdayOf(isoDate: string): (typeof WEEKDAYS)[number] | null {
   return WEEKDAYS[new Date(year, month - 1, day).getDay()];
 }
 
+/**
+ * How many customers the search field lists at a time.
+ *
+ * Was 10, which made the dropdown a set of suggestions rather than something to browse. 50 fills
+ * the list without approaching the server's own ceiling of 100 (PaginationDefaults.MaxPageSize),
+ * and typing is what reaches anyone past it — the customer book has no upper bound, so unlike the
+ * fabric catalogue there is no "fetch it all" to fall back on.
+ */
+const CUSTOMER_SEARCH_PAGE_SIZE = 50;
+
 export type NewOrderFormProps = {
   /**
    * Which of the three order screens this is. Decided by the route rather than by a control on the
@@ -182,6 +197,26 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     [garments, tailoringRates],
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  /**
+   * The draft this form is autosaving into, once there has been anything worth saving.
+   *
+   * <p>A ref rather than state: it changes on the first save and is read by the save that follows,
+   * and nothing on screen depends on its value. Holding it in state would re-render the whole form
+   * every few seconds for a value nobody displays.</p>
+   */
+  const draftIdRef = useRef<string | null>(null);
+  /** Rows a resumed draft starts the item editor on. Null on an ordinary new order. */
+  const [initialItemRows, setInitialItemRows] = useState<ItemRow[] | null>(null);
+  /** Shown beside the heading so autosave is visible rather than a thing to be trusted. */
+  const [draftSavedAt, setDraftSavedAt] = useState<Date | null>(null);
+  /**
+   * The last payload written, so an unchanged form does not rewrite the same row on every tick.
+   * Autosave runs on a timer over state that changes on every keystroke; without this it would
+   * write continuously while somebody merely read the screen.
+   */
+  const lastSavedPayloadRef = useRef<string | null>(null);
+
   const [createdOrder, setCreatedOrder] = useState<Order | null>(null);
   const [isGeneratingInvoice, setIsGeneratingInvoice] = useState(false);
   const [activeMeasurementItemId, setActiveMeasurementItemId] = useState<number | null>(null);
@@ -205,19 +240,91 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   // Which cell opened the Order Summary Preview — both the Order summary cell and the Schedule
   // cell open the same panel, and the one that was clicked is the one that gets highlighted.
   const [summarySource, setSummarySource] = useState<"summary" | "schedule" | null>(null);
+
+  /**
+   * Whether this is the single-column layout — below Tailwind's lg breakpoint.
+   *
+   * <p>Read here rather than expressed in CSS because the difference is not only how the preview
+   * looks but whether it is a thing that opens at all. On a wide screen it is one of three modes a
+   * shared panel can be in, and the Order Summary card is the control that selects it; on a phone
+   * it is simply part of the page. A class cannot say that.</p>
+   *
+   * <p>Starts false and is set after mount. This is a static export: the HTML is prerendered with
+   * no window to measure, so an initial value that read the viewport would disagree with the markup
+   * React hydrates against.</p>
+   */
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  /** Shared with the item editor and the measurement fields — one cached read for the whole page. */
+  const orderEntrySettings = useOrderEntrySettings();
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 1023px)");
+    const apply = () => setIsNarrow(query.matches);
+    apply();
+    // Kept in step rather than read once: a tablet rotated between portrait and landscape crosses
+    // this breakpoint, and a preview that stayed hidden until reload would look broken.
+    query.addEventListener("change", apply);
+    return () => query.removeEventListener("change", apply);
+  }, []);
   const [formKey, setFormKey] = useState(0);
   const [showInvoiceConfirm, setShowInvoiceConfirm] = useState(false);
   const [createdInvoice, setCreatedInvoice] = useState<Invoice | null>(null);
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
   const [autoPrintInvoice, setAutoPrintInvoice] = useState(false);
 
+  /**
+   * Everything a draft keeps, gathered from the fields above.
+   *
+   * Declared here rather than beside the refs it works with, because it reads state that is
+   * declared further down — advance, discount and the payment method among it.
+   */
+  const draftState = useMemo<OrderDraftState>(
+    () => ({
+      version: 1,
+      kind,
+      customerId: customer?.id ?? null,
+      customerName: customer?.fullName ?? null,
+      employeeId: employee?.id ?? null,
+      dueAtUtc,
+      orderNotes,
+      itemRows,
+      advanceAmount,
+      advanceMethod,
+      discountAmount,
+    }),
+    [kind, customer, employee, dueAtUtc, orderNotes, itemRows, advanceAmount, advanceMethod, discountAmount],
+  );
+
   const isOrderCreated = createdOrder !== null;
   const isViewingSummary = summarySource !== null;
+
+
   const collectionWeekday = weekdayOf(dueAtUtc);
 
   const activeMeasurementItemIndex = itemRows.findIndex((row) => row.id === activeMeasurementItemId);
   const activeMeasurementItem = activeMeasurementItemIndex === -1 ? null : itemRows[activeMeasurementItemIndex];
   const activeMeasurement = activeMeasurementItem ? (customerMeasurements.find((m) => m.garmentType === activeMeasurementItem.garmentType) ?? null) : null;
+
+  /**
+   * Whether the itemised preview is on screen.
+   *
+   * <p>On a phone, always — it is part of the page rather than a mode of a shared panel, so it does
+   * not wait to be asked for and does not close when an item's measurements are opened beneath it.
+   * The measurement panel renders inline under its own item below lg, so the two do not compete for
+   * the same space and both can be open at once.</p>
+   *
+   * <p>On a wide screen, only when the Order Summary or Schedule card has been clicked, exactly as
+   * before: there the panel is shared with measurements and the new-customer form, and something
+   * has to choose between them.</p>
+   *
+   * <p>The new-customer form is the one thing that displaces it at every width. It is a form being
+   * filled in, and burying it under a recap of an order that has no customer yet would be showing
+   * the answer to a question nobody has reached.</p>
+   */
+  const showSummaryPreview = isAddingNewCustomer
+    ? false
+    : isNarrow || (!activeMeasurementItem && isViewingSummary);
 
   // Split into two side-by-side halves within one merged block (00_MASTER_SPEC.md § 9.6) rather
   // than one long list. The points themselves come from the shop's configured template
@@ -350,6 +457,14 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     setSummarySource(null);
   }
 
+  /**
+   * Opens this item's measurements. Never closes them.
+   *
+   * <p>Deliberately not a toggle. The whole item card carries this handler, and the fields inside
+   * it do not all stop the click from bubbling — so a toggle here would mean tapping a quantity or
+   * a rate on an open row collapsed the panel underneath it. Closing is the expand control's job,
+   * which is a button and knows it was pressed.</p>
+   */
   function handleItemClick(row: ItemRow) {
     setActiveMeasurementItemId(row.id);
     setIsAddingNewCustomer(false);
@@ -376,18 +491,31 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
 
     const values: Record<string, MeasurementValue> = {};
     for (const point of measurementFields) {
-      const raw = measurementValues[point.name] ?? "";
-      // Points are individually optional — one nobody has filled in yet is skipped rather than
-      // blocking the save. A checkbox is never skipped: "no" is an answer.
-      const value = toMeasurementValue(point, raw);
-      if (value === null) {
-        if (point.type === "Number" && raw.trim() !== "") {
-          setMeasurementFormError(`"${point.name}" needs a value greater than zero.`);
-          return;
+      // Both boxes where the point has two, each under its own label. A point's second figure is an
+      // ordinary entry in this map — the template is what says the two belong together, so nothing
+      // that reads a saved measurement has to know about pairs.
+      const boxes = hasSecondValue(point)
+        ? [point.name, (point.secondName ?? "").trim()]
+        : [point.name];
+
+      for (const box of boxes) {
+        const raw = measurementValues[box] ?? "";
+        // Points are individually optional — one nobody has filled in yet is skipped rather than
+        // blocking the save. A checkbox is never skipped: "no" is an answer.
+        //
+        // That applies to each box separately, so a two-box point may be answered with only its
+        // first figure. The pair is never validated as a unit: a tailor who records a chest and has
+        // no second reading to give should not be stopped, and an empty box is simply not stored.
+        const value = toMeasurementValue(point, raw);
+        if (value === null) {
+          if (point.type === "Number" && raw.trim() !== "") {
+            setMeasurementFormError(`"${box}" needs a value greater than zero.`);
+            return;
+          }
+          continue;
         }
-        continue;
+        values[box] = value;
       }
-      values[point.name] = value;
     }
 
     if (Object.keys(values).length === 0) {
@@ -412,23 +540,36 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   }
 
   useEffect(() => {
-    if (!debouncedMobileNumber || customer) {
-      // No direct setState here for the empty/already-selected case — mirrors SearchPicker's
-      // own reasoning: stale results simply aren't rendered rather than being actively cleared.
+    if (customer) {
+      // No direct setState for the already-selected case — mirrors SearchPicker's own reasoning:
+      // stale results simply aren't rendered rather than being actively cleared.
       return;
     }
 
     let cancelled = false;
-    searchCustomers(debouncedMobileNumber, 1, 10, getAccessToken())
+    // An empty query is a real query now, and returns the first page of the customer book. This
+    // used to return early on a blank box, so the field showed nothing until something had been
+    // typed — the Cloth Code picker beside it opens onto its list, and there was no reason for the
+    // two to behave differently.
+    //
+    // Unlike that picker, this does NOT fetch the whole table. A shop's fabric catalogue is a few
+    // hundred rows and is the same for everyone; its customer book is unbounded and is personal
+    // data. So the list stays server-side and paged, and typing narrows it there rather than here.
+    searchCustomers(debouncedMobileNumber, 1, CUSTOMER_SEARCH_PAGE_SIZE, getAccessToken())
       .then(({ items }) => {
         if (cancelled) {
           return;
         }
-        const normalizedQuery = digitsOnly(debouncedMobileNumber);
-        const exactMatches = items.filter((c) => digitsOnly(c.phoneNumber) === normalizedQuery);
-        if (exactMatches.length === 1) {
-          selectCustomer(exactMatches[0]);
-          return;
+        // Only when something was actually typed. With a blank box every customer is "the whole
+        // query", and a shop whose book holds exactly one customer would have found that customer
+        // selected for them the moment the form opened.
+        if (debouncedMobileNumber) {
+          const normalizedQuery = digitsOnly(debouncedMobileNumber);
+          const exactMatches = items.filter((c) => digitsOnly(c.phoneNumber) === normalizedQuery);
+          if (exactMatches.length === 1) {
+            selectCustomer(exactMatches[0]);
+            return;
+          }
         }
         setMobileMatches(items);
       })
@@ -442,6 +583,126 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       cancelled = true;
     };
   }, [debouncedMobileNumber, customer]);
+
+  useEffect(() => {
+    // Resuming a draft named in the URL — Orders › Drafts links here with ?draft=<id>.
+    //
+    // Runs once, before autosave has anything to write. The form key is bumped so the item editor
+    // remounts onto the restored rows rather than keeping the two blank ones it opened with, and
+    // the draft's id is adopted so continuing to type updates that draft instead of forking a
+    // second one.
+    const draftId = new URLSearchParams(window.location.search).get("draft");
+    if (draftId === null) {
+      return;
+    }
+
+    let cancelled = false;
+    getOrderDraft(draftId, getAccessToken())
+      .then(async (draft) => {
+        const state = parseDraft(draft.payload);
+        if (cancelled || state === null) {
+          return;
+        }
+
+        draftIdRef.current = draft.id;
+        lastSavedPayloadRef.current = draft.payload;
+        setDueAtUtc(state.dueAtUtc);
+        setOrderNotes(state.orderNotes);
+        setItemRows(state.itemRows);
+        // The editor owns its rows, so restoring them means handing it a starting set and
+        // remounting it — see `initialRows` there. Setting itemRows alone would update this
+        // component's copy and leave the editor still showing its two blank opening rows.
+        setInitialItemRows(state.itemRows);
+        setAdvanceAmount(state.advanceAmount);
+        setAdvanceMethod(state.advanceMethod);
+        setDiscountAmount(state.discountAmount);
+        setFormKey((previous) => previous + 1);
+
+        // Fetched rather than taken from the draft: the name stored there is a label for the list,
+        // and the form needs the customer's real record — their number, their measurements. A
+        // customer deleted since the draft was written resumes the order without one rather than
+        // failing to open.
+        if (state.customerId !== null) {
+          const found = await getCustomer(state.customerId, getAccessToken()).catch(() => null);
+          if (!cancelled && found) {
+            setCustomer(found);
+          }
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+    // Mount only: this restores a form, and re-running it would overwrite whatever has been typed
+    // since. The empty dependency list is genuinely empty — everything read here comes from the
+    // URL or the response, not from state.
+  }, []);
+
+  useEffect(() => {
+    // Nothing to keep once the order exists — the draft is deleted at that point, and continuing to
+    // save would recreate it from a form that is now a read-only receipt.
+    if (isOrderCreated) {
+      return;
+    }
+
+    // Whether a figure has actually been typed into the measurement panel. Not part of the draft
+    // payload — measurements are saved against the customer by their own Save button, so the draft
+    // does not carry them — but typing one is work, and work is what decides a draft is worth
+    // keeping. Blank strings do not count: opening a panel seeds every point with "".
+    const hasMeasurementInput = Object.values(measurementValues).some((v) => v.trim() !== "");
+
+    const payload = JSON.stringify(draftState);
+    if (!isWorthSaving(draftState, hasMeasurementInput) || payload === lastSavedPayloadRef.current) {
+      return;
+    }
+
+    // On a timer rather than on every change. The form's state moves on each keystroke, and a save
+    // per keystroke would be a write per character; four seconds after the typing stops is soon
+    // enough to survive a closed tab and rare enough not to be a load.
+    const timer = setTimeout(() => {
+      saveOrderDraft(
+        {
+          id: draftIdRef.current,
+          kind,
+          customerId: draftState.customerId,
+          summary: summarize(draftState, kindMeta.label),
+          payload,
+        },
+        getAccessToken(),
+      )
+        .then((saved) => {
+          draftIdRef.current = saved.id;
+          lastSavedPayloadRef.current = payload;
+          setDraftSavedAt(new Date());
+        })
+        // Silent, and deliberately so. Autosave is a safety net nobody asked for at the moment it
+        // runs; a toast on every failed attempt would interrupt the order being written to complain
+        // about a copy of it. The indicator simply stops advancing, which is the honest signal.
+        .catch(() => {});
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [draftState, measurementValues, isOrderCreated, kind, kindMeta.label]);
+
+  /**
+   * Throws the draft away, because the order it was becoming now exists.
+   *
+   * <p>Fire-and-forget, and it clears the id first. If the delete fails the draft is left behind —
+   * a stale row in the Resume list, which is a tidiness problem — but the order was created either
+   * way, and blocking the confirmation screen on cleaning up a copy of it would turn a cosmetic
+   * failure into one the counter has to deal with mid-sale. Clearing the id first is what stops
+   * autosave immediately writing it back.</p>
+   */
+  function discardDraft() {
+    const id = draftIdRef.current;
+    draftIdRef.current = null;
+    lastSavedPayloadRef.current = null;
+    setDraftSavedAt(null);
+    if (id !== null) {
+      deleteOrderDraft(id, getAccessToken()).catch(() => {});
+    }
+  }
 
   const loadCustomerMeasurements = useCallback(async () => {
     if (!customer) {
@@ -599,7 +860,10 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       showToast("Select a customer.", "error");
       return;
     }
-    if (!dueAtUtc) {
+    // Tailoring only. A counter sale has nothing to collect later — the cloth leaves with the
+    // customer — so the screen doesn't ask for a date, and a guard that still demanded one would
+    // refuse the sale over a field nobody can see.
+    if (!isFabricSale && !dueAtUtc) {
       showToast("Set a collection date.", "error");
       return;
     }
@@ -644,11 +908,6 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         return;
       }
 
-      if (!Number.isFinite(advanceValue) || advanceValue < 0 || advanceValue > orderTotal) {
-        showToast("Amount paid must be between zero and the sale total.", "error");
-        return;
-      }
-
       setIsSubmitting(true);
       try {
         const order = await createOrder(
@@ -665,7 +924,31 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
           getAccessToken(),
         );
         setCreatedOrder(order);
-        showToast("Sale recorded.");
+        discardDraft();
+
+        // A counter sale is settled as it is rung up, so it invoices and pays itself here rather
+        // than waiting for Generate Invoice. On a tailoring order that button is a deliberate pause
+        // — staff check the advance and the balance before committing. A sale has neither to check:
+        // the cloth has been handed over and the money taken, and leaving it to a second click
+        // would mean every sale sat in the books as unpaid until somebody remembered.
+        try {
+          const { taxRatePercent } = await getInvoiceSettings(getAccessToken()).catch(() => DEFAULT_INVOICE_SETTINGS);
+          const invoice = await createInvoice(
+            order.id,
+            taxAmountFor(payableTotal, taxRatePercent),
+            safeDiscount,
+            getAccessToken(),
+          );
+          // remainingBalance, not payableTotal — tax has just been added, and paying the pre-tax
+          // figure would settle the sale with the tax still showing as owed.
+          const paid = await recordPayment(invoice.id, invoice.remainingBalance, advanceMethod, getAccessToken());
+          setCreatedInvoice(paid);
+          showToast("Sale recorded and paid in full.");
+        } catch {
+          // The sale itself is already saved — don't strand it or imply it failed. Generate Invoice
+          // is still on screen, so this is recoverable with one click.
+          showToast("Sale recorded, but the invoice could not be generated. Use Generate Invoice.", "error");
+        }
       } catch (error) {
         showToast(error instanceof ApiError ? error.message : "Unable to reach the server. Please try again.", "error");
       } finally {
@@ -697,11 +980,36 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         return;
       }
 
-      const usesShopFabric = sellsFabric && row.fabricSource === "internal";
       const metres = Number(row.metres);
       const ratePerMetre = Number(row.ratePerMetre);
-      if (usesShopFabric && (!row.clothCode.trim() || !Number.isFinite(metres) || metres <= 0 || ratePerMetre <= 0)) {
-        showToast("Shop fabric needs a cloth code, metres and a rate.", "error");
+
+      /*
+        Whether this row actually carries cloth.
+
+        Shop fabric is the default on every new order now, so "the toggle says shop fabric" no
+        longer means "there is cloth on this line" — it is where every row starts, including one
+        that turns out to be stitching alone. Demanding a cloth code from all of them refused
+        perfectly ordinary orders.
+
+        So the fields decide, not the toggle: a row with nothing in the cloth boxes is priced and
+        submitted as tailoring only, which is exactly what the Order Summary preview and the summary
+        card have been showing it as all along — blank metres multiply out to zero, so the figure on
+        screen was already the tailoring alone. This makes the saved order agree with it.
+
+        Partial entry is still an error. A cloth code with no metres is a half-finished line rather
+        than a decision, and guessing which half was meant is how a bill comes out wrong.
+      */
+      const clothEntered =
+        row.clothCode.trim() !== "" || row.metres.trim() !== "" || row.ratePerMetre.trim() !== "";
+      const usesShopFabric = sellsFabric && row.fabricSource === "internal" && clothEntered;
+
+      if (
+        sellsFabric &&
+        row.fabricSource === "internal" &&
+        clothEntered &&
+        (!row.clothCode.trim() || !Number.isFinite(metres) || metres <= 0 || ratePerMetre <= 0)
+      ) {
+        showToast("This item has cloth details started — it needs a cloth code, metres and a rate.", "error");
         return;
       }
 
@@ -757,6 +1065,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       // Invoice generation is now a separate, explicit step (the Generate Invoice button below)
       // rather than automatic — staff review Total/Advance/Balance before committing to it.
       setCreatedOrder(order);
+      discardDraft();
       showToast("Order created.");
     } catch (error) {
       showToast(error instanceof ApiError ? error.message : "Unable to reach the server. Please try again.", "error");
@@ -783,9 +1092,17 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         safeDiscount,
         getAccessToken(),
       );
+      // What the payment method above is attached to. On a tailoring order that is the advance, and
+      // nothing is recorded when there isn't one. On a counter sale it is the whole bill: the cloth
+      // does not leave unpaid, so a sale invoiced as outstanding would be wrong the moment it was
+      // printed — and it is why the sale screen asks for a method but not an amount.
+      // remainingBalance rather than payableTotal: the invoice has just had tax added to it, and
+      // paying the pre-tax figure would settle a sale to the customer while leaving the tax showing
+      // as owed. This is the one number that means "the whole bill", and the server worked it out.
+      const amountPaid = isFabricSale ? invoice.remainingBalance : advanceValue;
       // recordPayment returns the invoice with amountPaid/remainingBalance updated — that's the
       // copy the printable invoice needs, not the pre-payment one from createInvoice.
-      const finalInvoice = advanceValue > 0 ? await recordPayment(invoice.id, advanceValue, advanceMethod, getAccessToken()) : invoice;
+      const finalInvoice = amountPaid > 0 ? await recordPayment(invoice.id, amountPaid, advanceMethod, getAccessToken()) : invoice;
       showToast("Invoice generated.");
       // Stay on this page instead of navigating away — Generate invoice turns into View Invoice,
       // which opens the printable modal, so staff decide when to leave.
@@ -841,8 +1158,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         ) : measurementFields.length === 0 ? (
           <p className="text-sm text-foreground/70">No measurement points configured for {activeMeasurementItem.garmentType} yet.</p>
         ) : (
-          <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-            <div className="flex flex-1 flex-col gap-2">
+          // gap-8 between the two halves was a third of the column's width spent on nothing, which
+          // is what pushed a long template past the fold and the Order Summary out of sight. gap-6
+          // still reads as two groups. gap-1.5 down each half rather than gap-2: these are single-
+          // line rows of a label and a short figure, and the tighter rhythm fits three or four more
+          // points on screen without crowding them.
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
+            <div className="flex flex-1 flex-col gap-1.5">
               {measurementFieldsFirstHalf.map((point) => (
                 <MeasurementPointInput
                   key={point.name}
@@ -850,10 +1172,15 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   value={measurementValues[point.name] ?? ""}
                   disabled={isOrderCreated}
                   onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
+                  // Keyed by the second box's own label, which is also where it is saved.
+                  secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
+                  onSecondChange={(next) =>
+                    setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
+                  }
                 />
               ))}
             </div>
-            <div className="flex flex-1 flex-col gap-2">
+            <div className="flex flex-1 flex-col gap-1.5">
               {measurementFieldsSecondHalf.map((point) => (
                 <MeasurementPointInput
                   key={point.name}
@@ -861,6 +1188,11 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   value={measurementValues[point.name] ?? ""}
                   disabled={isOrderCreated}
                   onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
+                  // Keyed by the second box's own label, which is also where it is saved.
+                  secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
+                  onSecondChange={(next) =>
+                    setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
+                  }
                 />
               ))}
             </div>
@@ -934,6 +1266,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
               happened to be on the page. Dropped once the order exists — by then the record says
               what it is, and the line would be describing a decision no longer being made. */}
           {!createdOrder && <p className="mt-0.5 text-sm text-foreground/70">{kindMeta.fabricNote}</p>}
+          {/* Autosave made visible. A safety net nobody can see is one nobody trusts, and staff
+              who do not trust it finish orders they would otherwise have left. */}
+          {!createdOrder && draftSavedAt !== null && (
+            <p className="mt-0.5 text-xs text-foreground/50">
+              Draft saved {draftSavedAt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            </p>
+          )}
         </div>
         {/* The kind used to be a pair of pills here, and before that a per-shop setting. It is now
             the screen itself, so the only thing left to say is which screen this is — and, while
@@ -998,8 +1337,12 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                     + New Customer
                   </Button>
                 </div>
-                {isMobileDropdownOpen && debouncedMobileNumber && mobileMatches.length > 0 && (
-                  <ul className="absolute top-full z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-border bg-surface shadow-lg">
+                {/* No longer gated on something having been typed: opening the field lists the
+                    customer book, exactly as the Cloth Code picker lists the fabric catalogue.
+                    max-h-64 rather than 48 for the same reason it was raised there — this is a list
+                    to look down, not a couple of suggestions. */}
+                {isMobileDropdownOpen && mobileMatches.length > 0 && (
+                  <ul className="absolute top-full z-10 mt-1 max-h-64 w-full overflow-y-auto rounded-md border border-border bg-surface shadow-lg">
                     {mobileMatches.map((c) => (
                       <li key={c.id}>
                         <button type="button" onClick={() => selectCustomer(c)} className="block w-full px-3 py-2 text-left text-sm hover:bg-surface-hover">
@@ -1007,6 +1350,14 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                         </button>
                       </li>
                     ))}
+                    {/* Said rather than left to be discovered. The book is paged server-side, so a
+                        full page means "there are more of these", and the way to the rest is the
+                        search box above rather than scrolling. */}
+                    {mobileMatches.length >= CUSTOMER_SEARCH_PAGE_SIZE && (
+                      <li className="sticky bottom-0 border-t border-border bg-surface px-3 py-1.5 text-xs text-foreground/60">
+                        Showing the first {CUSTOMER_SEARCH_PAGE_SIZE} — type a name or number to narrow.
+                      </li>
+                    )}
                   </ul>
                 )}
                 {isMobileDropdownOpen && debouncedMobileNumber && mobileMatches.length === 0 && digitsOnly(debouncedMobileNumber).length >= 7 && (
@@ -1045,27 +1396,53 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 key={formKey}
                 mode={businessMode}
                 fabricOnly={isFabricSale}
+                // Shop fabric, on every kind of order. One prop for both layouts: the toggle is the
+                // same control wrapped differently below sm, so there is no second default to keep
+                // in step.
+                defaultFabricSource={DEFAULT_FABRIC_SOURCE}
+                initialRows={initialItemRows}
+                // This screen's opening rows, from Settings › Order Entry. Resolved here because
+                // the setting is per order kind and only this component knows which kind it is.
+                defaultGarments={orderEntrySettings.defaultItemGarments[kind]}
                 tailoringRates={tailoringRates}
                 garments={offerableGarments}
                 onChange={setItemRows}
                 activeItemId={activeMeasurementItemId}
-                onItemClick={handleItemClick}
-                // Phone-only: the measurement panel opens as the next row down, under the item it
-                // was opened from, instead of at the foot of the page where the second column
-                // lands once the layout is a single stack. Carries its own card border here
-                // because the second column's wrapper is what supplies one on a wide screen.
-                renderItemDetail={() => (
-                  <div className="flex flex-col gap-3 rounded-lg border border-primary bg-surface p-4">
-                    {renderMeasurementPanel("inline")}
-                  </div>
-                )}
+                // None of this on a counter sale. A length of cloth has nothing to measure — there
+                // is no garment being made — so the rows must not open a measurement panel, and the
+                // expand control must not appear on them. The editor only renders that control when
+                // it is given both a click handler and a detail panel, so withholding them removes
+                // the whole path rather than leaving a button that opens something empty.
+                onItemClick={isFabricSale ? undefined : handleItemClick}
+                // Only the expand control on a row calls this — see onItemClose there.
+                onItemClose={isFabricSale ? undefined : () => setActiveMeasurementItemId(null)}
+                // Phone-only: the measurement panel opens inside the item's own card, as its last
+                // section, instead of at the foot of the page where the second column lands once
+                // the layout is a single stack.
+                //
+                // No border and no background of its own any more. The editor places this within
+                // the card and rules it off; wrapping it in a second bordered box put two outlines
+                // and two paddings between a garment and its measurements, which is what made them
+                // read as separate grids rather than one item.
+                renderItemDetail={
+                  isFabricSale
+                    ? undefined
+                    : () => <div className="flex flex-col gap-3">{renderMeasurementPanel("inline")}</div>
+                }
                 disabled={isOrderCreated}
               />
             </div>
           </div>
 
-          {/* Right side: a stack of cards — Measurement Details, Order Summary, Payment Details,
-              Schedule, Actions — in the order staff work down them.
+          {/* Right side: a stack of cards — Measurement Details (which also hosts the Order Summary
+              Preview), Payment Details, Order Summary, Schedule, Actions — in the order staff work
+              down them.
+
+              Payment sits directly under that first panel rather than below the Order Summary card.
+              The preview's Total / Advance / Balance and the boxes that set the advance and the
+              discount are the same conversation, and they were two cards apart: type an advance,
+              scroll up to see what it did to the balance, scroll back. On a phone, where the
+              preview is open by default, that was every order.
 
               This column scrolls on its own from the large breakpoint up, and the left one does
               not. That asymmetry is the point: the item list grows without limit as garments are
@@ -1082,41 +1459,82 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 still a minimum height, so opening and closing one does not shunt the cards below it
                 up and down the screen. It no longer needs a *frozen* height now that the columns
                 are independent — min-h lets a long measurement template grow the card instead of
-                scrolling inside a 18rem window. */}
+                scrolling inside a fixed window.
+
+                shrink-0 is what stops the card overlapping the Order Summary beneath it. This
+                column is a flex column with a max-height, so its children are shrinkable by
+                default; the measurement panel inside is shrink-0 and keeps its full height, so once
+                a garment had enough points to fill the column the card was squeezed smaller than
+                its own contents and the fields spilled out over the card below. The column scrolls
+                — there is room — but only if the cards are allowed to keep their height and push
+                the total past the viewport, which is precisely what shrinking prevented.
+
+                The floor is 12rem rather than 18: 18 was set when this box also had to hold a
+                frozen-height layout, and on a garment with four or five points it was mostly empty
+                space between the heading and the Order Summary. */}
             <div
               ref={measurementBlockRef}
-              className={`flex-col gap-3 rounded-lg border border-border bg-surface p-4 lg:flex lg:min-h-[18rem] ${
-                // Below lg, two of this card's three modes are showing inline where they were asked
-                // for instead — measurements under their own item, the new-customer form under
-                // Customer Details. Leaving the card rendered would put a second copy of one of
-                // them under the item list, or an empty bordered box once both are closed. The
-                // Order summary preview has no inline home and still opens here at every width.
-                activeMeasurementItem || isAddingNewCustomer ? "hidden" : "flex"
+              className={`shrink-0 flex-col gap-3 rounded-lg border border-border bg-surface p-4 lg:flex lg:min-h-[12rem] ${
+                // Below lg this card holds exactly one thing: the Order Summary Preview. So it is
+                // on screen whenever the preview is, and absent otherwise.
+                //
+                // Its other two modes render inline where they were asked for — measurements under
+                // their own item, the new-customer form under Customer Details — so showing the card
+                // as well would put a second copy of one of them at the foot of the page. And with
+                // nothing in it at all it was a bordered box containing a tape-measure icon and a
+                // sentence explaining that no item had been picked, which is a screenful of a phone
+                // spent saying nothing has happened yet.
+                //
+                // On lg and up none of this applies: lg:flex wins, and the card is the second
+                // column's permanent home for all three modes. Its min-height is what stops the
+                // cards below shunting as modes open and close.
+                showSummaryPreview ? "flex" : "hidden"
               }`}
             >
               {/* From lg up this is where measurements are edited. Below lg the same panel is
                   rendered inline under its own item instead (see renderItemDetail), and this whole
                   card is hidden — see the wrapper's className. */}
               <div className="hidden lg:contents">{renderMeasurementPanel("column")}</div>
-              {/* Clicking the Order summary cell opens an invoice-style preview here instead of
-                  just closing whatever was open — a read-only recap of items/total/advance/balance
-                  before committing to Create order. */}
-              {!activeMeasurementItem && !isAddingNewCustomer && isViewingSummary && (
+              {/* The itemised recap. On a wide screen it is opened by the Order Summary or Schedule
+                  card; on a phone it is simply here — see showSummaryPreview. */}
+              {showSummaryPreview && (
                 <div className="orderSection-summary flex shrink-0 flex-col gap-3">
                   <div className="flex items-center justify-between border-b border-border pb-3">
                     <h2 className="order-heading text-base font-semibold">Order Summary Preview</h2>
-                    <button type="button" onClick={() => setSummarySource(null)} className="text-sm text-foreground/70 hover:text-foreground">
-                      Close
-                    </button>
+                    {/* Nothing to close to on a phone: the panel is part of the page rather than a
+                        mode that was opened, and closing it would leave a gap that only reappears
+                        on reload. */}
+                    {!isNarrow && (
+                      <button type="button" onClick={() => setSummarySource(null)} className="text-sm text-foreground/70 hover:text-foreground">
+                        Close
+                      </button>
+                    )}
                   </div>
+                  {/* A counter sale is a different document from a tailoring order, so it gets
+                      different columns. Garment, Qty and Tailoring say nothing about a length of
+                      cloth — the rows carried "Shirt" and a stitching amount because the editor is
+                      garment-shaped underneath, which is an implementation detail leaking onto a
+                      receipt. What a cloth sale is, is a code, a length and what it came to. */}
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-border text-left text-foreground/70">
                         <th className="py-1 font-medium">#</th>
-                        <th className="py-1 font-medium">Garment</th>
-                        <th className="py-1 text-right font-medium">Qty</th>
-                        {businessMode === "tailoringFabric" && <th className="py-1 text-right font-medium">Cloth</th>}
-                        <th className="py-1 text-right font-medium">Tailoring</th>
+                        {isFabricSale ? (
+                          <>
+                            <th className="py-1 font-medium">Cloth</th>
+                            <th className="py-1 text-right font-medium">Metres</th>
+                            <th className="py-1 text-right font-medium">Rate</th>
+                          </>
+                        ) : (
+                          <>
+                            <th className="py-1 font-medium">Garment</th>
+                            <th className="py-1 text-right font-medium">Qty</th>
+                            {businessMode === "tailoringFabric" && (
+                              <th className="py-1 text-right font-medium">Cloth</th>
+                            )}
+                            <th className="py-1 text-right font-medium">Tailoring</th>
+                          </>
+                        )}
                         <th className="py-1 text-right font-medium">Total</th>
                       </tr>
                     </thead>
@@ -1124,37 +1542,54 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                       {itemRows.map((row, index) => (
                         <tr key={row.id} className="border-b border-border/50">
                           <td className="py-1">{index + 1}</td>
-                          <td className="py-1">{row.garmentType}</td>
-                          <td className="py-1 text-right">{row.quantity || "0"}</td>
-                          {businessMode === "tailoringFabric" && (
-                            <td className="py-1 text-right">{clothAmount(row, businessMode).toFixed(2)}</td>
+                          {isFabricSale ? (
+                            <>
+                              {/* The cloth's own name where the catalogue gave one, falling back to
+                                  the code — the same rule the sale itself submits under, so the
+                                  preview names the line exactly as the saved order will. */}
+                              <td className="py-1">{row.clothName.trim() || row.clothCode.trim() || "—"}</td>
+                              <td className="py-1 text-right">{row.metres.trim() || "0"}</td>
+                              <td className="py-1 text-right">{(Number(row.ratePerMetre) || 0).toFixed(2)}</td>
+                            </>
+                          ) : (
+                            <>
+                              <td className="py-1">{row.garmentType}</td>
+                              <td className="py-1 text-right">{row.quantity || "0"}</td>
+                              {businessMode === "tailoringFabric" && (
+                                <td className="py-1 text-right">{clothAmount(row, businessMode).toFixed(2)}</td>
+                              )}
+                              <td className="py-1 text-right">{(Number(row.tailoringRate) || 0).toFixed(2)}</td>
+                            </>
                           )}
-                          <td className="py-1 text-right">{(Number(row.tailoringRate) || 0).toFixed(2)}</td>
                           <td className="py-1 text-right">{itemRowTotal(row).toFixed(2)}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <div className="flex flex-col gap-1 border-t border-border pt-2 text-sm">
-                    <div className="flex items-center justify-between">
-                      <span className="text-foreground/70">Total</span>
-                      <span className="font-medium">{orderTotal.toFixed(2)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-foreground/70">Advance</span>
-                      <span className="font-medium">{advanceValue.toFixed(2)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-foreground/70">Balance</span>
-                      <span className="font-medium">{orderBalance.toFixed(2)}</span>
-                    </div>
+                  {/* The total, and only the total.
+
+                      Advance and Balance were here too, and stopped earning their place once
+                      Payment Details moved directly beneath this panel: the advance is entered
+                      three lines below, and repeating it as a read-only figure above the box that
+                      sets it is the same number twice on one screen. Balance follows the advance,
+                      and the Order Summary card further down still carries both for the read-only
+                      recap. What this panel is for is the itemised breakdown and what it comes
+                      to. */}
+                  {/* Same reasoning as the Order Summary card: on a sale this is the last figure
+                      before the customer is charged, so it is the discounted one. */}
+                  <div className="flex items-center justify-between border-t border-border pt-2 text-sm">
+                    <span className="text-foreground/70">Total</span>
+                    <span className="font-medium">{(isFabricSale ? payableTotal : orderTotal).toFixed(2)}</span>
                   </div>
                 </div>
               )}
               {/* An empty card said nothing about what it was for, so the panel sat blank until
                   someone happened to click an item and discovered it. It now names itself and says
-                  what to do — the one instruction on the page that is not obvious from the form. */}
-              {!activeMeasurementItem && !isAddingNewCustomer && !isViewingSummary && (
+                  what to do — the one instruction on the page that is not obvious from the form.
+
+                  Wide screens only. Below lg the card exists solely to hold the preview, which is
+                  always in it, so there is no empty state left to explain. */}
+              {!isNarrow && !activeMeasurementItem && !isAddingNewCustomer && !isViewingSummary && (
                 <div className="orderSection-measure flex flex-1 flex-col items-center justify-center gap-2 py-8 text-center">
                   <TapeMeasureIcon className="h-8 w-8 text-foreground/25" />
                   <h2 className="order-heading text-base font-semibold">Measurement Details</h2>
@@ -1163,48 +1598,6 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   </p>
                 </div>
               )}
-            </div>
-
-            {/* Order Summary. Clicking it opens the itemised preview in the panel above — the
-                card is the headline, the preview is the detail behind it. */}
-            <div
-              ref={orderSummaryRef}
-              onClick={() => handleOpenSummary("summary")}
-              className={`orderSection-summary flex w-full cursor-pointer flex-col gap-2 rounded-lg border bg-surface p-4 transition-colors ${
-                summarySource === "summary" ? "border-primary ring-1 ring-primary" : "border-border"
-              }`}
-            >
-              <h2 className="order-heading text-base font-semibold">Order Summary</h2>
-              {/* What the total is made of, then the total; then what has been paid, then what is
-                  left. Two ruled-off figures in blue, because those are the two a customer is told. */}
-              <dl className="flex flex-col gap-1.5 text-sm">
-                <div className="flex items-center justify-between">
-                  <dt className="text-foreground/70">Total Items</dt>
-                  <dd className="font-medium tabular-nums">{totalItems}</dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt className="text-foreground/70">Tailoring Total</dt>
-                  <dd className="font-medium tabular-nums">{money(tailoringTotal)}</dd>
-                </div>
-                {businessMode === "tailoringFabric" && (
-                  <div className="flex items-center justify-between">
-                    <dt className="text-foreground/70">Cloth Total</dt>
-                    <dd className="font-medium tabular-nums">{money(clothTotal)}</dd>
-                  </div>
-                )}
-                <div className="flex items-center justify-between border-t border-border pt-2">
-                  <dt className="font-semibold">Order Total</dt>
-                  <dd className="text-base font-semibold tabular-nums text-primary">{money(orderTotal)}</dd>
-                </div>
-                <div className="flex items-center justify-between pt-1">
-                  <dt className="text-foreground/70">Advance Received</dt>
-                  <dd className="font-medium tabular-nums">{money(Number.isFinite(advanceValue) ? advanceValue : 0)}</dd>
-                </div>
-                <div className="flex items-center justify-between border-t border-border pt-2">
-                  <dt className="font-semibold">Balance Due</dt>
-                  <dd className="text-base font-semibold tabular-nums text-primary">{money(orderBalance)}</dd>
-                </div>
-              </dl>
             </div>
 
             {/* Payment. Its own card rather than a corner of the summary: the advance is something
@@ -1228,6 +1621,10 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                     type="number"
                     min="0"
                     step="0.01"
+                    // Money, so a decimal keypad where the device offers one. A phone does; iPadOS
+                    // opens its full keyboard whatever this says, which is a platform behaviour
+                    // rather than something the markup can settle.
+                    inputMode="decimal"
                     value={discountAmount}
                     disabled={isOrderCreated}
                     onChange={(e) => setDiscountAmount(e.target.value)}
@@ -1235,22 +1632,29 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                     className={`${fieldClassName} w-36`}
                   />
                 </div>
-                <div className="flex items-center gap-3">
-                  <label htmlFor="advanceAmount" className="w-36 shrink-0 text-sm font-medium">
-                    Advance Received
-                  </label>
-                  <input
-                    id="advanceAmount"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={advanceAmount}
-                    disabled={isOrderCreated}
-                    onChange={(e) => setAdvanceAmount(e.target.value)}
-                    placeholder="0.00"
-                    className={`${fieldClassName} w-36`}
-                  />
-                </div>
+                {/* Tailoring only. An advance is money held against work not yet done, and a counter
+                    sale has no work outstanding to hold it against. The method below stays on both:
+                    on an order it says how the advance arrived, on a sale how the cloth was paid
+                    for — the same question asked of two different amounts. */}
+                {!isFabricSale && (
+                  <div className="flex items-center gap-3">
+                    <label htmlFor="advanceAmount" className="w-36 shrink-0 text-sm font-medium">
+                      Advance Received
+                    </label>
+                    <input
+                      id="advanceAmount"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      inputMode="decimal"
+                      value={advanceAmount}
+                      disabled={isOrderCreated}
+                      onChange={(e) => setAdvanceAmount(e.target.value)}
+                      placeholder="0.00"
+                      className={`${fieldClassName} w-36`}
+                    />
+                  </div>
+                )}
                 {/* Full width beneath the amount rather than squeezed into a second column: four
                     methods side by side need the room, and the order staff work in is amount first,
                     then how it arrived. */}
@@ -1260,11 +1664,88 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                     value={advanceMethod}
                     onChange={setAdvanceMethod}
                     disabled={isOrderCreated}
-                    label="Advance payment method"
+                    label={isFabricSale ? "Payment method" : "Advance payment method"}
                   />
                 </div>
               </div>
             </div>
+
+            {/* Order Summary — the headline figures.
+
+                On a wide screen it is also the control that opens the itemised preview above, and
+                it looks like one: a pointer, and a ring while its panel is showing.
+
+                On a phone it is neither. The preview is already on screen and cannot be opened or
+                closed, so a card that highlighted on tap and did nothing would be a button that
+                lies. It goes back to being what it reads as — a block of figures. */}
+            <div
+              ref={orderSummaryRef}
+              onClick={isNarrow ? undefined : () => handleOpenSummary("summary")}
+              className={`orderSection-summary flex w-full flex-col gap-2 rounded-lg border bg-surface p-4 transition-colors ${
+                isNarrow ? "border-border" : "cursor-pointer"
+              } ${!isNarrow && summarySource === "summary" ? "border-primary ring-1 ring-primary" : "border-border"}`}
+            >
+              <h2 className="order-heading text-base font-semibold">Order Summary</h2>
+              {/* What the total is made of, then the total; then what has been paid, then what is
+                  left. Two ruled-off figures in blue, because those are the two a customer is told. */}
+              <dl className="flex flex-col gap-1.5 text-sm">
+                <div className="flex items-center justify-between">
+                  <dt className="text-foreground/70">Total Items</dt>
+                  <dd className="font-medium tabular-nums">{totalItems}</dd>
+                </div>
+                {/* Nothing is stitched on a counter sale, so this line is always zero there — a
+                    figure that never moves teaches staff to skip the block it sits in. */}
+                {!isFabricSale && (
+                  <div className="flex items-center justify-between">
+                    <dt className="text-foreground/70">Tailoring Total</dt>
+                    <dd className="font-medium tabular-nums">{money(tailoringTotal)}</dd>
+                  </div>
+                )}
+                {businessMode === "tailoringFabric" && (
+                  <div className="flex items-center justify-between">
+                    <dt className="text-foreground/70">Cloth Total</dt>
+                    <dd className="font-medium tabular-nums">{money(clothTotal)}</dd>
+                  </div>
+                )}
+                {/* On a sale only, and only once there is one to show.
+
+                    On a tailoring order the discount reaches the eye through Balance Due, which is
+                    payable-minus-advance. A sale has neither of those rows, so without this line the
+                    discount was typed in and then vanished — applied correctly to the invoice, but
+                    invisible on the screen quoting the customer a price. */}
+                {isFabricSale && safeDiscount > 0 && (
+                  <div className="flex items-center justify-between">
+                    <dt className="text-foreground/70">Discount</dt>
+                    <dd className="font-medium tabular-nums">−{money(safeDiscount)}</dd>
+                  </div>
+                )}
+                <div className="flex items-center justify-between border-t border-border pt-2">
+                  <dt className="font-semibold">Order Total</dt>
+                  {/* Net on a sale, because it is the figure the customer is about to be charged —
+                      there is no later row to take the discount off. Tailoring keeps the gross
+                      total, where the discount is carried by Balance Due underneath. */}
+                  <dd className="text-base font-semibold tabular-nums text-primary">
+                    {money(isFabricSale ? payableTotal : orderTotal)}
+                  </dd>
+                </div>
+                {/* Both follow the advance, and a counter sale has no advance to follow. Without
+                    the field above them they would read "Advance 0.00, Balance Due <the total>" —
+                    a sale the shop has just been paid for, displayed as an outstanding debt. */}
+                {!isFabricSale && (
+                  <>
+                    <div className="flex items-center justify-between pt-1">
+                      <dt className="text-foreground/70">Advance Received</dt>
+                      <dd className="font-medium tabular-nums">{money(Number.isFinite(advanceValue) ? advanceValue : 0)}</dd>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-border pt-2">
+                      <dt className="font-semibold">Balance Due</dt>
+                      <dd className="text-base font-semibold tabular-nums text-primary">{money(orderBalance)}</dd>
+                    </div>
+                  </>
+                )}
+              </dl>
+            </div>
+
 
             {/* Scheduling. Clicking it opens the same preview as the summary above — the two are
                 one review step, and reaching the preview shouldn't depend on which card you click. */}
@@ -1275,6 +1756,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 summarySource === "schedule" ? "border-primary ring-1 ring-primary" : "border-border"
               }`}
             >
+              {/* Tailoring only. Both of these describe work to be done later: a date to come back
+                  for, and the tailor who will do it. A counter sale is finished as it is rung up —
+                  the server already refuses an employee on one and stamps the moment of sale as the
+                  due date — so on this screen they were two controls whose answers were thrown
+                  away. Notes below stays: a cloth sale can still carry a remark. */}
+              {!isFabricSale && (
+                <>
               <div className="flex flex-col gap-1">
                 <label htmlFor="dueAtUtc" className="text-sm font-medium">
                   Collection Date
@@ -1328,6 +1816,8 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   ))}
                 </select>
               </div>
+                </>
+              )}
 
               <div className="flex flex-col gap-1">
                 <label htmlFor="orderNotes" className="text-sm font-medium">
@@ -1420,7 +1910,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       <ConfirmDialog
         open={showInvoiceConfirm}
         title="Generate invoice"
-        description={`Generate an invoice for this order now? Total ${orderTotal.toFixed(2)}, advance ${advanceValue.toFixed(2)}, balance ${orderBalance.toFixed(2)}.`}
+        // A counter sale has no advance and so no balance to quote back — naming either would put
+        // figures in the confirmation that appear nowhere on the screen behind it.
+        description={
+          isFabricSale
+            ? `Generate an invoice for this sale now? Total ${payableTotal.toFixed(2)}.`
+            : `Generate an invoice for this order now? Total ${orderTotal.toFixed(2)}, advance ${advanceValue.toFixed(2)}, balance ${orderBalance.toFixed(2)}.`
+        }
         confirmLabel="Generate"
         confirmingLabel="Generating…"
         confirmVariant="primary"

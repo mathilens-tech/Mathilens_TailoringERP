@@ -1,44 +1,52 @@
 # Mathilens Tailoring ERP — API image.
 #
-# Was a comment-only placeholder, which meant Coolify had nothing to build: the "dockerfile" build
-# pack found a file with no FROM and failed before it started. The test stack on mathilens-test-vm
-# needs a real one.
-#
-# The build context is the repository root, not this directory — Directory.Build.props sits there
-# and carries <TargetFramework>net10.0</TargetFramework> for every project. Building from docker/
-# would restore against a missing props file and silently target the SDK's default instead.
+# Two stages, because the SDK is roughly five times the size of the runtime and none of it is
+# needed once the assemblies exist. What ships is the aspnet image plus the publish output.
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-# Restore before the rest of the source is copied, so a change to a .cs file does not invalidate
-# the restore layer. Directory.Build.props and the solution are part of the graph, so they have to
-# come too — restoring with only the .csproj would miss the target framework.
-COPY Directory.Build.props MathilensERP.slnx ./
-COPY src/ ./src/
+# Project files on their own layer, restored before any source is copied. Source changes on nearly
+# every build and the package list almost never does; without this split a one-line edit to a
+# handler re-downloads every NuGet package. Directory.Build.props comes too — it sets the target
+# framework and nullable settings the restore reads.
+COPY Directory.Build.props ./
+COPY src/Shared/MathilensERP.Shared.csproj                 src/Shared/
+COPY src/Domain/MathilensERP.Domain.csproj                 src/Domain/
+COPY src/Application/MathilensERP.Application.csproj       src/Application/
+COPY src/Infrastructure/MathilensERP.Infrastructure.csproj src/Infrastructure/
+COPY src/Api/MathilensERP.Api.csproj                       src/Api/
 RUN dotnet restore src/Api/MathilensERP.Api.csproj
 
+COPY src/ src/
 RUN dotnet publish src/Api/MathilensERP.Api.csproj \
-      --configuration Release \
-      --no-restore \
-      --output /app
+    --configuration Release \
+    --no-restore \
+    --output /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
-COPY --from=build /app .
+COPY --from=build /app ./
 
-# 8080, which is what Coolify's proxy expects to find and what the platform's own default is on
-# .NET 8 and later. Named explicitly rather than relied upon: the value differs between base image
-# versions, and a silent change would leave the container healthy and unreachable.
-ENV ASPNETCORE_URLS=http://+:8080
-EXPOSE 8080
+# All interfaces, not loopback as the systemd unit uses. On the VM nginx shares the host's network
+# namespace with Kestrel, so 127.0.0.1 reaches it; here the proxy is a different container and
+# loopback would refuse every connection. The port is still private — nothing publishes it, so the
+# only thing that can reach it is something on the same Docker network.
+ENV ASPNETCORE_URLS=http://0.0.0.0:8080
 
-# Behind Coolify's Traefik the API sees a plain HTTP hop, exactly as it does behind nginx on the
-# old test box. Without this, app.UseHttpsRedirection() answers 307 to HTTPS, the proxy forwards it
-# back as HTTP, and the browser loops. See deploy/test-server/README.md, "Forwarded headers".
+# Anything but Development, so Program.cs applies migrations and seeds roles on boot rather than
+# serving against whatever schema happens to be there. Matches the systemd unit deliberately.
+ENV ASPNETCORE_ENVIRONMENT=Test
+
+# See docker/nginx.conf: the proxy in front forwards the scheme the browser actually used, and
+# this is what makes Kestrel read it instead of reporting the plain HTTP hop it received.
 ENV ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
 
-# MathilensERP.Api.dll, not Mathilens.Api.dll. The assembly takes its name from the project file
-# and there is no <AssemblyName> override; the older name is still sitting in production's wwwroot
-# from a previous deployment, which is what made the host unable to choose between the two.
+ENV DOTNET_PrintTelemetryMessage=false
+
+# Non-root, using the UID the base image already defines for the purpose. The app writes nothing
+# outside /tmp — publish output is read-only at runtime.
+USER $APP_UID
+
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "MathilensERP.Api.dll"]

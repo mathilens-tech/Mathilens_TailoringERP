@@ -9,7 +9,8 @@ import { useToast } from "@/components/ui/ToastProvider";
 import { getAccessToken } from "@/lib/auth";
 import { ApiError } from "@/lib/api-client";
 import { listMeasurementsForCustomer, createMeasurement, updateMeasurementValues, type Measurement, type GarmentType } from "@/lib/api/measurements";
-import { formatMeasurementValue, type MeasurementValue } from "@/lib/api/measurements";
+import { toDisplayEntries, type MeasurementValue } from "@/lib/api/measurements";
+import { useMeasurementTemplates } from "@/lib/use-measurement-templates";
 
 type FormState = { mode: "create" } | { mode: "edit"; measurement: Measurement } | null;
 
@@ -17,6 +18,9 @@ type FormState = { mode: "create" } | { mode: "edit"; measurement: Measurement }
 export function MeasurementsSection({ customerId }: { customerId: string }) {
   const { showToast } = useToast();
   const [measurements, setMeasurements] = useState<Measurement[]>([]);
+  // Shop-wide and cached by the hook, so this costs nothing beyond the first screen to ask for it.
+  // Only used to pair a two-box point's figures onto one line.
+  const { templates } = useMeasurementTemplates();
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [formState, setFormState] = useState<FormState>(null);
@@ -79,10 +83,14 @@ export function MeasurementsSection({ customerId }: { customerId: string }) {
             <li key={measurement.id} className="flex items-center justify-between rounded-md border border-border px-3 py-2 text-sm">
               <div>
                 <span className="font-medium">{measurement.garmentType}</span>
+                {/* Paired through the garment's template, so a two-box point reads as
+                    "Chest: 40, 42". Points are separated by a middot rather than a comma now that
+                    a comma can appear inside one point's value — "Chest: 40, 42, Waist: 34" gives
+                    no way to see where one measurement ends and the next begins. */}
                 <span className="ml-2 text-foreground/70">
-                  {Object.entries(measurement.values)
-                    .map(([name, value]) => `${name}: ${formatMeasurementValue(value)}`)
-                    .join(", ")}
+                  {toDisplayEntries(measurement.values, templates[measurement.garmentType] ?? [])
+                    .map((entry) => `${entry.label}: ${entry.text}`)
+                    .join(" · ")}
                 </span>
               </div>
               <div className="flex gap-3">

@@ -1,0 +1,60 @@
+# Mathilens Tailoring ERP — the test stack as it is actually run on mathilens-test-vm.
+#
+# docker-compose.yml publishes nothing and routes nothing: it was written for Coolify, which maps a
+# hostname to the web container on the operator's behalf. The ERP is deliberately not one of
+# Coolify's applications — it is deployed from this repository — so the routing it would have done
+# is declared here instead.
+#
+# The box is a Coolify host whose Traefik owns :80 and :443 and fronts around ten containers
+# belonging to other products. Nothing below edits that proxy's configuration. Traefik runs with
+# `--providers.docker=true --providers.docker.exposedbydefault=false`, which means it discovers
+# routes from the labels on each container and ignores any container that does not opt in. Adding
+# labels here is therefore the sanctioned way in, and touches no file another product depends on.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.test-vm.yml --env-file .env up -d --build
+
+services:
+  web:
+    # Two networks: the stack's own, where nginx reaches the API and Postgres privately, and
+    # Coolify's, which is the only one Traefik is attached to. Without the second, the route below
+    # resolves to a container the proxy has no path to and every request ends in a gateway error.
+    networks:
+      - default
+      - coolify
+    ports:
+      # Kept alongside the hostname deliberately. TLS here depends on Let's Encrypt answering an
+      # HTTP challenge for a domain whose DNS sits at a registrar this deployment does not control;
+      # if that ever stops resolving, the stack is still reachable rather than dark.
+      - "8081:80"
+    labels:
+      - traefik.enable=true
+      # Named explicitly because the container is on two networks and Traefik would otherwise have
+      # to guess which address to route to.
+      - traefik.docker.network=coolify
+
+      # Router names are spelled out rather than hashed like Coolify's own, so that anyone reading
+      # `docker ps` labels on this box can tell at a glance which rules belong to the ERP.
+      - traefik.http.routers.mathilens-erp-test-http.rule=Host(`www.test-radhafabric.mathilens.com`)
+      - traefik.http.routers.mathilens-erp-test-http.entrypoints=http
+      - traefik.http.routers.mathilens-erp-test-http.middlewares=mathilens-erp-test-tls
+      # Plain HTTP is answered only to send the browser to HTTPS. The static export sets no
+      # absolute URLs, so the redirect costs one round trip and nothing else.
+      - traefik.http.middlewares.mathilens-erp-test-tls.redirectscheme.scheme=https
+
+      - traefik.http.routers.mathilens-erp-test-https.rule=Host(`www.test-radhafabric.mathilens.com`)
+      - traefik.http.routers.mathilens-erp-test-https.entrypoints=https
+      - traefik.http.routers.mathilens-erp-test-https.tls=true
+      # The same resolver Coolify's own applications use, so the certificate is issued and renewed
+      # by the machinery already running rather than a second copy of it.
+      - traefik.http.routers.mathilens-erp-test-https.tls.certresolver=letsencrypt
+
+      # nginx inside the image listens on 80. Stated because a container on two networks with a
+      # published port gives Traefik more than one candidate.
+      - traefik.http.services.mathilens-erp-test.loadbalancer.server.port=80
+
+networks:
+  coolify:
+    # Created and owned by Coolify. Declared external so compose attaches to it and never tries to
+    # manage, recreate or remove it — `docker compose down` on this stack must not disturb the
+    # network every other application on the box is sharing.
+    external: true

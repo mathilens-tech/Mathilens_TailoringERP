@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { ApiError } from "@/lib/api-client";
-import { type GarmentType } from "@/lib/api/measurements";
+import { hasSecondValue, type GarmentType } from "@/lib/api/measurements";
 import { getGarments } from "@/lib/api/garments";
 import { getAccessToken } from "@/lib/auth";
 import { MeasurementValuesEditor, type ValueRowInput } from "./MeasurementValuesEditor";
@@ -70,17 +70,30 @@ export function MeasurementForm({
 
     const values: Record<string, MeasurementValue> = {};
     for (const row of rows) {
-      // Points are individually optional — one nobody has filled in is skipped rather than
-      // blocking the save. A checkbox is never skipped, because "no" is an answer.
-      const value = toMeasurementValue(row.point, row.value);
-      if (value === null) {
-        if (row.point.type === "Number" && row.value.trim() !== "") {
-          setFormError(`"${row.point.name}" needs a value greater than zero.`);
-          return;
-        }
-        continue;
+      // Both boxes of a two-box point, each stored under its own label — the same shape the order
+      // screen writes, so a measurement taken here and one taken there are indistinguishable
+      // afterwards. The template is what says the two belong together.
+      const boxes: { label: string; raw: string }[] = [{ label: row.point.name, raw: row.value }];
+      if (hasSecondValue(row.point)) {
+        boxes.push({ label: (row.point.secondName ?? "").trim(), raw: row.secondValue });
       }
-      values[row.point.name] = value;
+
+      for (const box of boxes) {
+        // Points are individually optional — one nobody has filled in is skipped rather than
+        // blocking the save. A checkbox is never skipped, because "no" is an answer.
+        //
+        // Each box separately, so a point may be answered with its first figure and the second left
+        // empty. The pair is never required as a unit.
+        const value = toMeasurementValue(row.point, box.raw);
+        if (value === null) {
+          if (row.point.type === "Number" && box.raw.trim() !== "") {
+            setFormError(`"${box.label}" needs a value greater than zero.`);
+            return;
+          }
+          continue;
+        }
+        values[box.label] = value;
+      }
     }
 
     if (Object.keys(values).length === 0) {
