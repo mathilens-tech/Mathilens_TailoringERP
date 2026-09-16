@@ -71,6 +71,9 @@ export const PERMISSIONS = {
   inventoryView: "Inventory.View",
   inventoryCreate: "Inventory.Create",
   settingsView: "Settings.View",
+  // Already enforced on every settings write server-side. Named here because Backup is the first
+  // screen whose menu entry has to be hidden by it, rather than only its save button disabled.
+  settingsEdit: "Settings.Edit",
   activityView: "Activity.View",
   usersView: "Users.View",
   usersCreate: "Users.Create",

@@ -169,10 +169,14 @@ builder.Services.AddCors(options =>
             // and every export, of either format, saved as "export.xlsx". A spreadsheet named
             // export.xlsx looks entirely correct, which is why this hid until a PDF came out
             // wearing it.
+            //
+            // X-Backup-Truncated is named for the same reason: the backup download reports whether
+            // a table hit its row cap, and a warning the page is not allowed to read leaves a short
+            // backup looking complete.
             policy.WithOrigins(frontendOrigins)
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .WithExposedHeaders("Content-Disposition");
+                .WithExposedHeaders("Content-Disposition", "X-Backup-Truncated");
         }
     });
 });

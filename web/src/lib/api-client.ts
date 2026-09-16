@@ -260,7 +260,7 @@ export async function apiGetFile(
    * began exposing that header.
    */
   fallbackFilename = "export",
-): Promise<{ blob: Blob; filename: string }> {
+): Promise<{ blob: Blob; filename: string; headers: Headers }> {
   const response = await fetchWithAuthRetry(path, { headers: authHeaders(token) }, token);
 
   await throwIfError(response);
@@ -271,6 +271,14 @@ export async function apiGetFile(
   return {
     blob: await response.blob(),
     filename: match ? decodeURIComponent(match[1]) : fallbackFilename,
+    // Handed back whole rather than picked over here: the backup download reads
+    // X-Backup-Truncated from it, a caller wanting nothing from the headers ignores the field, and
+    // this stays a general file fetch instead of growing a parameter per endpoint.
+    //
+    // Only headers the server names in WithExposedHeaders are readable cross-origin — that list
+    // lives in the CORS policy in Program.cs, and a header missing from it reads as absent here
+    // rather than as an error.
+    headers: response.headers,
   };
 }
 

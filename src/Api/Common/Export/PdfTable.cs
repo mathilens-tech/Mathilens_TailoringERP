@@ -56,6 +56,47 @@ public static class PdfTable
         IEnumerable<IReadOnlyList<object?>> rows,
         string? subtitle = null)
     {
+        var document = NewDocument(title);
+        AddTableSection(document, title, headers, rows, subtitle);
+        return Render(document);
+    }
+
+    /// <summary>
+    /// Several tables as one document, each starting on its own page.
+    ///
+    /// <para>A page each rather than run together: these are different entities, and a backup whose
+    /// orders begin halfway down the last page of its customers is one nobody can hand to an
+    /// accountant. It also means a section can be pulled out and filed on its own.</para>
+    ///
+    /// <para>Empty tables are kept, with a line saying they are empty. Dropping them would make a
+    /// backup of a shop with no invoices indistinguishable from one where the invoices failed to
+    /// gather — for a document whose whole purpose is to say what the shop holds, "none" is an
+    /// answer and a missing section is not.</para>
+    /// </summary>
+    public static byte[] WriteMany(string title, IReadOnlyList<ExportTable> tables)
+    {
+        var document = NewDocument(title);
+
+        foreach (var table in tables)
+        {
+            AddTableSection(
+                document,
+                table.Name,
+                table.Headers,
+                table.Rows,
+                $"{title} · {table.Rows.Count} {(table.Rows.Count == 1 ? "row" : "rows")}");
+        }
+
+        if (tables.Count == 0)
+        {
+            AddTableSection(document, title, ["Result"], [new object?[] { "There is nothing to export yet." }], null);
+        }
+
+        return Render(document);
+    }
+
+    private static Document NewDocument(string title)
+    {
         var document = new Document();
         document.Info.Title = title;
 
@@ -66,6 +107,17 @@ public static class PdfTable
         style.Font.Name = EmbeddedFontResolver.FamilyName;
         style.Font.Size = 8;
 
+        return document;
+    }
+
+    /// <summary>Adds one titled table on a page of its own. Every table in this file goes through here.</summary>
+    private static void AddTableSection(
+        Document document,
+        string title,
+        IReadOnlyList<string> headers,
+        IEnumerable<IReadOnlyList<object?>> rows,
+        string? subtitle)
+    {
         var section = document.AddSection();
 
         // A4 landscape, stated as the dimensions themselves. Two MigraDoc behaviours force this:
@@ -179,6 +231,10 @@ public static class PdfTable
             }
         }
 
+    }
+
+    private static byte[] Render(Document document)
+    {
         var renderer = new PdfDocumentRenderer { Document = document };
         renderer.RenderDocument();
 
