@@ -1,23 +1,80 @@
-# Mathilens Tailoring ERP — Docker Compose
+# Mathilens Tailoring ERP — the test stack, as three containers.
 #
-# PLACEHOLDER: No services are defined yet. This file will be populated once
-# the application projects exist under /src and their Dockerfiles are ready.
-# See docs/07_DEPLOYMENT.md for the deployment strategy.
+# Stands up what deploy/test-server/setup.sh stands up on a bare VM: Postgres, the API, and nginx
+# serving the static export. It exists because the test box turned out to be a shared Coolify host
+# whose proxy already owns :80 and :443 — that script installs nginx and enables a firewall, and
+# running it there would take the neighbouring applications down with it.
+#
+# Nothing here carries a secret. Every value below comes from the environment, which on Coolify
+# means the application's own variables; this repository is public.
+#
+#   docker compose --env-file .env up --build
 
-version: "3.9"
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mathilens_radhafabric_test}
+      POSTGRES_USER: ${POSTGRES_USER:-mathilens_test_app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # The API applies migrations the moment it boots and dies if they fail, so it must not start
+    # against a server that is still initialising. pg_isready is what makes depends_on meaningful —
+    # without a healthcheck, "started" means the container exists, not that Postgres accepts
+    # connections.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mathilens_test_app} -d ${POSTGRES_DB:-mathilens_radhafabric_test}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    # Not published. Postgres is reachable only from the other containers on this network, which is
+    # a stronger guarantee than a firewall rule someone can widen later.
+    expose:
+      - "5432"
 
-services: {}
-#  api:
-#    build:
-#      context: .
-#      dockerfile: docker/Dockerfile.api
-#    env_file: .env
-#
-#  web:
-#    build:
-#      context: .
-#      dockerfile: docker/Dockerfile.web
-#    env_file: .env
-#
-#  database:
-#    image: mcr.microsoft.com/mssql/server:2022-latest
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Host is the service name; Docker's embedded DNS resolves it on the shared network.
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=${POSTGRES_DB:-mathilens_radhafabric_test};Username=${POSTGRES_USER:-mathilens_test_app};Password=${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}"
+      # Its own signing key, never production's — that separation is the reason a test stack exists.
+      Jwt__SigningKey: ${JWT_SIGNING_KEY:?JWT_SIGNING_KEY must be set}
+      Jwt__Issuer: MathilensERP.Api.Test
+      Jwt__Audience: MathilensERP.Client.Test
+      Jwt__AccessTokenExpiryMinutes: "15"
+      Jwt__RefreshTokenExpiryDays: "30"
+      # Same origin as the site, so no preflight ever occurs — set correctly all the same, so the
+      # value is never wrong, only unexercised.
+      Cors__FrontendOrigin: ${SITE_URL:?SITE_URL must be set}
+      WhatsApp__AccessToken: ${WHATSAPP_ACCESS_TOKEN:-}
+      WhatsApp__PhoneNumberId: ${WHATSAPP_PHONE_NUMBER_ID:-}
+    expose:
+      - "8080"
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+      args:
+        # Compiled into the bundle, so they belong here and not under `environment` — setting them
+        # at runtime does nothing at all.
+        NEXT_PUBLIC_API_BASE_URL: ${SITE_URL:?SITE_URL must be set}
+        NEXT_PUBLIC_CUSTOMER_NAME: ${NEXT_PUBLIC_CUSTOMER_NAME:-}
+    restart: unless-stopped
+    depends_on:
+      - api
+    # The only container the proxy in front needs to reach. Coolify maps the hostname to this port;
+    # run it locally with `--publish 8080:80` instead.
+    expose:
+      - "80"
+
+volumes:
+  db-data:

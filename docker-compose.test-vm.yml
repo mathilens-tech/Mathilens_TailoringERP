@@ -1,0 +1,21 @@
+# Mathilens Tailoring ERP — the test stack as it is actually run on mathilens-test-vm.
+#
+# docker-compose.yml publishes nothing: it was written for Coolify, whose proxy maps a hostname to
+# the web container and needs no host port. This box is a Coolify host, but the ERP is deliberately
+# not one of Coolify's applications — its proxy already fronts around ten containers belonging to
+# other products, and routing a new hostname through it means editing the file that serves all of
+# them. A test environment is not worth that risk to somebody else's production.
+#
+# So the stack takes a host port of its own instead and leaves the proxy, :80, :443 and the host
+# firewall exactly as they were. The cost is honest and worth stating: no TLS, and a URL with a
+# port in it. Moving to the real hostname later is a Coolify route away and needs nothing rebuilt.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.test-vm.yml --env-file .env up -d --build
+
+services:
+  web:
+    ports:
+      # Host 8081 because 80 and 443 belong to Coolify's proxy and 8080 is a common default on a
+      # box this crowded. Only the web container is published — the API and Postgres stay on the
+      # internal network, reachable only through nginx's /api/ proxy, exactly as on Coolify.
+      - "8081:80"
