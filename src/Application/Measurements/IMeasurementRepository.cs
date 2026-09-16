@@ -15,6 +15,9 @@ public interface IMeasurementRepository
 
     Task<IReadOnlyList<Measurement>> GetByCustomerAsync(Guid customerId, CancellationToken cancellationToken);
 
+    /// <summary>Every measurement on file, up to <paramref name="limit"/> — for the whole-shop backup.</summary>
+    Task<IReadOnlyList<Measurement>> ListAllAsync(int limit, CancellationToken cancellationToken);
+
     Task<PagedResult<MeasurementHistory>> GetHistoryAsync(Guid measurementId, int page, int pageSize, CancellationToken cancellationToken);
 
     void Add(Measurement measurement);

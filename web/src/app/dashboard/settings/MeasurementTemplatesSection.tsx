@@ -14,6 +14,8 @@ import {
   setMeasurementTemplate,
   resetMeasurementTemplate,
   MEASUREMENT_POINT_TYPES,
+  hasRange,
+  hasSecondValue,
   type MeasurementPoint,
   type MeasurementPointType,
   type GarmentType,
@@ -25,7 +27,23 @@ const fieldClassName =
 
 /** Which point the name dialog is for: an index to rename, or null to add a new one. */
 /** A point being added or edited: its name, and the kind of answer it takes. */
-type PointDraft = { index: number | null; name: string; type: MeasurementPointType };
+/**
+ * A point being added or edited.
+ *
+ * `min` and `max` are held as the text the fields contain rather than as numbers, so a half-typed
+ * "3" on the way to "36" is a state this can be in. They become numbers, or null, only on save.
+ */
+type PointDraft = {
+  index: number | null;
+  name: string;
+  type: MeasurementPointType;
+  min: string;
+  max: string;
+  /** The second box's label. Empty means one box, which is what every point had before. */
+  secondName: string;
+  /** False restricts the point to whole numbers. True is the default and what older points do. */
+  decimals: boolean;
+};
 
 /**
  * Which measurement points a garment type asks for, and in what order — "Pant: 1. length,
@@ -162,7 +180,58 @@ export function MeasurementTemplatesSection() {
       return;
     }
 
-    const point: MeasurementPoint = { name, type: draft.type };
+    // A range is a figure's business. Switching a point to Tick or Text with bounds still in the
+    // boxes drops them rather than storing configuration the entry screen will never read.
+    const wantsRange = draft.type === "Number" && (draft.min.trim() !== "" || draft.max.trim() !== "");
+    let min: number | null = null;
+    let max: number | null = null;
+
+    if (wantsRange) {
+      min = Number(draft.min);
+      max = Number(draft.max);
+
+      // Checked here as well as on the server, because this is where the person who typed it is.
+      // The same three rules, in the same order, so a message never differs between the two.
+      if (draft.min.trim() === "" || draft.max.trim() === "") {
+        setDraftError("A range needs both a lowest and a highest value, or neither.");
+        return;
+      }
+      if (!Number.isFinite(min) || !Number.isFinite(max)) {
+        setDraftError("A range's values must be numbers.");
+        return;
+      }
+      if (max <= min) {
+        setDraftError("The highest value must be above the lowest.");
+        return;
+      }
+    }
+
+    // A second box, and the whole/decimal choice, are a figure's business too — switching the point
+    // to Tick or Text drops both rather than storing settings the entry screen will never read.
+    const secondName = draft.type === "Number" ? draft.secondName.trim() : "";
+    if (secondName !== "" && secondName.toLowerCase() === name.toLowerCase()) {
+      setDraftError("The two boxes need different labels.");
+      return;
+    }
+    // Two boxes are two entries in the values map, so the second label collides with other points
+    // exactly as a point name would.
+    const secondClash = secondName !== "" && points.some(
+      (p, i) => i !== draft.index && (p.name.toLowerCase() === secondName.toLowerCase()
+        || (p.secondName ?? "").toLowerCase() === secondName.toLowerCase()),
+    );
+    if (secondClash) {
+      setDraftError(`"${secondName}" is already used by another point in this template.`);
+      return;
+    }
+
+    const point: MeasurementPoint = {
+      name,
+      type: draft.type,
+      min,
+      max,
+      secondName: secondName === "" ? null : secondName,
+      decimals: draft.type === "Number" ? draft.decimals : null,
+    };
     setPoints(draft.index === null ? [...points, point] : points.map((p, i) => (i === draft.index ? point : p)));
     setDraft(null);
   }
@@ -225,7 +294,7 @@ export function MeasurementTemplatesSection() {
         <Button
           type="button"
           onClick={() => {
-            setDraft({ index: null, name: "", type: "Number" });
+            setDraft({ index: null, name: "", type: "Number", min: "", max: "", secondName: "", decimals: true });
             setDraftError(null);
           }}
           disabled={isLoading}
@@ -268,7 +337,30 @@ export function MeasurementTemplatesSection() {
                   ⠿
                 </span>
                 <span className="w-5 shrink-0 text-sm tabular-nums text-foreground/60 sm:w-6">{index + 1}.</span>
-                <span className="min-w-0 flex-1 truncate text-sm">{point.name}</span>
+                <span className="min-w-0 flex-1 truncate text-sm">
+                  {point.name}
+                  {/* The pair on one line, so a two-box point is recognisable without opening it.
+                      The separator is what says they belong together. */}
+                  {hasSecondValue(point) && (
+                    <span className="text-foreground/50"> + {point.secondName}</span>
+                  )}
+                </span>
+                {/* Only the restriction is worth a badge. Almost every figure allows decimals, so
+                    marking those would label nearly every row with the default. */}
+                {point.type === "Number" && point.decimals === false && (
+                  <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[11px] font-medium text-foreground/60">
+                    Whole
+                  </span>
+                )}
+                {/* The range on the row, so a template can be read without opening every point to
+                    find which ones have one. Only when it is complete and usable — hasRange is the
+                    same test the order screen applies before offering a pad, so what is shown here
+                    and what happens there cannot disagree. */}
+                {hasRange(point) && (
+                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-foreground/50">
+                    {point.min}–{point.max}
+                  </span>
+                )}
                 {/* Only the two new kinds are labelled. Marking every figure "Number" would be a
                     badge on almost every row, saying what the field it opens already shows. */}
                 {point.type !== "Number" && (
@@ -297,7 +389,19 @@ export function MeasurementTemplatesSection() {
                 <button
                   type="button"
                   onClick={() => {
-                    setDraft({ index, name: point.name, type: point.type });
+                    setDraft({
+                      index,
+                      name: point.name,
+                      type: point.type,
+                      // Back to text for editing. Null and undefined both become an empty box,
+                      // which is what "no range" looks like to the person opening this.
+                      min: point.min === null || point.min === undefined ? "" : String(point.min),
+                      max: point.max === null || point.max === undefined ? "" : String(point.max),
+                      secondName: point.secondName ?? "",
+                      // Absent means allowed — the same reading the server and the field use, so a
+                      // point that has never been asked opens with the box ticked.
+                      decimals: point.decimals !== false,
+                    });
                     setDraftError(null);
                   }}
                   className="whitespace-nowrap px-1 text-sm text-foreground/70 transition-colors hover:text-foreground"
@@ -379,6 +483,126 @@ export function MeasurementTemplatesSection() {
               ))}
             </div>
           </div>
+
+          {/* Whole numbers or fractions, and a second box — both only on a figure, for the same
+              reason the range is: a tick and a word have neither a precision nor a pair. */}
+          {draft?.type === "Number" && (
+            <>
+              <div className="mt-3 flex flex-col gap-1">
+                <span className="text-sm font-medium">Values</span>
+                <label className="flex items-center gap-2 py-1">
+                  <input
+                    type="checkbox"
+                    checked={draft.decimals}
+                    onChange={(e) => setDraft((c) => (c ? { ...c, decimals: e.target.checked } : c))}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  <span className="text-sm">
+                    Allow decimals
+                    <span className="ml-1 text-foreground/60">(e.g. 35.34)</span>
+                  </span>
+                </label>
+                <p className="text-xs text-foreground/60">
+                  Unticked, this point takes whole numbers only and the phone keypad drops its
+                  decimal point.
+                </p>
+              </div>
+
+              {/* One figure or two. Stated as a choice rather than left to be inferred from whether
+                  a second label happens to be filled in — "does this point take one measurement or
+                  two" is the question being answered, and naming the box is a consequence of the
+                  answer rather than the answer itself. */}
+              <div className="mt-3 flex flex-col gap-1">
+                <span className="text-sm font-medium">Values</span>
+                <div className="grid grid-cols-2 gap-2">
+                  {(
+                    [
+                      { multi: false, label: "Single value", hint: "One figure — e.g. 40½" },
+                      { multi: true, label: "Multi value", hint: "Two figures — e.g. 50¼ and 3½" },
+                    ] as const
+                  ).map((choice) => (
+                    <button
+                      key={choice.label}
+                      type="button"
+                      aria-pressed={(draft.secondName.trim() !== "") === choice.multi}
+                      onClick={() =>
+                        setDraft((c) =>
+                          c
+                            ? {
+                                ...c,
+                                // Choosing Multi seeds a label so the box is usable immediately;
+                                // choosing Single clears it, which is what makes the point single.
+                                secondName: choice.multi ? c.secondName.trim() || `${c.name.trim() || "Value"} 2` : "",
+                              }
+                            : c,
+                        )
+                      }
+                      className={`rounded-md border px-3 py-2 text-left transition-colors ${
+                        (draft.secondName.trim() !== "") === choice.multi
+                          ? "border-primary bg-primary/5 text-primary ring-1 ring-primary"
+                          : "border-border text-foreground/70 hover:border-primary/40 hover:text-foreground"
+                      }`}
+                    >
+                      <span className="block text-sm font-medium">{choice.label}</span>
+                      <span className="block text-xs text-foreground/60">{choice.hint}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {draft.secondName.trim() !== "" && (
+                <div className="mt-3 flex flex-col gap-1">
+                  <span className="text-sm font-medium">Second value&apos;s label</span>
+                  <p className="mb-1 text-xs text-foreground/60">
+                    What the second figure is called — it is saved and shown under this name.
+                  </p>
+                  <input
+                    type="text"
+                    aria-label="Second value label"
+                    placeholder={draft.name ? `e.g. ${draft.name} (tight)` : "e.g. Chest (tight)"}
+                    value={draft.secondName}
+                    onChange={(e) => setDraft((c) => (c ? { ...c, secondName: e.target.value } : c))}
+                    className={fieldClassName}
+                  />
+                </div>
+              )}
+            </>
+          )}
+
+          {draft?.type === "Number" && (
+            <div className="mt-3 flex flex-col gap-1">
+              <span className="text-sm font-medium">
+                Range <span className="font-normal text-foreground/60">(optional)</span>
+              </span>
+              <p className="mb-1 text-xs text-foreground/60">
+                Set both to give this point a number pad on the order screen, instead of a typed box.
+                Leave them empty to keep it typed.
+              </p>
+              <div className="flex items-center gap-2">
+                <input
+                  type="number"
+                  step="any"
+                  inputMode="decimal"
+                  aria-label="Lowest value"
+                  placeholder="Lowest"
+                  value={draft.min}
+                  onChange={(e) => setDraft((c) => (c ? { ...c, min: e.target.value } : c))}
+                  className={`${fieldClassName} w-28`}
+                />
+                <span className="text-sm text-foreground/60">to</span>
+                <input
+                  type="number"
+                  step="any"
+                  inputMode="decimal"
+                  aria-label="Highest value"
+                  placeholder="Highest"
+                  value={draft.max}
+                  onChange={(e) => setDraft((c) => (c ? { ...c, max: e.target.value } : c))}
+                  className={`${fieldClassName} w-28`}
+                />
+              </div>
+            </div>
+          )}
 
           <p className="mt-3 text-xs text-foreground/60">
             Added to the end of the list. Drag it into place, then Save template.

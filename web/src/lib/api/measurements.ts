@@ -25,11 +25,115 @@ export const GARMENT_TYPES = ["Shirt", "Trousers", "Suit", "Blazer", "Kurta", "B
 export const MEASUREMENT_POINT_TYPES = ["Number", "Checkbox", "Text"] as const;
 export type MeasurementPointType = (typeof MEASUREMENT_POINT_TYPES)[number];
 
-/** What the shop calls the point, and the kind of answer it takes. */
+/** What the shop calls the point, the kind of answer it takes, and — for a figure — its range. */
 export type MeasurementPoint = {
   name: string;
   type: MeasurementPointType;
+  /**
+   * The span the entry pad offers, set under Settings › Measurement.
+   *
+   * Absent on every point written before ranges existed, and on every point the shop has not given
+   * one — which is why these are optional rather than defaulted. A point with no range gets a plain
+   * typed field, not one bounded by numbers nobody chose.
+   */
+  min?: number | null;
+  max?: number | null;
+  /**
+   * The label of a second box on this point, or absent for the single box every point had before.
+   *
+   * <p>Its value is stored under this label, as an ordinary entry in the same values map — so
+   * "Chest" with a second box called "Chest (tight)" saves as
+   * <c>{"Chest": 40, "Chest (tight)": 42}</c>. Nothing about how a measurement is stored changes.
+   * The pairing lives here, in the template, which is what makes the two boxes one question on
+   * screen while leaving every reader of a saved measurement — the job card, the WhatsApp message,
+   * the backup — working exactly as it did.</p>
+   */
+  secondName?: string | null;
+  /** Fractions allowed. Absent means allowed, which is what every older point already does. */
+  decimals?: boolean | null;
 };
+
+/** Whether this point asks for two figures rather than one. */
+export function hasSecondValue(point: MeasurementPoint): boolean {
+  return point.type === "Number" && (point.secondName ?? "").trim() !== "";
+}
+
+/** Fractions allowed. The default for anything that has never said otherwise. */
+export function allowsDecimals(point: MeasurementPoint): boolean {
+  return point.decimals !== false;
+}
+
+/** One line of a measurement as it reads on screen: what was asked, and what was answered. */
+export type MeasurementDisplayEntry = { label: string; text: string };
+
+/**
+ * Saved values as they should be shown, with a two-box point's pair on one line.
+ *
+ * <p>A point with two boxes stores them under two keys — <c>{"Chest": 40, "Chest (tight)": 42}</c>
+ * — because that keeps a measurement a flat map of scalars and left every existing reader alone.
+ * The cost is that the values on their own cannot say the two belong together, so anything showing
+ * them listed the pair as two unrelated rows. This puts them back together as "40, 42" under the
+ * first box's name.</p>
+ *
+ * <p>Driven by the template, which is the only thing that knows about pairs. Values whose point is
+ * no longer in the template are still shown, under their own key and in their own row: a point the
+ * shop has since removed leaves measurements already recorded against it, and dropping them from
+ * the display would quietly hide a figure a tailor may still need.</p>
+ */
+export function toDisplayEntries(
+  values: Record<string, MeasurementValue>,
+  points: readonly MeasurementPoint[],
+): MeasurementDisplayEntry[] {
+  const entries: MeasurementDisplayEntry[] = [];
+  const consumed = new Set<string>();
+
+  for (const point of points) {
+    const first = values[point.name];
+    const secondKey = (point.secondName ?? "").trim();
+    const second = hasSecondValue(point) ? values[secondKey] : undefined;
+
+    if (first === undefined && second === undefined) {
+      continue;
+    }
+
+    consumed.add(point.name);
+    if (secondKey !== "") {
+      consumed.add(secondKey);
+    }
+
+    // Comma-separated, and only the halves that were actually recorded. One box filled and the
+    // other left blank reads as the single figure rather than as "40, " — a trailing separator
+    // suggests a value that failed to load rather than one nobody entered.
+    const parts = [first, second]
+      .filter((v): v is MeasurementValue => v !== undefined)
+      .map(formatMeasurementValue);
+
+    entries.push({ label: point.name, text: parts.join(", ") });
+  }
+
+  for (const [key, value] of Object.entries(values)) {
+    if (!consumed.has(key)) {
+      entries.push({ label: key, text: formatMeasurementValue(value) });
+    }
+  }
+
+  return entries;
+}
+
+/**
+ * Whether this point can offer a pad. Mirrors `MeasurementPointDto.HasRange` on the server.
+ *
+ * Both ends, the right way round, and only on a figure: one end alone cannot lay a pad out, and a
+ * tick or a word has no order to lay one out along.
+ */
+export function hasRange(point: MeasurementPoint): boolean {
+  return (
+    point.type === "Number" &&
+    typeof point.min === "number" &&
+    typeof point.max === "number" &&
+    point.max > point.min
+  );
+}
 
 /**
  * One recorded answer, stored as the scalar it is: 40, true, "open".

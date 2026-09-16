@@ -5,14 +5,27 @@ import type { GarmentType, MeasurementPoint, MeasurementValue } from "@/lib/api/
 import { useMeasurementFields } from "@/lib/use-measurement-templates";
 import { MeasurementPointInput, toFieldText } from "@/components/measurements/MeasurementPointInput";
 
-/** The point and what has been typed into it. Carries the point itself, not just its name, because
- *  the caller has to know whether "true" is a tick or the word "true" when it converts. */
-export type ValueRowInput = { point: MeasurementPoint; value: string };
+/**
+ * The point and what has been typed into it. Carries the point itself, not just its name, because
+ * the caller has to know whether "true" is a tick or the word "true" when it converts.
+ *
+ * <p><c>secondValue</c> is the figure in a two-box point's second box, and is an empty string both
+ * when nothing has been entered and when the point has only one box. The caller decides what to do
+ * with it — see the save in MeasurementForm, which stores it under the second box's own name.</p>
+ */
+export type ValueRowInput = { point: MeasurementPoint; value: string; secondValue: string };
 
 type Row = ValueRowInput & { id: number };
 
 function toRows(fields: readonly MeasurementPoint[], values: Record<string, MeasurementValue>): Row[] {
-  return fields.map((point, id) => ({ id, point, value: toFieldText(values[point.name]) }));
+  return fields.map((point, id) => ({
+    id,
+    point,
+    value: toFieldText(values[point.name]),
+    // Keyed by the second box's own label, which is where it was saved. Absent for a single-box
+    // point, and toFieldText turns that into the empty string the field expects.
+    secondValue: toFieldText(values[(point.secondName ?? "").trim()]),
+  }));
 }
 
 type MeasurementValuesEditorProps = {
@@ -39,15 +52,16 @@ export function MeasurementValuesEditor({ garmentType, initialValues = {}, onCha
     // defines cannot be known during the first render and there is nothing to derive them from.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setRows(next);
-    onChange(next.map(({ point, value }) => ({ point, value })));
+    onChange(next.map(({ point, value, secondValue }) => ({ point, value, secondValue })));
     // initialValues/onChange are caller-recreated each render; `fields` is the real trigger.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fields]);
 
-  function updateValue(id: number, value: string) {
-    const next = rows.map((row) => (row.id === id ? { ...row, value } : row));
-    setRows(next);
-    onChange(next.map(({ point, value }) => ({ point, value })));
+  /** One box of one row. `which` is the box, so both share the reporting path below. */
+  function updateValue(id: number, which: "value" | "secondValue", next: string) {
+    const rowsNext = rows.map((row) => (row.id === id ? { ...row, [which]: next } : row));
+    setRows(rowsNext);
+    onChange(rowsNext.map(({ point, value, secondValue }) => ({ point, value, secondValue })));
   }
 
 
@@ -66,7 +80,9 @@ export function MeasurementValuesEditor({ garmentType, initialValues = {}, onCha
           key={row.id}
           point={row.point}
           value={row.value}
-          onChange={(next) => updateValue(row.id, next)}
+          onChange={(next) => updateValue(row.id, "value", next)}
+          secondValue={row.secondValue}
+          onSecondChange={(next) => updateValue(row.id, "secondValue", next)}
         />
       ))}
     </div>

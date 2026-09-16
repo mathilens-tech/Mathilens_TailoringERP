@@ -7,11 +7,14 @@ import { getAccessToken } from "@/lib/auth";
 import { useRouteId } from "@/lib/use-route-id";
 import { ApiError, type PaginationMeta } from "@/lib/api-client";
 import { getMeasurementHistory, type MeasurementHistoryEntry } from "@/lib/api/measurements";
-import { formatMeasurementValue } from "@/lib/api/measurements";
+import { toDisplayEntries } from "@/lib/api/measurements";
+import { useMeasurementTemplates } from "@/lib/use-measurement-templates";
 
 
 export default function MeasurementHistoryPage() {
   const measurementId = useRouteId(1);
+  // Only to pair a two-box point's figures onto one line. Cached shop-wide by the hook.
+  const { templates } = useMeasurementTemplates();
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
   const [entries, setEntries] = useState<MeasurementHistoryEntry[]>([]);
@@ -72,10 +75,13 @@ export default function MeasurementHistoryPage() {
                 <tr key={entry.id} className="border-b border-border last:border-0">
                   <td data-label="Recorded" className="px-4 py-3">{new Date(entry.createdAtUtc).toLocaleString()}</td>
                   <td data-label="Garment" className="px-4 py-3">{entry.garmentType}</td>
+                  {/* Paired through the garment's template, and points separated by a middot: a
+                      comma now means "this point's two figures", so it cannot also mean "next
+                      point" without the row becoming unreadable. */}
                   <td data-label="Values" className="px-4 py-3">
-                    {Object.entries(entry.values)
-                      .map(([name, value]) => `${name}: ${formatMeasurementValue(value)}`)
-                      .join(", ")}
+                    {toDisplayEntries(entry.values, templates[entry.garmentType] ?? [])
+                      .map((display) => `${display.label}: ${display.text}`)
+                      .join(" · ")}
                   </td>
                 </tr>
               ))}

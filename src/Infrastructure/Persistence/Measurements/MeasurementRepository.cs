@@ -26,6 +26,24 @@ public class MeasurementRepository : IMeasurementRepository
             .OrderBy(m => m.GarmentType)
             .ToListAsync(cancellationToken);
 
+    /// <summary>
+    /// Every measurement on file, for the whole-shop backup.
+    ///
+    /// <para>Exists so the backup is one query rather than one per customer. Walking the customer
+    /// list and calling <see cref="GetByCustomerAsync"/> returns the same rows and would issue a
+    /// couple of thousand round trips for a shop of that size, on an endpoint somebody is sitting
+    /// waiting on.</para>
+    ///
+    /// <para>Ordered by customer so the export groups naturally. The cap is the caller's, because
+    /// the limit belongs to the export rather than to the table.</para>
+    /// </summary>
+    public async Task<IReadOnlyList<Measurement>> ListAllAsync(int limit, CancellationToken cancellationToken) =>
+        await _dbContext.Measurements
+            .OrderBy(m => m.CustomerId)
+            .ThenBy(m => m.GarmentType)
+            .Take(limit)
+            .ToListAsync(cancellationToken);
+
     public async Task<PagedResult<MeasurementHistory>> GetHistoryAsync(Guid measurementId, int page, int pageSize, CancellationToken cancellationToken)
     {
         var query = _dbContext.MeasurementHistory.Where(h => h.MeasurementId == measurementId);
