@@ -49,6 +49,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
 
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
+    /// <summary>Orders somebody started writing and has not finished. Nothing else joins to these.</summary>
+    public DbSet<OrderDraft> OrderDrafts => Set<OrderDraft>();
+
     public DbSet<FabricDetails> FabricDetails => Set<FabricDetails>();
 
     public DbSet<Invoice> Invoices => Set<Invoice>();

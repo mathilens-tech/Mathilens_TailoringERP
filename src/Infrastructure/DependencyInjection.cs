@@ -1,5 +1,6 @@
 using MathilensERP.Application.Activity;
 using MathilensERP.Application.Billing;
+using MathilensERP.Application.Orders.Drafts;
 using MathilensERP.Application.Common.Interfaces;
 using MathilensERP.Application.Customers;
 using MathilensERP.Application.Employees;
@@ -111,6 +112,7 @@ public static class DependencyInjection
         services.AddScoped<IMeasurementRepository, MeasurementRepository>();
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IOrderDraftRepository, OrderDraftRepository>();
         services.AddScoped<IOrderNumberGenerator, OrderNumberGenerator>();
         services.AddScoped<IInvoiceRepository, InvoiceRepository>();
         services.AddScoped<IInvoiceNumberGenerator, InvoiceNumberGenerator>();
