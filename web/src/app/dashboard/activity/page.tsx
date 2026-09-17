@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { DEFAULT_PAGE_SIZE, Pagination } from "@/components/ui/Pagination";
 import { getAccessToken } from "@/lib/auth";
 import { ApiError, type PaginationMeta } from "@/lib/api-client";
 import { DateInput } from "@/components/ui/DateInput";
+import { ExportButton } from "@/components/ui/ExportButton";
 import {
   searchActivityLogs,
   getActivityLogFilters,
@@ -96,6 +97,38 @@ export default function ActivityLogPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
+  /**
+   * The filters as the export endpoint takes them.
+   *
+   * <p>Built from the same four pieces of state the list is fetched with, and through the same
+   * whole-day conversion, so the file matches what is on screen. A filter that is not set is left
+   * out rather than sent empty: the query string is assembled by concatenation, and "userId=" would
+   * be a value the server has to decide how to ignore.</p>
+   *
+   * <p>No page or page size. The download is the filtered trail, not the twenty rows currently
+   * under the reader — the server bounds it separately.</p>
+   */
+  const exportQuery = useMemo(() => {
+    const query: Record<string, string> = {};
+    const from = toInstant(fromDate, false);
+    const to = toInstant(toDate, true);
+
+    if (from) {
+      query.fromUtc = from;
+    }
+    if (to) {
+      query.toUtc = to;
+    }
+    if (userId) {
+      query.userId = userId;
+    }
+    if (screen) {
+      query.screen = screen;
+    }
+
+    return query;
+  }, [fromDate, toDate, userId, screen]);
+
   const loadLogs = useCallback(async () => {
     setIsLoading(true);
     setLoadError(null);
@@ -143,7 +176,12 @@ export default function ActivityLogPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-semibold">Activity Log</h1>
+      {/* Export sits beside the heading rather than beneath the filters, matching Customers and
+          Orders — it acts on the whole screen, not on the row it happens to be next to. */}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <h1 className="text-2xl font-semibold">Activity Log</h1>
+        <ExportButton resource="activity-logs" label="the activity log" query={exportQuery} />
+      </div>
 
       {/* The two dates need only as much room as "mm/dd/yyyy" and its calendar button; the two
           dropdowns hold email addresses and screen names and can use everything left over. Equal
