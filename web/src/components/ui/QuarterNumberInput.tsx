@@ -237,10 +237,14 @@ export function QuarterNumberInput({
         // still announced, and only editing is refused. disabled would grey it out and drop it from
         // the tab order, which is a different and much stronger statement than "choose from the pad".
         readOnly={isPadDriven}
-        // Recombined only when the fraction lives elsewhere. When the box holds the whole figure,
-        // what was typed is the figure — running it through joinFigure would truncate a typed 5.5
-        // back to 5 and then add the stored quarter to it.
-        onChange={(e) => onChange(fractionBesideBox ? joinFigure(e.target.value, split.fraction) : e.target.value)}
+        // Typing a whole number clears the quarter, for the reason the pad's own numbers do: this
+        // box previously re-applied the stored fraction to whatever was typed, so correcting 27.5
+        // to 28 by typing 28 gave back 28.5. The quarter is chosen beside the box, after the
+        // number, and is never carried over from the figure being replaced.
+        //
+        // Only where the fraction lives elsewhere. When the box holds the whole figure, what was
+        // typed is the figure — running it through joinFigure would truncate a typed 5.5 back to 5.
+        onChange={(e) => onChange(fractionBesideBox ? joinFigure(e.target.value, 0) : e.target.value)}
         onClick={() => {
           if (isPadDriven) {
             setIsPadOpen(true);
@@ -360,14 +364,21 @@ export function QuarterNumberInput({
               <button
                 key={candidate}
                 type="button"
-                // Keeps whatever quarter is already picked, so tapping 5 after ½ gives 5.5 rather
-                // than throwing the fraction away and making it two taps again.
+                // Clears whatever quarter was showing. This used to keep it, so that tapping 5
+                // after ½ gave 5.5 and saved a tap — but it also meant correcting 27.5 to 28 by
+                // tapping 28 produced 28.5. Somebody fixing a measurement watched the figure they
+                // had just rejected reattach itself to the new number, and a quarter inch nobody
+                // chose is a garment cut wrong.
+                //
+                // Picking a number is therefore the start of a figure, not an edit to part of one:
+                // the quarters sit below and are pressed after it, which is the order they are read
+                // in anyway. The saved tap was worth less than being able to trust the box.
                 //
                 // Closes only where there is nothing else in the pad to choose. With quarters on
                 // offer the number is half the answer, and closing on it would dismiss them before
                 // they could be reached. Done closes instead.
                 onClick={() => {
-                  onChange(joinFigure(String(candidate), split.fraction));
+                  onChange(joinFigure(String(candidate), 0));
                   if (!usesFraction) {
                     setIsPadOpen(false);
                   }
