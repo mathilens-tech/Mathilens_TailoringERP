@@ -441,9 +441,28 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
       return;
     }
 
-    update(wanted.map((garmentType) => emptyRow(garmentType, defaultFabricSource)));
+    // Priced on the way in, exactly as "+ Add item" prices a row it creates.
+    //
+    // These rows used to be built blank and left for the settling effect above to fill. That
+    // works only when the prices arrive last. Two independent requests are in flight — the
+    // shop's prices, and this Order Entry setting — and when the setting won the race it replaced
+    // the settled rows with empty ones, while the settling effect stayed quiet because neither of
+    // the things it watches had changed. The order then opened with a garment that has a price and
+    // a Tailoring Cost box that was blank, and stayed blank.
+    //
+    // A race decided by whichever response is quicker is why it looked intermittent, and why it
+    // showed up on the first load after signing in: nothing is warm then, so the timings differ
+    // most. Filling the rate here settles it whichever way the race goes — if the prices have not
+    // landed yet this is still blank, and the settling effect fills it when they do.
+    update(
+      wanted.map((garmentType) => ({
+        ...emptyRow(garmentType, defaultFabricSource),
+        tailoringRate: rateFor(garmentType),
+      })),
+    );
     // rows/update are deliberately absent: this reacts to the setting arriving, and re-running it
-    // on every row change is precisely what it must not do.
+    // on every row change is precisely what it must not do. tailoringRates is absent for the same
+    // reason — the settling effect owns price changes; this one owns which rows exist.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultGarments]);
 
