@@ -51,8 +51,9 @@ import {
 } from "@/components/measurements/MeasurementPointInput";
 import { getSetting, DEFAULT_ORDER_DUE_DATE_DAYS_KEY } from "@/lib/api/settings";
 import { getShopCalendar, nextOpenDay, toIsoDate, WEEKDAYS } from "@/lib/api/shop-calendar";
-import { getTailoringRates, type TailoringRates } from "@/lib/api/tailoring-rates";
-import { getGarments, type Garment } from "@/lib/api/garments";
+import { type TailoringRates } from "@/lib/api/tailoring-rates";
+import { type Garment } from "@/lib/api/garments";
+import { getShopItemConfig } from "@/lib/api/shop-items";
 import { createInvoice, recordPayment, PAYMENT_METHODS, type PaymentMethod, type Invoice } from "@/lib/api/billing";
 import { getInvoiceSettings, taxAmountFor, DEFAULT_INVOICE_SETTINGS } from "@/lib/api/invoice-settings";
 import { toDisplayPhoneNumber } from "@/lib/contact";
@@ -187,14 +188,31 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   const isFabricSale = isFabricOnly(kind);
   const [tailoringRates, setTailoringRates] = useState<TailoringRates>({});
   const [garments, setGarments] = useState<Garment[]>([]);
+  /**
+   * Set when the shop's garments and prices could not be read at all.
+   *
+   * <p>Kept apart from "there are no prices", which is what it used to be indistinguishable from. A
+   * failed read left the garment list standing (it falls back to the shipped names) while the price
+   * list came back empty, the filter below then removed every garment for want of a price, and the
+   * item editor was handed nothing — with the screen advising the reader to go and set prices they
+   * had set months ago.</p>
+   */
+  const [itemConfigFailed, setItemConfigFailed] = useState(false);
   // What an item row may be for: on the shop's garment list and carrying a stitching price. A
   // garment nobody has priced would put a zero on the bill, so it is not offered at all.
+  //
+  // Unless the prices could not be read, in which case every garment is offered with its price
+  // blank. Withholding the whole list on a failed request turns a fetch that can be retried into a
+  // screen that cannot be used, and the banner above already says what is wrong.
   //
   // Memoised because the item editor watches this list in an effect — a fresh array on every render
   // would re-run that effect on every keystroke in the form.
   const offerableGarments = useMemo(
-    () => garments.filter((garment) => tailoringRates[garment.name] !== undefined),
-    [garments, tailoringRates],
+    () =>
+      itemConfigFailed
+        ? garments
+        : garments.filter((garment) => tailoringRates[garment.name] !== undefined),
+    [garments, tailoringRates, itemConfigFailed],
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -769,10 +787,14 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     // rejects — a shop that has set no prices gets no garments to pick, which is the message below
     // rather than an error, and an unconfigured business mode falls back to tailoring-only.
     let cancelled = false;
-    Promise.all([getTailoringRates(getAccessToken()), getGarments(getAccessToken())]).then(([rates, list]) => {
+    // One read for both. They live in the same settings list and are useless apart — an unpriced
+    // garment is not offered — and asking for them separately swept that whole list twice on every
+    // load of this screen.
+    getShopItemConfig(getAccessToken()).then((config) => {
       if (!cancelled) {
-        setTailoringRates(rates);
-        setGarments(list);
+        setTailoringRates(config.rates);
+        setGarments(config.garments);
+        setItemConfigFailed(config.failed);
       }
     });
 
@@ -1291,6 +1313,18 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
           </Link>
         </div>
       </div>
+
+      {/* Said plainly, at the top, because the alternative is what this replaced: the Tailoring Cost
+          box simply sat empty and the item editor advised setting a price that was already set.
+          Naming the cause — and that a reload may fix it — is the difference between a fault
+          somebody can act on and one they work around for months. */}
+      {itemConfigFailed && (
+        <p role="alert" className="rounded-md border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger">
+          The shop&rsquo;s garments and tailoring prices could not be loaded, so Tailoring Cost is
+          blank and every garment is listed. Reload the page to try again — and if it keeps
+          happening, check that Settings &rsaquo; Tailoring Cost is reachable for this account.
+        </p>
+      )}
 
       <form onSubmit={handleCreateOrder} className="flex flex-col gap-4">
         {/* items-start, and no shared height: the two columns are independent stacks of cards that
