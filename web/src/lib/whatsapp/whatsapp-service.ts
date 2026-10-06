@@ -33,6 +33,8 @@ export type InvoiceShare = {
   orderNumber: string;
   invoiceNumber: string;
   orderTotal: number;
+  /** What was taken off the bill. Zero when none was given — the message then omits the line entirely. */
+  discountAmount: number;
   advancePaid: number;
   balanceDue: number;
   /** The order's collection date, ISO or anything Date can read. */
@@ -146,8 +148,16 @@ export function buildInvoiceMessage(share: InvoiceShare, shop: ShopIdentity): st
     `📦 *Order:* ${share.orderNumber}`,
     "",
     `💰 *Order Total:* ${money(share.orderTotal)}`,
-    `💳 *Balance Due:* ${money(share.balanceDue)}`,
   ];
+
+  // Only when there is one. A discount of zero is not a discount, and a "Discount: ₹0.00" line
+  // reads as either a mistake or a stingy joke — so the line appears exactly when something was
+  // actually taken off, and is placed above the balance it produced.
+  if (share.discountAmount > 0) {
+    lines.push(`🏷️ *Discount:* ${money(share.discountAmount)}`);
+  }
+
+  lines.push(`💳 *Balance Due:* ${money(share.balanceDue)}`);
 
   // Dropped rather than printed empty: a collection date nobody set should not arrive as a
   // heading with nothing after it.
@@ -156,10 +166,25 @@ export function buildInvoiceMessage(share: InvoiceShare, shop: ShopIdentity): st
     lines.push(`📅 *Collection Date:* ${collectionDate}`);
   }
 
-  lines.push("", "Thank you,", `*${shop.name}*`);
+  lines.push("", "Thank you,", `*${shop.name}*`, ...FOLLOW_US_LINES);
 
   return lines.join("\n");
 }
+
+/**
+ * The shop's handles, appended to the customer-facing messages so a satisfied customer has
+ * somewhere to go. Kept as one block rather than scattered, so the next shop that wants different
+ * handles changes them in a single place.
+ *
+ * Hardcoded for now, matching how the shop name used to be before Branding: a setting is the right
+ * long-term home, but a wrong-but-editable link beats a missing one, and these are this shop's.
+ */
+const FOLLOW_US_LINES: readonly string[] = [
+  "",
+  "Follow us for our latest offers, styles and fashion tips for men:",
+  "📸 Instagram: https://instagram.com/radha_mens_studio",
+  "🌐 Website: https://www.radhamens.com",
+];
 
 /**
  * "Your order is ready" — sent once the order reaches Ready For Delivery.

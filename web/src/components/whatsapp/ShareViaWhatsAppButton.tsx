@@ -27,7 +27,7 @@ export type ShareViaWhatsAppProps = {
   /** null while no customer is chosen — the button says so rather than disappearing. */
   customer: { id: string; fullName: string; phoneNumber: string } | null;
   /** null until an invoice exists. Sharing is blocked, not hidden, so the reason can be given. */
-  invoice: { id: string; invoiceNumber: string; totalAmount: number; amountPaid: number; remainingBalance: number } | null;
+  invoice: { id: string; invoiceNumber: string; totalAmount: number; discountAmount: number; amountPaid: number; remainingBalance: number } | null;
   order: { orderNumber: string; dueAtUtc: string };
   shopName: string;
   /**
@@ -148,6 +148,7 @@ export function ShareViaWhatsAppButton({
             orderNumber: order.orderNumber,
             invoiceNumber: invoice.invoiceNumber,
             orderTotal: invoice.totalAmount,
+            discountAmount: invoice.discountAmount,
             advancePaid: invoice.amountPaid,
             balanceDue: invoice.remainingBalance,
             collectionDateUtc: order.dueAtUtc,
