@@ -43,8 +43,12 @@ services:
       db:
         condition: service_healthy
     environment:
-      # Host is the service name; Docker's embedded DNS resolves it on the shared network.
-      ConnectionStrings__Default: "Host=db;Port=5432;Database=${POSTGRES_DB:-mathilens_radhafabric_test};Username=${POSTGRES_USER:-mathilens_test_app};Password=${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}"
+      # DB target is overridable so the stack can point at an existing managed database (e.g. the
+      # standalone radha-fabric-test-db that already holds the test data) instead of the bundled
+      # `db` service. Unset, it falls back to the in-stack `db` — the self-contained default. The
+      # password is never written here; it comes from the environment, which on Coolify is the
+      # application's own variables. This repository is public.
+      ConnectionStrings__Default: "Host=${DB_HOST:-db};Port=${DB_PORT:-5432};Database=${DB_NAME:-mathilens_radhafabric_test};Username=${DB_USER:-mathilens_test_app};Password=${DB_PASSWORD:?DB_PASSWORD must be set}"
       # Its own signing key, never production's — that separation is the reason a test stack exists.
       Jwt__SigningKey: ${JWT_SIGNING_KEY:?JWT_SIGNING_KEY must be set}
       Jwt__Issuer: MathilensERP.Api.Test
