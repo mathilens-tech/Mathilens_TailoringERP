@@ -52,6 +52,20 @@ public static class Guard
         return value;
     }
 
+    /// <summary>
+    /// Zero allowed, negative not — for money that may legitimately be nothing. An alteration
+    /// charge is zero when the shop is fixing its own work for free, which is the usual case.
+    /// </summary>
+    public static decimal AgainstNegative(decimal value, string paramName)
+    {
+        if (value < 0)
+        {
+            throw new ArgumentOutOfRangeException(paramName, value, "Value cannot be negative.");
+        }
+
+        return value;
+    }
+
     public static int AgainstOutOfRange(int value, int min, int max, string paramName)
     {
         if (value < min || value > max)

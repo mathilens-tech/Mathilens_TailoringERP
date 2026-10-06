@@ -51,6 +51,17 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.Navigation(o => o.Items).UsePropertyAccessMode(PropertyAccessMode.Field);
 
+        // One row per time the order came back to be altered. Cascade: the alterations are part of
+        // the order's own history and mean nothing without it.
+        builder.HasMany(o => o.Alterations)
+            .WithOne()
+            .HasForeignKey(a => a.OrderId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Navigation(o => o.Alterations)
+            .HasField("_alterations")
+            .UsePropertyAccessMode(PropertyAccessMode.Field);
+
         builder.Property(o => o.CreatedBy).IsRequired();
         builder.Property(o => o.CreatedAtUtc).IsRequired();
 

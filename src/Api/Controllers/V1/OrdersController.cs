@@ -10,6 +10,7 @@ using MathilensERP.Application.Orders.Commands.AssignEmployee;
 using MathilensERP.Application.Orders.Commands.Create;
 using MathilensERP.Application.Orders.Commands.Delete;
 using MathilensERP.Application.Orders.Commands.RemoveItem;
+using MathilensERP.Application.Orders.Commands.RequestAlteration;
 using MathilensERP.Application.Orders.Commands.SetItemFabric;
 using MathilensERP.Application.Orders.Commands.TransitionStatus;
 using MathilensERP.Application.Orders.Commands.Update;
@@ -247,6 +248,26 @@ public sealed class OrdersController : ApiControllerBase
     public async Task<IActionResult> TransitionStatus(Guid id, [FromBody] TransitionOrderStatusRequest request, CancellationToken cancellationToken)
     {
         var result = await _sender.Send(new TransitionOrderStatusCommand(id, request.TargetStatus, request.DeliveredAtUtc), cancellationToken);
+        return ToActionResult(result);
+    }
+
+    /// <summary>
+    /// Takes a delivered order back for alteration, recording the customer's feedback and any
+    /// charge, and returning the order to the workflow at <c>Alteration</c>.
+    ///
+    /// <para>Guarded by <see cref="Permissions.OrdersStatus"/> rather than <c>OrdersEdit</c>: this
+    /// moves the order through its lifecycle, which is what that permission governs.409 when the
+    /// order is not delivered — there is nothing to take back.</para>
+    /// </summary>
+    [HttpPost("{id:guid}/alterations")]
+    [Authorize(Policy = Permissions.OrdersStatus)]
+    [ProducesResponseType(typeof(ApiResponse<OrderDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> RequestAlteration(Guid id, [FromBody] RequestOrderAlterationRequest request, CancellationToken cancellationToken)
+    {
+        var result = await _sender.Send(new RequestOrderAlterationCommand(id, request.Reason, request.ChargeAmount), cancellationToken);
         return ToActionResult(result);
     }
 

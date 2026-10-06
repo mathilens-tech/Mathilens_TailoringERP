@@ -6,7 +6,16 @@ import type { ClothUnit } from "./inventory";
  * Mirrors OrderStatus.cs. "Sold" is last because it is not part of the progression before it: a
  * fabric sale is created Sold and stays there, and no tailoring order ever reaches it.
  */
-export const ORDER_STATUSES = ["Received", "InProgress", "ReadyForDelivery", "Delivered", "Cancelled", "Sold"] as const;
+export const ORDER_STATUSES = [
+  "Received",
+  "InProgress",
+  "ReadyForDelivery",
+  "Delivered",
+  "Cancelled",
+  "Sold",
+  /** A delivered garment that did not fit, back on the bench. Reached only from Delivered. */
+  "Alteration",
+] as const;
 export type OrderStatus = (typeof ORDER_STATUSES)[number];
 
 export const FABRIC_SOURCES = ["CustomerSupplied", "ShopSupplied"] as const;
@@ -50,6 +59,19 @@ export type Order = {
   /** totalAmount − amountPaid, and null alongside it. */
   balanceAmount: number | null;
   items: OrderItem[];
+  /** Every time this order came back to be altered, oldest first. Empty for almost every order. */
+  alterations: OrderAlteration[];
+};
+
+export type OrderAlteration = {
+  id: string;
+  /** What the customer said was wrong — "sleeve too long". */
+  reason: string;
+  /** Zero for a free rework, which is the usual case. */
+  chargeAmount: number;
+  /** When the customer had the garment before this alteration; `deliveredAtUtc` moves on after it. */
+  previousDeliveredAtUtc: string | null;
+  createdAtUtc: string;
 };
 
 /**
@@ -197,6 +219,14 @@ export function setOrderItemFabric(
   token: string | null,
 ) {
   return apiPut<Order>(`/api/v1/orders/${orderId}/items/${itemId}/fabric`, { fabricType, source, color, quantity }, token);
+}
+
+/**
+ * Takes a delivered order back for alteration, returning it at status `Alteration` — open again, so
+ * the measurements and the cloth can be corrected. `chargeAmount` is zero for a free rework.
+ */
+export function requestOrderAlteration(orderId: string, reason: string, chargeAmount: number, token: string | null) {
+  return apiPost<Order>(`/api/v1/orders/${orderId}/alterations`, { reason, chargeAmount }, token);
 }
 
 /** `deliveredAtUtc` is required when targetStatus is "Delivered", and ignored otherwise. */

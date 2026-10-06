@@ -68,6 +68,9 @@ export function buildInvoicePreview(nowIso: string, taxRatePercent: number, numb
       unitPrice: item.unitPrice,
       fabric: null,
     })),
+    // Never altered, like almost every order — and the invoice preview says nothing about
+    // alterations in any case.
+    alterations: [],
   };
 
   const invoice: Invoice = {

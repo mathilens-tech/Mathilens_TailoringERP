@@ -24,7 +24,11 @@ internal static class OrderMapper
             order.TotalAmount,
             amountPaid,
             amountPaid is null ? null : order.TotalAmount - amountPaid,
-            order.Items.Select(i => i.ToDto()).ToList());
+            order.Items.Select(i => i.ToDto()).ToList(),
+            order.Alterations.OrderBy(a => a.CreatedAtUtc).Select(a => a.ToDto()).ToList());
+
+    private static OrderAlterationDto ToDto(this OrderAlteration alteration) =>
+        new(alteration.Id, alteration.Reason, alteration.ChargeAmount, alteration.PreviousDeliveredAtUtc, alteration.CreatedAtUtc);
 
     private static OrderItemDto ToDto(this OrderItem item) =>
         new(item.Id, item.GarmentType, item.Quantity, item.UnitPrice, item.Fabric?.ToDto());

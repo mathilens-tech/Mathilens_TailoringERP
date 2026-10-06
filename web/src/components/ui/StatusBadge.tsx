@@ -41,6 +41,9 @@ export const ORDER_STATUS_BADGE: Record<string, { label: string; tone: BadgeTone
   // the customer has what they came for. This map is Record<string>, so without an entry "Sold"
   // would still read correctly but arrive with no tone at all.
   Sold: { label: "Sold", tone: "success" },
+  // Warning, like In Progress: a garment back for alteration is unfinished work, and the shop needs
+  // it to read as outstanding rather than as the success Delivered was showing a moment ago.
+  Alteration: { label: "Alteration", tone: "warning" },
 };
 
 /** The words for a status, falling back to the raw value so an unmapped one is visible, not blank. */

@@ -12,13 +12,23 @@ namespace MathilensERP.Domain.Orders;
 /// </summary>
 public sealed class Order : AuditableEntity
 {
-    /// <summary>Received → InProgress → ReadyForDelivery → Delivered; any non-terminal state → Cancelled.</summary>
+    /// <summary>
+    /// Received → InProgress → ReadyForDelivery → Delivered; any of the first three → Cancelled.
+    /// Delivered → Alteration → InProgress is the one way back, for a garment that did not fit.
+    /// </summary>
     private static readonly Dictionary<OrderStatus, OrderStatus[]> AllowedTransitions = new()
     {
         [OrderStatus.Received] = [OrderStatus.InProgress, OrderStatus.Cancelled],
         [OrderStatus.InProgress] = [OrderStatus.ReadyForDelivery, OrderStatus.Cancelled],
         [OrderStatus.ReadyForDelivery] = [OrderStatus.Delivered, OrderStatus.Cancelled],
-        [OrderStatus.Delivered] = [],
+        // No longer terminal. A delivered garment that does not fit comes back, and the shop has not
+        // finished the job it was paid for — the alternative was staff raising a second order for
+        // work the first one covered. Alteration is the only way out, so the return is deliberate
+        // and recorded rather than a quiet reopening.
+        [OrderStatus.Delivered] = [OrderStatus.Alteration],
+        // Back to the bench, or abandoned. Not straight to ReadyForDelivery: something is being
+        // re-stitched, and the status that says so is InProgress.
+        [OrderStatus.Alteration] = [OrderStatus.InProgress, OrderStatus.Cancelled],
         [OrderStatus.Cancelled] = [],
         // Terminal on arrival: the cloth is already across the counter, so there is no later step to
         // record. Present with an empty list rather than absent, because CanTransitionTo indexes
@@ -27,6 +37,8 @@ public sealed class Order : AuditableEntity
     };
 
     private readonly List<OrderItem> _items = [];
+
+    private readonly List<OrderAlteration> _alterations = [];
 
     /// <summary>
     /// What the shop and the customer call this order out loud — "MTL-0001". The prefix is the
@@ -74,6 +86,12 @@ public sealed class Order : AuditableEntity
     /// them out to keep the in-memory aggregate consistent with a freshly loaded one.
     /// </summary>
     public IReadOnlyList<OrderItem> Items => _items.Where(i => !i.IsDeleted).ToList();
+
+    /// <summary>
+    /// Every time this order came back to be altered, oldest first — the garment's own history of
+    /// not fitting. Empty for the overwhelming majority of orders.
+    /// </summary>
+    public IReadOnlyCollection<OrderAlteration> Alterations => _alterations.AsReadOnly();
 
     /// <summary>An order's details, items and fabric can only be changed while it's still open — not once delivered or cancelled.</summary>
     // Sold belongs here with the other two finished states: a fabric sale is complete the moment it
@@ -297,6 +315,34 @@ public sealed class Order : AuditableEntity
         }
 
         Status = target;
+    }
+
+    /// <summary>
+    /// Takes a delivered order back for alteration: records what is wrong and returns it to the
+    /// workflow at <see cref="OrderStatus.Alteration"/>.
+    ///
+    /// <para>One call rather than a status transition and a separate record, because neither is
+    /// right on its own. A transition with no reason loses why the garment came back — which is the
+    /// only thing that makes the trail worth reading — and a record with no transition leaves the
+    /// order marked delivered while it sits on the bench.</para>
+    ///
+    /// <para><see cref="DeliveredAtUtc"/> is left standing and copied onto the record. The next
+    /// delivery overwrites it, and the record is what remembers the first hand-over.</para>
+    /// </summary>
+    public OrderAlteration RequestAlteration(string reason, decimal chargeAmount, DateTime? occurredAtUtc = null)
+    {
+        if (Status != OrderStatus.Delivered)
+        {
+            throw new InvalidOperationException(
+                $"Only a delivered order can be taken back for alteration; this one is '{Status}'.");
+        }
+
+        var alteration = OrderAlteration.Create(Id, reason, chargeAmount, DeliveredAtUtc);
+        _alterations.Add(alteration);
+
+        TransitionTo(OrderStatus.Alteration, occurredAtUtc: occurredAtUtc);
+
+        return alteration;
     }
 
     private OrderItem RequireItem(Guid orderItemId) =>

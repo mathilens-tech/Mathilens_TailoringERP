@@ -18,32 +18,56 @@ type Step = { label: string; state: StepState };
  * genuinely completed, the stages it never reached stay unlit, and Cancelled is shown as its own
  * terminal marker rather than as the last step of a journey it did not make.</p>
  */
-export function OrderWorkflow({ status, hasEmployee }: { status: OrderStatus; hasEmployee: boolean }) {
+export function OrderWorkflow({
+  status,
+  hasEmployee,
+  alterationCount = 0,
+}: {
+  status: OrderStatus;
+  hasEmployee: boolean;
+  /** How many times this order has come back. Drawn as a branch beneath the line, not as a step. */
+  alterationCount?: number;
+}) {
   const steps = buildSteps(status, hasEmployee);
 
   return (
-    <ol className="flex flex-wrap items-center gap-y-3">
-      {steps.map((step, index) => (
-        <li key={step.label} className="flex items-center">
-          <span
-            aria-hidden="true"
-            className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold ${circleClass(step.state)}`}
-          >
-            {marker(step.state, index)}
-          </span>
+    <div className="flex flex-col gap-2">
+      <ol className="flex flex-wrap items-center gap-y-3">
+        {steps.map((step, index) => (
+          <li key={step.label} className="flex items-center">
+            <span
+              aria-hidden="true"
+              className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold ${circleClass(step.state)}`}
+            >
+              {marker(step.state, index)}
+            </span>
 
-          <span
-            // Marks where the order actually is for a screen reader, which cannot see the fill.
-            aria-current={step.state === "current" || step.state === "cancelled" ? "step" : undefined}
-            className={`ml-2 whitespace-nowrap text-sm ${labelClass(step.state)}`}
-          >
-            {step.label}
-          </span>
+            <span
+              // Marks where the order actually is for a screen reader, which cannot see the fill.
+              aria-current={step.state === "current" || step.state === "cancelled" ? "step" : undefined}
+              className={`ml-2 whitespace-nowrap text-sm ${labelClass(step.state)}`}
+            >
+              {step.label}
+            </span>
 
-          {index < steps.length - 1 && <span aria-hidden="true" className="mx-3 h-px w-6 bg-border sm:w-10" />}
-        </li>
-      ))}
-    </ol>
+            {index < steps.length - 1 && <span aria-hidden="true" className="mx-3 h-px w-6 bg-border sm:w-10" />}
+          </li>
+        ))}
+      </ol>
+
+      {/* A branch below the line rather than a sixth step on it.
+          An alteration is not progress — the five steps were genuinely completed, and the garment
+          came back afterwards. Drawn as a step it would read as "nearly finished", and an order
+          altered twice would need two of them, which the line has no room for. Shown whenever the
+          order has ever been altered, not only while it is being altered: that the garment came
+          back once is worth knowing after it has been delivered again. */}
+      {alterationCount > 0 && (
+        <p className={`ml-3 border-l-2 pl-3 text-sm ${status === "Alteration" ? "border-warning font-medium text-warning" : "border-border text-foreground/60"}`}>
+          ↳ {status === "Alteration" ? "Alteration — back on the bench" : "Altered"}
+          {alterationCount > 1 && <> · {alterationCount} times</>}
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -52,7 +76,18 @@ function buildSteps(status: OrderStatus, hasEmployee: boolean): Step[] {
 
   // How far the status itself has travelled. Cancelled carries no position of its own — an order
   // cancelled while in progress still genuinely started, and that is read off the steps below.
-  const reached = status === "Delivered" ? 3 : status === "ReadyForDelivery" ? 2 : status === "InProgress" ? 1 : 0;
+  //
+  // Alteration counts as fully delivered, because it was: the garment was handed over and came
+  // back. Treating it as unreached would unlight four steps the shop actually completed, and the
+  // branch beneath the line is what says the work is not finished.
+  const reached =
+    status === "Delivered" || status === "Alteration"
+      ? 3
+      : status === "ReadyForDelivery"
+        ? 2
+        : status === "InProgress"
+          ? 1
+          : 0;
 
   const done = [
     // The order exists, so this one is complete by definition — it is here to give the line a start
