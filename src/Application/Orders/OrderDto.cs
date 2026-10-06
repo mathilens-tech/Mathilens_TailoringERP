@@ -27,7 +27,20 @@ public sealed record OrderDto(
     decimal TotalAmount,
     decimal? AmountPaid,
     decimal? BalanceAmount,
-    IReadOnlyList<OrderItemDto> Items);
+    IReadOnlyList<OrderItemDto> Items,
+    /// <summary>Every time this order came back to be altered, oldest first. Empty for almost every order.</summary>
+    IReadOnlyList<OrderAlterationDto> Alterations);
+
+/// <param name="PreviousDeliveredAtUtc">
+/// When the customer had the garment before this alteration. The order's own <c>DeliveredAtUtc</c>
+/// moves on when the altered garment is handed over again, so this is what remembers the earlier one.
+/// </param>
+public sealed record OrderAlterationDto(
+    Guid Id,
+    string Reason,
+    decimal ChargeAmount,
+    DateTime? PreviousDeliveredAtUtc,
+    DateTime CreatedAtUtc);
 
 public sealed record OrderItemDto(
     Guid Id,

@@ -132,5 +132,10 @@ public class OrderRepository : IOrderRepository
     public Task SaveChangesAsync(CancellationToken cancellationToken) => _dbContext.SaveChangesAsync(cancellationToken);
 
     private static IQueryable<Order> Include(IQueryable<Order> query) =>
-        query.Include(o => o.Items).ThenInclude(i => i.Fabric);
+        query
+            .Include(o => o.Items).ThenInclude(i => i.Fabric)
+            // Loaded with the order because requesting an alteration reads the current delivery date
+            // and appends to this list in the same unit of work, and the order screen shows them.
+            // Empty for almost every order, so it costs a left join and no rows.
+            .Include(o => o.Alterations);
 }

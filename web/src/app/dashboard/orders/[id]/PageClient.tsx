@@ -18,6 +18,7 @@ import { ShareViaWhatsAppButton } from "@/components/whatsapp/ShareViaWhatsAppBu
 import type { ShareKind } from "@/lib/whatsapp/whatsapp-service";
 import { useBranding } from "@/lib/use-branding";
 import { OrderWorkflow } from "./OrderWorkflow";
+import { AlterationSection } from "./AlterationSection";
 import { getAccessToken } from "@/lib/auth";
 import { useRouteId } from "@/lib/use-route-id";
 import { ApiError } from "@/lib/api-client";
@@ -43,7 +44,14 @@ const NEXT_STATUSES: Record<OrderStatus, OrderStatus[]> = {
   Received: ["InProgress", "Cancelled"],
   InProgress: ["ReadyForDelivery", "Cancelled"],
   ReadyForDelivery: ["Delivered", "Cancelled"],
+  // Empty even though Delivered → Alteration is allowed: taking a garment back is not a one-click
+  // "Mark as…" — it needs the customer's reason and possibly a charge, so it has its own action
+  // and dialog (AlterationSection). Listing it here would offer a transition the server then
+  // refuses for want of a reason.
   Delivered: [],
+  // Back to the bench. Cancelled is left off deliberately — abandoning an order the customer
+  // already has is not something to offer beside "start the alteration".
+  Alteration: ["InProgress"],
   Cancelled: [],
   // Cloth already across the counter. Terminal on arrival, so the page offers no next step at all.
   Sold: [],
@@ -434,7 +442,11 @@ export default function OrderDetailPage() {
           over, displayed as a job waiting for a tailor. A sale has no "where is it" to answer. */}
       {!isSale && (
         <div className="overflow-x-auto rounded-lg border border-border bg-surface px-6 py-4">
-          <OrderWorkflow status={order.status} hasEmployee={Boolean(order.employeeId)} />
+          <OrderWorkflow
+            status={order.status}
+            hasEmployee={Boolean(order.employeeId)}
+            alterationCount={order.alterations.length}
+          />
         </div>
       )}
 
@@ -651,6 +663,10 @@ export default function OrderDetailPage() {
           grid — a garment with a dozen points needs the room, and wrapping them into half a screen
           is what sent people back to the customer record to read them comfortably. */}
       <OrderMeasurements customerId={order.customerId} items={order.items} />
+
+      {/* Taking a delivered garment back, and the history of every time it has happened. Renders
+          nothing at all for an order that has never been altered and cannot be. */}
+      <AlterationSection order={order} onOrderChanged={setOrder} />
 
       <div className="grid items-start gap-4 lg:grid-cols-2">
         <div className="rounded-lg border border-border bg-surface p-6">
