@@ -1,26 +1,38 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 /**
- * A figure entered as a whole number and a quarter, with an optional pad for the whole part.
+ * A figure entered as a whole number and a tenth, with an optional pad for the whole part.
  *
  * <p>Shared by the measurement fields and the item rows' Metres box, because both are the same
- * problem: a tape and a cloth counter are both read in quarters, and both were plain decimal boxes
- * that invited someone to type 40.5 and then a second person to read it back as "forty point five"
- * and convert. Picking the fraction says it in the units the shop works in.</p>
+ * problem: a tape and a cloth counter, both of which were plain decimal boxes that invited someone
+ * to type 40.5 and a second person to read it back and convert. Picking the fraction states it.</p>
  *
- * <p><b>Nothing about storage changes.</b> Whole 40 and quarter ¼ are summed and handed to the
- * caller as <c>"40.25"</c> — the same string the plain box produced. This is a way of entering a
+ * <p><b>Nothing about storage changes.</b> Whole 40 and tenth .5 are summed and handed to the
+ * caller as <c>"40.5"</c> — the same string the plain box produced. This is a way of entering a
  * decimal, not a new kind of one, so every reader of the saved value is untouched.</p>
  */
 
-/** The quarters a tape or a cloth counter is actually read to. */
+/**
+ * The tenths the fraction row offers — .1 through .9, plus "—" for a whole number.
+ *
+ * <p>Tenths rather than the quarters this started with: the shop reads its tape in tenths, so a
+ * measurement of 40.3 is one it takes and must be able to enter. Quarters could not express .1,
+ * .3, .7 or .9 at all.</p>
+ */
 const FRACTIONS = [
   { value: 0, label: "—" },
-  { value: 0.25, label: "¼" },
-  { value: 0.5, label: "½" },
-  { value: 0.75, label: "¾" },
+  { value: 0.1, label: ".1" },
+  { value: 0.2, label: ".2" },
+  { value: 0.3, label: ".3" },
+  { value: 0.4, label: ".4" },
+  { value: 0.5, label: ".5" },
+  { value: 0.6, label: ".6" },
+  { value: 0.7, label: ".7" },
+  { value: 0.8, label: ".8" },
+  { value: 0.9, label: ".9" },
 ] as const;
 
 /**
@@ -142,7 +154,20 @@ export function QuarterNumberInput({
    * different places on a phone, a tablet and the order screen's second column, and only the
    * element itself knows where it currently is.</p>
    */
-  const [padSide, setPadSide] = useState<"left" | "right">("left");
+  /**
+   * Where the pad is drawn — computed when it opens, not guessed from a breakpoint.
+   *
+   * <p>It is rendered through a portal to the document body and positioned <c>fixed</c>, so that no
+   * ancestor can clip it. That matters because the measurement panel now opens inside a dialog whose
+   * body has <c>overflow-hidden</c>: an <c>absolute</c> pad was cut off at the dialog's edge, which
+   * is what left half of it off-screen on a phone.</p>
+   *
+   * <p>On a narrow screen it is a full-width sheet pinned to the bottom of the viewport — always
+   * fully on screen, and a bigger target than a popover squeezed beside a field. On a wide screen it
+   * hangs just under the field, nudged left to stay inside the window.</p>
+   */
+  const padRef = useRef<HTMLDivElement>(null);
+  const [padPos, setPadPos] = useState<{ top: number; left: number; sheet: boolean } | null>(null);
 
   const split = useMemo(() => splitFigure(value), [value]);
   /**
@@ -187,29 +212,39 @@ export function QuarterNumberInput({
    */
   const fractionBesideBox = usesFraction && !offersPad;
 
+  /**
+   * Opens the pad, measuring where to put it in the same gesture.
+   *
+   * <p>Done here rather than in an effect because the position is read from the field's live
+   * rectangle: an effect that set it synchronously would be a cascading render the lint rule rightly
+   * refuses, and the measurement has to happen at the click anyway — the same field sits in
+   * different places on a phone, a tablet and the order screen's column. Narrow screens get a bottom
+   * sheet pinned across the foot of the viewport; wider ones a popover under the field, nudged left
+   * to stay inside the window. PAD_WIDTH mirrors the w-64 popover below.</p>
+   */
+  function openPad() {
+    const PAD_WIDTH = 256;
+    const narrow = window.innerWidth < 1024;
+    const rect = fieldRef.current?.getBoundingClientRect();
+    if (narrow) {
+      setPadPos({ top: 0, left: 0, sheet: true });
+    } else {
+      const top = (rect?.bottom ?? 0) + 4;
+      const left = Math.max(8, Math.min(rect?.left ?? 0, window.innerWidth - PAD_WIDTH - 8));
+      setPadPos({ top, left, sheet: false });
+    }
+    setIsPadOpen(true);
+  }
+
   useEffect(() => {
     if (!isPadOpen) {
       return;
     }
-
-    /*
-      Hang the pad from whichever edge keeps it on screen.
-
-      PAD_WIDTH mirrors the w-64 below. Measuring the pad itself would be more honest but needs it
-      rendered first, which means a frame where it is in the wrong place — and on a phone that shows
-      as a visible jump.
-
-      Left by default, flipping right only when the pad would run past the viewport. Anchoring right
-      shifts it left by its own width, which is what keeps it inside the screen for a field near the
-      right-hand edge.
-    */
-    const PAD_WIDTH = 256;
-    const left = fieldRef.current?.getBoundingClientRect().left ?? 0;
-    setPadSide(left + PAD_WIDTH > window.innerWidth - 8 ? "right" : "left");
     // mousedown rather than click, so the pad is gone before whatever is underneath it receives
-    // its own event.
+    // its own event. The pad is portaled outside fieldRef, so it is excluded explicitly too.
     function handleOutsideClick(event: MouseEvent) {
-      if (!fieldRef.current?.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (!fieldRef.current?.contains(target) && !padRef.current?.contains(target)) {
         setIsPadOpen(false);
       }
     }
@@ -247,7 +282,7 @@ export function QuarterNumberInput({
         onChange={(e) => onChange(fractionBesideBox ? joinFigure(e.target.value, 0) : e.target.value)}
         onClick={() => {
           if (isPadDriven) {
-            setIsPadOpen(true);
+            openPad();
           }
         }}
         onKeyDown={(e) => {
@@ -256,7 +291,7 @@ export function QuarterNumberInput({
           // The pad is reachable from the keyboard too, so this is not a mouse-only control.
           if (isPadDriven && (e.key === " " || e.key === "Enter")) {
             e.preventDefault();
-            setIsPadOpen(true);
+            openPad();
           }
         }}
         className={`w-16 min-w-0 flex-1 rounded-md border border-border bg-surface px-2 py-1.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/25 disabled:cursor-not-allowed disabled:bg-surface-hover disabled:text-foreground/50 ${
@@ -273,7 +308,7 @@ export function QuarterNumberInput({
       {offersPad && entryMode === "type" && (
         <button
           type="button"
-          onClick={() => setIsPadOpen((open) => !open)}
+          onClick={() => (isPadOpen ? setIsPadOpen(false) : openPad())}
           aria-expanded={isPadOpen}
           aria-label={`${ariaLabel}: choose from ${padMin} to ${padMax}`}
           title={`${padMin}–${padMax}`}
@@ -308,122 +343,119 @@ export function QuarterNumberInput({
         </select>
       )}
 
-      {offersPad && isPadOpen && (
-        /*
-          Laid out to be short rather than wide-and-tall.
+      {offersPad && isPadOpen && padPos && typeof document !== "undefined" &&
+        createPortal(
+          /*
+            Rendered to document.body, not inside the field. An absolute pad was clipped by the
+            measurement dialog's overflow-hidden body — half of it off-screen on a phone. A portal
+            escapes every ancestor, and fixed positioning keeps it put.
 
-          Five numbers to a row instead of four, so a 1–20 range is four rows rather than five and
-          fits without scrolling. The running total sits in the header where the range used to be
-          spelled out — "1–20" was reference material that never changed, while the figure being
-          built changes on every tap and is the one thing worth watching. And the quarters share a
-          line with Done instead of each taking one of their own.
-
-          The whole pad is about a third shorter than the stacked version, which on a phone is the
-          difference between covering the item row underneath and sitting beside it.
-        */
-        <div
-          className={`absolute top-full z-20 mt-1 w-64 rounded-md border border-border bg-surface p-2 shadow-lg ${
-            padSide === "right" ? "right-0" : "left-0"
-          }`}
-        >
-          <div className="mb-1.5 flex items-center justify-between gap-2 px-0.5">
-            <span className="text-sm font-semibold tabular-nums">
-              {value === "" ? <span className="font-normal text-foreground/40">Pick a value</span> : value}
-            </span>
-            <div className="flex items-center gap-1">
-              {/* The way to a figure the pad does not carry — a 40 metre roll, or a length between
-                  the steps. Without it a pad-driven box would be a field a shop simply could not
-                  record an unusual value in, and the unusual value is the one nobody can plan for. */}
-              {entryMode === "pad" && (
+            Narrow screens get a bottom sheet pinned across the foot of the viewport; wider ones a
+            popover just under the field. Either way Done sits at the top, where the thumb lands
+            first and before the number grid it would otherwise have to reach past.
+          */
+          <div
+            ref={padRef}
+            className={
+              padPos.sheet
+                ? "fixed inset-x-0 bottom-0 z-50 rounded-t-xl border-t border-border bg-surface p-3 shadow-2xl"
+                : "fixed z-50 w-64 rounded-md border border-border bg-surface p-2 shadow-lg"
+            }
+            style={padPos.sheet ? undefined : { top: padPos.top, left: padPos.left }}
+          >
+            {/* Header, with Done at the top. The running figure on the left changes on every tap and
+                is the thing worth watching; the actions sit opposite it. */}
+            <div className="mb-2 flex items-center justify-between gap-2 px-0.5">
+              <span className="text-base font-semibold tabular-nums">
+                {value === "" ? <span className="text-sm font-normal text-foreground/40">Pick a value</span> : value}
+              </span>
+              <div className="flex items-center gap-1.5">
+                {/* The way to a figure the pad does not carry — a 40 metre roll, or a length between
+                    the steps. Without it a pad-driven box would be a field a shop could not record an
+                    unusual value in, and the unusual value is the one nobody can plan for. */}
+                {entryMode === "pad" && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsTyping(true);
+                      setIsPadOpen(false);
+                    }}
+                    className="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    Type
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => {
-                    setIsTyping(true);
+                    onChange("");
                     setIsPadOpen(false);
                   }}
-                  className="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+                  className="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-danger hover:text-danger"
                 >
-                  Type
+                  Clear
                 </button>
-              )}
-              <button
-                type="button"
-                onClick={() => {
-                  onChange("");
-                  setIsPadOpen(false);
-                }}
-                className="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-danger hover:text-danger"
-              >
-                Clear
-              </button>
-            </div>
-          </div>
-
-          <div className="grid max-h-44 grid-cols-5 gap-1 overflow-y-auto">
-            {padValues.map((candidate) => (
-              <button
-                key={candidate}
-                type="button"
-                // Clears whatever quarter was showing. This used to keep it, so that tapping 5
-                // after ½ gave 5.5 and saved a tap — but it also meant correcting 27.5 to 28 by
-                // tapping 28 produced 28.5. Somebody fixing a measurement watched the figure they
-                // had just rejected reattach itself to the new number, and a quarter inch nobody
-                // chose is a garment cut wrong.
-                //
-                // Picking a number is therefore the start of a figure, not an edit to part of one:
-                // the quarters sit below and are pressed after it, which is the order they are read
-                // in anyway. The saved tap was worth less than being able to trust the box.
-                //
-                // Closes only where there is nothing else in the pad to choose. With quarters on
-                // offer the number is half the answer, and closing on it would dismiss them before
-                // they could be reached. Done closes instead.
-                onClick={() => {
-                  onChange(joinFigure(String(candidate), 0));
-                  if (!usesFraction) {
-                    setIsPadOpen(false);
-                  }
-                }}
-                className={`rounded py-1.5 text-sm tabular-nums transition-colors ${
-                  split.whole === String(candidate)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground/80 hover:bg-surface-hover"
-                }`}
-              >
-                {candidate}
-              </button>
-            ))}
-          </div>
-
-          {/* Quarters and Done on one line. The quarters are four small, fixed choices and Done is
-              pressed straight after them, so a row each was two rows spent on one gesture. */}
-          {usesFraction && (
-            <div className="mt-1.5 flex items-center gap-1 border-t border-border pt-1.5">
-              {FRACTIONS.map((fraction) => (
                 <button
-                  key={fraction.value}
                   type="button"
-                  aria-label={fraction.value === 0 ? "No fraction" : `Plus ${fraction.label}`}
-                  onClick={() => onChange(joinFigure(split.whole, fraction.value))}
-                  className={`flex-1 rounded py-1.5 text-base leading-none transition-colors ${
-                    split.fraction === fraction.value
+                  onClick={() => setIsPadOpen(false)}
+                  className="rounded-md bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+
+            <div className={`grid gap-1 overflow-y-auto ${padPos.sheet ? "max-h-56 grid-cols-6" : "max-h-44 grid-cols-5"}`}>
+              {padValues.map((candidate) => (
+                <button
+                  key={candidate}
+                  type="button"
+                  // Picking a number starts a figure rather than editing part of one: it clears any
+                  // tenth showing, so correcting 27.5 to 28 by tapping 28 gives 28, not 28.5. The
+                  // tenths sit below and are pressed after, which is the order they are read in.
+                  //
+                  // Closes only where there is nothing else to choose. With tenths on offer the
+                  // number is half the answer, so Done closes instead.
+                  onClick={() => {
+                    onChange(joinFigure(String(candidate), 0));
+                    if (!usesFraction) {
+                      setIsPadOpen(false);
+                    }
+                  }}
+                  className={`rounded py-2 text-sm tabular-nums transition-colors ${
+                    split.whole === String(candidate)
                       ? "bg-primary text-primary-foreground"
                       : "text-foreground/80 hover:bg-surface-hover"
                   }`}
                 >
-                  {fraction.label}
+                  {candidate}
                 </button>
               ))}
-              <button
-                type="button"
-                onClick={() => setIsPadOpen(false)}
-                className="ml-1 shrink-0 rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
-              >
-                Done
-              </button>
             </div>
-          )}
-        </div>
-      )}
+
+            {/* The tenths — .1 through .9 and "—" for none — in their own grid beneath the numbers. */}
+            {usesFraction && (
+              <div className="mt-2 grid grid-cols-5 gap-1 border-t border-border pt-2">
+                {FRACTIONS.map((fraction) => (
+                  <button
+                    key={fraction.value}
+                    type="button"
+                    aria-label={fraction.value === 0 ? "No fraction" : `Plus ${fraction.label}`}
+                    onClick={() => onChange(joinFigure(split.whole, fraction.value))}
+                    className={`rounded py-2 text-base leading-none tabular-nums transition-colors ${
+                      split.fraction === fraction.value
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground/80 hover:bg-surface-hover"
+                    }`}
+                  >
+                    {fraction.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
