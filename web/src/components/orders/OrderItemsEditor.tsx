@@ -541,18 +541,18 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
               the layout this row has always had on a desktop. */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="text-sm font-medium">Item {index + 1}</span>
-            {/* The way in and out of this item's measurements on a phone.
+            {/* An explicit per-garment way in and out of its measurements, at every width.
 
-                Below lg only. On a wide screen the panel lives in the right-hand column and is
-                closed from there, and the row's own border already shows which item that column is
-                showing — a chevron there would be a second control for a job already done.
+                It used to be phone-only — on a wide screen you clicked the row and the panel opened
+                in the right-hand column. But a row that opens a panel with no control saying so is a
+                control that cannot be seen, and the shop asked for a button against each garment. So
+                it is here at all sizes: on a phone it opens the measurement dialog, on a wide screen
+                the second-column panel. stopPropagation so the button is the thing that acted, not
+                the card it sits on — without it the card's own handler toggles the panel back shut.
 
-                Explicit, where tapping the card was the only way before. That worked and could not
-                be seen: nothing about a row said it would open, and nothing said how to shut it
-                again once the fields were on screen underneath. stopPropagation so the button is
-                the thing that acted, not the card it sits on — without it the card's own handler
-                fires straight afterwards and toggles the panel back shut. */}
-            {onItemClick && renderItemDetail && (
+                Gated on onItemClick alone, not renderItemDetail: the wide screen passes no
+                renderItemDetail (its panel is the column), and the button must still appear there. */}
+            {onItemClick && (
               <button
                 type="button"
                 onClick={(e) => {
@@ -569,7 +569,7 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
                     ? `Hide measurements for item ${index + 1}`
                     : `Show measurements for item ${index + 1}`
                 }
-                className="inline-flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary lg:hidden"
+                className="inline-flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary"
               >
                 Measurements
                 <svg
