@@ -1154,25 +1154,29 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
    * other is hidden by a breakpoint, not unmounted — so the notes field takes an id suffix rather
    * than shipping the same id twice and breaking its label.
    */
-  function renderMeasurementPanel(idSuffix: string) {
+  function renderMeasurementPanel(idSuffix: string, { inModal = false }: { inModal?: boolean } = {}) {
     if (!activeMeasurementItem) {
       return null;
     }
     const notesId = `measurementNotes-${idSuffix}`;
     return (
       <div className="orderSection-measure flex shrink-0 flex-col gap-3">
-        <div className="flex items-center justify-between gap-2 border-b border-border pb-3">
-          <span className="order-heading min-w-0 flex-1 truncate text-base font-semibold">
-            Measurement Details — Item {activeMeasurementItemIndex + 1} · {activeMeasurementItem.garmentType}
-          </span>
-          <button
-            type="button"
-            onClick={() => setActiveMeasurementItemId(null)}
-            className="shrink-0 text-sm text-foreground/70 hover:text-foreground"
-          >
-            Close
-          </button>
-        </div>
+        {/* The dialog supplies its own titled, closeable header, so the panel's own one is dropped
+            there to avoid a heading above a heading. The inline/column placements still carry it. */}
+        {!inModal && (
+          <div className="flex items-center justify-between gap-2 border-b border-border pb-3">
+            <span className="order-heading min-w-0 flex-1 truncate text-base font-semibold">
+              Measurement Details — Item {activeMeasurementItemIndex + 1} · {activeMeasurementItem.garmentType}
+            </span>
+            <button
+              type="button"
+              onClick={() => setActiveMeasurementItemId(null)}
+              className="shrink-0 text-sm text-foreground/70 hover:text-foreground"
+            >
+              Close
+            </button>
+          </div>
+        )}
         {!customer ? (
           <p className="text-sm text-foreground/70">Select a customer to view or add their measurements.</p>
         ) : isLoadingMeasurements || isLoadingTemplate ? (
@@ -1458,10 +1462,26 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 // the card and rules it off; wrapping it in a second bordered box put two outlines
                 // and two paddings between a garment and its measurements, which is what made them
                 // read as separate grids rather than one item.
+                // On a phone the measurements open as a dialog over the order rather than expanding
+                // inline beneath the row: a garment's full template is a screenful, and inline it
+                // pushed everything below it — the total, the other items — far down the page. The
+                // dialog keeps the row in place and gives the fields the whole screen.
+                //
+                // Gated on isNarrow (JS), not a CSS breakpoint: Modal renders through a portal, so
+                // `lg:hidden` on a wrapper would not stop it appearing on desktop. On desktop this
+                // returns nothing and the second-column panel is used instead.
                 renderItemDetail={
-                  isFabricSale
+                  isFabricSale || !isNarrow
                     ? undefined
-                    : () => <div className="flex flex-col gap-3">{renderMeasurementPanel("inline")}</div>
+                    : () => (
+                        <Modal
+                          open
+                          title={`Measurement Details — Item ${activeMeasurementItemIndex + 1} · ${activeMeasurementItem?.garmentType ?? ""}`}
+                          onClose={() => setActiveMeasurementItemId(null)}
+                        >
+                          {renderMeasurementPanel("modal", { inModal: true })}
+                        </Modal>
+                      )
                 }
                 disabled={isOrderCreated}
               />
