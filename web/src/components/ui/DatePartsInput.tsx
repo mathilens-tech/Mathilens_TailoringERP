@@ -33,10 +33,13 @@ const MONTH_NAMES = [
   "December",
 ];
 
-/** How many years the grid offers before the full list has to be opened. */
-const RECENT_YEARS = 10;
-/** Far enough back to cover any customer's date of birth. */
-const EARLIEST_YEAR_OFFSET = 100;
+// The year grid is one scrollable list, ascending, that opens on the 1980s — where most dates of
+// birth sit — with earlier years a scroll up and later years a scroll down. YEAR_MIN is far enough
+// back for any customer's birth; YEAR_FUTURE leaves a few years ahead for a wedding not yet held.
+const YEAR_MIN = 1920;
+const YEAR_FUTURE = 5;
+/** The year the list is scrolled to when it opens with nothing chosen — the top of the default view. */
+const DEFAULT_ANCHOR_YEAR = 1980;
 
 type Part = "day" | "month" | "year";
 
@@ -98,8 +101,11 @@ export function DatePartsInput({
   const [parts, setParts] = useState<Parts>(() => splitIso(value));
   const [lastValue, setLastValue] = useState(value);
   const [open, setOpen] = useState<Part | null>(null);
-  const [showAllYears, setShowAllYears] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  // The scroll box of the year grid, and the year it should open scrolled to, so the default view
+  // lands on the 1980s rather than at the far end of a hundred-year list.
+  const yearGridRef = useRef<HTMLDivElement>(null);
+  const anchorYearRef = useRef<HTMLButtonElement>(null);
 
   // Follows the field being reset or re-seeded from outside. Adjusted during the render that
   // brings the new prop in rather than in an effect, which would paint the stale date first.
@@ -143,7 +149,6 @@ export function DatePartsInput({
     if (disabled) {
       return;
     }
-    setShowAllYears(false);
     setOpen((current) => (current === part ? null : part));
   }
 
@@ -169,9 +174,28 @@ export function DatePartsInput({
   }
 
   const currentYear = new Date().getFullYear();
-  const years = showAllYears
-    ? Array.from({ length: EARLIEST_YEAR_OFFSET + 1 }, (_, i) => currentYear - i)
-    : Array.from({ length: RECENT_YEARS }, (_, i) => currentYear - i);
+  const yearMax = currentYear + YEAR_FUTURE;
+  // Ascending, so scrolling up reaches earlier years and down reaches later ones.
+  const years = Array.from({ length: yearMax - YEAR_MIN + 1 }, (_, i) => YEAR_MIN + i);
+  const selectedYear = Number(parts.year);
+  const anchorYear =
+    Number.isInteger(selectedYear) && selectedYear >= YEAR_MIN && selectedYear <= yearMax
+      ? selectedYear
+      : DEFAULT_ANCHOR_YEAR;
+
+  // When the year grid opens, scroll it so the anchor year sits at the top — the chosen year if
+  // there is one, otherwise 1980. Without this a hundred-year list opens at 1920, a long scroll
+  // from where nearly every date actually is.
+  useEffect(() => {
+    if (open !== "year") {
+      return;
+    }
+    const grid = yearGridRef.current;
+    const anchor = anchorYearRef.current;
+    if (grid && anchor) {
+      grid.scrollTop = anchor.offsetTop - grid.offsetTop;
+    }
+  }, [open]);
   const days = Array.from({ length: daysInMonth(parts.year, parts.month) }, (_, i) => i + 1);
   const hasAnyPart = parts.day !== "" || parts.month !== "" || parts.year !== "";
 
@@ -279,12 +303,14 @@ export function DatePartsInput({
           </button>
           {open === "year" && (
             <Panel align="right" className="w-[12.5rem]">
-              {/* The recent ten cover a wedding date and an anniversary; a date of birth is the
-                  reason the full list is one tap away rather than the thing on screen first. */}
-              <div className={`grid grid-cols-3 gap-px ${showAllYears ? "max-h-48 overflow-y-auto" : ""}`}>
+              {/* One scrollable list, opened on the 1980s: earlier years are a scroll up, later a
+                  scroll down. relative so a year's offsetTop is measured against this box, which is
+                  what the open-scroll above sets scrollTop from. */}
+              <div ref={yearGridRef} className="relative grid max-h-48 grid-cols-3 gap-px overflow-y-auto">
                 {years.map((year) => (
                   <button
                     key={year}
+                    ref={year === anchorYear ? anchorYearRef : undefined}
                     type="button"
                     aria-current={parts.year === String(year)}
                     onClick={() => choose("year", String(year))}
@@ -294,13 +320,6 @@ export function DatePartsInput({
                   </button>
                 ))}
               </div>
-              <button
-                type="button"
-                onClick={() => setShowAllYears((shown) => !shown)}
-                className="mt-1 w-full rounded-md border-t border-border pt-1.5 text-xs font-medium text-primary hover:underline"
-              >
-                {showAllYears ? "Recent years" : "Earlier years…"}
-              </button>
             </Panel>
           )}
         </div>

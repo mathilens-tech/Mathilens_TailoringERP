@@ -18,6 +18,14 @@ public sealed class RefreshToken : IAuditable
 
     public Guid UserId { get; private set; }
 
+    /// <summary>
+    /// Which sign-in — which device — this token's rotation chain belongs to. Carried on the token
+    /// rather than read from the account, because an account may now be signed in on more than one
+    /// device at once: a refresh has to continue its own device's session, and only the token knows
+    /// which that is. Every token rotated from this one inherits the same id.
+    /// </summary>
+    public string SessionId { get; private set; } = string.Empty;
+
     public string TokenHash { get; private set; } = string.Empty;
 
     public DateTime ExpiresAtUtc { get; private set; }
@@ -45,9 +53,10 @@ public sealed class RefreshToken : IAuditable
         // Reserved for EF Core materialization.
     }
 
-    public static RefreshToken Issue(Guid userId, string tokenHash, DateTime issuedAtUtc, DateTime expiresAtUtc)
+    public static RefreshToken Issue(Guid userId, string sessionId, string tokenHash, DateTime issuedAtUtc, DateTime expiresAtUtc)
     {
         Guard.AgainstEmpty(userId, nameof(userId));
+        Guard.AgainstNullOrWhiteSpace(sessionId, nameof(sessionId));
         Guard.AgainstNullOrWhiteSpace(tokenHash, nameof(tokenHash));
 
         if (expiresAtUtc <= issuedAtUtc)
@@ -59,6 +68,7 @@ public sealed class RefreshToken : IAuditable
         {
             Id = Guid.NewGuid(),
             UserId = userId,
+            SessionId = sessionId,
             TokenHash = tokenHash,
             ExpiresAtUtc = expiresAtUtc,
         };

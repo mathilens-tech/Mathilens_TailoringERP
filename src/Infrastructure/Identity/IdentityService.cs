@@ -268,17 +268,18 @@ public sealed class IdentityService : IIdentityService
         var now = DateTime.UtcNow;
         var roles = await _userManager.GetRolesAsync(user);
 
-        // A refresh keeps the session it was issued under; only a fresh sign-in starts a new one.
-        // Rotating on refresh would have every screen quietly evict itself every quarter of an hour.
-        var sessionId = rotatedFrom is null
-            ? Guid.NewGuid().ToString("N")
-            : await CurrentSessionIdOfAsync(user) ?? Guid.NewGuid().ToString("N");
+        // A refresh keeps the session it was issued under — read from the token being rotated, not
+        // from the account, now that an account can be signed in on more than one device at once.
+        // Only a fresh sign-in starts a new session. Rotating on refresh would have every screen
+        // quietly evict itself every quarter of an hour.
+        var sessionId = rotatedFrom?.SessionId ?? Guid.NewGuid().ToString("N");
 
         var accessToken = GenerateAccessToken(user, roles, now, sessionId, out var accessTokenExpiresAtUtc);
 
         var rawRefreshToken = GenerateRefreshTokenValue();
         var refreshTokenEntity = RefreshToken.Issue(
             user.Id,
+            sessionId,
             Hash(rawRefreshToken),
             now,
             now.AddDays(_jwtOptions.RefreshTokenExpiryDays));
@@ -329,10 +330,6 @@ public sealed class IdentityService : IIdentityService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-
-    /// <summary>The session a refresh should continue, read straight from the store.</summary>
-    private Task<string?> CurrentSessionIdOfAsync(ApplicationUser user) =>
-        _userManager.GetAuthenticationTokenAsync(user, PasswordResetCodes.Provider, ActiveSessionService.TokenName);
 
     private static string GenerateRefreshTokenValue() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
 

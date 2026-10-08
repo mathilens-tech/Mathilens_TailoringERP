@@ -1,13 +1,14 @@
 namespace MathilensERP.Application.Common.Interfaces;
 
 /// <summary>
-/// One signed-in place per account.
+/// A small, fixed number of signed-in places per account (JwtOptions.MaxConcurrentSessions).
 ///
-/// The shop's rule: signing in somewhere new ends wherever the account was signed in before, with
-/// the losing screen told why rather than silently failing. Access tokens are stateless JWTs, so
-/// revoking a refresh token only stops renewal — the old screen keeps working until its access
-/// token expires. Cutting it off at once needs the token to carry a session id and every request to
-/// check that it is still the current one, which is what this exists for.
+/// The shop's rule: an account may be signed in on a couple of devices at once; signing in on one
+/// more than that ends the account's oldest session, with the losing screen told why rather than
+/// silently failing. Access tokens are stateless JWTs, so revoking a refresh token only stops
+/// renewal — the old screen keeps working until its access token expires. Cutting it off at once
+/// needs the token to carry a session id and every request to check it is still one of the
+/// account's live ones, which is what this exists for.
 /// </summary>
 public interface IActiveSessionService
 {

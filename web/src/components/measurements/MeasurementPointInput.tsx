@@ -168,12 +168,16 @@ export function MeasurementPointInput({
 }
 
 /**
- * The label beside a field.
+ * The label and its field.
  *
- * <p>w-28 and truncating rather than w-32 with room to wrap: a point named "Bottom round" took two
- * lines at the wider size inside the order screen's narrower right-hand column, which made some
- * rows twice the height of their neighbours and the panel far longer than its field count
- * suggested. The full name stays available on hover and to a screen reader.</p>
+ * <p>Stacked below a phone's width and side-by-side from <c>sm</c> up. Two of these sit in each row
+ * of the measurement dialog's two columns, and on a narrow screen a label-beside-field pair — a
+ * two-figure point especially — ran wider than half a phone and pushed the dialog into a sideways
+ * scroll. Stacking the label over the field lets the pair fit the column instead, so nothing scrolls
+ * sideways; on a wider screen there is room for the old, more compact side-by-side.</p>
+ *
+ * <p>The label truncates either way rather than wrapping — a long name like "Bottom round" stays one
+ * line, with the whole of it on hover and to a screen reader — so rows keep an even height.</p>
  */
 function FieldShell({
   label,
@@ -185,8 +189,12 @@ function FieldShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-2">
-      <label htmlFor={htmlFor} title={label} className="w-28 shrink-0 truncate text-sm text-foreground/80">
+    <div className="flex min-w-0 flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2">
+      <label
+        htmlFor={htmlFor}
+        title={label}
+        className="min-w-0 truncate text-xs text-foreground/70 sm:w-24 sm:shrink-0 sm:text-sm sm:text-foreground/80"
+      >
         {label}
       </label>
       {children}

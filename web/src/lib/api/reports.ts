@@ -1,4 +1,5 @@
-import { apiGet, apiGetPaged } from "@/lib/api-client";
+import { apiGet, apiGetPaged, apiGetFile } from "@/lib/api-client";
+import { saveBlob } from "@/lib/download";
 import type { OrderStatus } from "./orders";
 import type { InvoiceStatus } from "./billing";
 
@@ -56,6 +57,15 @@ export function getRevenueReport(fromUtc: string, toUtc: string, token: string |
 export function getOrderCollectionsReport(fromUtc: string, toUtc: string, token: string | null) {
   const params = new URLSearchParams({ fromUtc, toUtc });
   return apiGet<OrderCollectionsReport>(`/api/v1/reports/order-collections?${params}`, token);
+}
+
+/**
+ * Downloads the whole-shop measurement backup PDF under the server's filename. No range — the
+ * backup is of every measurement on file, so there is nothing to pass.
+ */
+export async function downloadMeasurementBackup(token: string | null): Promise<void> {
+  const { blob, filename } = await apiGetFile("/api/v1/reports/measurement-backup", token, "measurement-backup.pdf");
+  saveBlob(blob, filename);
 }
 
 export function getOrderStatusSummaryReport(fromUtc: string, toUtc: string, token: string | null) {
