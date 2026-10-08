@@ -236,6 +236,101 @@ function ClothCodeField({ value, onChange, onSelectMatch, catalogue, disabled = 
   );
 }
 
+/**
+ * Garment picker with search — the shop's garments (Settings › Garments), narrowed as you type.
+ *
+ * <p>A combobox rather than a native dropdown because a tailoring shop stitches dozens of garments,
+ * and scrolling a long select to find "Blazer" is slower than typing "bl". The box shows the chosen
+ * garment when closed and the search when open; only a garment on the list can be picked — a
+ * measurement template and a price are keyed by the name, so free text would be a garment with
+ * neither. The whole list is already in hand, so it filters on the keystroke with no request.</p>
+ */
+function GarmentField({
+  value,
+  garments,
+  onSelect,
+  disabled = false,
+}: {
+  value: GarmentType;
+  garments: Garment[];
+  onSelect: (garmentType: GarmentType) => void;
+  disabled?: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const fieldRef = useRef<HTMLDivElement>(null);
+
+  const matches = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (q === "") {
+      return garments;
+    }
+    return garments.filter((garment) => garment.name.toLowerCase().includes(q));
+  }, [garments, query]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+    function handleOutsideClick(event: MouseEvent) {
+      if (!fieldRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [isOpen]);
+
+  function pick(name: GarmentType) {
+    onSelect(name);
+    setIsOpen(false);
+    setQuery("");
+  }
+
+  return (
+    <div ref={fieldRef} className="relative flex flex-col gap-0.5">
+      <label className="text-xs text-foreground/70">Garment</label>
+      {/* Shows the chosen garment when closed, the live search when open. Opening clears the query so
+          the whole list is there to scroll or filter. */}
+      <input
+        value={isOpen ? query : value}
+        disabled={disabled}
+        placeholder="Type to search…"
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setIsOpen(true);
+        }}
+        onFocus={() => {
+          setQuery("");
+          setIsOpen(true);
+        }}
+        className={fieldClassName}
+      />
+      {!disabled && isOpen && (
+        <ul className="absolute top-full z-10 mt-1 max-h-64 w-full min-w-[10rem] overflow-y-auto rounded-md border border-border bg-surface shadow-lg">
+          {matches.length === 0 ? (
+            <li className="px-3 py-2 text-sm text-foreground/60">No garment matches.</li>
+          ) : (
+            matches.map((garment) => (
+              <li key={garment.name}>
+                <button
+                  type="button"
+                  onClick={() => pick(garment.name)}
+                  className={`block w-full px-3 py-1.5 text-left text-sm hover:bg-surface-hover ${
+                    garment.name === value ? "font-medium text-primary" : ""
+                  }`}
+                >
+                  {garment.name}
+                </button>
+              </li>
+            ))
+          )}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 type OrderItemsEditorProps = {
   onChange: (rows: ItemRow[]) => void;
   mode: BusinessMode;
@@ -714,29 +809,15 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
               it and rendered as a gap between the row's heading and its cloth fields. */}
           {!fabricOnly && (
           <div className="grid max-w-2xl grid-cols-1 gap-x-3 gap-y-2 sm:grid-cols-4">
-            <div className="flex flex-col gap-0.5">
-              <label className="text-xs text-foreground/70">Garment</label>
-              <select
-                value={row.garmentType}
-                disabled={disabled}
-                // Changing the garment re-prices the row from the shop's list — that is what the
-                // list is for. A garment with no set price clears the amount rather than leaving
-                // the previous garment's, which would be quietly wrong.
-                onChange={(e) => {
-                  const garmentType = e.target.value as GarmentType;
-                  updateRow(row.id, { garmentType, tailoringRate: rateFor(garmentType) });
-                }}
-                className={fieldClassName}
-              >
-                {/* Only garments the shop lists and has priced. A garment with no price would put
-                    a zero on the bill, so it is not offered at all rather than offered and blank. */}
-                {garments.map(({ name }) => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {/* Searchable: a shop stitches dozens of garments, so typing "bl" beats scrolling to
+                Blazer. Only garments the shop lists and has priced are offered — a garment with no
+                price would put a zero on the bill. Changing it re-prices the row from the shop's list. */}
+            <GarmentField
+              value={row.garmentType}
+              garments={garments}
+              disabled={disabled}
+              onSelect={(garmentType) => updateRow(row.id, { garmentType, tailoringRate: rateFor(garmentType) })}
+            />
             <div className="flex flex-col gap-0.5">
               <label className="text-xs text-foreground/70">Quantity</label>
               {/* Chosen from a pad, over the range set in Settings › Order Entry. A count of
