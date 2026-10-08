@@ -6,5 +6,8 @@ public sealed record CreateCampaignRequest(
     string MessageTemplate,
     IReadOnlyList<Guid> CustomerIds);
 
+/// <summary>Edits an existing campaign's name and message. Its customers are unchanged.</summary>
+public sealed record UpdateCampaignRequest(string Name, string MessageTemplate);
+
 /// <param name="Messaged">True once this customer has been messaged, false to clear it again.</param>
 public sealed record SetRecipientMessagedRequest(bool Messaged);
