@@ -15,6 +15,8 @@
     { "route": "/dashboard/invoices/*", "rewrite": "/dashboard/invoices/_.html" },
     { "route": "/dashboard/whatsapp/new" },
     { "route": "/dashboard/whatsapp/*", "rewrite": "/dashboard/whatsapp/_.html" },
+    { "route": "/dashboard/marketing/campaigns/new" },
+    { "route": "/dashboard/marketing/campaigns/*", "rewrite": "/dashboard/marketing/campaigns/_.html" },
     { "route": "/invoice/view/*", "rewrite": "/invoice/view/_.html" }
   ]
 }
