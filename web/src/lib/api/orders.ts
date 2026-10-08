@@ -57,6 +57,9 @@ export type Order = {
   deliveredAtUtc: string | null;
   notes: string | null;
   createdAtUtc: string;
+  /** Who created the order, by name. Null on write responses (not resolved there) and when the
+   *  creating account has since been removed. */
+  createdByName: string | null;
   /** The order's own value — quantity × unit price, before any invoice tax or discount. */
   totalAmount: number;
   /**

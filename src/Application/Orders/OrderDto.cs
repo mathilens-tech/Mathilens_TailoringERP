@@ -24,6 +24,10 @@ public sealed record OrderDto(
     DateTime? DeliveredAtUtc,
     string? Notes,
     DateTime CreatedAtUtc,
+    /// <summary>Who created the order, by name. Null where the response was produced by a write
+    /// rather than a read — the command handlers return the aggregate and do not resolve names — and
+    /// null for an order whose creator's account has since been removed.</summary>
+    string? CreatedByName,
     decimal TotalAmount,
     decimal? AmountPaid,
     decimal? BalanceAmount,

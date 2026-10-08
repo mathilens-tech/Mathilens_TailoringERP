@@ -2228,7 +2228,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 </label>
                 {/* The whole roster in one list rather than a search box: a shop has tens of staff,
                     not thousands, and picking from a list beats typing a name you have to spell
-                    right. "Not assigned" is the first option and the default — most orders are
+                    right. "No Employee" is the first option and the default — most orders are
                     handed to a tailor later, not at the counter. */}
                 <select
                   id="employee"
@@ -2237,7 +2237,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   onChange={(e) => setEmployee(employees.find((candidate) => candidate.id === e.target.value) ?? null)}
                   className={fieldClassName}
                 >
-                  <option value="">{isLoadingEmployees ? "Loading employees…" : "Not assigned"}</option>
+                  <option value="">{isLoadingEmployees ? "Loading employees…" : "No Employee"}</option>
                   {employees.map((option) => (
                     <option key={option.id} value={option.id}>
                       {/* Code alongside the name — a shop can hold two Kumars. */}

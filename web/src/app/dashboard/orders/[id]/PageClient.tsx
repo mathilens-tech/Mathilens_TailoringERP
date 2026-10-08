@@ -544,10 +544,9 @@ export default function OrderDetailPage() {
               </div>
               <div>
                 <dt className="text-foreground/70">Created By</dt>
-                {/* Placeholder until the API carries it: the order records who created it, but
-                    OrderDto does not expose CreatedBy and the id would need resolving to a name.
-                    The row is here so the layout is settled and only the value has to arrive. */}
-                <dd className="font-medium text-foreground/50">—</dd>
+                <dd className={order.createdByName ? "font-medium" : "font-medium text-foreground/50"}>
+                  {order.createdByName ?? "—"}
+                </dd>
               </div>
             </div>
 
@@ -562,21 +561,33 @@ export default function OrderDetailPage() {
                 {/* "Advance" means money held against work still to come. On a sale there is no
                     work to come and the figure is the whole bill, already settled. */}
                 <dt className="text-foreground/70">{isSale ? "Paid" : "Advance"}</dt>
-                <dd className="font-medium tabular-nums">{order.amountPaid?.toFixed(2) ?? "—"}</dd>
+                <dd className="font-medium tabular-nums">
+                  {(activeInvoice?.amountPaid ?? order.amountPaid)?.toFixed(2) ?? "—"}
+                </dd>
+              </div>
+              <div>
+                {/* The discount lives on the invoice, not the order — a shop discounts a bill, not
+                    the work. Shown here so the order card carries the whole money story; a dash until
+                    an invoice exists, zero when nothing was taken off. */}
+                <dt className="text-foreground/70">Discount</dt>
+                <dd className="font-medium tabular-nums">
+                  {activeInvoice ? activeInvoice.discountAmount.toFixed(2) : "—"}
+                </dd>
               </div>
               <div>
                 <dt className="text-foreground/70">Balance</dt>
-                {/* Outstanding money is the one number on this card worth spotting without reading,
-                    so it carries colour where the others do not. Matches the Orders list. */}
-                <dd
-                  className={
-                    (outstandingBalance(order) ?? 0) > 0
-                      ? "font-medium tabular-nums text-danger"
-                      : "font-medium tabular-nums"
-                  }
-                >
-                  {outstandingBalance(order)?.toFixed(2) ?? "—"}
-                </dd>
+                {/* The invoice's own outstanding when there is one — it is the figure that accounts
+                    for the discount and the tax, so it is what the customer actually owes. Falls back
+                    to the order's clamped balance before an invoice is raised. Coloured because it is
+                    the one number here worth spotting without reading. */}
+                {(() => {
+                  const balance = activeInvoice ? activeInvoice.remainingBalance : outstandingBalance(order);
+                  return (
+                    <dd className={(balance ?? 0) > 0 ? "font-medium tabular-nums text-danger" : "font-medium tabular-nums"}>
+                      {balance?.toFixed(2) ?? "—"}
+                    </dd>
+                  );
+                })()}
               </div>
             </div>
 
