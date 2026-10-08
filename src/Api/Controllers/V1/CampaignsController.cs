@@ -5,6 +5,7 @@ using MathilensERP.Application.Common.Mediator;
 using MathilensERP.Application.Marketing;
 using MathilensERP.Application.Marketing.Commands.Create;
 using MathilensERP.Application.Marketing.Commands.SetRecipientMessaged;
+using MathilensERP.Application.Marketing.Commands.Update;
 using MathilensERP.Application.Marketing.Queries.GetCampaign;
 using MathilensERP.Application.Marketing.Queries.ListCampaigns;
 using MathilensERP.Shared.Authorization;
@@ -60,6 +61,18 @@ public sealed class CampaignsController : ApiControllerBase
         var result = await _sender.Send(
             new CreateCampaignCommand(request.Name, request.MessageTemplate, request.CustomerIds),
             cancellationToken);
+        return ToActionResult(result);
+    }
+
+    /// <summary>Edits an existing campaign's name and message. Its customers are unchanged.</summary>
+    [HttpPut("{id:guid}")]
+    [Authorize(Policy = Permissions.WhatsAppSend)]
+    [ProducesResponseType(typeof(ApiResponse<CampaignDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCampaignRequest request, CancellationToken cancellationToken)
+    {
+        var result = await _sender.Send(new UpdateCampaignCommand(id, request.Name, request.MessageTemplate), cancellationToken);
         return ToActionResult(result);
     }
 

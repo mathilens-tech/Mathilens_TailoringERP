@@ -241,6 +241,27 @@ export async function apiPutNoContent(path: string, payload: unknown, token?: st
   await throwIfError(response);
 }
 
+/**
+ * A fire-and-forget PUT that survives the page navigating away.
+ *
+ * <p>For the one flow where the next thing the same click does is leave the page — opening WhatsApp
+ * in the current tab on a phone — an ordinary fetch would be cancelled mid-flight and the change
+ * lost. `keepalive` lets the browser finish sending it after the page has gone. No envelope parsing
+ * and no 401-refresh dance: it is sent, errors are swallowed, and the page moves on. The caller has
+ * already updated the screen optimistically and the record is re-read on the next visit.</p>
+ */
+export function apiPutKeepalive(path: string, payload: unknown, token?: string | null): void {
+  void fetch(`${API_BASE_URL}${path}`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json",
+      ...authHeaders(token),
+    },
+    keepalive: true,
+  }).catch(() => {});
+}
+
 /** For DELETE endpoints that return the mutated resource in the standard envelope rather than 204. */
 export async function apiDeleteFor<T>(path: string, token?: string | null): Promise<T> {
   return request<T>(path, { method: "DELETE", headers: authHeaders(token) }, token);

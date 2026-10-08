@@ -1,4 +1,4 @@
-import { apiGet, apiPost, apiPutNoContent } from "@/lib/api-client";
+import { apiGet, apiPost, apiPut, apiPutNoContent, apiPutKeepalive } from "@/lib/api-client";
 
 export type CampaignListItem = {
   id: string;
@@ -43,8 +43,22 @@ export function createCampaign(input: CreateCampaignInput, token: string | null)
   return apiPost<Campaign>("/api/v1/campaigns", input, token);
 }
 
+/** Edits an existing campaign's name and message. Its customers are unchanged. */
+export function updateCampaign(id: string, input: { name: string; messageTemplate: string }, token: string | null) {
+  return apiPut<Campaign>(`/api/v1/campaigns/${id}`, input, token);
+}
+
 export function setRecipientMessaged(campaignId: string, recipientId: string, messaged: boolean, token: string | null) {
   return apiPutNoContent(`/api/v1/campaigns/${campaignId}/recipients/${recipientId}/messaged`, { messaged }, token);
+}
+
+/**
+ * Marks a recipient messaged in a way that survives the tab navigating to WhatsApp in the same gesture.
+ * Used by the WhatsApp button, where opening the chat on a phone leaves the page before an ordinary
+ * request would finish.
+ */
+export function setRecipientMessagedKeepalive(campaignId: string, recipientId: string, messaged: boolean, token: string | null) {
+  apiPutKeepalive(`/api/v1/campaigns/${campaignId}/recipients/${recipientId}/messaged`, { messaged }, token);
 }
 
 /**

@@ -61,6 +61,14 @@ public sealed class Campaign : AuditableEntity
         return campaign;
     }
 
+    /// <summary>Corrects the campaign's name and message. The recipients are untouched — editing the
+    /// wording of an offer does not re-open who it is going to or undo who has had it.</summary>
+    public void UpdateDetails(string name, string messageTemplate)
+    {
+        Name = Guard.AgainstNullOrWhiteSpace(name, nameof(name)).Trim();
+        MessageTemplate = Guard.AgainstNullOrWhiteSpace(messageTemplate, nameof(messageTemplate)).Trim();
+    }
+
     /// <summary>Marks one recipient messaged (or clears it). A no-op if the id is not on this
     /// campaign, so a stale click does not throw.</summary>
     public void SetRecipientMessaged(Guid recipientId, bool messaged, DateTime nowUtc)
