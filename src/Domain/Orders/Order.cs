@@ -107,11 +107,12 @@ public sealed class Order : AuditableEntity
     public bool RequiresEmployeeToStartWork => EmployeeId is null;
 
     /// <summary>
-    /// What this order's live items are worth — quantity × unit price. This is the order's own
-    /// value, so it carries no invoice tax or discount: those belong to the bill, not the work.
-    /// Computed in memory over a loaded aggregate; not usable inside a database query.
+    /// What this order's live items are worth — each line's stitching plus its cloth (see
+    /// <see cref="OrderItem.LineTotal"/>). This is the order's own value, so it carries no invoice
+    /// tax or discount: those belong to the bill, not the work. Computed in memory over a loaded
+    /// aggregate; not usable inside a database query.
     /// </summary>
-    public decimal TotalAmount => Items.Sum(i => i.Quantity * i.UnitPrice);
+    public decimal TotalAmount => Items.Sum(i => i.LineTotal);
 
     private Order()
     {
@@ -255,20 +256,30 @@ public sealed class Order : AuditableEntity
         item.SoftDelete(removedBy, removedAtUtc);
     }
 
-    /// <summary>Sets (or replaces) the fabric details for one of this order's items.</summary>
-    public void SetItemFabric(
+    /// <summary>Adds one cloth to an item — a garment cut from several cloths calls this once each.
+    /// Returns the new fabric so the caller can report its id.</summary>
+    public FabricDetails AddItemFabric(
         Guid orderItemId,
         string fabricType,
         FabricSource source,
         string? color,
         decimal quantity,
+        decimal ratePerMetre = 0m,
         Guid? clothPriceId = null,
         string? clothCode = null,
         ClothUnit unit = ClothUnit.Metres)
     {
-        EnsureModifiable("set fabric on");
+        EnsureModifiable("add fabric to");
 
-        RequireItem(orderItemId).SetFabric(fabricType, source, color, quantity, clothPriceId, clothCode, unit);
+        return RequireItem(orderItemId).AddFabric(fabricType, source, color, quantity, ratePerMetre, clothPriceId, clothCode, unit);
+    }
+
+    /// <summary>Removes one cloth from an item by its id.</summary>
+    public void RemoveItemFabric(Guid orderItemId, Guid fabricId)
+    {
+        EnsureModifiable("remove fabric from");
+
+        RequireItem(orderItemId).RemoveFabric(fabricId);
     }
 
     public void AssignEmployee(Guid employeeId) => EmployeeId = Guard.AgainstEmpty(employeeId, nameof(employeeId));

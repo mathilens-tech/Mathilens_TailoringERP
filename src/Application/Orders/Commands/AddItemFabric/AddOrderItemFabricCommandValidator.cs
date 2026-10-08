@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace MathilensERP.Application.Orders.Commands.SetItemFabric;
+namespace MathilensERP.Application.Orders.Commands.AddItemFabric;
 
-public sealed class SetOrderItemFabricCommandValidator : AbstractValidator<SetOrderItemFabricCommand>
+public sealed class AddOrderItemFabricCommandValidator : AbstractValidator<AddOrderItemFabricCommand>
 {
-    public SetOrderItemFabricCommandValidator()
+    public AddOrderItemFabricCommandValidator()
     {
         RuleFor(x => x.OrderId)
             .NotEmpty();
@@ -24,5 +24,9 @@ public sealed class SetOrderItemFabricCommandValidator : AbstractValidator<SetOr
 
         RuleFor(x => x.Quantity)
             .GreaterThan(0);
+
+        // Zero is the legacy "folded into the unit price" case and the default; only negative is wrong.
+        RuleFor(x => x.RatePerMetre)
+            .GreaterThanOrEqualTo(0);
     }
 }

@@ -133,7 +133,7 @@ public class OrderRepository : IOrderRepository
 
     private static IQueryable<Order> Include(IQueryable<Order> query) =>
         query
-            .Include(o => o.Items).ThenInclude(i => i.Fabric)
+            .Include(o => o.Items).ThenInclude(i => i.Fabrics)
             // Loaded with the order because requesting an alteration reads the current delivery date
             // and appends to this list in the same unit of work, and the order screen shows them.
             // Empty for almost every order, so it costs a left join and no rows.

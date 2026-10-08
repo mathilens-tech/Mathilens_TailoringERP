@@ -22,10 +22,14 @@ export const FABRIC_SOURCES = ["CustomerSupplied", "ShopSupplied"] as const;
 export type FabricSource = (typeof FABRIC_SOURCES)[number];
 
 export type FabricDetails = {
+  /** Identifies the cloth so it can be removed from an existing order. */
+  id: string;
   fabricType: string;
   source: FabricSource;
   color: string | null;
   quantity: number;
+  /** What a metre of this cloth is billed at; zero on cloth recorded before per-metre billing. */
+  ratePerMetre: number;
 };
 
 export type OrderItem = {
@@ -33,7 +37,12 @@ export type OrderItem = {
   garmentType: GarmentType;
   quantity: number;
   unitPrice: number;
-  fabric: FabricDetails | null;
+  /** Every cloth this garment is cut from — empty, one, or several. */
+  fabrics: FabricDetails[];
+  /** The line's cloth charge — each fabric's length × its rate, summed. */
+  clothAmount: number;
+  /** What the whole line is worth: stitching × quantity + cloth. */
+  lineTotal: number;
 };
 
 export type Order = {
@@ -106,10 +115,12 @@ export type CreateOrderItemFabricInput = {
   source: FabricSource;
   color: string | null;
   quantity: number;
+  /** What a metre of this cloth is billed at — lets a garment cut from several cloths price each. */
+  ratePerMetre: number;
   clothCode: string | null;
   unit: ClothUnit;
 };
-export type CreateOrderItemInput = { garmentType: GarmentType; quantity: number; unitPrice: number; fabric: CreateOrderItemFabricInput | null };
+export type CreateOrderItemInput = { garmentType: GarmentType; quantity: number; unitPrice: number; fabrics: CreateOrderItemFabricInput[] };
 export type CreateOrderInput = {
   customerId: string;
   employeeId: string | null;
@@ -209,16 +220,19 @@ export function removeOrderItem(orderId: string, itemId: string, token: string |
   return apiDeleteFor<Order>(`/api/v1/orders/${orderId}/items/${itemId}`, token);
 }
 
-export function setOrderItemFabric(
+/** Adds one cloth to an item — a garment cut from several cloths calls this once per cloth. */
+export function addOrderItemFabric(
   orderId: string,
   itemId: string,
-  fabricType: string,
-  source: FabricSource,
-  color: string | null,
-  quantity: number,
+  fabric: { fabricType: string; source: FabricSource; color: string | null; quantity: number; ratePerMetre: number; clothCode: string | null },
   token: string | null,
 ) {
-  return apiPut<Order>(`/api/v1/orders/${orderId}/items/${itemId}/fabric`, { fabricType, source, color, quantity }, token);
+  return apiPost<Order>(`/api/v1/orders/${orderId}/items/${itemId}/fabrics`, fabric, token);
+}
+
+/** Removes one cloth from an item by its id. Returns the updated order — totals move with it. */
+export function removeOrderItemFabric(orderId: string, itemId: string, fabricId: string, token: string | null) {
+  return apiDeleteFor<Order>(`/api/v1/orders/${orderId}/items/${itemId}/fabrics/${fabricId}`, token);
 }
 
 /**

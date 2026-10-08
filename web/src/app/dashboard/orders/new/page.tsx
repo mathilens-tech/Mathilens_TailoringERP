@@ -76,7 +76,9 @@ export default function NewOrderKindChooserPage() {
             >
               <span className="text-lg font-semibold text-foreground">{meta.label}</span>
               <span className="text-sm text-foreground/70">{meta.description}</span>
-              <span className="mt-auto pt-2 text-sm font-medium text-primary">{meta.fabricNote}</span>
+              {meta.fabricNote && (
+                <span className="mt-auto pt-2 text-sm font-medium text-primary">{meta.fabricNote}</span>
+              )}
             </Link>
           </li>
         ))}

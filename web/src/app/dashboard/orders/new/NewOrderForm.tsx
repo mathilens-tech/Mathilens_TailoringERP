@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 // Only the cleaner: the fields it used to serve went with the hand-rolled New Customer form, but
@@ -40,8 +39,12 @@ import {
   listMeasurementsForCustomer,
   createMeasurement,
   updateMeasurementValues,
+  getMeasurementHistory,
   hasSecondValue,
+  toDisplayEntries,
   type Measurement,
+  type MeasurementDisplayEntry,
+  type MeasurementHistoryEntry,
   type MeasurementValue,
 } from "@/lib/api/measurements";
 import {
@@ -77,14 +80,129 @@ function money(amount: number): string {
   return `₹${amount.toFixed(2)}`;
 }
 
-/** A tape measure on its reel — the measurement panel's empty state, drawn inline like the nav's
- *  own icons rather than pulled from a package for one glyph. */
-function TapeMeasureIcon({ className }: { className?: string }) {
+/** A measurement's date as "08 Oct 2026, 3:24 PM" — day and time, since a figure can be re-measured
+ *  more than once in a day and the history would otherwise show two identical-looking versions. */
+function formatMeasurementStamp(iso: string): string {
+  const when = new Date(iso);
+  return `${when.toLocaleDateString([], { day: "2-digit", month: "short", year: "numeric" })}, ${when.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+}
+
+/**
+ * The Measurement card's "add a garment row" control — a small dashed pill that drops a menu of the
+ * garments not yet listed.
+ *
+ * <p>A button and menu rather than a full-width native select: the select read as a form field the
+ * order needed answered, when it is an optional "measure one more thing" afterthought. It manages
+ * its own open state and closes on an outside click or a pick, so the card above does not carry a
+ * mode just for a dropdown.</p>
+ */
+function AddGarmentButton({
+  options,
+  onAdd,
+  disabled,
+}: {
+  options: string[];
+  onAdd: (garment: string) => void;
+  disabled: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+    function onDown(event: MouseEvent) {
+      if (!ref.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
+
+  // Nothing left to add — no control rather than a disabled stub, since it now sits inline at the
+  // end of the last garment's row and a greyed "+" there would just be noise.
+  if (options.length === 0 || disabled) {
+    return null;
+  }
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2" y="8" width="20" height="9" rx="2" />
-      <path d="M6 8v3M10 8v4M14 8v3M18 8v4" />
-    </svg>
+    <div ref={ref} className="relative inline-block">
+      {/* An icon, not a labelled button: it rides the end of the last garment's row like the cloth
+          rows' own controls, where a word would crowd the line. Its menu lists the garments not yet
+          added; the label lives on aria/title. */}
+      <button
+        type="button"
+        aria-label="Add garment"
+        title="Add garment"
+        onClick={() => setOpen((o) => !o)}
+        className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-dashed border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </button>
+      {open && (
+        // Right-aligned: the button sits at the right edge of the row, so the menu opens back under
+        // it rather than off the card.
+        <ul className="absolute right-0 z-20 mt-1 max-h-56 w-48 overflow-y-auto rounded-lg border border-border bg-surface py-1 shadow-lg">
+          {options.map((name) => (
+            <li key={name}>
+              <button
+                type="button"
+                onClick={() => {
+                  onAdd(name);
+                  setOpen(false);
+                }}
+                className="block w-full px-3 py-1.5 text-left text-sm hover:bg-surface-hover"
+              >
+                {name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+/**
+ * One version of a measurement in the History panel — a dated card of its points.
+ *
+ * <p>Carries a label ("Current"/"Previous") and the time it was in effect, then the figures the same
+ * way the live view shows them (comma-joined pairs). A version with no recorded points is still a
+ * version — the garment was once saved blank — so it says so rather than rendering an empty card.</p>
+ */
+function MeasurementVersion({
+  label,
+  stamp,
+  entries,
+  notes,
+}: {
+  label: string;
+  stamp: string;
+  entries: MeasurementDisplayEntry[];
+  notes: string | null;
+}) {
+  return (
+    <div className="flex flex-col gap-1.5 rounded-lg border border-border p-3">
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-semibold">{label}</span>
+        <span className="text-xs text-foreground/60">{stamp}</span>
+      </div>
+      {entries.length === 0 ? (
+        <p className="text-sm text-foreground/60">No points recorded.</p>
+      ) : (
+        <dl className="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+          {entries.map((entry) => (
+            <div key={entry.label} className="flex items-center justify-between gap-3 py-0.5">
+              <dt className="text-sm text-foreground/70">{entry.label}</dt>
+              <dd className="text-sm font-medium">{entry.text}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      {notes && <p className="whitespace-pre-wrap text-xs text-foreground/70">{notes}</p>}
+    </div>
   );
 }
 
@@ -237,7 +355,21 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
 
   const [createdOrder, setCreatedOrder] = useState<Order | null>(null);
   const [isGeneratingInvoice, setIsGeneratingInvoice] = useState(false);
-  const [activeMeasurementItemId, setActiveMeasurementItemId] = useState<number | null>(null);
+  // Measurements are their own card now, keyed by garment type rather than by an order-item row:
+  // a customer's Shirt measurement is one thing on file regardless of how many shirts this order
+  // stitches, so the measurement UI no longer rides along on the item list. `activeMeasurementGarment`
+  // is the garment whose dialog is open; `measurementMode` is whether that dialog is reading the
+  // figure on file or editing it; `addedGarments` are garment rows the staff added by hand on top of
+  // the ones the customer already has saved (see `garmentRows`).
+  const [activeMeasurementGarment, setActiveMeasurementGarment] = useState<string | null>(null);
+  const [measurementMode, setMeasurementMode] = useState<"view" | "update">("update");
+  const [addedGarments, setAddedGarments] = useState<string[]>([]);
+  // The View dialog's history panel: the past versions of the open garment's measurement, fetched on
+  // demand when the History link is followed. Null means "not looking at history"; an empty array
+  // means "looked, and this figure has never been re-measured". Cleared whenever the dialog's garment
+  // changes so one garment's history never shows under another.
+  const [measurementHistory, setMeasurementHistory] = useState<MeasurementHistoryEntry[] | null>(null);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const [customerMeasurements, setCustomerMeasurements] = useState<Measurement[]>([]);
   const [isLoadingMeasurements, setIsLoadingMeasurements] = useState(false);
   const [advanceAmount, setAdvanceAmount] = useState("");
@@ -299,7 +431,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
    */
   const draftState = useMemo<OrderDraftState>(
     () => ({
-      version: 1,
+      version: 2,
       kind,
       customerId: customer?.id ?? null,
       customerName: customer?.fullName ?? null,
@@ -320,9 +452,20 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
 
   const collectionWeekday = weekdayOf(dueAtUtc);
 
-  const activeMeasurementItemIndex = itemRows.findIndex((row) => row.id === activeMeasurementItemId);
-  const activeMeasurementItem = activeMeasurementItemIndex === -1 ? null : itemRows[activeMeasurementItemIndex];
-  const activeMeasurement = activeMeasurementItem ? (customerMeasurements.find((m) => m.garmentType === activeMeasurementItem.garmentType) ?? null) : null;
+  // The measurement on file for the garment whose dialog is open, if any. Its absence is what the
+  // card shows as "—" and what makes a save a create rather than an update.
+  const activeMeasurement = activeMeasurementGarment
+    ? (customerMeasurements.find((m) => m.garmentType === activeMeasurementGarment) ?? null)
+    : null;
+
+  // The rows the Measurement card shows: every garment the customer already has a measurement for,
+  // plus any the staff added by hand to record one against. A Set keyed by name so a garment the
+  // customer has and the staff also picked is one row, not two; the saved ones lead because they are
+  // the ones with something to view.
+  const garmentRows = useMemo(() => {
+    const onFile = customerMeasurements.map((m) => m.garmentType);
+    return [...new Set([...onFile, ...addedGarments])];
+  }, [customerMeasurements, addedGarments]);
 
   /**
    * Whether the itemised preview is on screen.
@@ -340,15 +483,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
    * filled in, and burying it under a recap of an order that has no customer yet would be showing
    * the answer to a question nobody has reached.</p>
    */
-  const showSummaryPreview = isAddingNewCustomer
-    ? false
-    : isNarrow || (!activeMeasurementItem && isViewingSummary);
+  const showSummaryPreview = isAddingNewCustomer ? false : isNarrow || isViewingSummary;
 
   // Split into two side-by-side halves within one merged block (00_MASTER_SPEC.md § 9.6) rather
   // than one long list. The points themselves come from the shop's configured template
   // (Settings › Measurement Templates), in its configured order.
   const { fields: measurementFields, isLoading: isLoadingTemplate } =
-    useMeasurementFields(activeMeasurementItem?.garmentType ?? null);
+    useMeasurementFields(activeMeasurementGarment);
   const measurementFieldsFirstHalf = measurementFields.slice(0, Math.ceil(measurementFields.length / 2));
   const measurementFieldsSecondHalf = measurementFields.slice(Math.ceil(measurementFields.length / 2));
 
@@ -358,14 +499,15 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   const orderSummaryRef = useRef<HTMLDivElement>(null);
   const scheduleRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!activeMeasurementItem && !isViewingSummary) {
+    if (!isViewingSummary) {
       return;
     }
 
-    // Clicking an item card opens the measurement panel, clicking Order summary opens the invoice
-    // preview, and so does the Schedule cell next to it — clicking anywhere else (Customer field,
-    // blank space, etc.) should close whichever one is open, same as their own Close button — but
-    // a click inside the panel, or inside either cell that opens it, must not count as "elsewhere".
+    // Clicking Order summary opens the invoice preview, and so does the Schedule cell next to it —
+    // clicking anywhere else (Customer field, blank space, etc.) should close it, same as its own
+    // Close button — but a click inside the preview, or inside either cell that opens it, or on the
+    // item list beside it, must not count as "elsewhere". Measurements no longer share this panel;
+    // they open in their own dialog from the Measurement card, so they are not this effect's concern.
     function handleOutsideClick(event: MouseEvent) {
       const target = event.target as Node;
       if (
@@ -376,13 +518,12 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       ) {
         return;
       }
-      setActiveMeasurementItemId(null);
       setSummarySource(null);
     }
 
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, [activeMeasurementItem, isViewingSummary]);
+  }, [isViewingSummary]);
 
   useEffect(() => {
     if (!isMobileDropdownOpen) {
@@ -404,7 +545,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   }, [isMobileDropdownOpen]);
 
   useEffect(() => {
-    if (!activeMeasurementItem) {
+    if (!activeMeasurementGarment) {
       return;
     }
     const initial: Record<string, string> = {};
@@ -413,16 +554,18 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         initial[name] = toFieldText(value);
       }
     }
-    // Keyed on the item/measurement identity, not the objects themselves — re-runs exactly when
-    // switching targets, not on every unrelated re-render. See CustomersPage for why this
+    // Keyed on the garment/measurement identity, not the objects themselves — re-runs exactly when
+    // the dialog switches garments, not on every unrelated re-render. See CustomersPage for why this
     // reset-on-dependency-change pattern is intentionally not restructured around the
     // set-state-in-effect lint rule.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMeasurementValues(initial);
     setMeasurementNotes(activeMeasurement?.notes ?? "");
     setMeasurementFormError(null);
+    // The history panel belongs to the garment that was open; switching garments closes it.
+    setMeasurementHistory(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeMeasurementItem?.id, activeMeasurement?.id]);
+  }, [activeMeasurementGarment, activeMeasurement?.id]);
 
   // Cloth plus stitching, row by row. Tolerant of blank input so the total moves as the owner
   // types, unlike handleCreateOrder's strict per-item validation at submit time.
@@ -458,7 +601,10 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     setMobileNumber("");
     setMobileMatches([]);
     setIsMobileDropdownOpen(false);
-    setActiveMeasurementItemId(null);
+    setActiveMeasurementGarment(null);
+    // The card's hand-added rows belong to the customer being cleared — the next one starts from
+    // their own measurements on file, not this one's.
+    setAddedGarments([]);
   }
 
   function startAddingNewCustomer(query: string, field: "name" | "phone" = "name") {
@@ -471,27 +617,71 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     });
     setIsAddingNewCustomer(true);
     setIsMobileDropdownOpen(false);
-    setActiveMeasurementItemId(null);
+    setActiveMeasurementGarment(null);
     setSummarySource(null);
   }
 
-  /**
-   * Opens this item's measurements. Never closes them.
-   *
-   * <p>Deliberately not a toggle. The whole item card carries this handler, and the fields inside
-   * it do not all stop the click from bubbling — so a toggle here would mean tapping a quantity or
-   * a rate on an open row collapsed the panel underneath it. Closing is the expand control's job,
-   * which is a button and knows it was pressed.</p>
-   */
-  function handleItemClick(row: ItemRow) {
-    setActiveMeasurementItemId(row.id);
+  /** Opens the measurement dialog for a garment, either reading the figure on file or editing it. */
+  function openMeasurement(garmentType: string, mode: "view" | "update") {
+    setMeasurementMode(mode);
+    setActiveMeasurementGarment(garmentType);
+    // A fresh dialog starts on the current figure, not on whatever history was last looked at.
+    setMeasurementHistory(null);
     setIsAddingNewCustomer(false);
     setSummarySource(null);
   }
 
+  /**
+   * Fetches the open garment's past versions for the View dialog's History panel.
+   *
+   * <p>On demand rather than with the measurement itself: most views never ask for the history, and
+   * loading every garment's full lineage to show a figure would be work spent on a panel rarely
+   * opened. Newest first, which is how the server already orders it.</p>
+   */
+  async function showMeasurementHistory() {
+    if (!activeMeasurement) {
+      return;
+    }
+    setIsLoadingHistory(true);
+    try {
+      // A tailoring record is re-measured a handful of times across its life, not hundreds — one
+      // page of 100 is the whole history in every real case, so there is no second page to page to.
+      const result = await getMeasurementHistory(activeMeasurement.id, 1, 100, getAccessToken());
+      setMeasurementHistory(result.items);
+    } catch {
+      setMeasurementHistory([]);
+    } finally {
+      setIsLoadingHistory(false);
+    }
+  }
+
+  /**
+   * Adds a garment row to the Measurement card so its measurement can be recorded.
+   *
+   * <p>Only ever a row to fill in: a garment the customer already has on file is in {@link garmentRows}
+   * through their saved measurement, so adding is for the ones they do not yet have. Adding the same
+   * name twice is a no-op rather than a duplicate row.</p>
+   */
+  function addGarmentRow(garmentType: string) {
+    const name = garmentType.trim();
+    if (name === "") {
+      return;
+    }
+    setAddedGarments((prev) => (prev.includes(name) ? prev : [...prev, name]));
+  }
+
+  /**
+   * Drops a hand-added garment row. A row backed by a saved measurement is not removable here —
+   * the figure is the customer's record, and deleting it is a separate, deliberate act, not a
+   * side effect of tidying this order's card.
+   */
+  function removeGarmentRow(garmentType: string) {
+    setAddedGarments((prev) => prev.filter((g) => g !== garmentType));
+  }
+
   function handleOpenSummary(source: "summary" | "schedule") {
     setSummarySource(source);
-    setActiveMeasurementItemId(null);
+    setActiveMeasurementGarment(null);
     setIsAddingNewCustomer(false);
   }
 
@@ -502,7 +692,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
   }
 
   async function handleSaveMeasurement() {
-    if (!activeMeasurementItem || !customer) {
+    if (!activeMeasurementGarment || !customer) {
       return;
     }
     setMeasurementFormError(null);
@@ -545,11 +735,15 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     try {
       const saved = activeMeasurement
         ? await updateMeasurementValues(activeMeasurement.id, values, getAccessToken(), measurementNotes)
-        : await createMeasurement(customer.id, activeMeasurementItem.garmentType, values, getAccessToken(), measurementNotes);
+        : await createMeasurement(customer.id, activeMeasurementGarment, values, getAccessToken(), measurementNotes);
       setCustomerMeasurements((prev) => [...prev.filter((m) => m.id !== saved.id), saved]);
       showToast("Measurement saved.");
-      // Stays open after saving — closing would hide the panel the moment it's saved. Clear
-      // resets the fields; Close (in column 2) exits.
+      // The row is now backed by a saved measurement, so it belongs to the on-file set rather than
+      // the hand-added one — drop it from the latter to avoid counting it twice in garmentRows.
+      setAddedGarments((prev) => prev.filter((g) => g !== activeMeasurementGarment));
+      // Closes once saved: the figure is now on file and the card row shows "Available" with a View
+      // to read it back. Leaving the dialog open would sit on an editor for something already saved.
+      setActiveMeasurementGarment(null);
     } catch (error) {
       setMeasurementFormError(error instanceof ApiError ? error.message : "Unable to reach the server. Please try again.");
     } finally {
@@ -862,7 +1056,8 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     setCreatedInvoice(null);
     setShowInvoiceModal(false);
     setAutoPrintInvoice(false);
-    setActiveMeasurementItemId(null);
+    setActiveMeasurementGarment(null);
+    setAddedGarments([]);
     setCustomerMeasurements([]);
     setAdvanceAmount("");
     setDiscountAmount("");
@@ -914,14 +1109,20 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
           garmentType: row.clothName.trim() === "" ? row.clothCode.trim() : row.clothName,
           quantity: 1,
           unitPrice: metres * ratePerMetre,
-          fabric: {
-            fabricType: row.clothName.trim() === "" ? row.clothCode.trim() : row.clothName,
-            source: "ShopSupplied" as const,
-            color: null,
-            quantity: metres,
-            clothCode: row.clothCode.trim(),
-            unit: "Metres" as const,
-          },
+          // A sale is one cloth, so a single-entry list. Its rate is left at zero here because the
+          // whole value is already in unitPrice above — carrying the rate as well would bill the
+          // cloth twice (unit price plus a separate cloth amount).
+          fabrics: [
+            {
+              fabricType: row.clothName.trim() === "" ? row.clothCode.trim() : row.clothName,
+              source: "ShopSupplied" as const,
+              color: null,
+              quantity: metres,
+              ratePerMetre: 0,
+              clothCode: row.clothCode.trim(),
+              unit: "Metres" as const,
+            },
+          ],
         });
       }
 
@@ -1023,11 +1224,11 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
       */
       const clothEntered =
         row.clothCode.trim() !== "" || row.metres.trim() !== "" || row.ratePerMetre.trim() !== "";
-      const usesShopFabric = sellsFabric && row.fabricSource === "internal" && clothEntered;
+      const onShopFabric = sellsFabric && row.fabricSource === "internal";
+      const usesShopFabric = onShopFabric && clothEntered;
 
       if (
-        sellsFabric &&
-        row.fabricSource === "internal" &&
+        onShopFabric &&
         clothEntered &&
         (!row.clothCode.trim() || !Number.isFinite(metres) || metres <= 0 || ratePerMetre <= 0)
       ) {
@@ -1035,27 +1236,55 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         return;
       }
 
-      const fabric = usesShopFabric
-        ? {
-            fabricType: row.clothName.trim() === "" ? row.clothCode.trim() : row.clothName,
-            source: "ShopSupplied" as const,
-            color: null,
-            quantity: metres,
-            // Sent so the cloth comes off stock. The server resolves it against the price list; an
-            // unmatched code is kept as typed and simply never reaches inventory.
-            clothCode: row.clothCode.trim(),
-            unit: "Metres" as const,
+      // Each cloth this garment is cut from, the first from the row's own fields and the rest from
+      // the additional-cloth rows. Only on the shop's own cloth: a customer's fabric is not billed,
+      // so it is recorded as no cloth at all. Each carries its own rate, so the server bills the
+      // length of every cloth — which is what lets 16 shirts be cut from 5 bolts at 5 prices.
+      const fabrics: CreateOrderItemInput["fabrics"] = [];
+      if (usesShopFabric) {
+        fabrics.push({
+          fabricType: row.clothName.trim() === "" ? row.clothCode.trim() : row.clothName,
+          source: "ShopSupplied",
+          color: null,
+          quantity: metres,
+          ratePerMetre,
+          // Sent so the cloth comes off stock. The server resolves it against the price list; an
+          // unmatched code is kept as typed and simply never reaches inventory.
+          clothCode: row.clothCode.trim(),
+          unit: "Metres",
+        });
+      }
+
+      if (onShopFabric) {
+        for (const f of row.additionalFabrics) {
+          const fEntered = f.clothCode.trim() !== "" || f.metres.trim() !== "" || f.ratePerMetre.trim() !== "";
+          if (!fEntered) {
+            continue;
           }
-        : null;
+          const fMetres = Number(f.metres);
+          const fRate = Number(f.ratePerMetre);
+          if (!f.clothCode.trim() || !Number.isFinite(fMetres) || fMetres <= 0 || fRate <= 0) {
+            showToast("An added cloth line needs a cloth code, metres and a rate.", "error");
+            return;
+          }
+          fabrics.push({
+            fabricType: f.clothName.trim() === "" ? f.clothCode.trim() : f.clothName,
+            source: "ShopSupplied",
+            color: null,
+            quantity: fMetres,
+            ratePerMetre: fRate,
+            clothCode: f.clothCode.trim(),
+            unit: "Metres",
+          });
+        }
+      }
 
-      // The order API prices an item as quantity x unitPrice and has nowhere to put a separate
-      // cloth charge, so the cloth is folded into the unit price rather than being dropped. That
-      // keeps the saved total equal to the total on screen and on the invoice — but it does mean
-      // the split between cloth and stitching is not stored yet. Recording the two amounts
-      // separately is the backend half of this feature.
-      const unitPrice = tailoring + clothAmount(row, businessMode) / quantity;
+      // Stitching alone. The cloth is billed separately now, through each fabric's rate above, so
+      // the server's line total is quantity × stitching + the cloth — the same figure the screen
+      // shows, but with the split finally recorded rather than folded into one price.
+      const unitPrice = tailoring;
 
-      items.push({ garmentType: row.garmentType, quantity, unitPrice, fabric });
+      items.push({ garmentType: row.garmentType, quantity, unitPrice, fabrics });
     }
 
     if (items.length === 0) {
@@ -1147,126 +1376,223 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
    * is ever visible, but both are in the DOM, so the field ids take a suffix.
    */
   /**
-   * The measurement editor for whichever item is open.
-   *
-   * Rendered in two places at once: in the second column from `lg` up, and inline beneath the item
-   * itself below `lg`, where there is no second column to put it in. Only one is ever visible — the
-   * other is hidden by a breakpoint, not unmounted — so the notes field takes an id suffix rather
-   * than shipping the same id twice and breaking its label.
+   * The measurement dialog opened from the Measurement card — reading a garment's figure on file
+   * (View), or editing it (Update). One dialog at every width: Modal renders through a portal, so
+   * there is no second column to compete for and no inline-vs-column copy to keep in step. Keyed by
+   * the garment the card row names rather than by an order item, because a measurement belongs to
+   * the customer, not to how many of that garment this particular order stitches.
    */
-  function renderMeasurementPanel(idSuffix: string, { inModal = false }: { inModal?: boolean } = {}) {
-    if (!activeMeasurementItem) {
+  function renderMeasurementModal() {
+    if (!activeMeasurementGarment) {
       return null;
     }
-    const notesId = `measurementNotes-${idSuffix}`;
+    const garment = activeMeasurementGarment;
+    const isView = measurementMode === "view";
+    const displayEntries = activeMeasurement
+      ? toDisplayEntries(activeMeasurement.values, measurementFields)
+      : [];
     return (
-      <div className="orderSection-measure flex shrink-0 flex-col gap-3">
-        {/* The dialog supplies its own titled, closeable header, so the panel's own one is dropped
-            there to avoid a heading above a heading. The inline/column placements still carry it. */}
-        {!inModal && (
-          <div className="flex items-center justify-between gap-2 border-b border-border pb-3">
-            <span className="order-heading min-w-0 flex-1 truncate text-base font-semibold">
-              Measurement Details — Item {activeMeasurementItemIndex + 1} · {activeMeasurementItem.garmentType}
-            </span>
-            <button
-              type="button"
-              onClick={() => setActiveMeasurementItemId(null)}
-              className="shrink-0 text-sm text-foreground/70 hover:text-foreground"
-            >
-              Close
-            </button>
-          </div>
-        )}
-        {!customer ? (
-          <p className="text-sm text-foreground/70">Select a customer to view or add their measurements.</p>
-        ) : isLoadingMeasurements || isLoadingTemplate ? (
-          <p className="text-sm text-foreground/70">Loading measurements…</p>
-        ) : measurementFields.length === 0 ? (
-          <p className="text-sm text-foreground/70">No measurement points configured for {activeMeasurementItem.garmentType} yet.</p>
-        ) : (
-          // gap-8 between the two halves was a third of the column's width spent on nothing, which
-          // is what pushed a long template past the fold and the Order Summary out of sight. gap-6
-          // still reads as two groups. gap-1.5 down each half rather than gap-2: these are single-
-          // line rows of a label and a short figure, and the tighter rhythm fits three or four more
-          // points on screen without crowding them.
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
-            <div className="flex flex-1 flex-col gap-1.5">
-              {measurementFieldsFirstHalf.map((point) => (
-                <MeasurementPointInput
-                  key={point.name}
-                  point={point}
-                  value={measurementValues[point.name] ?? ""}
-                  disabled={isOrderCreated}
-                  onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
-                  // Keyed by the second box's own label, which is also where it is saved.
-                  secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
-                  onSecondChange={(next) =>
-                    setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
-                  }
-                />
-              ))}
+      <Modal
+        open
+        title={`Measurements — ${garment}${isView ? "" : activeMeasurement ? " · Update" : " · New"}`}
+        onClose={() => setActiveMeasurementGarment(null)}
+      >
+        <div className="orderSection-measure flex flex-col gap-3">
+          {!customer ? (
+            <p className="text-sm text-foreground/70">Select a customer to view or add their measurements.</p>
+          ) : isLoadingMeasurements || isLoadingTemplate ? (
+            <p className="text-sm text-foreground/70">Loading measurements…</p>
+          ) : measurementFields.length === 0 ? (
+            <p className="text-sm text-foreground/70">No measurement points configured for {garment} yet.</p>
+          ) : isView ? (
+            measurementHistory !== null ? (
+              // The History panel: every version of this garment's figure, newest first. The one on
+              // file now leads, marked Current; each row below it is a snapshot the server kept when
+              // the figure was re-measured, so together they read as the lineage of the fitting.
+              <div className="flex flex-col gap-4">
+                <button
+                  type="button"
+                  onClick={() => setMeasurementHistory(null)}
+                  className="self-start text-sm font-medium text-primary hover:text-primary-hover"
+                >
+                  ← Back to current
+                </button>
+                {isLoadingHistory ? (
+                  <p className="text-sm text-foreground/70">Loading history…</p>
+                ) : (
+                  <>
+                    {activeMeasurement && (
+                      <MeasurementVersion
+                        label="Current"
+                        stamp={formatMeasurementStamp(
+                          activeMeasurement.lastModifiedAtUtc ?? activeMeasurement.createdAtUtc,
+                        )}
+                        entries={toDisplayEntries(activeMeasurement.values, measurementFields)}
+                        notes={activeMeasurement.notes}
+                      />
+                    )}
+                    {measurementHistory.length === 0 ? (
+                      <p className="text-sm text-foreground/70">
+                        No earlier versions — this figure has not been re-measured since it was first recorded.
+                      </p>
+                    ) : (
+                      measurementHistory.map((entry) => (
+                        <MeasurementVersion
+                          key={entry.id}
+                          label="Previous"
+                          stamp={formatMeasurementStamp(entry.createdAtUtc)}
+                          entries={toDisplayEntries(entry.values, measurementFields)}
+                          notes={null}
+                        />
+                      ))
+                    )}
+                  </>
+                )}
+              </div>
+            ) : (
+              <>
+                {/* When the figure was last taken, and the way into its full history. The fitting on
+                    screen is only trustworthy if the tailor can see how old it is; History is there
+                    for the time the current figure looks wrong and the previous one was right. The
+                    date reads the real last-modified time, falling back to the created date for one
+                    never re-measured (it was last set when it was recorded). */}
+                {activeMeasurement && (
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs text-foreground/60">
+                      Last updated {formatMeasurementStamp(activeMeasurement.lastModifiedAtUtc ?? activeMeasurement.createdAtUtc)}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={showMeasurementHistory}
+                      className="shrink-0 text-xs font-medium text-primary hover:text-primary-hover"
+                    >
+                      History
+                    </button>
+                  </div>
+                )}
+                {/* The figure as it reads back, a two-box point's pair on one line (toDisplayEntries).
+                    The card only offers View when a measurement is on file, so an empty list here is
+                    the edge case of a garment whose every point was left blank — said plainly rather
+                    than framed as an empty table. */}
+                {displayEntries.length === 0 ? (
+                  <p className="text-sm text-foreground/70">No measurement recorded for {garment} yet.</p>
+                ) : (
+                  <dl className="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+                    {displayEntries.map((entry) => (
+                      <div
+                        key={entry.label}
+                        className="flex items-center justify-between gap-3 border-b border-border/50 py-1"
+                      >
+                        <dt className="text-sm text-foreground/70">{entry.label}</dt>
+                        <dd className="text-sm font-medium">{entry.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </>
+            )
+          ) : (
+            // Two side-by-side halves rather than one long list (00_MASTER_SPEC.md § 9.6). gap-6
+            // reads as two groups; gap-1.5 down each half fits three or four more single-line points
+            // on screen than gap-2 without crowding them.
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
+              <div className="flex flex-1 flex-col gap-1.5">
+                {measurementFieldsFirstHalf.map((point) => (
+                  <MeasurementPointInput
+                    key={point.name}
+                    point={point}
+                    value={measurementValues[point.name] ?? ""}
+                    disabled={isOrderCreated}
+                    onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
+                    // Keyed by the second box's own label, which is also where it is saved.
+                    secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
+                    onSecondChange={(next) =>
+                      setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
+                    }
+                  />
+                ))}
+              </div>
+              <div className="flex flex-1 flex-col gap-1.5">
+                {measurementFieldsSecondHalf.map((point) => (
+                  <MeasurementPointInput
+                    key={point.name}
+                    point={point}
+                    value={measurementValues[point.name] ?? ""}
+                    disabled={isOrderCreated}
+                    onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
+                    // Keyed by the second box's own label, which is also where it is saved.
+                    secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
+                    onSecondChange={(next) =>
+                      setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
+                    }
+                  />
+                ))}
+              </div>
             </div>
-            <div className="flex flex-1 flex-col gap-1.5">
-              {measurementFieldsSecondHalf.map((point) => (
-                <MeasurementPointInput
-                  key={point.name}
-                  point={point}
-                  value={measurementValues[point.name] ?? ""}
+          )}
+
+          {/* The remark that goes with the numbers — "left shoulder sits lower", "cuff as per the
+              shirt he brought in". It belongs to this customer's measurement for this garment, so it
+              comes back on their next order for the same thing. Read-only alongside the figures when
+              viewing; part of the same Save when editing. */}
+          {customer && !isLoadingMeasurements && !isLoadingTemplate && measurementFields.length > 0 && (
+            isView ? (
+              activeMeasurement?.notes ? (
+                <div className="flex flex-col gap-1 border-t border-border pt-3">
+                  <span className="text-sm font-medium">Notes</span>
+                  <p className="whitespace-pre-wrap text-sm text-foreground/80">{activeMeasurement.notes}</p>
+                </div>
+              ) : null
+            ) : (
+              <div className="flex shrink-0 flex-col gap-1">
+                <label htmlFor="measurementNotes-modal" className="text-sm font-medium">
+                  Notes (optional)
+                </label>
+                <textarea
+                  id="measurementNotes-modal"
+                  rows={2}
+                  value={measurementNotes}
+                  maxLength={MEASUREMENT_NOTES_MAX_LENGTH}
                   disabled={isOrderCreated}
-                  onChange={(next) => setMeasurementValues((prev) => ({ ...prev, [point.name]: next }))}
-                  // Keyed by the second box's own label, which is also where it is saved.
-                  secondValue={measurementValues[(point.secondName ?? "").trim()] ?? ""}
-                  onSecondChange={(next) =>
-                    setMeasurementValues((prev) => ({ ...prev, [(point.secondName ?? "").trim()]: next }))
-                  }
+                  onChange={(e) => setMeasurementNotes(e.target.value)}
+                  placeholder="Anything about the fit the tailor should know…"
+                  className={fieldClassName}
                 />
-              ))}
+              </div>
+            )
+          )}
+
+          {measurementFormError && (
+            <p role="alert" className="text-sm text-danger">
+              {measurementFormError}
+            </p>
+          )}
+
+          {customer && !isLoadingMeasurements && measurementFields.length > 0 && (
+            <div className="flex justify-end gap-3 border-t border-border pt-3">
+              {isView ? (
+                // A straight path from reading the figure to changing it, so a tailor who opens View
+                // and spots it needs a tweak does not have to close and find Update. Hidden once the
+                // order exists: by then the form is a receipt and the measurement is not being edited.
+                !isOrderCreated && (
+                  <Button type="button" onClick={() => setMeasurementMode("update")}>
+                    Edit
+                  </Button>
+                )
+              ) : (
+                <>
+                  <Button type="button" variant="secondary" onClick={handleClearMeasurement} disabled={isSavingMeasurement || isOrderCreated}>
+                    Clear
+                  </Button>
+                  <Button type="button" onClick={handleSaveMeasurement} disabled={isSavingMeasurement || isOrderCreated}>
+                    {isSavingMeasurement ? "Saving…" : "Save"}
+                  </Button>
+                </>
+              )}
             </div>
-          </div>
-        )}
-
-        {/* The remark that goes with the numbers — "left shoulder sits lower", "loose at
-            the waist", "cuff as per the shirt he brought in". It belongs to this
-            customer's measurement for this garment, so it comes back on their next order
-            for the same thing, which is exactly when a tailor wants to be reminded.
-
-            Shown whenever the panel is showing measurement fields, and saved by the same
-            Save button: a note is part of the fitting, not a separate errand. */}
-        {customer && !isLoadingMeasurements && !isLoadingTemplate && measurementFields.length > 0 && (
-          <div className="flex shrink-0 flex-col gap-1">
-            <label htmlFor={notesId} className="text-sm font-medium">
-              Notes (optional)
-            </label>
-            <textarea
-              id={notesId}
-              rows={2}
-              value={measurementNotes}
-              maxLength={MEASUREMENT_NOTES_MAX_LENGTH}
-              disabled={isOrderCreated}
-              onChange={(e) => setMeasurementNotes(e.target.value)}
-              placeholder="Anything about the fit the tailor should know…"
-              className={fieldClassName}
-            />
-          </div>
-        )}
-
-        {measurementFormError && (
-          <p role="alert" className="text-sm text-danger">
-            {measurementFormError}
-          </p>
-        )}
-
-        {customer && !isLoadingMeasurements && measurementFields.length > 0 && (
-          <div className="flex justify-end gap-3 border-t border-border pt-3">
-            <Button type="button" variant="secondary" onClick={handleClearMeasurement} disabled={isSavingMeasurement || isOrderCreated}>
-              Clear
-            </Button>
-            <Button type="button" onClick={handleSaveMeasurement} disabled={isSavingMeasurement || isOrderCreated}>
-              {isSavingMeasurement ? "Saving…" : "Save"}
-            </Button>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </Modal>
     );
   }
 
@@ -1291,7 +1617,9 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
               three screens, and the thing staff were previously working out from which fields
               happened to be on the page. Dropped once the order exists — by then the record says
               what it is, and the line would be describing a decision no longer being made. */}
-          {!createdOrder && <p className="mt-0.5 text-sm text-foreground/70">{kindMeta.fabricNote}</p>}
+          {!createdOrder && kindMeta.fabricNote && (
+            <p className="mt-0.5 text-sm text-foreground/70">{kindMeta.fabricNote}</p>
+          )}
           {/* Autosave made visible. A safety net nobody can see is one nobody trusts, and staff
               who do not trust it finish orders they would otherwise have left. */}
           {!createdOrder && draftSavedAt !== null && (
@@ -1299,22 +1627,6 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
               Draft saved {draftSavedAt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
             </p>
           )}
-        </div>
-        {/* The kind used to be a pair of pills here, and before that a per-shop setting. It is now
-            the screen itself, so the only thing left to say is which screen this is — and, while
-            the order is still being written, the way back to pick a different one. */}
-        <div className="flex items-center gap-4">
-          {!isOrderCreated && (
-            <Link
-              href="/dashboard/orders/new"
-              className="text-sm font-medium text-foreground/70 hover:text-foreground"
-            >
-              Change order type
-            </Link>
-          )}
-          <Link href="/dashboard/orders" className="text-sm font-medium text-primary hover:text-primary-hover">
-            Back to orders
-          </Link>
         </div>
       </div>
 
@@ -1429,6 +1741,106 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
             )}
           </div>
 
+          {/* Measurements, directly under the customer they belong to and above the garments being
+              billed — a tailor takes the fitting before pricing the work. A card of its own, listing
+              a row per garment with what is on file for this customer: "Available" with a View to
+              read it back, or "—" with an Update to record one. Add a garment to measure something
+              the customer has not been measured for yet.
+
+              Only on an order that stitches something. A counter sale is a length of cloth with
+              nothing to fit, so the card would be a prompt to measure a garment that does not exist. */}
+          {!isFabricSale && (
+            <div className="orderSection-measurements flex flex-col gap-3 rounded-lg border border-border bg-surface p-4">
+              <h2 className="order-heading text-base font-semibold">Measurements</h2>
+              {!customer ? (
+                <p className="text-sm text-foreground/70">Select a customer to record their measurements.</p>
+              ) : (
+                <>
+                  {/* The garments this shop stitches (Settings › Garments) not yet listed — the Add
+                      icon's menu. A fixed list rather than free text: a measurement template is keyed
+                      by garment name, so a typo would be a garment with no points to fill in. */}
+                  {(() => {
+                    const addable = offerableGarments.filter((g) => !garmentRows.includes(g.name)).map((g) => g.name);
+                    return garmentRows.length === 0 ? (
+                      // Nothing added yet: the prompt and the Add icon share one line, so the way to
+                      // start is right where the eye already is.
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="text-sm text-foreground/70">No garments yet — add one to record a measurement.</p>
+                        <AddGarmentButton options={addable} onAdd={addGarmentRow} disabled={isOrderCreated} />
+                      </div>
+                    ) : (
+                      <ul className="flex flex-col divide-y divide-border">
+                        {garmentRows.map((garment, index) => {
+                          const onFile = customerMeasurements.some((m) => m.garmentType === garment);
+                          const isLast = index === garmentRows.length - 1;
+                          return (
+                            <li key={garment} className="flex flex-wrap items-center gap-x-3 gap-y-2 py-2">
+                              <span className="min-w-0 flex-1 truncate text-sm font-medium">{garment}</span>
+                              {/* The status the shop asked to see at a glance: is this garment measured
+                                  or not. Green "Available" reads as done; a plain dash reads as still to
+                                  do, without dressing an absence up as a warning. */}
+                              <span
+                                className={`shrink-0 text-xs font-medium ${
+                                  onFile ? "text-success" : "text-foreground/50"
+                                }`}
+                              >
+                                {onFile ? "Available" : "—"}
+                              </span>
+                              <div className="flex shrink-0 items-center gap-2">
+                                {/* View only when there is something to view. */}
+                                {onFile && (
+                                  <button
+                                    type="button"
+                                    onClick={() => openMeasurement(garment, "view")}
+                                    className="rounded-md border border-border px-2 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+                                  >
+                                    View
+                                  </button>
+                                )}
+                                {/* Update records a new measurement or edits the one on file — the same
+                                    editor either way, which is why the label is Update whether or not
+                                    one exists. */}
+                                <button
+                                  type="button"
+                                  onClick={() => openMeasurement(garment, "update")}
+                                  disabled={isOrderCreated}
+                                  className="rounded-md border border-border px-2 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                                >
+                                  Update
+                                </button>
+                                {/* Removable only while it is a bare row the staff added and has no
+                                    measurement behind it — a saved figure is the customer's record, not
+                                    this order's to clear. */}
+                                {!onFile && (
+                                  <button
+                                    type="button"
+                                    onClick={() => removeGarmentRow(garment)}
+                                    aria-label={`Remove ${garment}`}
+                                    className="rounded-md px-1.5 py-1 text-xs text-foreground/40 transition-colors hover:text-danger"
+                                  >
+                                    ✕
+                                  </button>
+                                )}
+                                {/* Add sits at the end of the last row, so adding another garment
+                                    happens on the same line as the list rather than on a line of its
+                                    own beneath it. The slot is reserved on every row — empty except
+                                    the last — so all rows end at the same edge and the first lines up
+                                    with the one carrying the icon. */}
+                                <div className="flex h-7 w-7 items-center justify-center">
+                                  {isLast && <AddGarmentButton options={addable} onAdd={addGarmentRow} disabled={isOrderCreated} />}
+                                </div>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    );
+                  })()}
+                </>
+              )}
+            </div>
+          )}
+
             <div ref={itemsAreaRef} className="orderSection-items rounded-lg border border-border bg-surface p-4">
               <OrderItemsEditor
                 key={formKey}
@@ -1445,44 +1857,10 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 tailoringRates={tailoringRates}
                 garments={offerableGarments}
                 onChange={setItemRows}
-                activeItemId={activeMeasurementItemId}
-                // None of this on a counter sale. A length of cloth has nothing to measure — there
-                // is no garment being made — so the rows must not open a measurement panel, and the
-                // expand control must not appear on them. The editor only renders that control when
-                // it is given both a click handler and a detail panel, so withholding them removes
-                // the whole path rather than leaving a button that opens something empty.
-                onItemClick={isFabricSale ? undefined : handleItemClick}
-                // Only the expand control on a row calls this — see onItemClose there.
-                onItemClose={isFabricSale ? undefined : () => setActiveMeasurementItemId(null)}
-                // Phone-only: the measurement panel opens inside the item's own card, as its last
-                // section, instead of at the foot of the page where the second column lands once
-                // the layout is a single stack.
-                //
-                // No border and no background of its own any more. The editor places this within
-                // the card and rules it off; wrapping it in a second bordered box put two outlines
-                // and two paddings between a garment and its measurements, which is what made them
-                // read as separate grids rather than one item.
-                // On a phone the measurements open as a dialog over the order rather than expanding
-                // inline beneath the row: a garment's full template is a screenful, and inline it
-                // pushed everything below it — the total, the other items — far down the page. The
-                // dialog keeps the row in place and gives the fields the whole screen.
-                //
-                // Gated on isNarrow (JS), not a CSS breakpoint: Modal renders through a portal, so
-                // `lg:hidden` on a wrapper would not stop it appearing on desktop. On desktop this
-                // returns nothing and the second-column panel is used instead.
-                renderItemDetail={
-                  isFabricSale || !isNarrow
-                    ? undefined
-                    : () => (
-                        <Modal
-                          open
-                          title={`Measurement Details — Item ${activeMeasurementItemIndex + 1} · ${activeMeasurementItem?.garmentType ?? ""}`}
-                          onClose={() => setActiveMeasurementItemId(null)}
-                        >
-                          {renderMeasurementPanel("modal", { inModal: true })}
-                        </Modal>
-                      )
-                }
+                // The item list is now only what the order bills for — the garments and their cloth.
+                // Measurements moved out to their own card under Customer Details, keyed by garment
+                // type rather than by a row, so the editor no longer opens a measurement panel and is
+                // given no click handler or detail panel to do so with.
                 disabled={isOrderCreated}
               />
             </div>
@@ -1528,27 +1906,15 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 space between the heading and the Order Summary. */}
             <div
               ref={measurementBlockRef}
-              className={`shrink-0 flex-col gap-3 rounded-lg border border-border bg-surface p-4 lg:flex lg:min-h-[12rem] ${
-                // Below lg this card holds exactly one thing: the Order Summary Preview. So it is
-                // on screen whenever the preview is, and absent otherwise.
-                //
-                // Its other two modes render inline where they were asked for — measurements under
-                // their own item, the new-customer form under Customer Details — so showing the card
-                // as well would put a second copy of one of them at the foot of the page. And with
-                // nothing in it at all it was a bordered box containing a tape-measure icon and a
-                // sentence explaining that no item had been picked, which is a screenful of a phone
-                // spent saying nothing has happened yet.
-                //
-                // On lg and up none of this applies: lg:flex wins, and the card is the second
-                // column's permanent home for all three modes. Its min-height is what stops the
-                // cards below shunting as modes open and close.
+              className={`shrink-0 flex-col gap-3 rounded-lg border border-border bg-surface p-4 ${
+                // This card now holds exactly one thing: the Order Summary Preview — measurements
+                // moved out to their own card under Customer Details, and the new-customer form
+                // renders under the Customer card. So the card is on screen whenever the preview is
+                // and absent otherwise, at every width: on a phone the preview is simply part of the
+                // page, and on a wide screen it opens from the Order Summary or Schedule card.
                 showSummaryPreview ? "flex" : "hidden"
               }`}
             >
-              {/* From lg up this is where measurements are edited. Below lg the same panel is
-                  rendered inline under its own item instead (see renderItemDetail), and this whole
-                  card is hidden — see the wrapper's className. */}
-              <div className="hidden lg:contents">{renderMeasurementPanel("column")}</div>
               {/* The itemised recap. On a wide screen it is opened by the Order Summary or Schedule
                   card; on a phone it is simply here — see showSummaryPreview. */}
               {showSummaryPreview && (
@@ -1635,21 +2001,6 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                     <span className="text-foreground/70">Total</span>
                     <span className="font-medium">{(isFabricSale ? payableTotal : orderTotal).toFixed(2)}</span>
                   </div>
-                </div>
-              )}
-              {/* An empty card said nothing about what it was for, so the panel sat blank until
-                  someone happened to click an item and discovered it. It now names itself and says
-                  what to do — the one instruction on the page that is not obvious from the form.
-
-                  Wide screens only. Below lg the card exists solely to hold the preview, which is
-                  always in it, so there is no empty state left to explain. */}
-              {!isNarrow && !activeMeasurementItem && !isAddingNewCustomer && !isViewingSummary && (
-                <div className="orderSection-measure flex flex-1 flex-col items-center justify-center gap-2 py-8 text-center">
-                  <TapeMeasureIcon className="h-8 w-8 text-foreground/25" />
-                  <h2 className="order-heading text-base font-semibold">Measurement Details</h2>
-                  <p className="max-w-xs text-sm text-foreground/70">
-                    Select a customer and a garment item to view or add measurements.
-                  </p>
                 </div>
               )}
             </div>
@@ -2017,6 +2368,11 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         onClose={() => setShowInvoiceModal(false)}
       />
     )}
+
+    {/* The measurement dialog — View or Update for the garment the card row named. Rendered here at
+        the form root (and through a portal inside Modal) so it overlays the whole screen at every
+        width rather than opening within a column. */}
+    {renderMeasurementModal()}
     </>
   );
 }

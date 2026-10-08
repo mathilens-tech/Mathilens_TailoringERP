@@ -11,7 +11,8 @@ using MathilensERP.Application.Orders.Commands.Create;
 using MathilensERP.Application.Orders.Commands.Delete;
 using MathilensERP.Application.Orders.Commands.RemoveItem;
 using MathilensERP.Application.Orders.Commands.RequestAlteration;
-using MathilensERP.Application.Orders.Commands.SetItemFabric;
+using MathilensERP.Application.Orders.Commands.AddItemFabric;
+using MathilensERP.Application.Orders.Commands.RemoveItemFabric;
 using MathilensERP.Application.Orders.Commands.TransitionStatus;
 using MathilensERP.Application.Orders.Commands.Update;
 using MathilensERP.Application.Orders.Commands.UpdateItem;
@@ -94,11 +95,12 @@ public sealed class OrdersController : ApiControllerBase
                 i.GarmentType,
                 i.Quantity,
                 i.UnitPrice,
-                i.Fabric is null
-                    ? null
-                    : new CreateOrderItemFabricInput(
-                        i.Fabric.FabricType, i.Fabric.Source, i.Fabric.Color, i.Fabric.Quantity,
-                        i.Fabric.ClothCode, i.Fabric.Unit)))
+                // Null is accepted as "no cloth" and treated the same as an empty list, so an older
+                // client that still sends a single `fabric` is not required to switch at once.
+                (i.Fabrics ?? [])
+                    .Select(f => new CreateOrderItemFabricInput(
+                        f.FabricType, f.Source, f.Color, f.Quantity, f.RatePerMetre, f.ClothCode, f.Unit))
+                    .ToList()))
             .ToList();
 
         var command = new CreateOrderCommand(
@@ -221,17 +223,31 @@ public sealed class OrdersController : ApiControllerBase
         return ToActionResult(result);
     }
 
-    /// <summary>Sets (or replaces) the fabric details for one of an order's items.</summary>
-    [HttpPut("{id:guid}/items/{itemId:guid}/fabric")]
+    /// <summary>Adds one cloth to an order's item. A garment cut from several cloths calls this once
+    /// per cloth; the singular PUT it replaced could only ever hold one.</summary>
+    [HttpPost("{id:guid}/items/{itemId:guid}/fabrics")]
     [Authorize(Policy = Permissions.OrdersEdit)]
     [ProducesResponseType(typeof(ApiResponse<OrderDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)]
-    public async Task<IActionResult> SetItemFabric(Guid id, Guid itemId, [FromBody] SetOrderItemFabricRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> AddItemFabric(Guid id, Guid itemId, [FromBody] AddOrderItemFabricRequest request, CancellationToken cancellationToken)
     {
-        var command = new SetOrderItemFabricCommand(id, itemId, request.FabricType, request.Source, request.Color, request.Quantity);
+        var command = new AddOrderItemFabricCommand(
+            id, itemId, request.FabricType, request.Source, request.Color, request.Quantity, request.RatePerMetre, request.ClothCode);
         var result = await _sender.Send(command, cancellationToken);
+        return ToActionResult(result);
+    }
+
+    /// <summary>Removes one cloth from an order's item, by the cloth's id.</summary>
+    [HttpDelete("{id:guid}/items/{itemId:guid}/fabrics/{fabricId:guid}")]
+    [Authorize(Policy = Permissions.OrdersEdit)]
+    [ProducesResponseType(typeof(ApiResponse<OrderDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ApiErrorResponse), StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> RemoveItemFabric(Guid id, Guid itemId, Guid fabricId, CancellationToken cancellationToken)
+    {
+        var result = await _sender.Send(new RemoveOrderItemFabricCommand(id, itemId, fabricId), cancellationToken);
         return ToActionResult(result);
     }
 

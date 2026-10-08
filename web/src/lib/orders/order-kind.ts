@@ -24,7 +24,9 @@ export type OrderKindMeta = {
   /** The one line that tells staff whether this is the screen they want. */
   description: string;
   /** Who supplies the cloth — the distinction the three names turn on. */
-  fabricNote: string;
+  // Null where there is nothing to say: Fabric + Tailoring no longer carries a note. The screen's
+  // fields already show it bills for both cloth and stitching, so the line only restated them.
+  fabricNote: string | null;
   /**
    * Whether choosing this means the shop is selling cloth, and so whether it may be offered at all.
    * A tailoring-only shop has no cloth to sell, so both fabric kinds are hidden from it entirely
@@ -55,7 +57,7 @@ export const ORDER_KINDS: readonly OrderKindMeta[] = [
     slug: "fabric-tailoring",
     label: "Fabric + Tailoring",
     description: "Cloth from the shop, made up into a garment.",
-    fabricNote: "Shop's cloth. The bill carries both the cloth and the stitching.",
+    fabricNote: null,
     requiresFabricTrade: true,
   },
 ];

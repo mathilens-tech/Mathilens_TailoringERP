@@ -62,7 +62,9 @@ public sealed class CreateOrderCommandHandler : ICommandHandler<CreateOrderComma
         {
             var item = order.AddItem(itemInput.GarmentType, itemInput.Quantity, itemInput.UnitPrice);
 
-            if (itemInput.Fabric is { } fabric)
+            // One garment can be cut from several cloths, so each is added in turn. A line with none
+            // — a customer's own material — simply adds nothing.
+            foreach (var fabric in itemInput.Fabrics)
             {
                 // Resolved here, not trusted from the request: the id decides whether this cloth
                 // comes off stock, so it has to come from the shop's own catalogue. An unmatched
@@ -71,12 +73,13 @@ public sealed class CreateOrderCommandHandler : ICommandHandler<CreateOrderComma
                     ? null
                     : await _clothPriceRepository.GetByClothCodeAsync(fabric.ClothCode.Trim(), cancellationToken);
 
-                order.SetItemFabric(
+                order.AddItemFabric(
                     item.Id,
                     fabric.FabricType,
                     fabric.Source,
                     fabric.Color,
                     fabric.Quantity,
+                    fabric.RatePerMetre,
                     clothPrice?.Id,
                     fabric.ClothCode,
                     fabric.Unit);

@@ -31,8 +31,15 @@ internal static class OrderMapper
         new(alteration.Id, alteration.Reason, alteration.ChargeAmount, alteration.PreviousDeliveredAtUtc, alteration.CreatedAtUtc);
 
     private static OrderItemDto ToDto(this OrderItem item) =>
-        new(item.Id, item.GarmentType, item.Quantity, item.UnitPrice, item.Fabric?.ToDto());
+        new(
+            item.Id,
+            item.GarmentType,
+            item.Quantity,
+            item.UnitPrice,
+            item.Fabrics.Select(f => f.ToDto()).ToList(),
+            item.ClothAmount,
+            item.LineTotal);
 
     private static FabricDetailsDto ToDto(this FabricDetails fabric) =>
-        new(fabric.FabricType, fabric.Source, fabric.Color, fabric.Quantity);
+        new(fabric.Id, fabric.FabricType, fabric.Source, fabric.Color, fabric.Quantity, fabric.RatePerMetre);
 }

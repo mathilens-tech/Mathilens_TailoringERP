@@ -38,7 +38,7 @@ public class OrderTests
         Assert.Equal(GarmentTypes.Shirt, item.GarmentType);
         Assert.Equal(2, item.Quantity);
         Assert.Equal(500m, item.UnitPrice);
-        Assert.Null(item.Fabric);
+        Assert.Empty(item.Fabrics);
     }
 
     [Theory]
@@ -60,27 +60,57 @@ public class OrderTests
     }
 
     [Fact]
-    public void SetItemFabric_WithExistingItem_SetsFabric()
+    public void AddItemFabric_WithExistingItem_AddsFabric()
     {
         var order = Order.Create(Guid.NewGuid(), DateTime.UtcNow, null);
         var item = order.AddItem(GarmentTypes.Shirt, 1, 500m);
 
-        order.SetItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 2.5m);
+        order.AddItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 2.5m);
 
-        Assert.NotNull(item.Fabric);
-        Assert.Equal("Cotton", item.Fabric.FabricType);
-        Assert.Equal(FabricSource.ShopSupplied, item.Fabric.Source);
-        Assert.Equal("Blue", item.Fabric.Color);
-        Assert.Equal(2.5m, item.Fabric.Quantity);
+        Assert.Single(item.Fabrics);
+        Assert.Equal("Cotton", item.Fabrics[0].FabricType);
+        Assert.Equal(FabricSource.ShopSupplied, item.Fabrics[0].Source);
+        Assert.Equal("Blue", item.Fabrics[0].Color);
+        Assert.Equal(2.5m, item.Fabrics[0].Quantity);
     }
 
     [Fact]
-    public void SetItemFabric_WithUnknownItemId_Throws()
+    public void AddItemFabric_CalledForSeveralCloths_KeepsAllAndSumsClothAmount()
+    {
+        var order = Order.Create(Guid.NewGuid(), DateTime.UtcNow, null);
+        var item = order.AddItem(GarmentTypes.Shirt, 16, 500m);
+
+        order.AddItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 2m, 300m);
+        order.AddItemFabric(item.Id, "Linen", FabricSource.ShopSupplied, "White", 1m, 450m);
+
+        Assert.Equal(2, item.Fabrics.Count);
+        // Each cloth billed at its own rate: 2 × 300 + 1 × 450.
+        Assert.Equal(1050m, item.ClothAmount);
+        // Stitching (16 × 500) plus cloth.
+        Assert.Equal(16 * 500m + 1050m, item.LineTotal);
+    }
+
+    [Fact]
+    public void RemoveItemFabric_DropsNamedClothOnly()
+    {
+        var order = Order.Create(Guid.NewGuid(), DateTime.UtcNow, null);
+        var item = order.AddItem(GarmentTypes.Shirt, 2, 500m);
+        var keep = order.AddItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 2m, 300m);
+        var drop = order.AddItemFabric(item.Id, "Linen", FabricSource.ShopSupplied, "White", 1m, 450m);
+
+        order.RemoveItemFabric(item.Id, drop.Id);
+
+        Assert.Single(item.Fabrics);
+        Assert.Equal(keep.Id, item.Fabrics[0].Id);
+    }
+
+    [Fact]
+    public void AddItemFabric_WithUnknownItemId_Throws()
     {
         var order = Order.Create(Guid.NewGuid(), DateTime.UtcNow, null);
 
         Assert.Throws<InvalidOperationException>(() =>
-            order.SetItemFabric(Guid.NewGuid(), "Cotton", FabricSource.ShopSupplied, null, 2m));
+            order.AddItemFabric(Guid.NewGuid(), "Cotton", FabricSource.ShopSupplied, null, 2m));
     }
 
     [Fact]
@@ -255,15 +285,15 @@ public class OrderTests
     {
         var order = Order.Create(Guid.NewGuid(), DateTime.UtcNow, null);
         var item = order.AddItem(GarmentTypes.Shirt, 2, 500m);
-        order.SetItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 3m);
+        order.AddItemFabric(item.Id, "Cotton", FabricSource.ShopSupplied, "Blue", 3m);
 
         order.UpdateItem(item.Id, GarmentTypes.Blazer, 5, 900m);
 
         Assert.Equal(GarmentTypes.Blazer, item.GarmentType);
         Assert.Equal(5, item.Quantity);
         Assert.Equal(900m, item.UnitPrice);
-        Assert.NotNull(item.Fabric);
-        Assert.Equal("Cotton", item.Fabric!.FabricType);
+        Assert.Single(item.Fabrics);
+        Assert.Equal("Cotton", item.Fabrics[0].FabricType);
     }
 
     [Fact]
