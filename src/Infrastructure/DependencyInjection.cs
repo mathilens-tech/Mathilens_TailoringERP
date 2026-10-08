@@ -5,6 +5,7 @@ using MathilensERP.Application.Common.Interfaces;
 using MathilensERP.Application.Customers;
 using MathilensERP.Application.Employees;
 using MathilensERP.Application.Inventory;
+using MathilensERP.Application.Marketing;
 using MathilensERP.Application.Measurements;
 using MathilensERP.Application.Occasions;
 using MathilensERP.Application.Orders;
@@ -22,6 +23,7 @@ using MathilensERP.Infrastructure.Persistence.Customers;
 using MathilensERP.Infrastructure.Persistence.Employees;
 using MathilensERP.Infrastructure.Persistence.Inventory;
 using MathilensERP.Infrastructure.Persistence.Interceptors;
+using MathilensERP.Infrastructure.Persistence.Marketing;
 using MathilensERP.Infrastructure.Persistence.Measurements;
 using MathilensERP.Infrastructure.Persistence.Orders;
 using MathilensERP.Infrastructure.Persistence.Pricing;
@@ -125,6 +127,7 @@ public static class DependencyInjection
         services.AddScoped<IActivityLogRepository, ActivityLogRepository>();
         services.AddScoped<IReportRepository, ReportRepository>();
         services.AddScoped<IOccasionRepository, OccasionRepository>();
+        services.AddScoped<ICampaignRepository, CampaignRepository>();
         services.AddScoped<IActiveSessionService, ActiveSessionService>();
 
         services.AddOptions<WhatsAppOptions>().Bind(configuration.GetSection(WhatsAppOptions.SectionName));

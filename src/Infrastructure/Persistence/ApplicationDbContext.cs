@@ -6,6 +6,7 @@ using MathilensERP.Domain.Customers;
 using MathilensERP.Domain.Employees;
 using MathilensERP.Domain.Identity;
 using MathilensERP.Domain.Inventory;
+using MathilensERP.Domain.Marketing;
 using MathilensERP.Domain.Measurements;
 using MathilensERP.Domain.Orders;
 using MathilensERP.Domain.Pricing;
@@ -59,6 +60,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     public DbSet<Payment> Payments => Set<Payment>();
 
     public DbSet<WhatsAppMessage> WhatsAppMessages => Set<WhatsAppMessage>();
+
+    public DbSet<Campaign> Campaigns => Set<Campaign>();
 
     public DbSet<Setting> Settings => Set<Setting>();
 

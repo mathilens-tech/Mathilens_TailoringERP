@@ -66,6 +66,7 @@ export const PERMISSIONS = {
   invoicesView: "Invoices.View",
   invoicesCreate: "Invoices.Create",
   whatsAppView: "WhatsApp.View",
+  whatsAppSend: "WhatsApp.Send",
   reportsView: "Reports.View",
   pricingView: "Pricing.View",
   inventoryView: "Inventory.View",
