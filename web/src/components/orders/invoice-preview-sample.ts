@@ -66,7 +66,11 @@ export function buildInvoicePreview(nowIso: string, taxRatePercent: number, numb
       garmentType: item.garmentType,
       quantity: item.quantity,
       unitPrice: item.unitPrice,
-      fabric: null,
+      // The sample is a plain tailoring bill — no cloth billed separately, so the line's whole value
+      // is its stitching.
+      fabrics: [],
+      clothAmount: 0,
+      lineTotal: item.quantity * item.unitPrice,
     })),
     // Never altered, like almost every order — and the invoice preview says nothing about
     // alterations in any case.

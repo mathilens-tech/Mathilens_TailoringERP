@@ -160,6 +160,9 @@ export type Measurement = {
   /** What the numbers do not say — a fitting remark. Null when the tailor had nothing to add. */
   notes: string | null;
   createdAtUtc: string;
+  /** When the figure was last re-measured, or null if unchanged since it was first recorded. The
+   *  New Order screen shows this as "last updated", falling back to {@link createdAtUtc}. */
+  lastModifiedAtUtc: string | null;
 };
 
 export type MeasurementHistoryEntry = {

@@ -24,6 +24,15 @@ export type { BusinessMode };
  */
 export type { FabricSourceMode };
 
+/** One cloth a garment is cut from. The same four fields the primary cloth has always had, as a
+ *  row of its own so a garment can carry several — 16 shirts from 5 bolts. */
+export type FabricRow = {
+  clothCode: string;
+  clothName: string;
+  metres: string;
+  ratePerMetre: string;
+};
+
 export type ItemRow = {
   id: number;
   garmentType: GarmentType;
@@ -38,6 +47,13 @@ export type ItemRow = {
   metres: string;
   /** The catalog's selling price per metre, filled in when a cloth code is picked. */
   ratePerMetre: string;
+  /**
+   * Further cloths this one garment is cut from, beyond the first above. Empty on almost every row;
+   * a garment made from several cloths carries one entry per extra cloth. Kept separate from the
+   * first rather than folding both into a list, so the ordinary single-cloth row — and the fabric
+   * sale, which is always one cloth — are untouched and only the extra cloths are new.
+   */
+  additionalFabrics: FabricRow[];
 };
 
 /**
@@ -67,7 +83,13 @@ function emptyRow(
     clothName: "",
     metres: "",
     ratePerMetre: "",
+    additionalFabrics: [],
   };
+}
+
+/** A blank extra-cloth row, added when a garment is cut from more than its first cloth. */
+function emptyFabricRow(): FabricRow {
+  return { clothCode: "", clothName: "", metres: "", ratePerMetre: "" };
 }
 
 const fieldClassName =
@@ -92,7 +114,11 @@ export function clothAmount(row: ItemRow, mode: BusinessMode): number {
   if (mode !== "tailoringFabric" || row.fabricSource !== "internal") {
     return 0;
   }
-  return toNumber(row.metres) * toNumber(row.ratePerMetre);
+  // The first cloth plus any additional ones, each length at its own rate — a garment cut from
+  // several cloths is billed for all of them.
+  const primary = toNumber(row.metres) * toNumber(row.ratePerMetre);
+  const extra = row.additionalFabrics.reduce((sum, f) => sum + toNumber(f.metres) * toNumber(f.ratePerMetre), 0);
+  return primary + extra;
 }
 
 /**
@@ -370,6 +396,41 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
 
   function updateRow(id: number, patch: Partial<ItemRow>) {
     updateEdited(rows.map((row) => (row.id === id ? { ...row, ...patch } : row)));
+  }
+
+  /** Appends a blank extra-cloth row to a garment. */
+  function addFabric(rowId: number) {
+    updateEdited(
+      rows.map((row) =>
+        row.id === rowId ? { ...row, additionalFabrics: [...row.additionalFabrics, emptyFabricRow()] } : row,
+      ),
+    );
+  }
+
+  /** Drops one extra-cloth row by its position. The first cloth lives in the row's own fields and is
+   *  not removable here — it is cleared, not deleted, the same as it always was. */
+  function removeFabric(rowId: number, index: number) {
+    updateEdited(
+      rows.map((row) =>
+        row.id === rowId
+          ? { ...row, additionalFabrics: row.additionalFabrics.filter((_, i) => i !== index) }
+          : row,
+      ),
+    );
+  }
+
+  /** Patches one field of one extra-cloth row. */
+  function updateFabric(rowId: number, index: number, patch: Partial<FabricRow>) {
+    updateEdited(
+      rows.map((row) =>
+        row.id === rowId
+          ? {
+              ...row,
+              additionalFabrics: row.additionalFabrics.map((f, i) => (i === index ? { ...f, ...patch } : f)),
+            }
+          : row,
+      ),
+    );
   }
 
   /** The shop's price for a garment, as the field holds it — blank when nobody has set one. */
@@ -749,7 +810,13 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
               nested box cost sixteen vertical pixels a row and read as a card within a card, which
               is a lot of weight for four fields already grouped by sitting together. */}
           {sellsFabric && (
-            <div className="grid max-w-2xl grid-cols-1 gap-x-3 gap-y-2 border-t border-border pt-2 sm:grid-cols-4">
+            <>
+            {/* A trailing column the width of the remove icon, so the four fields here are exactly
+                the width of the four on every added cloth below — the first cloth reserves the same
+                gutter the others spend on their delete button, and nothing reads narrower. It holds
+                nothing (the first cloth is not removable) and collapses on a phone, where the fields
+                stack. */}
+            <div className="grid max-w-2xl grid-cols-1 gap-x-3 gap-y-2 border-t border-border pt-2 sm:grid-cols-[repeat(4,minmax(0,1fr))_1.75rem]">
               <ClothCodeField
                 catalogue={clothCatalogue}
                 value={row.clothCode}
@@ -810,7 +877,115 @@ export function OrderItemsEditor({ onChange, mode, tailoringRates, garments, act
                   className={`${readOnlyFieldClassName} disabled:cursor-not-allowed disabled:opacity-50`}
                 />
               </div>
+              {/* The matching gutter, empty here. */}
+              <div aria-hidden="true" className="hidden sm:block" />
             </div>
+
+            {/* A garment cut from more than one cloth — 16 shirts from 5 bolts. Each extra cloth is
+                its own code, length and rate row, read the same way as the first above and summed
+                into the Cloth Amount. Only the shop's own cloth is billed, and only on a stitched
+                garment (not a counter sale, which is one cloth by definition), so the control is
+                shown only there. */}
+            {!fabricOnly && usesShopFabric && (
+              <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
+                {row.additionalFabrics.map((fabric, index) => (
+                  // The same grid as the first cloth — four equal field columns plus the icon-width
+                  // trailing column — so an added cloth's fields are exactly the size of the first's,
+                  // and the delete sits inline on the same row rather than stealing a column or
+                  // dropping to a line of its own.
+                  <div
+                    key={index}
+                    className="grid max-w-2xl grid-cols-1 gap-x-3 gap-y-2 border-t border-dashed border-border pt-2 sm:grid-cols-[repeat(4,minmax(0,1fr))_1.75rem]"
+                  >
+                    <ClothCodeField
+                      catalogue={clothCatalogue}
+                      value={fabric.clothCode}
+                      onChange={(clothCode) => updateFabric(row.id, index, { clothCode })}
+                      onSelectMatch={(match) =>
+                        updateFabric(row.id, index, {
+                          clothCode: match.clothCode,
+                          clothName: match.clothName,
+                          ratePerMetre: String(match.sellingPrice),
+                        })
+                      }
+                      disabled={disabled}
+                    />
+                    <div className="flex flex-col gap-0.5">
+                      <label className="text-xs text-foreground/70">Metres</label>
+                      <QuarterNumberInput
+                        ariaLabel="Metres"
+                        value={fabric.metres}
+                        onChange={(metres) => updateFabric(row.id, index, { metres })}
+                        disabled={disabled}
+                        padMin={padRanges.metres.min}
+                        padMax={padRanges.metres.max}
+                        entryMode="pad"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <label className="text-xs text-foreground/70">Rate / m</label>
+                      <input
+                        type="text"
+                        readOnly
+                        tabIndex={-1}
+                        value={fabric.ratePerMetre === "" ? "" : toNumber(fabric.ratePerMetre).toFixed(2)}
+                        placeholder="Pick a cloth code"
+                        className={readOnlyFieldClassName}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <label className="text-xs text-foreground/70">Cloth Amount</label>
+                      <input
+                        type="text"
+                        readOnly
+                        tabIndex={-1}
+                        value={(toNumber(fabric.metres) * toNumber(fabric.ratePerMetre)).toFixed(2)}
+                        className={readOnlyFieldClassName}
+                      />
+                    </div>
+                    {!disabled && (
+                      // In the trailing gutter, aligned with the input boxes (which sit below their
+                      // labels), so it reads as part of this cloth's row. On a phone the fields stack
+                      // and this drops to its own right-aligned cell beneath them.
+                      <button
+                        type="button"
+                        onClick={() => removeFabric(row.id, index)}
+                        aria-label="Remove cloth"
+                        title="Remove cloth"
+                        className="flex justify-end pt-1.5 text-foreground/40 transition-colors hover:text-danger sm:items-center sm:justify-center sm:pt-5"
+                      >
+                        {/* Icon alone — the row already reads as a cloth, so a word would only repeat
+                            the trash mark. The label lives on aria/title for a screen reader and a
+                            hover tooltip. */}
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6" />
+                          <path d="M10 11v6M14 11v6" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                ))}
+                {!disabled && (
+                  <button
+                    type="button"
+                    onClick={() => addFabric(row.id)}
+                    className="self-start rounded-full border border-dashed border-border px-3 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <span aria-hidden="true" className="text-sm leading-none">+</span> Add cloth
+                  </button>
+                )}
+              </div>
+            )}
+            </>
           )}
           {/* The open item's measurements, inside the item's own card rather than in a second one
               below it.

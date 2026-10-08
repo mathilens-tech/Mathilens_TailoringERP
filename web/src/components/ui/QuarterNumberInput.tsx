@@ -167,7 +167,12 @@ export function QuarterNumberInput({
    * hangs just under the field, nudged left to stay inside the window.</p>
    */
   const padRef = useRef<HTMLDivElement>(null);
-  const [padPos, setPadPos] = useState<{ top: number; left: number; sheet: boolean } | null>(null);
+  // A popover is pinned by either its top (opening below the field) or its bottom (opening above it,
+  // when the field sits low on the screen and there is more room overhead), and capped to the space
+  // on that side so it can never run off the viewport. A sheet ignores all of this.
+  const [padPos, setPadPos] = useState<
+    { sheet: boolean; left: number; top?: number; bottom?: number; maxHeight?: number } | null
+  >(null);
 
   const split = useMemo(() => splitFigure(value), [value]);
   /**
@@ -224,14 +229,23 @@ export function QuarterNumberInput({
    */
   function openPad() {
     const PAD_WIDTH = 256;
+    const MARGIN = 8;
     const narrow = window.innerWidth < 1024;
     const rect = fieldRef.current?.getBoundingClientRect();
-    if (narrow) {
-      setPadPos({ top: 0, left: 0, sheet: true });
+    if (narrow || !rect) {
+      setPadPos({ sheet: true, left: 0 });
     } else {
-      const top = (rect?.bottom ?? 0) + 4;
-      const left = Math.max(8, Math.min(rect?.left ?? 0, window.innerWidth - PAD_WIDTH - 8));
-      setPadPos({ top, left, sheet: false });
+      const left = Math.max(MARGIN, Math.min(rect.left, window.innerWidth - PAD_WIDTH - MARGIN));
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const spaceAbove = rect.top;
+      // Open on whichever side has more room, so a field near the foot of the screen drops its pad
+      // upward instead of off the bottom edge — which is exactly where it was being clipped. Either
+      // way the pad is capped to that side's space and scrolls inside if it still cannot all fit.
+      if (spaceBelow >= spaceAbove) {
+        setPadPos({ sheet: false, left, top: rect.bottom + 4, maxHeight: spaceBelow - 2 * MARGIN });
+      } else {
+        setPadPos({ sheet: false, left, bottom: window.innerHeight - rect.top + 4, maxHeight: spaceAbove - 2 * MARGIN });
+      }
     }
     setIsPadOpen(true);
   }
@@ -359,9 +373,13 @@ export function QuarterNumberInput({
             className={
               padPos.sheet
                 ? "fixed inset-x-0 bottom-0 z-50 rounded-t-xl border-t border-border bg-surface p-3 shadow-2xl"
-                : "fixed z-50 w-64 rounded-md border border-border bg-surface p-2 shadow-lg"
+                : "fixed z-50 flex w-64 flex-col overflow-y-auto rounded-md border border-border bg-surface p-2 shadow-lg"
             }
-            style={padPos.sheet ? undefined : { top: padPos.top, left: padPos.left }}
+            style={
+              padPos.sheet
+                ? undefined
+                : { top: padPos.top, bottom: padPos.bottom, left: padPos.left, maxHeight: padPos.maxHeight }
+            }
           >
             {/* Header, with Done at the top. The running figure on the left changes on every tap and
                 is the thing worth watching; the actions sit opposite it. */}

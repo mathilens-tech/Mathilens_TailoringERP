@@ -9,7 +9,7 @@ public class CreateOrderCommandValidatorTests
     private readonly CreateOrderCommandValidator _validator = new();
 
     private static CreateOrderCommand ValidCommand() =>
-        new(Guid.NewGuid(), null, DateTime.UtcNow.AddDays(7), [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, null)]);
+        new(Guid.NewGuid(), null, DateTime.UtcNow.AddDays(7), [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, [])]);
 
     [Fact]
     public void Validate_WithValidCommand_Passes()
@@ -44,7 +44,7 @@ public class CreateOrderCommandValidatorTests
     [Fact]
     public void Validate_WithNonPositiveItemQuantity_Fails()
     {
-        var command = ValidCommand() with { Items = [new CreateOrderItemInput(GarmentTypes.Shirt, 0, 500m, null)] };
+        var command = ValidCommand() with { Items = [new CreateOrderItemInput(GarmentTypes.Shirt, 0, 500m, [])] };
 
         var result = _validator.Validate(command);
 
@@ -56,7 +56,7 @@ public class CreateOrderCommandValidatorTests
     {
         var command = ValidCommand() with
         {
-            Items = [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, new CreateOrderItemFabricInput("", FabricSource.ShopSupplied, null, 2m))],
+            Items = [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, [new CreateOrderItemFabricInput("", FabricSource.ShopSupplied, null, 2m)])],
         };
 
         var result = _validator.Validate(command);

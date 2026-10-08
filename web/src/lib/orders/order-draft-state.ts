@@ -16,7 +16,10 @@ import type { PaymentMethod } from "@/lib/api/billing";
  * what it is looking at rather than inferring from which properties happen to be missing.</p>
  */
 export type OrderDraftState = {
-  version: 1;
+  // Bumped to 2 when a garment gained additional cloths: a v1 item row has no `additionalFabrics`,
+  // so restoring one into the new form would silently drop that structure. Refused instead — see
+  // parseDraft.
+  version: 2;
   kind: OrderKind;
   customerId: string | null;
   /** Kept so the resumed form can show who it is for before the customer record has loaded. */
@@ -76,7 +79,7 @@ export function summarize(state: OrderDraftState, kindLabel: string): string {
 export function parseDraft(payload: string): OrderDraftState | null {
   try {
     const parsed = JSON.parse(payload) as Partial<OrderDraftState>;
-    if (parsed.version !== 1 || !Array.isArray(parsed.itemRows)) {
+    if (parsed.version !== 2 || !Array.isArray(parsed.itemRows)) {
       return null;
     }
     return parsed as OrderDraftState;

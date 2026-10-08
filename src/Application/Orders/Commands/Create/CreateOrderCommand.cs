@@ -26,17 +26,26 @@ public sealed record CreateOrderCommand(
     string? Notes = null,
     bool IsFabricSale = false) : ICommand<Result<OrderDto>>;
 
-public sealed record CreateOrderItemInput(string GarmentType, int Quantity, decimal UnitPrice, CreateOrderItemFabricInput? Fabric);
+/// <param name="Fabrics">
+/// Every cloth this garment is cut from. Empty for a customer's own material; one entry for an
+/// ordinary line; several when one garment is made from a few different cloths.
+/// </param>
+public sealed record CreateOrderItemInput(string GarmentType, int Quantity, decimal UnitPrice, IReadOnlyList<CreateOrderItemFabricInput> Fabrics);
 
 /// <param name="ClothCode">
 /// The cloth code staff typed. Resolved against the price list when the order is saved: a match
 /// links the fabric to that catalogue entry so stock falls by <paramref name="Quantity"/>, and no
 /// match is kept as free text, exactly as the field has always behaved.
 /// </param>
+/// <param name="RatePerMetre">
+/// What a metre of this cloth is billed at on this order. Lets a garment cut from several cloths
+/// price each one; the item's <c>UnitPrice</c> is then the stitching alone.
+/// </param>
 public sealed record CreateOrderItemFabricInput(
     string FabricType,
     FabricSource Source,
     string? Color,
     decimal Quantity,
+    decimal RatePerMetre = 0m,
     string? ClothCode = null,
     ClothUnit Unit = ClothUnit.Metres);

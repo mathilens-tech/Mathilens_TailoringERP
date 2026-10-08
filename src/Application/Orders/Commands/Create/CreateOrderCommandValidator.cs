@@ -32,11 +32,12 @@ public sealed class CreateOrderCommandValidator : AbstractValidator<CreateOrderC
 
         // Cloth sold over the counter is cloth: every line has to say which, and how much of it.
         // Without this a sale could be recorded with a stitching line on it and no fabric at all,
-        // which is a tailoring order wearing the wrong status.
+        // which is a tailoring order wearing the wrong status. A sale line carries exactly one cloth
+        // — the length being sold — not the several a stitched garment may be cut from.
         RuleForEach(x => x.Items)
-            .Must(item => item.Fabric is not null)
+            .Must(item => item.Fabrics.Count == 1)
             .When(x => x.IsFabricSale)
-            .WithMessage("Every line on a fabric sale must name the cloth being sold.");
+            .WithMessage("Every line on a fabric sale must name exactly one cloth being sold.");
 
         RuleForEach(x => x.Items).SetValidator(new CreateOrderItemInputValidator());
     }
@@ -56,12 +57,7 @@ public sealed class CreateOrderItemInputValidator : AbstractValidator<CreateOrde
         RuleFor(x => x.UnitPrice)
             .GreaterThan(0);
 
-        // FluentValidation's SetValidator is invariant on nullability annotations even though
-        // there's only one validator type at runtime — the null-forgiving operator here is the
-        // documented workaround, not a real nullability risk (the .When() guards the null case).
-        RuleFor(x => x.Fabric)
-            .SetValidator(new CreateOrderItemFabricInputValidator()!)
-            .When(x => x.Fabric is not null);
+        RuleForEach(x => x.Fabrics).SetValidator(new CreateOrderItemFabricInputValidator());
     }
 }
 
@@ -81,5 +77,10 @@ public sealed class CreateOrderItemFabricInputValidator : AbstractValidator<Crea
 
         RuleFor(x => x.Quantity)
             .GreaterThan(0);
+
+        // Zero is allowed — the legacy "cloth folded into the stitching price" case, and the default.
+        // Only a negative rate is a mistake.
+        RuleFor(x => x.RatePerMetre)
+            .GreaterThanOrEqualTo(0);
     }
 }

@@ -22,6 +22,17 @@ public sealed class FabricDetails : AuditableEntity
     public decimal Quantity { get; private set; }
 
     /// <summary>
+    /// What a metre of this cloth is charged at on this order, so a garment cut from several cloths
+    /// can bill each at its own rate — see <see cref="OrderItem.ClothAmount"/>.
+    ///
+    /// <para>Zero on every fabric written before this field existed: those orders folded the cloth
+    /// charge into the item's <see cref="OrderItem.UnitPrice"/> instead, and there is no split to
+    /// recover, so their cloth amount computes to zero and their totals are unchanged. A rate of
+    /// zero is therefore "not billed separately", not "free".</para>
+    /// </summary>
+    public decimal RatePerMetre { get; private set; }
+
+    /// <summary>
     /// The price-list entry this fabric came off, when the cloth code staff typed matches one.
     /// Null when it does not — the field has always accepted any text, and an order must not be
     /// refused because the shop has not catalogued a remnant yet.
@@ -56,6 +67,7 @@ public sealed class FabricDetails : AuditableEntity
         FabricSource source,
         string? color,
         decimal quantity,
+        decimal ratePerMetre = 0m,
         Guid? clothPriceId = null,
         string? clothCode = null,
         ClothUnit unit = ClothUnit.Metres)
@@ -67,6 +79,9 @@ public sealed class FabricDetails : AuditableEntity
             Source = source,
             Color = color,
             Quantity = Guard.AgainstNegativeOrZero(quantity, nameof(quantity)),
+            // Not AgainstNegativeOrZero: a rate of zero is the legacy "folded into unit price" case
+            // and a valid value, not a mistake. Negative is the only thing to refuse.
+            RatePerMetre = Guard.AgainstNegative(ratePerMetre, nameof(ratePerMetre)),
             ClothPriceId = clothPriceId,
             ClothCode = string.IsNullOrWhiteSpace(clothCode) ? null : clothCode.Trim(),
             Unit = unit,

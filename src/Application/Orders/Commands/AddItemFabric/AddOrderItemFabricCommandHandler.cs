@@ -3,20 +3,20 @@ using MathilensERP.Application.Orders;
 using MathilensERP.Application.Pricing;
 using MathilensERP.Shared.Results;
 
-namespace MathilensERP.Application.Orders.Commands.SetItemFabric;
+namespace MathilensERP.Application.Orders.Commands.AddItemFabric;
 
-public sealed class SetOrderItemFabricCommandHandler : ICommandHandler<SetOrderItemFabricCommand, Result<OrderDto>>
+public sealed class AddOrderItemFabricCommandHandler : ICommandHandler<AddOrderItemFabricCommand, Result<OrderDto>>
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IClothPriceRepository _clothPriceRepository;
 
-    public SetOrderItemFabricCommandHandler(IOrderRepository orderRepository, IClothPriceRepository clothPriceRepository)
+    public AddOrderItemFabricCommandHandler(IOrderRepository orderRepository, IClothPriceRepository clothPriceRepository)
     {
         _orderRepository = orderRepository;
         _clothPriceRepository = clothPriceRepository;
     }
 
-    public async Task<Result<OrderDto>> Handle(SetOrderItemFabricCommand command, CancellationToken cancellationToken)
+    public async Task<Result<OrderDto>> Handle(AddOrderItemFabricCommand command, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(command.OrderId, cancellationToken);
         if (order is null)
@@ -42,12 +42,13 @@ public sealed class SetOrderItemFabricCommandHandler : ICommandHandler<SetOrderI
             ? null
             : await _clothPriceRepository.GetByClothCodeAsync(command.ClothCode.Trim(), cancellationToken);
 
-        order.SetItemFabric(
+        order.AddItemFabric(
             command.OrderItemId,
             command.FabricType,
             command.Source,
             command.Color,
             command.Quantity,
+            command.RatePerMetre,
             clothPrice?.Id,
             command.ClothCode,
             command.Unit);

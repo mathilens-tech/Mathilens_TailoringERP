@@ -15,7 +15,7 @@ namespace MathilensERP.UnitTests.Application.Orders.Commands.Create;
 public class CreateOrderCommandHandlerTests
 {
     private static readonly IReadOnlyList<CreateOrderItemInput> OneItem =
-        [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, new CreateOrderItemFabricInput("Cotton", FabricSource.ShopSupplied, "Blue", 2m))];
+        [new CreateOrderItemInput(GarmentTypes.Shirt, 1, 500m, [new CreateOrderItemFabricInput("Cotton", FabricSource.ShopSupplied, "Blue", 2m)])];
 
     /// <summary>
     /// A fixed number, because these tests are about what the handler builds rather than how the
@@ -93,8 +93,8 @@ public class CreateOrderCommandHandlerTests
         Assert.True(result.IsSuccess);
         Assert.Equal(customer.Id, result.Value.CustomerId);
         Assert.Single(result.Value.Items);
-        Assert.NotNull(result.Value.Items[0].Fabric);
-        Assert.Equal("Cotton", result.Value.Items[0].Fabric!.FabricType);
+        Assert.Single(result.Value.Items[0].Fabrics);
+        Assert.Equal("Cotton", result.Value.Items[0].Fabrics[0].FabricType);
         orderRepository.Received(1).Add(Arg.Any<Order>());
         await orderRepository.Received(1).SaveChangesAsync(Arg.Any<CancellationToken>());
     }

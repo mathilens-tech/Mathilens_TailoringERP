@@ -24,10 +24,15 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
             .IsRequired()
             .HasPrecision(10, 2);
 
-        builder.HasOne(i => i.Fabric)
+        // One-to-many: a garment can be cut from several cloths. Was one-to-one (one Fabric per item)
+        // until a 16-shirt order from 5 bolts could not be recorded. The collection is exposed
+        // read-only over a backing field, so EF is told to go through the field rather than the
+        // property's (absent) setter.
+        builder.HasMany(i => i.Fabrics)
             .WithOne()
-            .HasForeignKey<FabricDetails>(f => f.OrderItemId)
+            .HasForeignKey(f => f.OrderItemId)
             .OnDelete(DeleteBehavior.Cascade);
+        builder.Metadata.FindNavigation(nameof(OrderItem.Fabrics))!.SetPropertyAccessMode(PropertyAccessMode.Field);
 
         builder.Property(i => i.CreatedBy).IsRequired();
         builder.Property(i => i.CreatedAtUtc).IsRequired();

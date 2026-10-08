@@ -47,10 +47,19 @@ public sealed record OrderItemDto(
     string GarmentType,
     int Quantity,
     decimal UnitPrice,
-    FabricDetailsDto? Fabric);
+    /// <summary>Every cloth this garment is cut from — empty for a customer's own material, one
+    /// entry for the ordinary single-cloth line, several when a garment is made from a few.</summary>
+    IReadOnlyList<FabricDetailsDto> Fabrics,
+    /// <summary>The line's cloth charge — each fabric's length × its rate, summed.</summary>
+    decimal ClothAmount,
+    /// <summary>What the whole line is worth: stitching × quantity + cloth.</summary>
+    decimal LineTotal);
 
 public sealed record FabricDetailsDto(
+    /// <summary>Needed so a cloth can be removed by id from an existing order.</summary>
+    Guid Id,
     string FabricType,
     FabricSource Source,
     string? Color,
-    decimal Quantity);
+    decimal Quantity,
+    decimal RatePerMetre);

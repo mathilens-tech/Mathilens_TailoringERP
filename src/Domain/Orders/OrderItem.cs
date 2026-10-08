@@ -19,9 +19,33 @@ public sealed class OrderItem : AuditableEntity
 
     public int Quantity { get; private set; }
 
+    /// <summary>
+    /// What one of this garment is charged for. On a row created since cloth became multi-valued
+    /// this is the stitching alone — the cloth is billed separately through <see cref="Fabrics"/>
+    /// and <see cref="ClothAmount"/>. On a row from before that, it still carries stitching plus
+    /// cloth folded together, because that split was never recorded and cannot be recovered; such
+    /// rows have no rated fabric, so <see cref="ClothAmount"/> is zero and the total is unchanged.
+    /// A report wanting stitching alone must read <see cref="LineTotal"/> − <see cref="ClothAmount"/>.
+    /// </summary>
     public decimal UnitPrice { get; private set; }
 
-    public FabricDetails? Fabric { get; private set; }
+    // A garment can be cut from several cloths — 16 shirts from 5 bolts — so fabric is a collection,
+    // not a single value. Private list, exposed read-only; mutated only through AddFabric/RemoveFabric
+    // below, which are reachable only through the owning Order. An item created before this held at
+    // most one, which is simply a list of length one or zero here.
+    private readonly List<FabricDetails> _fabrics = [];
+
+    public IReadOnlyList<FabricDetails> Fabrics => _fabrics;
+
+    /// <summary>
+    /// What this line's cloth comes to: each fabric's length times its own rate, summed. Zero for a
+    /// customer's own cloth and for legacy rows whose rate was never split out (see
+    /// <see cref="UnitPrice"/>).
+    /// </summary>
+    public decimal ClothAmount => _fabrics.Sum(f => f.Quantity * f.RatePerMetre);
+
+    /// <summary>What this whole line is worth: the stitching, times how many, plus the cloth.</summary>
+    public decimal LineTotal => Quantity * UnitPrice + ClothAmount;
 
     private OrderItem()
     {
@@ -59,14 +83,34 @@ public sealed class OrderItem : AuditableEntity
         UnitPrice = Guard.AgainstNegativeOrZero(unitPrice, nameof(unitPrice));
     }
 
-    /// <summary>Sets (or replaces) this item's fabric details (02_DATABASE.md § 10.11).</summary>
-    internal void SetFabric(
+    /// <summary>Adds one cloth to this item (02_DATABASE.md § 10.11). Returns it so the caller can
+    /// name the id — a garment cut from several cloths adds this once per cloth.</summary>
+    internal FabricDetails AddFabric(
         string fabricType,
         FabricSource source,
         string? color,
         decimal quantity,
+        decimal ratePerMetre = 0m,
         Guid? clothPriceId = null,
         string? clothCode = null,
-        ClothUnit unit = ClothUnit.Metres) =>
-        Fabric = FabricDetails.Create(Id, fabricType, source, color, quantity, clothPriceId, clothCode, unit);
+        ClothUnit unit = ClothUnit.Metres)
+    {
+        var fabric = FabricDetails.Create(Id, fabricType, source, color, quantity, ratePerMetre, clothPriceId, clothCode, unit);
+        _fabrics.Add(fabric);
+        return fabric;
+    }
+
+    /// <summary>Drops one cloth from this item by its id. A no-op if it is not on this item, so a
+    /// double-submit of the same remove does not throw.</summary>
+    internal void RemoveFabric(Guid fabricId)
+    {
+        var fabric = _fabrics.SingleOrDefault(f => f.Id == fabricId);
+        if (fabric is not null)
+        {
+            _fabrics.Remove(fabric);
+        }
+    }
+
+    /// <summary>Drops every cloth from this item — used when replacing the whole set in one edit.</summary>
+    internal void ClearFabrics() => _fabrics.Clear();
 }
