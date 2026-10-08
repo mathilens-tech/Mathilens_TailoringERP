@@ -54,7 +54,10 @@ services:
       Jwt__Issuer: MathilensERP.Api.Test
       Jwt__Audience: MathilensERP.Client.Test
       Jwt__AccessTokenExpiryMinutes: "15"
-      Jwt__RefreshTokenExpiryDays: "30"
+      # Ten years: staff stay signed in on a counter device without re-entering a password, while the
+      # access token above stays short. Two devices per account at once.
+      Jwt__RefreshTokenExpiryDays: "3650"
+      Jwt__MaxConcurrentSessions: "2"
       # Same origin as the site, so no preflight ever occurs — set correctly all the same, so the
       # value is never wrong, only unexercised.
       Cors__FrontendOrigin: ${SITE_URL:?SITE_URL must be set}

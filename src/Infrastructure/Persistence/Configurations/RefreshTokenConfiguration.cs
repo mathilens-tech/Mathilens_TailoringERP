@@ -16,6 +16,14 @@ public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
             .IsRequired()
             .HasMaxLength(512);
 
+        // Which device's session this token continues. Defaulted to empty at the column so tokens
+        // issued before this existed read back without a session rather than null — harmless, since
+        // a refresh re-stamps the session and a token minted before sessions is already accepted.
+        builder.Property(t => t.SessionId)
+            .IsRequired()
+            .HasMaxLength(64)
+            .HasDefaultValue(string.Empty);
+
         builder.Property(t => t.CreatedBy).IsRequired();
         builder.Property(t => t.CreatedAtUtc).IsRequired();
 

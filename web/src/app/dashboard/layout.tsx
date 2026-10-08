@@ -112,6 +112,7 @@ const NAV_ITEMS: NavEntry[] = [
       { href: "/dashboard/reports/outstanding-invoices", label: "Invoice", icon: InvoicesIcon, permission: PERMISSIONS.reportsView },
       { href: "/dashboard/reports/birthday", label: "Birthday", icon: CakeIcon, permission: PERMISSIONS.reportsView },
       { href: "/dashboard/reports/wedding", label: "Wedding", icon: RingsIcon, permission: PERMISSIONS.reportsView },
+      { href: "/dashboard/reports/measurement-backup", label: "Measurements", icon: RulerIcon, permission: PERMISSIONS.reportsView },
     ],
   },
   // WhatsApp is off the menu. The way the shop actually messages a customer is Share via WhatsApp

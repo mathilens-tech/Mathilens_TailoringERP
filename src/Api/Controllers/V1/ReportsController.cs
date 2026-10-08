@@ -4,6 +4,7 @@ using MathilensERP.Api.Common.Export;
 using MathilensERP.Api.Contracts.Common;
 using MathilensERP.Application.Common.Mediator;
 using MathilensERP.Application.Reports;
+using MathilensERP.Application.Reports.Queries.MeasurementBackup;
 using MathilensERP.Application.Reports.Queries.OrderCollections;
 using MathilensERP.Application.Reports.Queries.OrderStatusSummary;
 using MathilensERP.Application.Reports.Queries.OutstandingInvoices;
@@ -183,5 +184,31 @@ public sealed class ReportsController : ApiControllerBase
     {
         var result = await _sender.Send(new GetOutstandingInvoicesReportQuery(page, pageSize), cancellationToken);
         return ToPagedActionResult(result);
+    }
+
+    /// <summary>
+    /// The whole-shop measurement backup as a colour PDF — a cover with the wordmark, an index of
+    /// every customer against the page their measurements land on, then a compact section each.
+    ///
+    /// <para>PDF only, and its own endpoint rather than a case in <see cref="Export"/>: it is a
+    /// document with a cover and an index, not a table of labels and values, so it shares none of
+    /// that path's shape. No date range — a measurement is the latest truth whenever it was taken.</para>
+    /// </summary>
+    [HttpGet("measurement-backup")]
+    [ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> MeasurementBackup(CancellationToken cancellationToken)
+    {
+        var result = await _sender.Send(new GetMeasurementBackupReportQuery(), cancellationToken);
+        if (result.IsFailure)
+        {
+            return ToActionResult(result);
+        }
+
+        var pdf = MeasurementBackupPdf.Write(result.Value.ShopName, result.Value.Customers);
+        var stamp = DateTime.UtcNow.ToString("yyyyMMdd-HHmm");
+        return new FileContentResult(pdf, MeasurementBackupPdf.ContentType)
+        {
+            FileDownloadName = $"measurement-backup-{stamp}.pdf",
+        };
     }
 }

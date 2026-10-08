@@ -192,11 +192,11 @@ function MeasurementVersion({
       {entries.length === 0 ? (
         <p className="text-sm text-foreground/60">No points recorded.</p>
       ) : (
-        <dl className="grid grid-cols-2 gap-x-6">
+        <dl className="grid grid-cols-2 gap-x-4">
           {entries.map((entry) => (
-            <div key={entry.label} className="flex items-center justify-between gap-3 py-0.5">
-              <dt className="text-sm text-foreground/70">{entry.label}</dt>
-              <dd className="text-sm font-medium">{entry.text}</dd>
+            <div key={entry.label} className="flex items-center justify-between gap-2 py-0.5">
+              <dt className="min-w-0 truncate text-xs text-foreground/70" title={entry.label}>{entry.label}</dt>
+              <dd className="shrink-0 text-sm font-medium">{entry.text}</dd>
             </div>
           ))}
         </dl>
@@ -1502,14 +1502,14 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 {displayEntries.length === 0 ? (
                   <p className="text-sm text-foreground/70">No measurement recorded for {garment} yet.</p>
                 ) : (
-                  <dl className="grid grid-cols-2 gap-x-6">
+                  <dl className="grid grid-cols-2 gap-x-4">
                     {displayEntries.map((entry) => (
                       <div
                         key={entry.label}
-                        className="flex items-center justify-between gap-3 border-b border-border/50 py-1"
+                        className="flex items-center justify-between gap-2 border-b border-border/50 py-0.5"
                       >
-                        <dt className="text-sm text-foreground/70">{entry.label}</dt>
-                        <dd className="text-sm font-medium">{entry.text}</dd>
+                        <dt className="min-w-0 truncate text-xs text-foreground/70" title={entry.label}>{entry.label}</dt>
+                        <dd className="shrink-0 text-sm font-medium">{entry.text}</dd>
                       </div>
                     ))}
                   </dl>
@@ -1517,11 +1517,12 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
               </>
             )
           ) : (
-            // Two side-by-side halves rather than one long list (00_MASTER_SPEC.md § 9.6). gap-6
-            // reads as two groups; gap-1.5 down each half fits three or four more single-line points
-            // on screen than gap-2 without crowding them.
-            <div className="flex flex-row gap-3 sm:gap-6">
-              <div className="flex flex-1 flex-col gap-1.5">
+            // Two side-by-side halves rather than one long list (00_MASTER_SPEC.md § 9.6), tight so
+            // a full template fits a phone without scrolling sideways: min-w-0 lets each half shrink
+            // to its share of the width, and the fields inside stack their label over the box below a
+            // phone's width (see FieldShell) so nothing runs off the edge.
+            <div className="flex flex-row gap-2 sm:gap-5">
+              <div className="flex min-w-0 flex-1 flex-col gap-1.5">
                 {measurementFieldsFirstHalf.map((point) => (
                   <MeasurementPointInput
                     key={point.name}
@@ -1537,7 +1538,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                   />
                 ))}
               </div>
-              <div className="flex flex-1 flex-col gap-1.5">
+              <div className="flex min-w-0 flex-1 flex-col gap-1.5">
                 {measurementFieldsSecondHalf.map((point) => (
                   <MeasurementPointInput
                     key={point.name}

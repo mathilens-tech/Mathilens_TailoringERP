@@ -11,9 +11,10 @@ public class RefreshTokenTests
         var issuedAt = DateTime.UtcNow;
         var expiresAt = issuedAt.AddDays(7);
 
-        var token = RefreshToken.Issue(userId, "hashed-token-value", issuedAt, expiresAt);
+        var token = RefreshToken.Issue(userId, "session-1", "hashed-token-value", issuedAt, expiresAt);
 
         Assert.Equal(userId, token.UserId);
+        Assert.Equal("session-1", token.SessionId);
         Assert.Equal("hashed-token-value", token.TokenHash);
         Assert.Equal(userId, token.CreatedBy);
         Assert.Equal(issuedAt, token.CreatedAtUtc);
@@ -28,7 +29,7 @@ public class RefreshTokenTests
         var issuedAt = DateTime.UtcNow;
 
         Assert.Throws<ArgumentOutOfRangeException>(() =>
-            RefreshToken.Issue(userId, "hash", issuedAt, issuedAt.AddMinutes(-1)));
+            RefreshToken.Issue(userId, "session-1", "hash", issuedAt, issuedAt.AddMinutes(-1)));
     }
 
     [Fact]
@@ -37,7 +38,16 @@ public class RefreshTokenTests
         var now = DateTime.UtcNow;
 
         Assert.Throws<ArgumentException>(() =>
-            RefreshToken.Issue(Guid.Empty, "hash", now, now.AddDays(1)));
+            RefreshToken.Issue(Guid.Empty, "session-1", "hash", now, now.AddDays(1)));
+    }
+
+    [Fact]
+    public void Issue_WithBlankSessionId_Throws()
+    {
+        var now = DateTime.UtcNow;
+
+        Assert.Throws<ArgumentException>(() =>
+            RefreshToken.Issue(Guid.NewGuid(), " ", "hash", now, now.AddDays(1)));
     }
 
     [Fact]
@@ -46,14 +56,14 @@ public class RefreshTokenTests
         var now = DateTime.UtcNow;
 
         Assert.Throws<ArgumentException>(() =>
-            RefreshToken.Issue(Guid.NewGuid(), " ", now, now.AddDays(1)));
+            RefreshToken.Issue(Guid.NewGuid(), "session-1", " ", now, now.AddDays(1)));
     }
 
     [Fact]
     public void IsExpired_AfterExpiryTime_ReturnsTrue()
     {
         var issuedAt = DateTime.UtcNow;
-        var token = RefreshToken.Issue(Guid.NewGuid(), "hash", issuedAt, issuedAt.AddMinutes(5));
+        var token = RefreshToken.Issue(Guid.NewGuid(), "session-1", "hash", issuedAt, issuedAt.AddMinutes(5));
 
         Assert.True(token.IsExpired(issuedAt.AddMinutes(10)));
         Assert.False(token.IsActive(issuedAt.AddMinutes(10)));
@@ -63,7 +73,7 @@ public class RefreshTokenTests
     public void Revoke_MarksTokenRevokedAndRecordsReplacement()
     {
         var issuedAt = DateTime.UtcNow;
-        var token = RefreshToken.Issue(Guid.NewGuid(), "hash", issuedAt, issuedAt.AddDays(7));
+        var token = RefreshToken.Issue(Guid.NewGuid(), "session-1", "hash", issuedAt, issuedAt.AddDays(7));
         var replacementId = Guid.NewGuid();
 
         token.Revoke(issuedAt.AddMinutes(1), replacementId);
@@ -77,7 +87,7 @@ public class RefreshTokenTests
     public void Revoke_WhenAlreadyRevoked_DoesNotOverwriteRevocationDetails()
     {
         var issuedAt = DateTime.UtcNow;
-        var token = RefreshToken.Issue(Guid.NewGuid(), "hash", issuedAt, issuedAt.AddDays(7));
+        var token = RefreshToken.Issue(Guid.NewGuid(), "session-1", "hash", issuedAt, issuedAt.AddDays(7));
         var firstRevokedAt = issuedAt.AddMinutes(1);
         var firstReplacement = Guid.NewGuid();
         token.Revoke(firstRevokedAt, firstReplacement);

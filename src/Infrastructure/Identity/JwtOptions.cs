@@ -17,5 +17,18 @@ public sealed class JwtOptions
 
     public int AccessTokenExpiryMinutes { get; init; } = 15;
 
-    public int RefreshTokenExpiryDays { get; init; } = 30;
+    /// <summary>
+    /// How long a sign-in stays valid without re-entering a password. Ten years by shop request —
+    /// staff sign in on a counter device and expect to stay signed in, so the short-lived access
+    /// token is renewed against this silently and the session does not expire in practice. The
+    /// access token is still only minutes long, so a stolen one is useless almost at once.
+    /// </summary>
+    public int RefreshTokenExpiryDays { get; init; } = 3650;
+
+    /// <summary>
+    /// How many devices one account may be signed in on at once. Two by shop request — a counter
+    /// machine and a phone, say. A sign-in beyond this retires the account's oldest session rather
+    /// than being refused, so nobody is locked out by a forgotten sign-in elsewhere.
+    /// </summary>
+    public int MaxConcurrentSessions { get; init; } = 2;
 }
