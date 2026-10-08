@@ -10,7 +10,7 @@ internal static class OrderMapper
     /// they return the order they just changed, and enriching that with a billing query would put
     /// a dependency on invoices into eight handlers that have no business with them.
     /// </summary>
-    public static OrderDto ToDto(this Order order, decimal? amountPaid = null) =>
+    public static OrderDto ToDto(this Order order, decimal? amountPaid = null, string? createdByName = null) =>
         new(
             order.Id,
             order.OrderNumber,
@@ -21,6 +21,7 @@ internal static class OrderMapper
             order.DeliveredAtUtc,
             order.Notes,
             order.CreatedAtUtc,
+            createdByName,
             order.TotalAmount,
             amountPaid,
             amountPaid is null ? null : order.TotalAmount - amountPaid,

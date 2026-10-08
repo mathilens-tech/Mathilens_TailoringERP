@@ -58,6 +58,7 @@ export function buildInvoicePreview(nowIso: string, taxRatePercent: number, numb
     deliveredAtUtc: null,
     notes: null,
     createdAtUtc: nowIso,
+    createdByName: null,
     totalAmount: SAMPLE_SUBTOTAL,
     amountPaid: SAMPLE_ADVANCE,
     balanceAmount: SAMPLE_SUBTOTAL - SAMPLE_ADVANCE,

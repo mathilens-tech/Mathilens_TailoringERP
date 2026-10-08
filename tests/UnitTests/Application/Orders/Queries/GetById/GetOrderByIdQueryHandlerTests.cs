@@ -1,4 +1,5 @@
 using MathilensERP.Application.Billing;
+using MathilensERP.Application.Common.Interfaces;
 using MathilensERP.Application.Orders;
 using MathilensERP.Application.Orders.Queries.GetById;
 using MathilensERP.Domain.Measurements;
@@ -11,6 +12,7 @@ public class GetOrderByIdQueryHandlerTests
 {
     private readonly IOrderRepository _orderRepository = Substitute.For<IOrderRepository>();
     private readonly IInvoiceRepository _invoiceRepository = Substitute.For<IInvoiceRepository>();
+    private readonly IUserAdminService _userAdminService = Substitute.For<IUserAdminService>();
 
     [Fact]
     public async Task Handle_WithExistingOrder_ReturnsDto()
@@ -20,7 +22,8 @@ public class GetOrderByIdQueryHandlerTests
         _orderRepository.GetByIdAsync(order.Id, Arg.Any<CancellationToken>()).Returns(order);
         _invoiceRepository.GetPaidAmountsForOrdersAsync(Arg.Any<IReadOnlyCollection<Guid>>(), Arg.Any<CancellationToken>())
             .Returns(new Dictionary<Guid, decimal> { [order.Id] = 300m });
-        var handler = new GetOrderByIdQueryHandler(_orderRepository, _invoiceRepository);
+        _userAdminService.GetFullNameAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>()).Returns("Owner");
+        var handler = new GetOrderByIdQueryHandler(_orderRepository, _invoiceRepository, _userAdminService);
 
         var result = await handler.Handle(new GetOrderByIdQuery(order.Id), CancellationToken.None);
 
@@ -29,13 +32,14 @@ public class GetOrderByIdQueryHandlerTests
         Assert.Equal(750m, result.Value.TotalAmount);
         Assert.Equal(300m, result.Value.AmountPaid);
         Assert.Equal(450m, result.Value.BalanceAmount);
+        Assert.Equal("Owner", result.Value.CreatedByName);
     }
 
     [Fact]
     public async Task Handle_WithUnknownOrder_ReturnsNotFound()
     {
         _orderRepository.GetByIdAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>()).Returns((Order?)null);
-        var handler = new GetOrderByIdQueryHandler(_orderRepository, _invoiceRepository);
+        var handler = new GetOrderByIdQueryHandler(_orderRepository, _invoiceRepository, _userAdminService);
 
         var result = await handler.Handle(new GetOrderByIdQuery(Guid.NewGuid()), CancellationToken.None);
 

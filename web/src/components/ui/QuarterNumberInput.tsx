@@ -167,11 +167,13 @@ export function QuarterNumberInput({
    * hangs just under the field, nudged left to stay inside the window.</p>
    */
   const padRef = useRef<HTMLDivElement>(null);
-  // A popover is pinned by either its top (opening below the field) or its bottom (opening above it,
-  // when the field sits low on the screen and there is more room overhead), and capped to the space
-  // on that side so it can never run off the viewport. A sheet ignores all of this.
+  // The pad hangs next to the field at every width — a popover pinned by either its top (opening
+  // below the field) or its bottom (opening above it, when the field sits low and there is more room
+  // overhead), clamped left to stay on screen and capped to the space on its side so it can never run
+  // off the viewport. `width` narrows it on a small phone so it fits beside the field rather than
+  // dropping to the foot of the screen.
   const [padPos, setPadPos] = useState<
-    { sheet: boolean; left: number; top?: number; bottom?: number; maxHeight?: number } | null
+    { left: number; width: number; top?: number; bottom?: number; maxHeight?: number } | null
   >(null);
 
   const split = useMemo(() => splitFigure(value), [value]);
@@ -228,24 +230,27 @@ export function QuarterNumberInput({
    * to stay inside the window. PAD_WIDTH mirrors the w-64 popover below.</p>
    */
   function openPad() {
-    const PAD_WIDTH = 256;
     const MARGIN = 8;
-    const narrow = window.innerWidth < 1024;
     const rect = fieldRef.current?.getBoundingClientRect();
-    if (narrow || !rect) {
-      setPadPos({ sheet: true, left: 0 });
+    // Beside the field at every width. The width shrinks to fit a narrow phone (capped at 256, the
+    // w-64 it had on a wide screen) so it sits by the field rather than being banished to a sheet at
+    // the foot of the viewport.
+    const width = Math.min(256, window.innerWidth - 2 * MARGIN);
+    if (!rect) {
+      setPadPos({ left: MARGIN, width, top: MARGIN });
+      setIsPadOpen(true);
+      return;
+    }
+    const left = Math.max(MARGIN, Math.min(rect.left, window.innerWidth - width - MARGIN));
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+    // Open on whichever side has more room, so a field near the foot of the screen drops its pad
+    // upward instead of off the bottom edge. Either way the pad is capped to that side's space and
+    // scrolls inside if it still cannot all fit.
+    if (spaceBelow >= spaceAbove) {
+      setPadPos({ left, width, top: rect.bottom + 4, maxHeight: spaceBelow - 2 * MARGIN });
     } else {
-      const left = Math.max(MARGIN, Math.min(rect.left, window.innerWidth - PAD_WIDTH - MARGIN));
-      const spaceBelow = window.innerHeight - rect.bottom;
-      const spaceAbove = rect.top;
-      // Open on whichever side has more room, so a field near the foot of the screen drops its pad
-      // upward instead of off the bottom edge — which is exactly where it was being clipped. Either
-      // way the pad is capped to that side's space and scrolls inside if it still cannot all fit.
-      if (spaceBelow >= spaceAbove) {
-        setPadPos({ sheet: false, left, top: rect.bottom + 4, maxHeight: spaceBelow - 2 * MARGIN });
-      } else {
-        setPadPos({ sheet: false, left, bottom: window.innerHeight - rect.top + 4, maxHeight: spaceAbove - 2 * MARGIN });
-      }
+      setPadPos({ left, width, bottom: window.innerHeight - rect.top + 4, maxHeight: spaceAbove - 2 * MARGIN });
     }
     setIsPadOpen(true);
   }
@@ -364,22 +369,20 @@ export function QuarterNumberInput({
             measurement dialog's overflow-hidden body — half of it off-screen on a phone. A portal
             escapes every ancestor, and fixed positioning keeps it put.
 
-            Narrow screens get a bottom sheet pinned across the foot of the viewport; wider ones a
-            popover just under the field. Either way Done sits at the top, where the thumb lands
-            first and before the number grid it would otherwise have to reach past.
+            A popover beside the field at every width — above or below it, whichever has room, clamped
+            on screen and capped to the viewport. Done sits at the top, where the thumb lands first
+            and before the number grid it would otherwise have to reach past.
           */
           <div
             ref={padRef}
-            className={
-              padPos.sheet
-                ? "fixed inset-x-0 bottom-0 z-50 rounded-t-xl border-t border-border bg-surface p-3 shadow-2xl"
-                : "fixed z-50 flex w-64 flex-col overflow-y-auto rounded-md border border-border bg-surface p-2 shadow-lg"
-            }
-            style={
-              padPos.sheet
-                ? undefined
-                : { top: padPos.top, bottom: padPos.bottom, left: padPos.left, maxHeight: padPos.maxHeight }
-            }
+            className="fixed z-50 flex flex-col overflow-y-auto rounded-md border border-border bg-surface p-2 shadow-lg"
+            style={{
+              top: padPos.top,
+              bottom: padPos.bottom,
+              left: padPos.left,
+              width: padPos.width,
+              maxHeight: padPos.maxHeight,
+            }}
           >
             {/* Header, with Done at the top. The running figure on the left changes on every tap and
                 is the thing worth watching; the actions sit opposite it. */}
@@ -423,7 +426,7 @@ export function QuarterNumberInput({
               </div>
             </div>
 
-            <div className={`grid gap-1 overflow-y-auto ${padPos.sheet ? "max-h-56 grid-cols-6" : "max-h-44 grid-cols-5"}`}>
+            <div className="grid max-h-44 grid-cols-5 gap-1 overflow-y-auto">
               {padValues.map((candidate) => (
                 <button
                   key={candidate}
