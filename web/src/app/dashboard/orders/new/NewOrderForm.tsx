@@ -192,7 +192,7 @@ function MeasurementVersion({
       {entries.length === 0 ? (
         <p className="text-sm text-foreground/60">No points recorded.</p>
       ) : (
-        <dl className="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+        <dl className="grid grid-cols-2 gap-x-6">
           {entries.map((entry) => (
             <div key={entry.label} className="flex items-center justify-between gap-3 py-0.5">
               <dt className="text-sm text-foreground/70">{entry.label}</dt>
@@ -222,6 +222,15 @@ const EMPTY_CUSTOMER: CustomerInput = {
   dateOfBirth: null,
   weddingDate: null,
 };
+
+/**
+ * The garments a new customer's Measurements card opens with — the two nearly every order measures,
+ * so the rows to fill are already there rather than added by hand each time. Only seeded for a
+ * customer who has nothing on file yet (a genuinely new one); anyone with measurements shows those.
+ * Filtered to the garments the shop actually stitches, so a shop that names them differently gets
+ * only the ones it has.
+ */
+const DEFAULT_MEASUREMENT_GARMENTS = ["Shirt", "Pant"] as const;
 
 /** The server rejects anything above 100 (Shared/Constants/PaginationDefaults.cs). */
 const EMPLOYEE_PAGE_SIZE = 100;
@@ -332,6 +341,13 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
         : garments.filter((garment) => tailoringRates[garment.name] !== undefined),
     [garments, tailoringRates, itemConfigFailed],
   );
+  // Mirrored into a ref so the measurement-load callback can read the current garment names without
+  // taking offerableGarments as a dependency — which would rebuild that callback (and re-fetch) the
+  // moment the catalogue loads, and could then re-seed defaults over rows the staff had edited.
+  const offerableGarmentNamesRef = useRef<string[]>([]);
+  useEffect(() => {
+    offerableGarmentNamesRef.current = offerableGarments.map((g) => g.name);
+  }, [offerableGarments]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   /**
@@ -924,6 +940,15 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
     try {
       const data = await listMeasurementsForCustomer(customer.id, getAccessToken());
       setCustomerMeasurements(data);
+      // A customer with nothing on file is a new one: open their card on the usual garments so the
+      // rows to measure are already there. Only when empty — anyone with measurements shows those,
+      // and this never overwrites rows the staff have added, because it runs once per customer load.
+      if (data.length === 0) {
+        const names = offerableGarmentNamesRef.current;
+        setAddedGarments(
+          DEFAULT_MEASUREMENT_GARMENTS.filter((g) => names.length === 0 || names.includes(g)),
+        );
+      }
     } catch {
       setCustomerMeasurements([]);
     } finally {
@@ -1477,7 +1502,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
                 {displayEntries.length === 0 ? (
                   <p className="text-sm text-foreground/70">No measurement recorded for {garment} yet.</p>
                 ) : (
-                  <dl className="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+                  <dl className="grid grid-cols-2 gap-x-6">
                     {displayEntries.map((entry) => (
                       <div
                         key={entry.label}
@@ -1495,7 +1520,7 @@ export function NewOrderForm({ kind }: NewOrderFormProps) {
             // Two side-by-side halves rather than one long list (00_MASTER_SPEC.md § 9.6). gap-6
             // reads as two groups; gap-1.5 down each half fits three or four more single-line points
             // on screen than gap-2 without crowding them.
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
+            <div className="flex flex-row gap-3 sm:gap-6">
               <div className="flex flex-1 flex-col gap-1.5">
                 {measurementFieldsFirstHalf.map((point) => (
                   <MeasurementPointInput
